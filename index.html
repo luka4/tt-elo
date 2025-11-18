@@ -21,7 +21,7 @@
             width: 100%;
         }
 
-        /* --- Scroll Hint (Mobile Only) --- */
+        /* --- Scroll Hint (Mobile Only - For Main Table) --- */
         .scroll-hint {
             display: none;
             font-size: 12px;
@@ -31,42 +31,31 @@
             text-align: right;
         }
 
-        /* --- Table Wrappers (FIXED for Sticky Headers) --- */
+        /* --- Main Table Wrappers --- */
         .table-scroll-wrapper {
-            /* This creates a window for the table with its own scrollbars */
             overflow: auto;
-            max-height: 75vh; /* Table takes up max 75% of viewport height */
+            max-height: 75vh;
             width: 100%;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             background: white;
             border-radius: 4px;
             border: 1px solid #ddd;
-            position: relative; /* Creates context for sticky */
+            position: relative;
         }
 
-        /* Force Scrollbars to be visible/styled (Desktop UX) */
-        .table-scroll-wrapper::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-        .table-scroll-wrapper::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        .table-scroll-wrapper::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 5px;
-        }
-        .table-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
-        }
+        /* Scrollbar Styling */
+        .table-scroll-wrapper::-webkit-scrollbar { width: 10px; height: 10px; }
+        .table-scroll-wrapper::-webkit-scrollbar-track { background: #f1f1f1; }
+        .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
+        .table-scroll-wrapper::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
 
-        /* --- Tables --- */
+        /* --- Main Table Styles --- */
         table {
-            border-collapse: separate; /* Required for sticky borders to work nicely */
+            border-collapse: separate;
             border-spacing: 0;
             width: 100%;
             font-size: 14px;
-            min-width: 900px; /* Ensure horizontal scroll triggers */
+            min-width: 900px;
         }
 
         th, td {
@@ -77,38 +66,25 @@
             white-space: nowrap;
         }
 
-        /* --- Sticky Header Fix --- */
         th {
             position: sticky;
             top: 0;
-            background: #d3d3d3; /* Solid background is crucial */
-            z-index: 20; /* High z-index to sit above content */
+            background: #d3d3d3;
+            z-index: 20;
             font-weight: 600;
-            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2); /* Bottom shadow for header */
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
         }
 
         thead { background: #d3d3d3; }
 
-        /* --- Main Table Interactive Rows --- */
-        #mainTableBody tr {
-            cursor: pointer;
-            transition: background-color 0.15s;
-        }
+        #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
+        #mainTableBody tr:hover td { background-color: #f0f0f0; }
 
-        /* Hover Effect - Needs to target TDs to override sticky backgrounds */
-        #mainTableBody tr:hover td {
-            background-color: #f0f0f0;
-        }
-
-        /* --- Team Colors --- */
-        /* We use !important to override the sticky white background if needed, 
-           but usually specific highlighting is better. 
-           Let's apply these classes to the TR, but we need to handle the sticky col separately below.
-        */
+        /* Team Colors */
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
-        /* --- History Section --- */
+        /* --- NEW HISTORY LIST STYLES --- */
         #historyContainer {
             display: none;
             margin-bottom: 30px;
@@ -116,22 +92,36 @@
         .history-section {
             margin: 20px 0;
             border: 2px solid #4A90E2;
-            padding: 10px;
+            padding: 0; /* Padding handled by items */
             border-radius: 5px;
             background: #fff;
+            overflow: hidden; /* Keeps borders clean */
         }
         .history-title {
             font-size: 1.2em;
             font-weight: bold;
-            margin-bottom: 10px;
-            color: #4A90E2;
+            padding: 15px;
+            color: white;
+            background-color: #4A90E2;
+            margin: 0;
         }
-        .history-table th { background-color: #4A90E2; color: white; }
-        .history-table tr:nth-child(even) td { background-color: #f8f9fa; }
-        .history-table tr { cursor: default; }
 
-        .win { color: #28a745; font-weight: bold; }
-        .loss { color: #dc3545; font-weight: bold; }
+        /* The individual list item rows */
+        .history-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .history-item:last-child { border-bottom: none; }
+        .history-item:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Specific Span Styling */
+        .score-val { font-weight: 800; padding: 0 4px; }
+        .rating-val { font-weight: 800; color: #333; }
+        .win { color: #28a745; }
+        .loss { color: #dc3545; }
 
         /* --- Chart Container --- */
         #chartContainerWrapper {
@@ -151,54 +141,32 @@
            MOBILE RESPONSIVENESS 
            ========================================= */
         @media screen and (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
+            body { padding: 10px; }
 
-            .scroll-hint {
-                display: block; /* Show hint on mobile */
-            }
+            .scroll-hint { display: block; }
 
             /* Make Chart Shorter */
-            #chartContainerWrapper {
-                height: 300px;
-            }
+            #chartContainerWrapper { height: 300px; }
 
-            table {
-                font-size: 12px;
-            }
-            th, td {
-                padding: 8px 4px;
-            }
+            /* Main Table Fonts */
+            table { font-size: 12px; }
+            th, td { padding: 8px 4px; }
 
-            /* --- STICKY COLUMN (Player Name) --- */
-            /* Applies to 2nd column (Player) in Main Table */
+            /* Sticky Player Column on Mobile */
             #mainTable td:nth-child(2),
             #mainTable th:nth-child(2) {
                 position: sticky;
                 left: 0;
-                z-index: 15; /* Higher than data, lower than header */
-                border-right: 2px solid #ccc; /* Visual separator */
+                z-index: 15;
+                border-right: 2px solid #ccc;
             }
+            #mainTable td:nth-child(2) { background-color: #ffffff; }
 
-            /* Fix 1: Background Color for Sticky Column (Transparency Fix) */
-            #mainTable td:nth-child(2) {
-                background-color: #ffffff;
-            }
-            /* Keep Team Colors on sticky column */
             .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
             .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
 
-            /* Ensure Hover still works on sticky column */
-            #mainTableBody tr:hover td:nth-child(2) {
-                background-color: #f0f0f0 !important;
-            }
-
-            /* Fix 2: Header z-index for intersection */
-            #mainTable th:nth-child(2) {
-                z-index: 25; /* Top left corner must be highest */
-                background: #d3d3d3;
-            }
+            #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
+            #mainTable th:nth-child(2) { z-index: 25; background: #d3d3d3; }
         }
     </style>
 </head>
@@ -446,38 +414,25 @@
         let html = `
             <div class='history-section'>
                 <div class='history-title'>Match History: ${p.name} (${p.team})</div>
-                <div class="scroll-hint">↔ Swipe table to see more stats</div>
-                <div class="table-scroll-wrapper">
-                    <table class='history-table'>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Score</th>
-                                <th>Opponent</th>
-                                <th>Opponent Team</th>
-                                <th>Opponent Rating (Post)</th>
-                                <th>${p.name} Rating (Post)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <div class='history-list'>
         `;
 
         p.matchDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
             const scoreClass = isWin ? 'win' : 'loss';
+
+            // FORMAT: Date, Player (Team, Rating) Score Opponent (Team, Rating)
+            // Using CSS classes for Bold (.rating-val) and Color (.win/.loss)
             html += `
-                <tr>
-                    <td>${m.date}</td>
-                    <td class="${scoreClass}">${m.score_own}:${m.score_opp}</td>
-                    <td>${m.opponent}</td>
-                    <td>${m.opponent_team}</td>
-                    <td>${m.opp_rating_after.toFixed(2)}</td>
-                    <td>${m.rating_after.toFixed(2)}</td>
-                </tr>
+                <div class="history-item">
+                    ${m.date}, ${p.name} (${p.team}, <span class="rating-val">${m.rating_after.toFixed(2)}</span>) 
+                    <span class="score-val ${scoreClass}">${m.score_own}:${m.score_opp}</span> 
+                    ${m.opponent} (${m.opponent_team}, <span class="rating-val">${m.opp_rating_after.toFixed(2)}</span>)
+                </div>
             `;
         });
 
-        html += `</tbody></table></div></div>`;
+        html += `</div></div>`;
         container.innerHTML = html;
     }
 
