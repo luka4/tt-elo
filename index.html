@@ -15,13 +15,15 @@
             background-color: #f9f9f9;
         }
 
+        /* --- Layout Container (FIXED FOR DESKTOP WIDTH) --- */
         .container {
-            max-width: 1200px;
+            /* Changed from 1200px to 98% to use full screen real estate on Desktop */
+            max-width: 98%;
             margin: 0 auto;
             width: 100%;
         }
 
-        /* --- Scroll Hint (Mobile Only - For Main Table) --- */
+        /* --- Scroll Hint (Mobile Only) --- */
         .scroll-hint {
             display: none;
             font-size: 12px;
@@ -34,7 +36,7 @@
         /* --- Main Table Wrappers --- */
         .table-scroll-wrapper {
             overflow: auto;
-            max-height: 75vh;
+            max-height: 85vh; /* Increased slightly for better desktop view */
             width: 100%;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             background: white;
@@ -55,11 +57,12 @@
             border-spacing: 0;
             width: 100%;
             font-size: 14px;
-            min-width: 900px;
+            /* This min-width ensures the table doesn't get crushed */
+            min-width: 1000px;
         }
 
         th, td {
-            padding: 10px 8px;
+            padding: 12px 10px; /* Slightly more comfortable padding on desktop */
             border-bottom: 1px solid #eee;
             border-right: 1px solid #eee;
             text-align: center;
@@ -84,18 +87,20 @@
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
-        /* --- NEW HISTORY LIST STYLES --- */
+        /* --- History List Styles --- */
         #historyContainer {
             display: none;
             margin-bottom: 30px;
+            /* Keep history container slightly narrower for readability on big screens */
+            max-width: 1200px;
         }
         .history-section {
             margin: 20px 0;
             border: 2px solid #4A90E2;
-            padding: 0; /* Padding handled by items */
+            padding: 0;
             border-radius: 5px;
             background: #fff;
-            overflow: hidden; /* Keeps borders clean */
+            overflow: hidden;
         }
         .history-title {
             font-size: 1.2em;
@@ -106,7 +111,6 @@
             margin: 0;
         }
 
-        /* The individual list item rows */
         .history-item {
             padding: 12px 15px;
             border-bottom: 1px solid #eee;
@@ -117,7 +121,6 @@
         .history-item:last-child { border-bottom: none; }
         .history-item:nth-child(even) { background-color: #f9f9f9; }
 
-        /* Specific Span Styling */
         .score-val { font-weight: 800; padding: 0 4px; }
         .rating-val { font-weight: 800; color: #333; }
         .win { color: #28a745; }
@@ -129,6 +132,8 @@
             position: relative;
             height: 500px;
             width: 100%;
+            /* Cap the chart width so it doesn't look stretched on huge screens */
+            max-width: 1200px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
             padding: 10px;
@@ -138,17 +143,17 @@
         }
 
         /* =========================================
-           MOBILE RESPONSIVENESS 
+           MOBILE RESPONSIVENESS (Remains Unchanged)
            ========================================= */
         @media screen and (max-width: 768px) {
             body { padding: 10px; }
 
+            .container { max-width: 100%; } /* Restore 100% for mobile */
+
             .scroll-hint { display: block; }
 
-            /* Make Chart Shorter */
             #chartContainerWrapper { height: 300px; }
 
-            /* Main Table Fonts */
             table { font-size: 12px; }
             th, td { padding: 8px 4px; }
 
@@ -421,8 +426,6 @@
             const isWin = m.score_own > m.score_opp;
             const scoreClass = isWin ? 'win' : 'loss';
 
-            // FORMAT: Date, Player (Team, Rating) Score Opponent (Team, Rating)
-            // Using CSS classes for Bold (.rating-val) and Color (.win/.loss)
             html += `
                 <div class="history-item">
                     ${m.date}, ${p.name} (${p.team}, <span class="rating-val">${m.rating_after.toFixed(2)}</span>) 
