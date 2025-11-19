@@ -9,27 +9,26 @@
         /* --- Reset & Base --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 20px;
+            padding: 10px 0; /* Reduced padding to maximize screen space */
             margin: 0;
             box-sizing: border-box;
             background-color: #f9f9f9;
         }
 
-        /* --- Page Title --- */
         h1 {
             text-align: center;
             color: #333;
-            margin: 0 0 25px 0;
-            font-size: 2em;
+            margin: 15px 0 25px 0;
+            font-size: 1.8em;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         /* --- Layout Container --- */
+        /* We allow the container to be fluid to support the sticky behavior */
         .container {
-            max-width: 98%;
-            margin: 0 auto;
             width: 100%;
+            overflow: visible; /* Critical for sticky headers */
         }
 
         /* --- Scroll Hint (Mobile Only) --- */
@@ -39,29 +38,20 @@
             color: #666;
             margin-bottom: 5px;
             font-style: italic;
-            text-align: right;
+            text-align: center;
+            padding-right: 10px;
         }
 
-        /* --- Main Table Wrapper (FIXED SCROLL BEHAVIOR) --- */
-        .table-scroll-wrapper {
-            /* Allow horizontal scroll if table is too wide */
-            overflow-x: auto;
-            /* Allow vertical overflow so the page scrolls naturally */
-            overflow-y: visible;
+        /* --- Main Table Wrapper --- */
+        /* FIX FOR STICKY HEADER:
+           We removed overflow properties. This means on mobile, the whole BODY
+           might scroll horizontally. This is necessary to allow the <th>
+           to stick to the top of the Window.
+        */
+        .table-wrapper {
             width: 100%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            background: white;
-            border-radius: 4px;
-            border: 1px solid #ddd;
             position: relative;
-            /* Removing max-height ensures the table flows with the page */
         }
-
-        /* Scrollbar Styling for horizontal scroll */
-        .table-scroll-wrapper::-webkit-scrollbar { width: 10px; height: 10px; }
-        .table-scroll-wrapper::-webkit-scrollbar-track { background: #f1f1f1; }
-        .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
-        .table-scroll-wrapper::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
 
         /* --- Main Table Styles --- */
         table {
@@ -69,7 +59,6 @@
             border-spacing: 0;
             width: 100%;
             font-size: 14px;
-            min-width: 1000px; /* Forces horizontal scroll on small screens */
         }
 
         th, td {
@@ -83,9 +72,9 @@
         /* --- Sticky Header Logic --- */
         th {
             position: sticky;
-            top: 0; /* Sticks to top of browser window */
+            top: 0;
             background: #d3d3d3;
-            z-index: 100; /* Ensure it stays above everything else */
+            z-index: 1000; /* Very high z-index */
             font-weight: 600;
             box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
         }
@@ -103,7 +92,10 @@
         #historyContainer {
             display: none;
             margin-bottom: 30px;
-            width: 100%;
+            width: 96%; /* Small margin on sides */
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 800px; /* Don't get too wide on desktop */
         }
         .history-section {
             margin: 20px 0;
@@ -123,13 +115,11 @@
             text-align: center;
         }
 
-        /* Match Card Styling */
         .history-item {
             padding: 15px;
             border-bottom: 1px solid #eee;
             font-size: 14px;
             color: #333;
-            position: relative;
             display: flex;
             flex-direction: column;
         }
@@ -143,7 +133,6 @@
             margin-bottom: 8px;
             text-align: left;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .match-content {
@@ -178,14 +167,13 @@
         .diff-down { color: #dc3545; }
         .diff-neu { color: #999; }
 
-        /* --- Chart Container (FULL WIDTH FIX) --- */
+        /* --- Chart Container --- */
         #chartContainerWrapper {
             display: none;
             position: relative;
             height: 500px;
-            width: 100%;
-            /* Removed max-width constraint */
-            margin-bottom: 20px;
+            width: 96%;
+            margin: 0 auto 20px auto;
             border: 1px solid #ddd;
             padding: 10px;
             box-sizing: border-box;
@@ -197,33 +185,45 @@
            MOBILE RESPONSIVENESS
            ========================================= */
         @media screen and (max-width: 768px) {
-            body { padding: 10px; }
 
-            h1 { font-size: 1.5em; }
+            h1 { font-size: 1.4em; margin: 10px 0 20px 0; }
 
             .scroll-hint { display: block; }
             #chartContainerWrapper { height: 300px; }
 
+            /* 1. TABLE FONT SIZES */
             table { font-size: 12px; }
             th, td { padding: 8px 4px; }
 
-            /* Sticky Player Column on Mobile */
+            /* 2. HISTORY FONT SIZES (Fixed to be smaller/matching table) */
+            .history-item { padding: 10px; }
+            .player-row { font-size: 0.95em; } /* Reduced from 1.1em */
+            .score-row { font-size: 1.2em; }   /* Reduced from 1.6em */
+            .match-date { font-size: 0.75em; }
+
+            /* 3. STICKY COLUMNS FOR MOBILE
+               Because we removed overflow-x from the wrapper, the body scrolls.
+               Sticky Left still works relative to viewport. */
+
             #mainTable td:nth-child(2),
             #mainTable th:nth-child(2) {
                 position: sticky;
                 left: 0;
-                z-index: 105; /* Higher than standard th z-index */
+                z-index: 105;
                 border-right: 2px solid #ccc;
             }
             #mainTable td:nth-child(2) { background-color: #ffffff; }
 
+            /* Re-apply team colors to sticky column */
             .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
             .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
-
             #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
 
-            /* Corner piece needs highest Z-index */
-            #mainTable th:nth-child(2) { z-index: 110; background: #d3d3d3; }
+            /* The Header Corner (Top Left) needs highest Z-Index to stay above everything */
+            #mainTable th:nth-child(2) {
+                z-index: 1100; /* Higher than th (1000) */
+                background: #d3d3d3;
+            }
         }
     </style>
 </head>
@@ -242,7 +242,7 @@
 
     <div class="scroll-hint">↔ Swipe table to see more stats</div>
 
-    <div class="table-scroll-wrapper">
+    <div class="table-wrapper">
         <table id="mainTable">
             <thead>
             <tr>
