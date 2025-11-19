@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Table Tennis ELO Ratings</title>
+    <title>Kosice Miniliga Rating</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* --- Reset & Base --- */
@@ -15,9 +15,18 @@
             background-color: #f9f9f9;
         }
 
-        /* --- Layout Container (FIXED FOR DESKTOP WIDTH) --- */
+        /* --- Page Title --- */
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 0 0 25px 0;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Layout Container --- */
         .container {
-            /* Changed from 1200px to 98% to use full screen real estate on Desktop */
             max-width: 98%;
             margin: 0 auto;
             width: 100%;
@@ -33,19 +42,22 @@
             text-align: right;
         }
 
-        /* --- Main Table Wrappers --- */
+        /* --- Main Table Wrapper (FIXED SCROLL BEHAVIOR) --- */
         .table-scroll-wrapper {
-            overflow: auto;
-            max-height: 85vh; /* Increased slightly for better desktop view */
+            /* Allow horizontal scroll if table is too wide */
+            overflow-x: auto;
+            /* Allow vertical overflow so the page scrolls naturally */
+            overflow-y: visible;
             width: 100%;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             background: white;
             border-radius: 4px;
             border: 1px solid #ddd;
             position: relative;
+            /* Removing max-height ensures the table flows with the page */
         }
 
-        /* Scrollbar Styling */
+        /* Scrollbar Styling for horizontal scroll */
         .table-scroll-wrapper::-webkit-scrollbar { width: 10px; height: 10px; }
         .table-scroll-wrapper::-webkit-scrollbar-track { background: #f1f1f1; }
         .table-scroll-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
@@ -57,23 +69,23 @@
             border-spacing: 0;
             width: 100%;
             font-size: 14px;
-            /* This min-width ensures the table doesn't get crushed */
-            min-width: 1000px;
+            min-width: 1000px; /* Forces horizontal scroll on small screens */
         }
 
         th, td {
-            padding: 12px 10px; /* Slightly more comfortable padding on desktop */
+            padding: 12px 10px;
             border-bottom: 1px solid #eee;
             border-right: 1px solid #eee;
             text-align: center;
             white-space: nowrap;
         }
 
+        /* --- Sticky Header Logic --- */
         th {
             position: sticky;
-            top: 0;
+            top: 0; /* Sticks to top of browser window */
             background: #d3d3d3;
-            z-index: 20;
+            z-index: 100; /* Ensure it stays above everything else */
             font-weight: 600;
             box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
         }
@@ -87,12 +99,11 @@
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
-        /* --- History List Styles --- */
+        /* --- HISTORY SECTION STYLES --- */
         #historyContainer {
             display: none;
             margin-bottom: 30px;
-            /* Keep history container slightly narrower for readability on big screens */
-            max-width: 1200px;
+            width: 100%;
         }
         .history-section {
             margin: 20px 0;
@@ -109,31 +120,71 @@
             color: white;
             background-color: #4A90E2;
             margin: 0;
+            text-align: center;
         }
 
+        /* Match Card Styling */
         .history-item {
-            padding: 12px 15px;
+            padding: 15px;
             border-bottom: 1px solid #eee;
             font-size: 14px;
-            line-height: 1.6;
             color: #333;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
         .history-item:last-child { border-bottom: none; }
         .history-item:nth-child(even) { background-color: #f9f9f9; }
 
-        .score-val { font-weight: 800; padding: 0 4px; }
-        .rating-val { font-weight: 800; color: #333; }
-        .win { color: #28a745; }
-        .loss { color: #dc3545; }
+        .match-date {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #888;
+            margin-bottom: 8px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-        /* --- Chart Container --- */
+        .match-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .player-row {
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .score-row {
+            font-size: 1.6em;
+            font-weight: 900;
+            margin: 2px 0;
+            letter-spacing: 2px;
+        }
+
+        .rating-current { font-weight: bold; color: #444; }
+        .diff-val { font-size: 0.75em; vertical-align: super; font-weight: bold; margin-left: 2px; }
+
+        .win-text { color: #28a745; }
+        .loss-text { color: #dc3545; }
+
+        .diff-up { color: #28a745; }
+        .diff-down { color: #dc3545; }
+        .diff-neu { color: #999; }
+
+        /* --- Chart Container (FULL WIDTH FIX) --- */
         #chartContainerWrapper {
             display: none;
             position: relative;
             height: 500px;
             width: 100%;
-            /* Cap the chart width so it doesn't look stretched on huge screens */
-            max-width: 1200px;
+            /* Removed max-width constraint */
             margin-bottom: 20px;
             border: 1px solid #ddd;
             padding: 10px;
@@ -143,15 +194,14 @@
         }
 
         /* =========================================
-           MOBILE RESPONSIVENESS (Remains Unchanged)
+           MOBILE RESPONSIVENESS
            ========================================= */
         @media screen and (max-width: 768px) {
             body { padding: 10px; }
 
-            .container { max-width: 100%; } /* Restore 100% for mobile */
+            h1 { font-size: 1.5em; }
 
             .scroll-hint { display: block; }
-
             #chartContainerWrapper { height: 300px; }
 
             table { font-size: 12px; }
@@ -162,7 +212,7 @@
             #mainTable th:nth-child(2) {
                 position: sticky;
                 left: 0;
-                z-index: 15;
+                z-index: 105; /* Higher than standard th z-index */
                 border-right: 2px solid #ccc;
             }
             #mainTable td:nth-child(2) { background-color: #ffffff; }
@@ -171,13 +221,17 @@
             .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
 
             #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
-            #mainTable th:nth-child(2) { z-index: 25; background: #d3d3d3; }
+
+            /* Corner piece needs highest Z-index */
+            #mainTable th:nth-child(2) { z-index: 110; background: #d3d3d3; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <h1>Kosice Miniliga Rating</h1>
 
     <div id="chartContainerWrapper">
         <canvas id="ratingChart"></canvas>
@@ -187,6 +241,7 @@
     </div>
 
     <div class="scroll-hint">↔ Swipe table to see more stats</div>
+
     <div class="table-scroll-wrapper">
         <table id="mainTable">
             <thead>
@@ -303,6 +358,9 @@
         const newRa = Ra + Ka * (scoreA - Ea);
         const newRb = Rb + Kb * (scoreB - Eb);
 
+        const deltaA = newRa - Ra;
+        const deltaB = newRb - Rb;
+
         players[playerA].rating = newRa;
         players[playerB].rating = newRb;
 
@@ -331,7 +389,9 @@
             score_own: scoreA,
             score_opp: scoreB,
             rating_after: newRa,
-            opp_rating_after: newRb
+            opp_rating_after: newRb,
+            delta_own: deltaA,
+            delta_opp: deltaB
         });
 
         players[playerB].matchDetails.push({
@@ -341,7 +401,9 @@
             score_own: scoreB,
             score_opp: scoreA,
             rating_after: newRb,
-            opp_rating_after: newRa
+            opp_rating_after: newRa,
+            delta_own: deltaB,
+            delta_opp: deltaA
         });
     });
 
@@ -412,6 +474,18 @@
         }
     }
 
+    function getDiffHtml(delta) {
+        if (Math.abs(delta) < 0.01) {
+            return `<span class="diff-val diff-neu">-</span>`;
+        }
+        const isPos = delta > 0;
+        const arrow = isPos ? '▲' : '▼';
+        const colorClass = isPos ? 'diff-up' : 'diff-down';
+        const val = Math.abs(delta).toFixed(2);
+
+        return `<span class="diff-val ${colorClass}">${arrow}${val}</span>`;
+    }
+
     function renderHistory(name) {
         const p = players[name];
         const container = document.getElementById('historyContainer');
@@ -424,13 +498,29 @@
 
         p.matchDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
-            const scoreClass = isWin ? 'win' : 'loss';
+            const scoreColorClass = isWin ? 'win-text' : 'loss-text';
 
             html += `
                 <div class="history-item">
-                    ${m.date}, ${p.name} (${p.team}, <span class="rating-val">${m.rating_after.toFixed(2)}</span>) 
-                    <span class="score-val ${scoreClass}">${m.score_own}:${m.score_opp}</span> 
-                    ${m.opponent} (${m.opponent_team}, <span class="rating-val">${m.opp_rating_after.toFixed(2)}</span>)
+                    <div class="match-date">${m.date}</div>
+
+                    <div class="match-content">
+                        <div class="player-row">
+                            <span>${p.name}</span>
+                            <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>
+                            ${getDiffHtml(m.delta_own)}
+                        </div>
+
+                        <div class="score-row ${scoreColorClass}">
+                            ${m.score_own}:${m.score_opp}
+                        </div>
+
+                        <div class="player-row">
+                            <span>${m.opponent}</span>
+                            <span>(${m.opponent_team}, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>)</span>
+                            ${getDiffHtml(m.delta_opp)}
+                        </div>
+                    </div>
                 </div>
             `;
         });
