@@ -9,7 +9,7 @@
         /* --- Reset & Base --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 10px 0; /* Reduced padding to maximize screen space */
+            padding: 10px 0;
             margin: 0;
             box-sizing: border-box;
             background-color: #f9f9f9;
@@ -24,206 +24,157 @@
             letter-spacing: 1px;
         }
 
-        /* --- Layout Container --- */
-        /* We allow the container to be fluid to support the sticky behavior */
-        .container {
-            width: 100%;
-            overflow: visible; /* Critical for sticky headers */
-        }
-
-        /* --- Scroll Hint (Mobile Only) --- */
+        .container { width: 100%; overflow: visible; }
         .scroll-hint {
-            display: none;
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 5px;
-            font-style: italic;
-            text-align: center;
-            padding-right: 10px;
+            display: none; font-size: 12px; color: #666; margin-bottom: 5px;
+            font-style: italic; text-align: center; padding-right: 10px;
         }
 
-        /* --- Main Table Wrapper --- */
-        /* FIX FOR STICKY HEADER:
-           We removed overflow properties. This means on mobile, the whole BODY
-           might scroll horizontally. This is necessary to allow the <th>
-           to stick to the top of the Window.
-        */
-        .table-wrapper {
-            width: 100%;
-            position: relative;
-        }
-
-        /* --- Main Table Styles --- */
-        table {
-            border-collapse: separate;
-            border-spacing: 0;
-            width: 100%;
-            font-size: 14px;
-        }
-
-        th, td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #eee;
-            border-right: 1px solid #eee;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        /* --- Sticky Header Logic --- */
-        th {
-            position: sticky;
-            top: 0;
-            background: #d3d3d3;
-            z-index: 1000; /* Very high z-index */
-            font-weight: 600;
-            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
-        }
-
+        /* --- Table Wrappers --- */
+        .table-wrapper { width: 100%; position: relative; }
+        table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; }
+        th, td { padding: 12px 10px; border-bottom: 1px solid #eee; border-right: 1px solid #eee; text-align: center; white-space: nowrap; }
+        th { position: sticky; top: 0; background: #d3d3d3; z-index: 1000; font-weight: 600; box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2); }
         thead { background: #d3d3d3; }
-
         #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
         #mainTableBody tr:hover td { background-color: #f0f0f0; }
-
-        /* Team Colors */
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
-        /* --- HISTORY SECTION STYLES --- */
-        #historyContainer {
+        /* --- SELECTED PLAYER HEADER (NEW) --- */
+        #selectedPlayerHeader {
             display: none;
-            margin-bottom: 30px;
-            width: 96%; /* Small margin on sides */
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 800px; /* Don't get too wide on desktop */
+            text-align: center;
+            margin-bottom: 15px;
+            background: #fff;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+        }
+        .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
+        .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
+
+        /* --- HISTORY SECTION --- */
+        #historyContainer {
+            display: none; margin-bottom: 30px; width: 96%;
+            margin-left: auto; margin-right: auto; max-width: 800px;
         }
         .history-section {
-            margin: 20px 0;
-            border: 2px solid #4A90E2;
-            padding: 0;
-            border-radius: 5px;
-            background: #fff;
-            overflow: hidden;
+            margin: 20px 0; border: 2px solid #4A90E2; padding: 0;
+            border-radius: 5px; background: #fff; overflow: hidden;
         }
         .history-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 15px;
-            color: white;
-            background-color: #4A90E2;
-            margin: 0;
-            text-align: center;
+            font-size: 1.2em; font-weight: bold; padding: 15px; color: white;
+            background-color: #4A90E2; margin: 0; text-align: center;
         }
-
         .history-item {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            font-size: 14px;
-            color: #333;
-            display: flex;
-            flex-direction: column;
+            padding: 15px; border-bottom: 1px solid #eee; font-size: 14px;
+            color: #333; display: flex; flex-direction: column;
         }
         .history-item:last-child { border-bottom: none; }
         .history-item:nth-child(even) { background-color: #f9f9f9; }
-
         .match-date {
-            font-size: 0.85em;
-            font-weight: bold;
-            color: #888;
-            margin-bottom: 8px;
-            text-align: left;
-            text-transform: uppercase;
+            font-size: 0.85em; font-weight: bold; color: #888; margin-bottom: 8px;
+            text-align: left; text-transform: uppercase;
         }
-
-        .match-content {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .player-row {
-            font-size: 1.1em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        .score-row {
-            font-size: 1.6em;
-            font-weight: 900;
-            margin: 2px 0;
-            letter-spacing: 2px;
-        }
-
+        .match-content { text-align: center; display: flex; flex-direction: column; gap: 4px; }
+        .player-row { font-size: 1.1em; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5px; }
+        .score-row { font-size: 1.6em; font-weight: 900; margin: 2px 0; letter-spacing: 2px; }
         .rating-current { font-weight: bold; color: #444; }
         .diff-val { font-size: 0.75em; vertical-align: super; font-weight: bold; margin-left: 2px; }
+        .win-text { color: #28a745; } .loss-text { color: #dc3545; }
+        .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
 
-        .win-text { color: #28a745; }
-        .loss-text { color: #dc3545; }
-
-        .diff-up { color: #28a745; }
-        .diff-down { color: #dc3545; }
-        .diff-neu { color: #999; }
-
-        /* --- Chart Container --- */
+        /* --- CHART CONTAINERS --- */
         #chartContainerWrapper {
-            display: none;
-            position: relative;
-            height: 500px;
-            width: 96%;
-            margin: 0 auto 20px auto;
-            border: 1px solid #ddd;
-            padding: 10px;
-            box-sizing: border-box;
-            background: white;
-            border-radius: 5px;
+            display: none; position: relative; height: 500px; width: 96%;
+            margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px;
+            box-sizing: border-box; background: white; border-radius: 5px;
         }
+
+        /* --- PIE CHARTS SECTION --- */
+        #pieChartsWrapper {
+            display: none; justify-content: center; gap: 20px; width: 96%;
+            margin: 0 auto 20px auto; max-width: 800px;
+        }
+
+        .pie-card {
+            flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px;
+            padding: 15px; display: flex; flex-direction: column; align-items: center;
+        }
+
+        .pie-header {
+            text-align: center; margin-bottom: 10px; width: 100%;
+            border-bottom: 1px solid #eee; padding-bottom: 8px;
+        }
+        .pie-title { font-size: 0.9em; color: #666; text-transform: uppercase; margin-bottom: 2px; }
+        .pie-total-val { font-size: 1.4em; font-weight: 800; color: #333; }
+
+        .pie-canvas-holder {
+            position: relative; height: 180px; width: 100%; max-width: 200px;
+        }
+
+        .custom-legend {
+            margin-top: 10px; width: 100%;
+        }
+        .legend-row {
+            display: flex; justify-content: space-between; padding: 4px 10px;
+            font-size: 0.95em; font-weight: 600; border-bottom: 1px dashed #eee;
+        }
+        .legend-row:last-child { border-bottom: none; }
+        .legend-label { color: #555; }
+        .legend-val { font-weight: 800; }
+        .pct-text { font-weight: 400; color: #888; font-size: 0.85em; margin-left: 5px; }
+
+        .val-green { color: #28a745; }
+        .val-red { color: #dc3545; }
+
+        /* --- BEST/WORST STATS SECTION (NEW) --- */
+        #statsHighlightsWrapper {
+            display: none;
+            justify-content: center; gap: 20px; width: 96%;
+            margin: 0 auto 30px auto; max-width: 800px;
+        }
+        .stat-card {
+            flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px;
+            padding: 15px; text-align: center;
+        }
+        .stat-label {
+            text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px;
+        }
+        .stat-value { font-size: 1.1em; font-weight: bold; color: #333; }
+        .stat-rating { color: #888; font-size: 0.9em; font-weight: normal; }
+        .stat-none { font-style: italic; color: #aaa; }
+
+        .border-green { border-top: 4px solid #28a745; }
+        .border-red { border-top: 4px solid #dc3545; }
 
         /* =========================================
            MOBILE RESPONSIVENESS
            ========================================= */
         @media screen and (max-width: 768px) {
-
             h1 { font-size: 1.4em; margin: 10px 0 20px 0; }
-
             .scroll-hint { display: block; }
             #chartContainerWrapper { height: 300px; }
+            #pieChartsWrapper { flex-direction: column; }
+            #statsHighlightsWrapper { flex-direction: column; gap: 10px; }
 
-            /* 1. TABLE FONT SIZES */
             table { font-size: 12px; }
             th, td { padding: 8px 4px; }
 
-            /* 2. HISTORY FONT SIZES (Fixed to be smaller/matching table) */
             .history-item { padding: 10px; }
-            .player-row { font-size: 0.95em; } /* Reduced from 1.1em */
-            .score-row { font-size: 1.2em; }   /* Reduced from 1.6em */
+            .player-row { font-size: 0.95em; }
+            .score-row { font-size: 1.2em; }
             .match-date { font-size: 0.75em; }
 
-            /* 3. STICKY COLUMNS FOR MOBILE
-               Because we removed overflow-x from the wrapper, the body scrolls.
-               Sticky Left still works relative to viewport. */
-
-            #mainTable td:nth-child(2),
-            #mainTable th:nth-child(2) {
-                position: sticky;
-                left: 0;
-                z-index: 105;
-                border-right: 2px solid #ccc;
+            #mainTable td:nth-child(2), #mainTable th:nth-child(2) {
+                position: sticky; left: 0; z-index: 105; border-right: 2px solid #ccc;
             }
             #mainTable td:nth-child(2) { background-color: #ffffff; }
-
-            /* Re-apply team colors to sticky column */
             .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
             .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
             #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
-
-            /* The Header Corner (Top Left) needs highest Z-Index to stay above everything */
-            #mainTable th:nth-child(2) {
-                z-index: 1100; /* Higher than th (1000) */
-                background: #d3d3d3;
-            }
+            #mainTable th:nth-child(2) { z-index: 1100; background: #d3d3d3; }
         }
     </style>
 </head>
@@ -233,15 +184,89 @@
 
     <h1>Kosice Miniliga Rating</h1>
 
+    <div id="selectedPlayerHeader">
+        <div class="player-header-name" id="headerName"></div>
+        <div class="player-header-team" id="headerTeam"></div>
+    </div>
+
     <div id="chartContainerWrapper">
         <canvas id="ratingChart"></canvas>
     </div>
 
-    <div id="historyContainer">
+    <div id="pieChartsWrapper">
+        <div class="pie-card">
+            <div class="pie-header">
+                <div class="pie-title">Total Matches (Zápasy)</div>
+                <div class="pie-total-val" id="matchesTotalVal">0</div>
+            </div>
+            <div class="pie-canvas-holder">
+                <canvas id="matchesChart"></canvas>
+            </div>
+            <div class="custom-legend">
+                <div class="legend-row">
+                    <span class="legend-label">Výhry</span>
+                    <div>
+                        <span class="legend-val val-green" id="matchesWinsVal">0</span>
+                        <span class="pct-text" id="matchesWinsPct">(0%)</span>
+                    </div>
+                </div>
+                <div class="legend-row">
+                    <span class="legend-label">Prehry</span>
+                    <div>
+                        <span class="legend-val val-red" id="matchesLossVal">0</span>
+                        <span class="pct-text" id="matchesLossPct">(0%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pie-card">
+            <div class="pie-header">
+                <div class="pie-title">Total Sets (Sety)</div>
+                <div class="pie-total-val" id="setsTotalVal">0</div>
+            </div>
+            <div class="pie-canvas-holder">
+                <canvas id="setsChart"></canvas>
+            </div>
+            <div class="custom-legend">
+                <div class="legend-row">
+                    <span class="legend-label">Výhry</span>
+                    <div>
+                        <span class="legend-val val-green" id="setsWinsVal">0</span>
+                        <span class="pct-text" id="setsWinsPct">(0%)</span>
+                    </div>
+                </div>
+                <div class="legend-row">
+                    <span class="legend-label">Prehry</span>
+                    <div>
+                        <span class="legend-val val-red" id="setsLossVal">0</span>
+                        <span class="pct-text" id="setsLossPct">(0%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="scroll-hint">↔ Swipe table to see more stats</div>
+    <div id="statsHighlightsWrapper">
+        <div class="stat-card border-green">
+            <div class="stat-label">Best Win (Najcennejšia Výhra)</div>
+            <div id="bestWinContainer">
+                <div class="stat-value" id="bestWinName"></div>
+                <div class="stat-rating" id="bestWinRating"></div>
+            </div>
+        </div>
+        <div class="stat-card border-red">
+            <div class="stat-label">Worst Loss (Najhoršia Prehra)</div>
+            <div id="worstLossContainer">
+                <div class="stat-value" id="worstLossName"></div>
+                <div class="stat-rating" id="worstLossRating"></div>
+            </div>
+        </div>
+    </div>
 
+    <div id="historyContainer"></div>
+
+    <div class="scroll-hint">↔ Swipe table to see more stats</div>
     <div class="table-wrapper">
         <table id="mainTable">
             <thead>
@@ -262,8 +287,7 @@
                 <th>Last played</th>
             </tr>
             </thead>
-            <tbody id="mainTableBody">
-            </tbody>
+            <tbody id="mainTableBody"></tbody>
         </table>
     </div>
 
@@ -293,21 +317,12 @@
     function initPlayer(name) {
         if (!players[name]) {
             players[name] = {
-                name: name,
-                rating: initialRating,
-                matches: 0,
-                wins: 0,
-                losses: 0,
-                setsWin: 0,
-                setsLose: 0,
-                maxRating: initialRating,
-                minRating: initialRating,
-                team: 'N/A',
-                lastPlayed: 'N/A',
-                bestWinOpponent: null,
-                bestWinRating: -Infinity,
-                history: {},
-                matchDetails: []
+                name: name, rating: initialRating, matches: 0, wins: 0, losses: 0,
+                setsWin: 0, setsLose: 0, maxRating: initialRating, minRating: initialRating,
+                team: 'N/A', lastPlayed: 'N/A',
+                bestWinOpponent: null, bestWinRating: -Infinity,
+                worstLossOpponent: null, worstLossRating: Infinity, // Added Worst Loss
+                history: {}, matchDetails: []
             };
         }
     }
@@ -321,51 +336,53 @@
         const teamA = match.player_a_team;
         const teamB = match.player_b_team;
 
-        initPlayer(playerA);
-        initPlayer(playerB);
-
-        players[playerA].team = teamA;
-        players[playerA].lastPlayed = date;
-        players[playerB].team = teamB;
-        players[playerB].lastPlayed = date;
+        initPlayer(playerA); initPlayer(playerB);
+        players[playerA].team = teamA; players[playerA].lastPlayed = date;
+        players[playerB].team = teamB; players[playerB].lastPlayed = date;
 
         const N = scoreA + scoreB;
         const Ra = players[playerA].rating;
         const Rb = players[playerB].rating;
-
-        players[playerA].matches++;
-        players[playerB].matches++;
+        players[playerA].matches++; players[playerB].matches++;
 
         const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
         const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
-
         const Ka = getKFactor(players[playerA].matches);
         const Kb = getKFactor(players[playerB].matches);
 
+        // --- Best Win / Worst Loss Logic ---
         if (scoreA > scoreB) {
+            // Player A won
             if (players[playerB].rating > players[playerA].bestWinRating) {
                 players[playerA].bestWinOpponent = playerB;
                 players[playerA].bestWinRating = players[playerB].rating;
             }
+            // Player B lost
+            if (players[playerA].rating < players[playerB].worstLossRating) {
+                players[playerB].worstLossOpponent = playerA;
+                players[playerB].worstLossRating = players[playerA].rating;
+            }
         }
         if (scoreB > scoreA) {
+            // Player B won
             if (players[playerA].rating > players[playerB].bestWinRating) {
                 players[playerB].bestWinOpponent = playerA;
                 players[playerB].bestWinRating = players[playerA].rating;
+            }
+            // Player A lost
+            if (players[playerB].rating < players[playerA].worstLossRating) {
+                players[playerA].worstLossOpponent = playerB;
+                players[playerA].worstLossRating = players[playerB].rating;
             }
         }
 
         const newRa = Ra + Ka * (scoreA - Ea);
         const newRb = Rb + Kb * (scoreB - Eb);
-
         const deltaA = newRa - Ra;
         const deltaB = newRb - Rb;
 
-        players[playerA].rating = newRa;
-        players[playerB].rating = newRb;
-
-        players[playerA].history[date] = newRa;
-        players[playerB].history[date] = newRb;
+        players[playerA].rating = newRa; players[playerB].rating = newRb;
+        players[playerA].history[date] = newRa; players[playerB].history[date] = newRb;
 
         players[playerA].maxRating = Math.max(players[playerA].rating, players[playerA].maxRating);
         players[playerB].maxRating = Math.max(players[playerB].rating, players[playerB].maxRating);
@@ -377,33 +394,20 @@
         players[playerA].losses += (scoreA < scoreB ? 1 : 0);
         players[playerB].losses += (scoreB < scoreA ? 1 : 0);
 
-        players[playerA].setsWin += scoreA;
-        players[playerB].setsWin += scoreB;
-        players[playerA].setsLose += scoreB;
-        players[playerB].setsLose += scoreA;
+        players[playerA].setsWin += scoreA; players[playerB].setsWin += scoreB;
+        players[playerA].setsLose += scoreB; players[playerB].setsLose += scoreA;
 
         players[playerA].matchDetails.push({
-            date: date,
-            opponent: playerB,
-            opponent_team: teamB,
-            score_own: scoreA,
-            score_opp: scoreB,
-            rating_after: newRa,
-            opp_rating_after: newRb,
-            delta_own: deltaA,
-            delta_opp: deltaB
+            date: date, opponent: playerB, opponent_team: teamB,
+            score_own: scoreA, score_opp: scoreB,
+            rating_after: newRa, opp_rating_after: newRb,
+            delta_own: deltaA, delta_opp: deltaB
         });
-
         players[playerB].matchDetails.push({
-            date: date,
-            opponent: playerA,
-            opponent_team: teamA,
-            score_own: scoreB,
-            score_opp: scoreA,
-            rating_after: newRb,
-            opp_rating_after: newRa,
-            delta_own: deltaB,
-            delta_opp: deltaA
+            date: date, opponent: playerA, opponent_team: teamA,
+            score_own: scoreB, score_opp: scoreA,
+            rating_after: newRb, opp_rating_after: newRa,
+            delta_own: deltaB, delta_opp: deltaA
         });
     });
 
@@ -412,8 +416,9 @@
     // =================================================================
     // 4. RENDERING
     // =================================================================
-
-    let chartInstance = null;
+    let lineChartInstance = null;
+    let matchesPieInstance = null;
+    let setsPieInstance = null;
     let activePlayerName = null;
 
     function renderTable() {
@@ -422,16 +427,13 @@
 
         sortedPlayers.forEach((p, index) => {
             const tr = document.createElement('tr');
-
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
             if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
-
             tr.onclick = () => togglePlayerView(p.name);
 
             const successMatches = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(2) : 0;
             const totalSets = p.setsWin + p.setsLose;
             const successSets = totalSets > 0 ? ((p.setsWin / totalSets) * 100).toFixed(2) : 0;
-
             const bestWinStr = p.bestWinOpponent ? `${p.bestWinOpponent} (${p.bestWinRating.toFixed(2)})` : '';
 
             tr.innerHTML = `
@@ -455,95 +457,161 @@
     }
 
     function togglePlayerView(name) {
+        const header = document.getElementById('selectedPlayerHeader');
         const chartWrapper = document.getElementById('chartContainerWrapper');
+        const pieWrapper = document.getElementById('pieChartsWrapper');
+        const statsWrapper = document.getElementById('statsHighlightsWrapper');
         const historyContainer = document.getElementById('historyContainer');
 
         if (activePlayerName === name) {
             activePlayerName = null;
+            header.style.display = 'none';
             chartWrapper.style.display = 'none';
+            pieWrapper.style.display = 'none';
+            statsWrapper.style.display = 'none';
             historyContainer.style.display = 'none';
         } else {
             activePlayerName = name;
+
+            // Populate Header
+            const p = players[name];
+            document.getElementById('headerName').innerText = p.name;
+            document.getElementById('headerTeam').innerText = p.team || "";
+
+            // Populate Best/Worst Stats
+            const bwName = document.getElementById('bestWinName');
+            const bwRate = document.getElementById('bestWinRating');
+            if (p.bestWinOpponent) {
+                bwName.innerText = p.bestWinOpponent;
+                bwName.className = "stat-value";
+                bwRate.innerText = `Rating: ${p.bestWinRating.toFixed(2)}`;
+            } else {
+                bwName.innerText = "None";
+                bwName.className = "stat-value stat-none";
+                bwRate.innerText = "";
+            }
+
+            const wlName = document.getElementById('worstLossName');
+            const wlRate = document.getElementById('worstLossRating');
+            if (p.worstLossOpponent) {
+                wlName.innerText = p.worstLossOpponent;
+                wlName.className = "stat-value";
+                wlRate.innerText = `Rating: ${p.worstLossRating.toFixed(2)}`;
+            } else {
+                wlName.innerText = "None";
+                wlName.className = "stat-value stat-none";
+                wlRate.innerText = "";
+            }
+
+            // Show Elements
+            header.style.display = 'block';
             chartWrapper.style.display = 'block';
+            pieWrapper.style.display = 'flex';
+            statsWrapper.style.display = 'flex';
             historyContainer.style.display = 'block';
 
-            renderChart(name);
+            renderLineChart(name);
+            renderPieCharts(name);
             renderHistory(name);
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 
     function getDiffHtml(delta) {
-        if (Math.abs(delta) < 0.01) {
-            return `<span class="diff-val diff-neu">-</span>`;
-        }
+        if (Math.abs(delta) < 0.01) return `<span class="diff-val diff-neu">-</span>`;
         const isPos = delta > 0;
         const arrow = isPos ? '▲' : '▼';
         const colorClass = isPos ? 'diff-up' : 'diff-down';
         const val = Math.abs(delta).toFixed(2);
-
         return `<span class="diff-val ${colorClass}">${arrow}${val}</span>`;
     }
 
     function renderHistory(name) {
         const p = players[name];
         const container = document.getElementById('historyContainer');
-
-        let html = `
-            <div class='history-section'>
-                <div class='history-title'>Match History: ${p.name} (${p.team})</div>
-                <div class='history-list'>
-        `;
+        let html = `<div class='history-section'><div class='history-title'>Match History: ${p.name} (${p.team})</div><div class='history-list'>`;
 
         p.matchDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
             const scoreColorClass = isWin ? 'win-text' : 'loss-text';
-
             html += `
                 <div class="history-item">
                     <div class="match-date">${m.date}</div>
-
                     <div class="match-content">
                         <div class="player-row">
-                            <span>${p.name}</span>
-                            <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>
-                            ${getDiffHtml(m.delta_own)}
+                            <span>${p.name}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}
                         </div>
-
-                        <div class="score-row ${scoreColorClass}">
-                            ${m.score_own}:${m.score_opp}
-                        </div>
-
+                        <div class="score-row ${scoreColorClass}">${m.score_own}:${m.score_opp}</div>
                         <div class="player-row">
-                            <span>${m.opponent}</span>
-                            <span>(${m.opponent_team}, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>)</span>
-                            ${getDiffHtml(m.delta_opp)}
+                            <span>${m.opponent}</span><span>(${m.opponent_team}, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_opp)}
                         </div>
                     </div>
-                </div>
-            `;
+                </div>`;
         });
-
         html += `</div></div>`;
         container.innerHTML = html;
     }
 
-    function renderChart(name) {
-        const ctx = document.getElementById('ratingChart').getContext('2d');
+    function renderPieCharts(name) {
         const p = players[name];
 
+        // 1. Calculate Percentages
+        const totalMatches = p.matches;
+        const winPctMatches = totalMatches > 0 ? ((p.wins / totalMatches) * 100).toFixed(1) : 0;
+        const lossPctMatches = totalMatches > 0 ? ((p.losses / totalMatches) * 100).toFixed(1) : 0;
+
+        const totalSets = p.setsWin + p.setsLose;
+        const winPctSets = totalSets > 0 ? ((p.setsWin / totalSets) * 100).toFixed(1) : 0;
+        const lossPctSets = totalSets > 0 ? ((p.setsLose / totalSets) * 100).toFixed(1) : 0;
+
+        // 2. Update Matches Card
+        document.getElementById('matchesTotalVal').innerText = p.matches;
+        document.getElementById('matchesWinsVal').innerText = p.wins;
+        document.getElementById('matchesLossVal').innerText = p.losses;
+        document.getElementById('matchesWinsPct').innerText = `(${winPctMatches}%)`;
+        document.getElementById('matchesLossPct').innerText = `(${lossPctMatches}%)`;
+
+        // 3. Update Sets Card
+        document.getElementById('setsTotalVal').innerText = totalSets;
+        document.getElementById('setsWinsVal').innerText = p.setsWin;
+        document.getElementById('setsLossVal').innerText = p.setsLose;
+        document.getElementById('setsWinsPct').innerText = `(${winPctSets}%)`;
+        document.getElementById('setsLossPct').innerText = `(${lossPctSets}%)`;
+
+        // 4. Render Charts
+        const ctxMatches = document.getElementById('matchesChart').getContext('2d');
+        if (matchesPieInstance) matchesPieInstance.destroy();
+        matchesPieInstance = new Chart(ctxMatches, {
+            type: 'doughnut',
+            data: {
+                labels: ['Výhry', 'Prehry'],
+                datasets: [{ data: [p.wins, p.losses], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+
+        const ctxSets = document.getElementById('setsChart').getContext('2d');
+        if (setsPieInstance) setsPieInstance.destroy();
+        setsPieInstance = new Chart(ctxSets, {
+            type: 'doughnut',
+            data: {
+                labels: ['Výhry', 'Prehry'],
+                datasets: [{ data: [p.setsWin, p.setsLose], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+    }
+
+    function renderLineChart(name) {
+        const ctx = document.getElementById('ratingChart').getContext('2d');
+        const p = players[name];
         const rawDates = Object.keys(p.history);
-        const sortedDates = rawDates.sort((a, b) =>
-            a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })
-        );
+        const sortedDates = rawDates.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
         const dataPoints = sortedDates.map(date => p.history[date]);
 
-        if (chartInstance) {
-            chartInstance.destroy();
-        }
+        if (lineChartInstance) lineChartInstance.destroy();
 
-        chartInstance = new Chart(ctx, {
+        lineChartInstance = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: sortedDates,
@@ -562,23 +630,15 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    x: {
-                        title: { display: true, text: 'Match Event' },
-                        ticks: { autoSkip: true, maxTicksLimit: 10 }
-                    },
-                    y: {
-                        title: { display: true, text: 'Rating' }
-                    }
+                    x: { title: { display: true, text: 'Match Event' }, ticks: { autoSkip: true, maxTicksLimit: 10 } },
+                    y: { title: { display: true, text: 'Rating' } }
                 },
-                plugins: {
-                    legend: { display: true }
-                }
+                plugins: { legend: { display: true } }
             }
         });
     }
 
     renderTable();
-
 </script>
 
 </body>
