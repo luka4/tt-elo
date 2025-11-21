@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kosice Miniliga - League Table</title>
+    <style>
+        /* --- Reset & Base --- */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 10px 0; 
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #f2f4f8;
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 15px 0 25px 0;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container { 
+            width: 96%; 
+            max-width: 1000px;
+            margin: 0 auto; 
+        }
+
+        /* --- Table Wrapper --- */
+        .table-wrapper {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow-x: auto; /* Scroll on mobile */
+            border: 1px solid #e1e4e8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 600px; /* Force scroll on very small screens */
+        }
+
+        th, td {
+            padding: 15px 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
+        }
+
+        /* --- Header Styles --- */
+        th {
+            background-color: #4A90E2;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Sticky "Team Name" Column */
+        th:nth-child(2), td:nth-child(2) {
+            position: sticky;
+            left: 0;
+            z-index: 11;
+            text-align: left;
+            border-right: 2px solid #f0f0f0;
+        }
+        th:nth-child(2) { z-index: 12; } /* Header corner needs higher index */
+        td:nth-child(2) { background-color: #fff; font-weight: 600; color: #2c3e50; }
+
+        /* --- Row Styles --- */
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:hover td { background-color: #f8f9fa; }
+        /* Ensure hover works on sticky column */
+        tbody tr:hover td:nth-child(2) { background-color: #f8f9fa; }
+
+        /* --- Column Specifics --- */
+        .col-pos { font-weight: bold; color: #888; width: 40px; }
+        .col-pts { font-weight: 900; color: #4A90E2; font-size: 1.1em; background-color: #fbfbfb; }
+        .col-score { font-family: monospace; font-size: 1.1em; letter-spacing: -1px; }
+
+        /* Mobile Tweaks */
+        @media screen and (max-width: 600px) {
+            h1 { font-size: 1.4em; }
+            th, td { padding: 10px 5px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>League Standings</h1>
+    
+    <div class="table-wrapper">
+        <table id="leagueTable">
+            <thead>
+                <tr>
+                    <th class="col-pos">#</th>
+                    <th>Team Name</th>
+                    <th>Matches</th>
+                    <th>Win</th>
+                    <th>Draw</th>
+                    <th>Lose</th>
+                    <th>Score</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="matchData.js"></script>
+
+<script>
+    // ============================================================
+    // 1. AGGREGATE DATA
+    // ============================================================
+    
+    // Step A: Group individual games into Team Matches
+    const teamMatches = {};
+
+    matchResults.forEach(m => {
+        const key = `${m.date}::${m.player_a_team}::${m.player_b_team}`;
+        if (!teamMatches[key]) {
+            teamMatches[key] = {
+                teamA: m.player_a_team,
+                teamB: m.player_b_team,
+                scoreA: 0,
+                scoreB: 0
+            };
+        }
+        const sA = parseInt(m.score_a);
+        const sB = parseInt(m.score_b);
+        if (sA > sB) teamMatches[key].scoreA++;
+        if (sB > sA) teamMatches[key].scoreB++;
+    });
+
+    // Step B: Initialize Team Stats Objects
+    const teams = {};
+
+    function initTeam(name) {
+        if (!teams[name]) {
+            teams[name] = {
+                name: name,
+                matches: 0,
+                wins: 0,
+                draws: 0,
+                losses: 0,
+                scoreFor: 0,    // Total individual games won
+                scoreAgainst: 0, // Total individual games lost
+                points: 0
+            };
+        }
+    }
+
+    // Step C: Calculate League Stats based on Team Matches
+    Object.values(teamMatches).forEach(match => {
+        const tA = match.teamA;
+        const tB = match.teamB;
+        const sA = match.scoreA;
+        const sB = match.scoreB;
+
+        initTeam(tA);
+        initTeam(tB);
+
+        // Update Matches Played
+        teams[tA].matches++;
+        teams[tB].matches++;
+
+        // Update Scores (Sum of individual games)
+        teams[tA].scoreFor += sA;
+        teams[tA].scoreAgainst += sB;
+        teams[tB].scoreFor += sB;
+        teams[tB].scoreAgainst += sA;
+
+        // Update W/D/L and Points
+        if (sA > sB) {
+            // A Wins
+            teams[tA].wins++;
+            teams[tA].points += 3;
+            
+            teams[tB].losses++;
+            teams[tB].points += 1;
+        } else if (sB > sA) {
+            // B Wins
+            teams[tB].wins++;
+            teams[tB].points += 3;
+
+            teams[tA].losses++;
+            teams[tA].points += 1;
+        } else {
+            // Draw
+            teams[tA].draws++;
+            teams[tA].points += 2;
+
+            teams[tB].draws++;
+            teams[tB].points += 2;
+        }
+    });
+
+    // ============================================================
+    // 2. SORTING
+    // ============================================================
+    
+    // Convert to array for sorting
+    const leagueTable = Object.values(teams).sort((a, b) => {
+        // 1. Sort by Points (Highest first)
+        if (b.points !== a.points) {
+            return b.points - a.points;
+        }
+        
+        // 2. Sort by Score Difference (Highest first)
+        const diffA = a.scoreFor - a.scoreAgainst;
+        const diffB = b.scoreFor - b.scoreAgainst;
+        return diffB - diffA;
+    });
+
+    // ============================================================
+    // 3. RENDER
+    // ============================================================
+    
+    const tbody = document.getElementById('tableBody');
+
+    leagueTable.forEach((team, index) => {
+        const tr = document.createElement('tr');
+        
+        tr.innerHTML = `
+            <td class="col-pos">${index + 1}.</td>
+            <td>${team.name}</td>
+            <td>${team.matches}</td>
+            <td>${team.wins}</td>
+            <td>${team.draws}</td>
+            <td>${team.losses}</td>
+            <td class="col-score">${team.scoreFor}:${team.scoreAgainst}</td>
+            <td class="col-pts">${team.points}</td>
+        `;
+        
+        tbody.appendChild(tr);
+    });
+
+</script>
+
+</body>
+  </html>
