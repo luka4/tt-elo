@@ -1,1 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kosice Miniliga - Team Results</title>
+    <style>
+        /* --- Reset & Base --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 10px 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #f2f4f8;
+            color: #333;
+        }
 
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 15px 0 25px 0;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 96%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- Round Group Wrapper --- */
+        .round-group {
+            margin-bottom: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #e1e4e8;
+        }
+
+        /* --- The Round Header (Sticky Left/Top) --- */
+        .round-header {
+            background: #d3d3d3;
+            padding: 10px 15px;
+            font-weight: 800;
+            color: #444;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* --- Team Match Row --- */
+        .match-row {
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .match-row:last-child { border-bottom: none; }
+        .match-row:hover { background-color: #f9f9f9; }
+
+        /* Main clickable summary */
+        .match-summary {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            justify-content: space-between;
+        }
+
+        .team-name {
+            flex: 1;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        .team-left { text-align: right; padding-right: 15px; }
+        .team-right { text-align: left; padding-left: 15px; }
+
+        .score-badge {
+            background: #4A90E2;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2em;
+            padding: 5px 12px;
+            border-radius: 6px;
+            min-width: 60px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* --- Detailed Expansion (Accordion) --- */
+        .match-details {
+            display: none; /* Hidden by default */
+            background-color: #fafafa;
+            border-top: 1px solid #eee;
+            padding: 10px 0;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        /* Individual Game Row */
+        .game-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+        .game-row:last-child { border-bottom: none; }
+
+        .game-names {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+            align-items: center;
+        }
+
+        .player-left { text-align: right; flex: 1; padding-right: 10px; font-weight: 500; }
+        .player-right { text-align: left; flex: 1; padding-left: 10px; font-weight: 500; }
+
+        .game-score {
+            font-weight: 900;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .game-score.win-left { color: #28a745; } /* Green if left won */
+        .game-score.win-right { color: #dc3545; } /* Red if right won (from perspective of left) */
+
+        /* Doubles Badge */
+        .doubles-badge {
+            background-color: #FF9800;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        /* Toggle Icon */
+        .expand-icon {
+            color: #999;
+            font-size: 0.8em;
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        .match-row.active .expand-icon { transform: rotate(180deg); }
+
+        /* --- Mobile Tweaks --- */
+        @media screen and (max-width: 600px) {
+            .team-name { font-size: 0.95em; }
+            .score-badge { font-size: 1em; padding: 4px 8px; min-width: 50px; }
+            .match-summary { padding: 12px 10px; }
+
+            .player-left, .player-right { font-size: 0.85em; }
+            .game-score { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Team Matches Results</h1>
+
+    <div id="resultsContainer"></div>
+</div>
+
+<script src="matchData.js"></script>
+
+<script>
+    // ============================================================
+    // 1. PROCESS DATA
+    // ============================================================
+
+    // We need to group individual games into Team Matches.
+    // Key = Date + TeamA + TeamB
+    const teamMatches = {};
+
+    matchResults.forEach(m => {
+        // Normalize Key: ensure we handle A vs B same as B vs A for the same date
+        // However, usually in the file, the order is consistent for a specific match.
+        // We will trust the file structure: Team A is Home, Team B is Away for that entry.
+        const key = `${m.date}::${m.player_a_team}::${m.player_b_team}`;
+
+        if (!teamMatches[key]) {
+            teamMatches[key] = {
+                date: m.date,
+                teamA: m.player_a_team,
+                teamB: m.player_b_team,
+                games: [],
+                scoreA: 0,
+                scoreB: 0
+            };
+        }
+
+        // Add game score to team score
+        const sA = parseInt(m.score_a);
+        const sB = parseInt(m.score_b);
+
+        if (sA > sB) teamMatches[key].scoreA++;
+        if (sB > sA) teamMatches[key].scoreB++;
+
+        teamMatches[key].games.push(m);
+    });
+
+    // Convert object to array
+    const matchesArray = Object.values(teamMatches);
+
+    // ============================================================
+    // 2. GROUP BY ROUND (Date)
+    // ============================================================
+
+    // We want to display: 1. kolo -> List of matches
+    // Use a Map to preserve insertion order (assuming input is sorted chronologically)
+    // or standard object.
+    const rounds = {};
+
+    matchesArray.forEach(match => {
+        if (!rounds[match.date]) {
+            rounds[match.date] = [];
+        }
+        rounds[match.date].push(match);
+    });
+
+    // ============================================================
+    // 3. RENDER
+    // ============================================================
+
+    const container = document.getElementById('resultsContainer');
+
+    // Helper to create HTML for a single game row
+    function createGameRow(game) {
+        const isDouble = game.doubles === true || game.doubles === "true";
+        const sA = parseInt(game.score_a);
+        const sB = parseInt(game.score_b);
+
+        // Determine color class
+        let scoreClass = "";
+        if (sA > sB) scoreClass = "win-left";
+        else if (sB > sA) scoreClass = "win-right";
+
+        const doubleBadge = isDouble ? `<div class="doubles-badge">Doubles</div>` : '';
+
+        return `
+            <div class="game-row">
+                ${doubleBadge}
+                <div class="game-names">
+                    <div class="player-left">${game.player_a}</div>
+                    <div class="game-score ${scoreClass}">${sA}:${sB}</div>
+                    <div class="player-right">${game.player_b}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Iterate through Rounds
+    for (const [roundName, matchList] of Object.entries(rounds)) {
+
+        // Create Round Group
+        const roundGroup = document.createElement('div');
+        roundGroup.className = 'round-group';
+
+        // Header (e.g., "1. KOLO")
+        const header = document.createElement('div');
+        header.className = 'round-header';
+        header.innerText = roundName;
+        roundGroup.appendChild(header);
+
+        // Iterate Matches in this Round
+        matchList.forEach(match => {
+            // Sort games: Doubles first
+            const games = match.games.sort((a, b) => {
+                const isDoubleA = a.doubles ? 1 : 0;
+                const isDoubleB = b.doubles ? 1 : 0;
+                return isDoubleB - isDoubleA; // True (1) comes first
+            });
+
+            const matchRow = document.createElement('div');
+            matchRow.className = 'match-row';
+
+            // 1. Summary Section (Visible)
+            const summary = document.createElement('div');
+            summary.className = 'match-summary';
+            summary.innerHTML = `
+                <div class="team-name team-left">${match.teamA}</div>
+                <div class="score-badge">${match.scoreA}-${match.scoreB}</div>
+                <div class="team-name team-right">${match.teamB}</div>
+                <div class="expand-icon">▼</div>
+            `;
+
+            // 2. Details Section (Hidden)
+            const details = document.createElement('div');
+            details.className = 'match-details';
+
+            let gamesHtml = '';
+            games.forEach(g => {
+                gamesHtml += createGameRow(g);
+            });
+            details.innerHTML = gamesHtml;
+
+            // 3. Click Event
+            summary.onclick = () => {
+                const isExpanded = details.style.display === 'block';
+                details.style.display = isExpanded ? 'none' : 'block';
+                if(isExpanded) matchRow.classList.remove('active');
+                else matchRow.classList.add('active');
+            };
+
+            matchRow.appendChild(summary);
+            matchRow.appendChild(details);
+            roundGroup.appendChild(matchRow);
+        });
+
+        container.appendChild(roundGroup);
+    }
+
+</script>
+
+</body>
+</html>
