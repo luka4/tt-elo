@@ -326,6 +326,9 @@
         if (match.doubles) {
             return;
         }
+        if (match.player_a === 'WO' || match.player_b === 'WO') {
+            return;
+        }
         const scoreA = parseInt(match.score_a);
         const scoreB = parseInt(match.score_b);
         const playerA = match.player_a;
