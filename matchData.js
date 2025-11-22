@@ -3845,7 +3845,7 @@ const matchResults = [{
     "player_b": "Andrej MAKRANSKÝ ml.",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 0,
     "score_b": 3,
@@ -3853,7 +3853,7 @@ const matchResults = [{
     "player_b": "Csaba BECSE",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 0,
     "score_b": 3,
@@ -3861,7 +3861,7 @@ const matchResults = [{
     "player_b": "JUDr. Andrej MAKRANSKÝ",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 3,
     "score_b": 1,
@@ -3869,7 +3869,7 @@ const matchResults = [{
     "player_b": "Eduard KUDLA",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 0,
     "score_b": 3,
@@ -3877,7 +3877,7 @@ const matchResults = [{
     "player_b": "Csaba BECSE",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 2,
     "score_b": 3,
@@ -3885,7 +3885,7 @@ const matchResults = [{
     "player_b": "JUDr. Andrej MAKRANSKÝ",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 3,
     "score_b": 0,
@@ -3893,7 +3893,7 @@ const matchResults = [{
     "player_b": "Eduard KUDLA",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 3,
     "score_b": 0,
@@ -3901,7 +3901,7 @@ const matchResults = [{
     "player_b": "Andrej MAKRANSKÝ ml.",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 3,
     "score_b": 0,
@@ -3909,7 +3909,7 @@ const matchResults = [{
     "player_b": "JUDr. Andrej MAKRANSKÝ",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 1,
     "score_b": 3,
@@ -3917,7 +3917,7 @@ const matchResults = [{
     "player_b": "Eduard KUDLA",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 3,
     "score_b": 0,
@@ -3925,7 +3925,7 @@ const matchResults = [{
     "player_b": "Andrej MAKRANSKÝ ml.",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 1,
     "score_b": 3,
@@ -3933,7 +3933,7 @@ const matchResults = [{
     "player_b": "Csaba BECSE",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 3,
     "score_b": 0,
@@ -3941,7 +3941,7 @@ const matchResults = [{
     "player_b": "Eduard KUDLA",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 3,
     "score_b": 0,
@@ -3949,7 +3949,7 @@ const matchResults = [{
     "player_b": "Andrej MAKRANSKÝ ml.",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 1,
     "score_b": 3,
@@ -3957,7 +3957,7 @@ const matchResults = [{
     "player_b": "Csaba BECSE",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 0,
     "score_b": 3,
@@ -3965,7 +3965,7 @@ const matchResults = [{
     "player_b": "JUDr. Andrej MAKRANSKÝ",
     "date": "5. kolo",
     "player_a_team": "COKERY",
-    "player_b_team": "KOMÉTA KE"
+    "player_b_team": "TTC KVP"
 }, {
     "score_a": 2,
     "score_b": 3,
@@ -6569,6 +6569,14 @@ const matchResults = [{
 }, {
     "score_a": 3,
     "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "7. kolo",
+    "player_a_team": "MONTREAL",
+    "player_b_team": "REPREX"
+}, {
+    "score_a": 3,
+    "score_b": 0,
     "player_a": "Ing. M. ZÁRIK",
     "player_b": "Ing. Ján PETRŽALA",
     "date": "7. kolo",
@@ -7055,8 +7063,8 @@ const matchResults = [{
     "player_a_team": "SKP \"A\"",
     "player_b_team": "TT TEAM"
 }, {
-    "score_a": 3,
-    "score_b": 1,
+    "score_a": 1,
+    "score_b": 3,
     "player_a": "Mgr. Štefan LISSÝ",
     "player_b": "Jarosl ANDRAŠČIK",
     "date": "8. kolo",
@@ -10580,7 +10588,7 @@ const matchResults = [{
     "score_a": 3,
     "score_b": 0,
     "player_a": "Ing. Marek PATAKY\/Ing. Ján GUZY",
-    "player_b": "kont.",
+    "player_b": "WO",
     "date": "1. kolo",
     "player_a_team": "BOMBERE",
     "player_b_team": "BERNARD Club",
@@ -10589,11 +10597,431 @@ const matchResults = [{
     "score_a": 3,
     "score_b": 0,
     "player_a": "Bc. Ján ŘIHAK\/Ing. Slavomír KRÁLIK",
-    "player_b": "kont.",
+    "player_b": "WO",
     "date": "1. kolo",
     "player_a_team": "BOMBERE",
     "player_b_team": "BERNARD Club",
     "doubles": true
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "1. kolo",
+    "player_a_team": "BOMBERE",
+    "player_b_team": "BERNARD Club",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+    "doubles": true
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+    "doubles": true
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "2. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "SOŠ Ž",
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+    "doubles": true
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+    "doubles": true
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
+}, {
+    "score_a": 0,
+    "score_b": 3,
+    "player_a": "WO",
+    "player_b": "WO",
+    "date": "4. kolo",
+    "player_a_team": "TTC KVP",
+    "player_b_team": "KOMÉTA KE",
 }, {
     "score_a": 3,
     "score_b": 0,
@@ -11127,12 +11555,39 @@ const matchResults = [{
     "doubles": true
 }, {
     "score_a": 3,
+    "score_b": 0,
+    "player_a": "Ing. Štefan PČOLA\/Milan MICHLOVIČ",
+    "player_b": "Ing. P. ŠEBEK\/Jozef ZAVACKÝ",
+    "date": "5. kolo",
+    "player_a_team": "MONTREAL",
+    "player_b_team": "EUROCAST",
+    "doubles": true
+}, {
+    "score_a": 3,
     "score_b": 2,
     "player_a": "Milan ŠOLC\/Ing. Marián HOVAN",
     "player_b": "Julus WÉBER\/Andrej KAČKOŠ",
     "date": "5. kolo",
     "player_a_team": "MYSLAVA",
     "player_b_team": "ASTORIA FIT",
+    "doubles": true
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "Milan ŠOLC\/Ing. Marián HOVAN",
+    "player_b": "Peter POLÁK\/Igor BAŠTI",
+    "date": "6. kolo",
+    "player_a_team": "MYSLAVA",
+    "player_b_team": "SOŠ Ž",
+    "doubles": true
+}, {
+    "score_a": 3,
+    "score_b": 0,
+    "player_a": "Ján FOTTA\/Ing. Jozef FOTTA",
+    "player_b": "Jozef MOLNÁR\/SLAVOMÍR KEŠELÁK",
+    "date": "6. kolo",
+    "player_a_team": "MYSLAVA",
+    "player_b_team": "SOŠ Ž",
     "doubles": true
 }, {
     "score_a": 1,
@@ -11288,8 +11743,8 @@ const matchResults = [{
     "player_b_team": "BERNARD Club",
     "doubles": true
 }, {
-    "score_a": 2,
-    "score_b": 3,
+    "score_a": 3,
+    "score_b": 2,
     "player_a": "David LEŠUNDÁK\/Ing. Martin ĎURIŠIN",
     "player_b": "Ing. Karol GERGELY\/Tomáš BEKECS",
     "date": "7. kolo",
@@ -11513,8 +11968,8 @@ const matchResults = [{
     "player_b_team": "EUROCAST",
     "doubles": true
 }, {
-    "score_a": 0,
-    "score_b": 3,
+    "score_a": 3,
+    "score_b": 0,
     "player_a": "Ing. Ján PETRŽALA\/RNDr. Štefan VENDEL",
     "player_b": "Julius PILLÁR\/Patrík TIRPÁK",
     "date": "8. kolo",
@@ -11958,7 +12413,7 @@ const matchResults = [{
     "score_b": 3,
     "player_a": "Julius PILLÁR\/Patrík TIRPÁK",
     "player_b": "Ing. Matej KOVAČIK\/Martin SOĽÁR",
-    "date": "Unknown Round",
+    "date": "11. kolo",
     "player_a_team": "EUROCAST",
     "player_b_team": "SKP \"A\"",
     "doubles": true
@@ -11967,8 +12422,154 @@ const matchResults = [{
     "score_b": 3,
     "player_a": "Ing. Peter ŠEBEK st.\/Jozef HUDÁK",
     "player_b": "Ing. Miroslav KOSCELANSKÝ\/Peter JAKUBEC",
-    "date": "Unknown Round",
+    "date": "11. kolo",
     "player_a_team": "EUROCAST",
     "player_b_team": "SKP \"A\"",
     "doubles": true
-}];
+},
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Julius PILLÁR", // Corrected from Pillár
+        "player_b": "Peter JAKUBEC", // Corrected from Jakubec
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ing. Peter ŠEBEK st.", // Corrected from Šebek
+        "player_b": "Martin SOĽÁR", // Corrected from Soľár
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Patrík TIRPÁK", // Corrected from Tirpák
+        "player_b": "Ing. Miroslav KOSCELANSKÝ", // Corrected from Koscelanský
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Jozef ZAVACKÝ", // Corrected from Závacký
+        "player_b": "Ing. Matej KOVAČIK", // Corrected from Kováčik
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Julius PILLÁR", // Corrected from Pillár
+        "player_b": "Martin SOĽÁR", // Corrected from Soľár
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ing. Peter ŠEBEK st.", // Corrected from Šebek
+        "player_b": "Ing. Miroslav KOSCELANSKÝ", // Corrected from Koscelanský
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Patrík TIRPÁK", // Corrected from Tirpák
+        "player_b": "Ing. Matej KOVAČIK", // Corrected from Kováčik
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Jozef HUDÁK", // Corrected from Hudák
+        "player_b": "Peter JAKUBEC", // Corrected from Jakubec
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Julius PILLÁR", // Corrected from Pillár
+        "player_b": "Ing. Miroslav KOSCELANSKÝ", // Corrected from Koscelanský
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ing. Peter ŠEBEK st.", // Corrected from Šebek
+        "player_b": "Ing. Matej KOVAČIK", // Corrected from Kováčik
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Patrík TIRPÁK", // Corrected from Tirpák
+        "player_b": "Peter JAKUBEC", // Corrected from Jakubec
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Jozef ZAVACKÝ", // Corrected from Závacký
+        "player_b": "Martin SOĽÁR", // Corrected from Soľár
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Julius PILLÁR", // Corrected from Pillár
+        "player_b": "Ing. Matej KOVAČIK", // Corrected from Kováčik
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Ing. Peter ŠEBEK st.", // Corrected from Šebek
+        "player_b": "Peter JAKUBEC", // Corrected from Jakubec
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Patrík TIRPÁK", // Corrected from Tirpák
+        "player_b": "Martin SOĽÁR", // Corrected from Soľár
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Jozef HUDÁK", // Corrected from Hudák
+        "player_b": "Ing. Miroslav KOSCELANSKÝ", // Corrected from Koscelanský
+        "date": "11. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "SKP \"A\"",
+    },
+
+];
