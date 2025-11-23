@@ -1,30 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kosice Miniliga Rating</title>
+    <title>Košická Miniliga - Rebríček</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* --- Reset & Base --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 10px 0;
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
             background-color: #f9f9f9;
+        }
+
+        /* --- NAVIGATION MENU --- */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 3000;
+            background-color: #4A90E2;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .nav-title {
+            font-size: 1.4em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .nav-links a.active {
+            background-color: white;
+            color: #4A90E2;
+        }
+
+        /* --- Layout Container --- */
+        .container {
+            width: 100%;
+            overflow: visible;
+            padding-top: 20px;
         }
 
         h1 {
             text-align: center;
             color: #333;
-            margin: 15px 0 25px 0;
+            margin: 0 0 25px 0;
             font-size: 1.8em;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .container { width: 100%; overflow: visible; }
         .scroll-hint {
             display: none; font-size: 12px; color: #666; margin-bottom: 5px;
             font-style: italic; text-align: center; padding-right: 10px;
@@ -34,26 +90,33 @@
         .table-wrapper { width: 100%; position: relative; }
         table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; }
         th, td { padding: 12px 10px; border-bottom: 1px solid #eee; border-right: 1px solid #eee; text-align: center; white-space: nowrap; }
-        th { position: sticky; top: 0; background: #d3d3d3; z-index: 1000; font-weight: 600; box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2); }
+
+        /* --- STICKY HEADER --- */
+        th {
+            position: sticky;
+            top: 85px; /* Height of nav menu */
+            background: #d3d3d3;
+            z-index: 1000;
+            font-weight: 600;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
+        }
+
         thead { background: #d3d3d3; }
         #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
         #mainTableBody tr:hover td { background-color: #f0f0f0; }
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
-        /* --- MODAL (POPUP) STYLES --- */
+        /* --- MODAL STYLES --- */
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
-            z-index: 2000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden; /* Prevent body scroll behind */
-            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-            align-items: center;
-            justify-content: center;
+            z-index: 4000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center; justify-content: center;
         }
 
         .modal-content {
@@ -61,41 +124,24 @@
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 90%;
-            max-width: 1000px;
-            height: 90%; /* Occupy 90% of screen height */
+            width: 90%; max-width: 1000px;
+            height: 90%; /* Fixed height for scroll */
             border-radius: 8px;
-            overflow-y: auto; /* Scroll inside the popup */
+            overflow-y: auto; /* Enable scroll inside popup */
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             position: relative;
         }
 
-        /* Close Button */
         .close-btn {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            position: absolute;
-            right: 20px;
-            top: 10px;
-            cursor: pointer;
-            z-index: 2001;
+            color: #aaa; float: right; font-size: 30px; font-weight: bold;
+            position: absolute; right: 20px; top: 10px; cursor: pointer; z-index: 4001;
         }
+        .close-btn:hover { color: black; }
 
-        .close-btn:hover,
-        .close-btn:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* --- INSIDE MODAL STYLES --- */
-
-        /* SELECTED PLAYER HEADER */
+        /* --- INSIDE MODAL --- */
         #selectedPlayerHeader {
             text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee;
-            margin-top: 10px; /* Space for close button */
+            margin-top: 15px;
         }
         .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
         .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
@@ -115,7 +161,7 @@
         .pie-row-title {
             width: 100%; text-align: center; font-size: 0.9em; font-weight: bold;
             color: #888; text-transform: uppercase; letter-spacing: 1px;
-            border-bottom: 1px solid #eee; line-height: 0.1em; margin: 20px 0;
+            border-bottom: 1px solid #eee; line-height: 0.1em; margin: 30px 0 20px 0;
         }
         .pie-row-title span { background:#fff; padding:0 10px; }
 
@@ -147,7 +193,7 @@
         .border-green { border-top: 4px solid #28a745; } .border-red { border-top: 4px solid #dc3545; }
 
         /* HISTORY LIST */
-        #historyContainer { width: 100%; }
+        #historyContainer { width: 100%; margin-bottom: 30px; }
         .history-section { border: 2px solid #4A90E2; padding: 0; border-radius: 5px; background: #fff; overflow: hidden; }
         .history-title { font-size: 1.2em; font-weight: bold; padding: 15px; color: white; background-color: #4A90E2; margin: 0; text-align: center; }
         .history-item { padding: 15px; border-bottom: 1px solid #eee; font-size: 14px; color: #333; display: flex; flex-direction: column; }
@@ -168,12 +214,9 @@
            MOBILE RESPONSIVENESS
            ========================================= */
         @media screen and (max-width: 768px) {
-            h1 { font-size: 1.4em; margin: 10px 0 20px 0; }
-            .scroll-hint { display: block; }
-
-            /* Fullscreen Modal on Mobile */
-            .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; max-height: none; border: none; }
+            .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
             .close-btn { font-size: 35px; right: 15px; top: 5px; }
+            .scroll-hint { display: block; }
 
             #chartContainerWrapper { height: 300px; }
             .pie-row-wrapper { flex-direction: column; }
@@ -200,29 +243,38 @@
 </head>
 <body>
 
+<nav class="top-nav">
+    <div class="nav-title">Košická Miniliga</div>
+    <div class="nav-links">
+        <a href="results.html">Výsledky</a>
+        <a href="table.html">Tabuľka</a>
+        <a href="index.html" class="active">Rebríček</a>
+    </div>
+</nav>
+
 <div class="container">
 
-    <h1>Kosice Miniliga Rating</h1>
+    <h1>Aktuálny Rebríček</h1>
 
-    <div class="scroll-hint">↔ Swipe table to see more stats</div>
+    <div class="scroll-hint">↔ Posuňte tabuľku pre viac štatistík</div>
     <div class="table-wrapper">
         <table id="mainTable">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Player</th>
+                <th>Hráč</th>
                 <th>Rating</th>
                 <th>Max Rating</th>
                 <th>Min Rating</th>
-                <th>Total Zápasy</th>
+                <th>Zápasy</th>
                 <th>Výhry</th>
                 <th>Prehry</th>
                 <th>Sety</th>
-                <th>Úspešn. Zápasy</th>
-                <th>Úspešn. Sety</th>
-                <th>Mužstvo</th>
-                <th>Best win</th>
-                <th>Last played</th>
+                <th>Úspešnosť Zápasy</th>
+                <th>Úspešnosť Sety</th>
+                <th>Tím</th>
+                <th>Naj Výhra</th>
+                <th>Naposledy Hral</th>
             </tr>
             </thead>
             <tbody id="mainTableBody"></tbody>
@@ -244,11 +296,11 @@
             <canvas id="ratingChart"></canvas>
         </div>
 
-        <div class="pie-row-title"><span>Singles Statistics</span></div>
+        <div class="pie-row-title"><span>Štatistiky Dvojhry</span></div>
         <div class="pie-row-wrapper">
             <div class="pie-card">
                 <div class="pie-header">
-                    <div class="pie-title">Singles Matches</div>
+                    <div class="pie-title">Zápasy (Dvojhra)</div>
                     <div class="pie-total-val" id="matchesTotalVal">0</div>
                 </div>
                 <div class="pie-canvas-holder"><canvas id="matchesChart"></canvas></div>
@@ -259,7 +311,7 @@
             </div>
             <div class="pie-card">
                 <div class="pie-header">
-                    <div class="pie-title">Singles Sets</div>
+                    <div class="pie-title">Sety (Dvojhra)</div>
                     <div class="pie-total-val" id="setsTotalVal">0</div>
                 </div>
                 <div class="pie-canvas-holder"><canvas id="setsChart"></canvas></div>
@@ -270,11 +322,11 @@
             </div>
         </div>
 
-        <div class="pie-row-title"><span>Doubles Statistics</span></div>
+        <div class="pie-row-title"><span>Štatistiky Štvorhry</span></div>
         <div class="pie-row-wrapper">
             <div class="pie-card">
                 <div class="pie-header">
-                    <div class="pie-title">Doubles Matches</div>
+                    <div class="pie-title">Zápasy (Štvorhra)</div>
                     <div class="pie-total-val" id="dMatchesTotalVal">0</div>
                 </div>
                 <div class="pie-canvas-holder"><canvas id="dMatchesChart"></canvas></div>
@@ -285,7 +337,7 @@
             </div>
             <div class="pie-card">
                 <div class="pie-header">
-                    <div class="pie-title">Doubles Sets</div>
+                    <div class="pie-title">Sety (Štvorhra)</div>
                     <div class="pie-total-val" id="dSetsTotalVal">0</div>
                 </div>
                 <div class="pie-canvas-holder"><canvas id="dSetsChart"></canvas></div>
@@ -298,11 +350,11 @@
 
         <div id="statsHighlightsWrapper">
             <div class="stat-card border-green">
-                <div class="stat-label">Best Win (Singles)</div>
+                <div class="stat-label">Najlepšia Výhra</div>
                 <div id="bestWinContainer"><div class="stat-value" id="bestWinName"></div><div class="stat-rating" id="bestWinRating"></div></div>
             </div>
             <div class="stat-card border-red">
-                <div class="stat-label">Worst Loss (Singles)</div>
+                <div class="stat-label">Najhoršia Prehra</div>
                 <div id="worstLossContainer"><div class="stat-value" id="worstLossName"></div><div class="stat-rating" id="worstLossRating"></div></div>
             </div>
         </div>
@@ -333,9 +385,7 @@
                 rating: initialRating,
                 matches: 0, wins: 0, losses: 0,
                 setsWin: 0, setsLose: 0,
-                // Doubles Stats
                 dMatches: 0, dWins: 0, dLosses: 0, dSetsWin: 0, dSetsLose: 0,
-
                 maxRating: initialRating, minRating: initialRating,
                 team: 'N/A', lastPlayed: 'N/A',
                 bestWinOpponent: null, bestWinRating: -Infinity,
@@ -468,7 +518,7 @@
             const tr = document.createElement('tr');
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
             if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
-            tr.onclick = () => openModal(p.name); // Changed to openModal
+            tr.onclick = () => openModal(p.name);
 
             const successMatches = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(2) : 0;
             const totalSets = p.setsWin + p.setsLose;
@@ -501,11 +551,9 @@
         activePlayerName = name;
         const p = players[name];
 
-        // Populate Header
         document.getElementById('headerName').innerText = p.name;
         document.getElementById('headerTeam').innerText = p.team || "";
 
-        // Populate Best/Worst
         const setStat = (idName, idRate, oppName, oppRate) => {
             const elName = document.getElementById(idName);
             const elRate = document.getElementById(idRate);
@@ -513,16 +561,14 @@
                 elName.innerText = oppName; elName.className = "stat-value";
                 elRate.innerText = `Rating: ${oppRate.toFixed(2)}`;
             } else {
-                elName.innerText = "None"; elName.className = "stat-value stat-none"; elRate.innerText = "";
+                elName.innerText = "-"; elName.className = "stat-value stat-none"; elRate.innerText = "";
             }
         };
         setStat('bestWinName', 'bestWinRating', p.bestWinOpponent, p.bestWinRating);
         setStat('worstLossName', 'worstLossRating', p.worstLossOpponent, p.worstLossRating);
 
-        // Show Modal
         modal.style.display = "flex";
 
-        // Render Content
         renderLineChart(name);
         renderPieCharts(name, 'matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'singles');
         renderPieCharts(name, 'dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'doubles');
@@ -534,7 +580,6 @@
         activePlayerName = null;
     }
 
-    // Close when clicking outside
     window.onclick = function(event) {
         if (event.target == modal) {
             closeModal();
@@ -553,12 +598,12 @@
     function renderHistory(name) {
         const p = players[name];
         const container = document.getElementById('historyContainer');
-        let html = `<div class='history-section'><div class='history-title'>Match History: ${p.name}</div><div class='history-list'>`;
+        let html = `<div class='history-section'><div class='history-title'>História Zápasov: ${p.name}</div><div class='history-list'>`;
 
         p.matchDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
             const scoreColorClass = isWin ? 'win-text' : 'loss-text';
-            const badge = m.isDoubles ? `<span class="doubles-badge">DOUBLES</span>` : ``;
+            const badge = m.isDoubles ? `<span class="doubles-badge">ŠTVORHRA</span>` : ``;
 
             let myInfoHtml, oppInfoHtml;
 
@@ -610,7 +655,7 @@
         if (chartRefs[matchCanvasId]) chartRefs[matchCanvasId].destroy();
         chartRefs[matchCanvasId] = new Chart(ctxM, {
             type: 'doughnut',
-            data: { labels: ['Win','Loss'], datasets: [{ data: [wins, losses], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
+            data: { labels: ['Výhry','Prehry'], datasets: [{ data: [wins, losses], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
 
@@ -618,7 +663,7 @@
         if (chartRefs[setCanvasId]) chartRefs[setCanvasId].destroy();
         chartRefs[setCanvasId] = new Chart(ctxS, {
             type: 'doughnut',
-            data: { labels: ['Win','Loss'], datasets: [{ data: [setsWin, setsLose], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
+            data: { labels: ['Výhry','Prehry'], datasets: [{ data: [setsWin, setsLose], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
     }
@@ -642,7 +687,7 @@
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
-                scales: { x: { title: { display: true, text: 'Match Event' }, ticks: { autoSkip: true, maxTicksLimit: 10 } }, y: { title: { display: true, text: 'Rating' } } },
+                scales: { x: { title: { display: true, text: 'Zápas' }, ticks: { autoSkip: true, maxTicksLimit: 10 } }, y: { title: { display: true, text: 'Rating' } } },
                 plugins: { legend: { display: true } }
             }
         });
