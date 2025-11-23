@@ -78,7 +78,19 @@
             text-align: left; text-transform: uppercase;
         }
         .match-content { text-align: center; display: flex; flex-direction: column; gap: 4px; }
-        .player-row { font-size: 1.1em; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5px; }
+
+        .player-row {
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            line-height: 1.4;
+        }
+        /* Bold the names */
+        .player-name-span { font-weight: 600; }
+
         .score-row { font-size: 1.6em; font-weight: 900; margin: 2px 0; letter-spacing: 2px; }
         .rating-current { font-weight: bold; color: #444; }
         .diff-val { font-size: 0.75em; vertical-align: super; font-weight: bold; margin-left: 2px; }
@@ -318,9 +330,7 @@
                 rating: initialRating,
                 matches: 0, wins: 0, losses: 0,
                 setsWin: 0, setsLose: 0,
-                // Doubles Stats
                 dMatches: 0, dWins: 0, dLosses: 0, dSetsWin: 0, dSetsLose: 0,
-
                 maxRating: initialRating, minRating: initialRating,
                 team: 'N/A', lastPlayed: 'N/A',
                 bestWinOpponent: null, bestWinRating: -Infinity,
@@ -331,33 +341,34 @@
     }
 
     function processMatch(scoreA, scoreB, playerA, playerB, match, isDoubles) {
-        // Handle multiple players in strings for doubles (split by /)
+        // Split potential multiple players
         const playersA = playerA.split('/').map(n => n.trim());
         const playersB = playerB.split('/').map(n => n.trim());
 
-        // Initialize all players found
         playersA.forEach(p => initPlayer(p));
         playersB.forEach(p => initPlayer(p));
 
-        // Set Team & Date for all
         playersA.forEach(p => { players[p].team = match.player_a_team; players[p].lastPlayed = match.date; });
         playersB.forEach(p => { players[p].team = match.player_b_team; players[p].lastPlayed = match.date; });
 
         if (isDoubles) {
-            // --- DOUBLES LOGIC (No Rating Change) ---
+            // --- DOUBLES LOGIC ---
+            // We store the *Full* pair name as the 'display name' in history
             playersA.forEach(p => {
                 const playerObj = players[p];
                 playerObj.dMatches++;
                 playerObj.dSetsWin += scoreA; playerObj.dSetsLose += scoreB;
-                if (scoreA > scoreB) playerObj.dWins++;
-                else if (scoreB > scoreA) playerObj.dLosses++;
+                if (scoreA > scoreB) playerObj.dWins++; else if (scoreB > scoreA) playerObj.dLosses++;
 
                 playerObj.matchDetails.push({
-                    date: match.date, opponent: playerB, opponent_team: match.player_b_team,
+                    date: match.date,
+                    opponent: playerB, // Full Opponent String
+                    opponent_team: match.player_b_team,
                     score_own: scoreA, score_opp: scoreB,
                     rating_after: playerObj.rating, opp_rating_after: 0,
                     delta_own: 0, delta_opp: 0,
-                    isDoubles: true
+                    isDoubles: true,
+                    own_name_display: playerA // Full Own Pair String
                 });
             });
 
@@ -365,15 +376,17 @@
                 const playerObj = players[p];
                 playerObj.dMatches++;
                 playerObj.dSetsWin += scoreB; playerObj.dSetsLose += scoreA;
-                if (scoreB > scoreA) playerObj.dWins++;
-                else if (scoreA > scoreB) playerObj.dLosses++;
+                if (scoreB > scoreA) playerObj.dWins++; else if (scoreA > scoreB) playerObj.dLosses++;
 
                 playerObj.matchDetails.push({
-                    date: match.date, opponent: playerA, opponent_team: match.player_a_team,
+                    date: match.date,
+                    opponent: playerA,
+                    opponent_team: match.player_a_team,
                     score_own: scoreB, score_opp: scoreA,
                     rating_after: playerObj.rating, opp_rating_after: 0,
                     delta_own: 0, delta_opp: 0,
-                    isDoubles: true
+                    isDoubles: true,
+                    own_name_display: playerB
                 });
             });
 
@@ -395,7 +408,6 @@
             const Ka = getKFactor(objA.matches);
             const Kb = getKFactor(objB.matches);
 
-            // Best Win / Worst Loss
             if (scoreA > scoreB) {
                 if (objB.rating > objA.bestWinRating) { objA.bestWinOpponent = pB; objA.bestWinRating = objB.rating; }
                 if (objA.rating < objB.worstLossRating) { objB.worstLossOpponent = pA; objB.worstLossRating = objA.rating; }
@@ -412,7 +424,6 @@
             objA.rating = newRa; objB.rating = newRb;
             objA.history[match.date] = newRa; objB.history[match.date] = newRb;
 
-            // Stats
             objA.maxRating = Math.max(newRa, objA.maxRating); objA.minRating = Math.min(newRa, objA.minRating);
             objB.maxRating = Math.max(newRb, objB.maxRating); objB.minRating = Math.min(newRb, objB.minRating);
 
@@ -426,13 +437,15 @@
                 date: match.date, opponent: pB, opponent_team: match.player_b_team,
                 score_own: scoreA, score_opp: scoreB,
                 rating_after: newRa, opp_rating_after: newRb,
-                delta_own: deltaA, delta_opp: deltaB, isDoubles: false
+                delta_own: deltaA, delta_opp: deltaB, isDoubles: false,
+                own_name_display: pA // Single name
             });
             objB.matchDetails.push({
                 date: match.date, opponent: pA, opponent_team: match.player_a_team,
                 score_own: scoreB, score_opp: scoreA,
                 rating_after: newRb, opp_rating_after: newRa,
-                delta_own: deltaB, delta_opp: deltaA, isDoubles: false
+                delta_own: deltaB, delta_opp: deltaA, isDoubles: false,
+                own_name_display: pB
             });
         }
     }
@@ -444,16 +457,12 @@
 
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
 
-    // =================================================================
-    // RENDERING
-    // =================================================================
     let chartRefs = {};
     let activePlayerName = null;
 
     function renderTable() {
         const tbody = document.getElementById('mainTableBody');
         tbody.innerHTML = '';
-
         sortedPlayers.forEach((p, index) => {
             const tr = document.createElement('tr');
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
@@ -479,8 +488,7 @@
                 <td>${successSets}</td>
                 <td>${p.team}</td>
                 <td>${bestWinStr}</td>
-                <td>${p.lastPlayed}</td>
-            `;
+                <td>${p.lastPlayed}</td>`;
             tbody.appendChild(tr);
         });
     }
@@ -507,7 +515,6 @@
             document.getElementById('headerName').innerText = p.name;
             document.getElementById('headerTeam').innerText = p.team || "";
 
-            // Best/Worst
             const setStat = (idName, idRate, oppName, oppRate) => {
                 const elName = document.getElementById(idName);
                 const elRate = document.getElementById(idRate);
@@ -535,7 +542,7 @@
     }
 
     function getDiffHtml(delta, isDoubles) {
-        if (isDoubles) return ``; // No rating change in doubles
+        if (isDoubles) return ``;
         if (Math.abs(delta) < 0.01) return `<span class="diff-val diff-neu">-</span>`;
         const isPos = delta > 0;
         const arrow = isPos ? '▲' : '▼';
@@ -548,24 +555,34 @@
         const container = document.getElementById('historyContainer');
         let html = `<div class='history-section'><div class='history-title'>Match History: ${p.name}</div><div class='history-list'>`;
 
-        // Reverse copy to show newest first? Or keep original order? Current: Original order.
         p.matchDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
             const scoreColorClass = isWin ? 'win-text' : 'loss-text';
             const badge = m.isDoubles ? `<span class="doubles-badge">DOUBLES</span>` : ``;
-            const oppRatingHtml = m.isDoubles ? `` : `<span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
-            const myRatingHtml = m.isDoubles ? `<span class="rating-current">-</span>` : `<span class="rating-current">${m.rating_after.toFixed(2)}</span>`;
+
+            // Logic for displaying rating info
+            let myInfoHtml, oppInfoHtml;
+
+            if (m.isDoubles) {
+                // Doubles: Full Pair Name + Team, NO Rating
+                myInfoHtml = `<span class="player-name-span">${m.own_name_display}</span> <span>(${p.team})</span>`;
+                oppInfoHtml = `<span class="player-name-span">${m.opponent}</span> <span>(${m.opponent_team})</span>`;
+            } else {
+                // Singles: Name + Team + Rating
+                myInfoHtml = `<span class="player-name-span">${p.name}</span> <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>`;
+                oppInfoHtml = `<span class="player-name-span">${m.opponent}</span> <span>(${m.opponent_team}, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>)</span>`;
+            }
 
             html += `
                 <div class="history-item">
                     <div class="match-date">${m.date} ${badge}</div>
                     <div class="match-content">
                         <div class="player-row">
-                            <span>${p.name}</span><span>(${p.team}, ${myRatingHtml})</span>${getDiffHtml(m.delta_own, m.isDoubles)}
+                            ${myInfoHtml} ${getDiffHtml(m.delta_own, m.isDoubles)}
                         </div>
                         <div class="score-row ${scoreColorClass}">${m.score_own}:${m.score_opp}</div>
                         <div class="player-row">
-                            <span>${m.opponent}</span><span>(${m.opponent_team}, ${oppRatingHtml})</span>${getDiffHtml(m.delta_opp, m.isDoubles)}
+                            ${oppInfoHtml} ${getDiffHtml(m.delta_opp, m.isDoubles)}
                         </div>
                     </div>
                 </div>`;
@@ -575,10 +592,8 @@
     }
 
     function renderPieCharts(name, matchCanvasId, setCanvasId, matches, wins, losses, setsWin, setsLose, prefix) {
-        // Calculate Pcts
         const getPct = (part, total) => total > 0 ? ((part/total)*100).toFixed(1) : 0;
 
-        // Correct Logic for IDs
         let mBase = (prefix === 'doubles') ? 'dMatches' : 'matches';
         let sBase = (prefix === 'doubles') ? 'dSets' : 'sets';
 
@@ -594,7 +609,6 @@
         document.getElementById(sBase + 'WinsPct').innerText = `(${getPct(setsWin, setsWin + setsLose)}%)`;
         document.getElementById(sBase + 'LossPct').innerText = `(${getPct(setsLose, setsWin + setsLose)}%)`;
 
-        // Render Canvas
         const ctxM = document.getElementById(matchCanvasId).getContext('2d');
         if (chartRefs[matchCanvasId]) chartRefs[matchCanvasId].destroy();
         chartRefs[matchCanvasId] = new Chart(ctxM, {
