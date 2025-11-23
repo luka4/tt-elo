@@ -41,7 +41,7 @@
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
-        /* --- SELECTED PLAYER HEADER (NEW) --- */
+        /* --- SELECTED PLAYER HEADER --- */
         #selectedPlayerHeader {
             display: none;
             text-align: center;
@@ -85,6 +85,12 @@
         .win-text { color: #28a745; } .loss-text { color: #dc3545; }
         .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
 
+        .doubles-badge {
+            background-color: #ff9800; color: white; padding: 2px 6px;
+            border-radius: 4px; font-size: 0.6em; margin-left: 8px;
+            vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
         /* --- CHART CONTAINERS --- */
         #chartContainerWrapper {
             display: none; position: relative; height: 500px; width: 96%;
@@ -93,10 +99,16 @@
         }
 
         /* --- PIE CHARTS SECTION --- */
-        #pieChartsWrapper {
+        .pie-row-wrapper {
             display: none; justify-content: center; gap: 20px; width: 96%;
             margin: 0 auto 20px auto; max-width: 800px;
         }
+        .pie-row-title {
+            display: none; width: 96%; max-width: 800px; margin: 0 auto 10px auto;
+            text-align: center; font-size: 0.9em; font-weight: bold; color: #888; text-transform: uppercase; letter-spacing: 1px;
+            border-bottom: 1px solid #eee; line-height: 0.1em;
+        }
+        .pie-row-title span { background:#f9f9f9; padding:0 10px; }
 
         .pie-card {
             flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px;
@@ -129,7 +141,7 @@
         .val-green { color: #28a745; }
         .val-red { color: #dc3545; }
 
-        /* --- BEST/WORST STATS SECTION (NEW) --- */
+        /* --- BEST/WORST STATS SECTION --- */
         #statsHighlightsWrapper {
             display: none;
             justify-content: center; gap: 20px; width: 96%;
@@ -156,7 +168,7 @@
             h1 { font-size: 1.4em; margin: 10px 0 20px 0; }
             .scroll-hint { display: block; }
             #chartContainerWrapper { height: 300px; }
-            #pieChartsWrapper { flex-direction: column; }
+            .pie-row-wrapper { flex-direction: column; }
             #statsHighlightsWrapper { flex-direction: column; gap: 10px; }
 
             table { font-size: 12px; }
@@ -193,74 +205,66 @@
         <canvas id="ratingChart"></canvas>
     </div>
 
-    <div id="pieChartsWrapper">
+    <div id="pieHeaderSingles" class="pie-row-title"><span>Singles Statistics</span></div>
+    <div id="pieChartsWrapper" class="pie-row-wrapper">
         <div class="pie-card">
             <div class="pie-header">
-                <div class="pie-title">Total Matches (Zápasy)</div>
+                <div class="pie-title">Singles Matches</div>
                 <div class="pie-total-val" id="matchesTotalVal">0</div>
             </div>
-            <div class="pie-canvas-holder">
-                <canvas id="matchesChart"></canvas>
-            </div>
+            <div class="pie-canvas-holder"><canvas id="matchesChart"></canvas></div>
             <div class="custom-legend">
-                <div class="legend-row">
-                    <span class="legend-label">Výhry</span>
-                    <div>
-                        <span class="legend-val val-green" id="matchesWinsVal">0</span>
-                        <span class="pct-text" id="matchesWinsPct">(0%)</span>
-                    </div>
-                </div>
-                <div class="legend-row">
-                    <span class="legend-label">Prehry</span>
-                    <div>
-                        <span class="legend-val val-red" id="matchesLossVal">0</span>
-                        <span class="pct-text" id="matchesLossPct">(0%)</span>
-                    </div>
-                </div>
+                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="matchesWinsVal">0</span><span class="pct-text" id="matchesWinsPct">(0%)</span></div></div>
+                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="matchesLossVal">0</span><span class="pct-text" id="matchesLossPct">(0%)</span></div></div>
             </div>
         </div>
-
         <div class="pie-card">
             <div class="pie-header">
-                <div class="pie-title">Total Sets (Sety)</div>
+                <div class="pie-title">Singles Sets</div>
                 <div class="pie-total-val" id="setsTotalVal">0</div>
             </div>
-            <div class="pie-canvas-holder">
-                <canvas id="setsChart"></canvas>
-            </div>
+            <div class="pie-canvas-holder"><canvas id="setsChart"></canvas></div>
             <div class="custom-legend">
-                <div class="legend-row">
-                    <span class="legend-label">Výhry</span>
-                    <div>
-                        <span class="legend-val val-green" id="setsWinsVal">0</span>
-                        <span class="pct-text" id="setsWinsPct">(0%)</span>
-                    </div>
-                </div>
-                <div class="legend-row">
-                    <span class="legend-label">Prehry</span>
-                    <div>
-                        <span class="legend-val val-red" id="setsLossVal">0</span>
-                        <span class="pct-text" id="setsLossPct">(0%)</span>
-                    </div>
-                </div>
+                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="setsWinsVal">0</span><span class="pct-text" id="setsWinsPct">(0%)</span></div></div>
+                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="setsLossVal">0</span><span class="pct-text" id="setsLossPct">(0%)</span></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pieHeaderDoubles" class="pie-row-title"><span>Doubles Statistics</span></div>
+    <div id="pieChartsDoublesWrapper" class="pie-row-wrapper">
+        <div class="pie-card">
+            <div class="pie-header">
+                <div class="pie-title">Doubles Matches</div>
+                <div class="pie-total-val" id="dMatchesTotalVal">0</div>
+            </div>
+            <div class="pie-canvas-holder"><canvas id="dMatchesChart"></canvas></div>
+            <div class="custom-legend">
+                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dMatchesWinsVal">0</span><span class="pct-text" id="dMatchesWinsPct">(0%)</span></div></div>
+                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dMatchesLossVal">0</span><span class="pct-text" id="dMatchesLossPct">(0%)</span></div></div>
+            </div>
+        </div>
+        <div class="pie-card">
+            <div class="pie-header">
+                <div class="pie-title">Doubles Sets</div>
+                <div class="pie-total-val" id="dSetsTotalVal">0</div>
+            </div>
+            <div class="pie-canvas-holder"><canvas id="dSetsChart"></canvas></div>
+            <div class="custom-legend">
+                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dSetsWinsVal">0</span><span class="pct-text" id="dSetsWinsPct">(0%)</span></div></div>
+                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dSetsLossVal">0</span><span class="pct-text" id="dSetsLossPct">(0%)</span></div></div>
             </div>
         </div>
     </div>
 
     <div id="statsHighlightsWrapper">
         <div class="stat-card border-green">
-            <div class="stat-label">Best Win (Najcennejšia Výhra)</div>
-            <div id="bestWinContainer">
-                <div class="stat-value" id="bestWinName"></div>
-                <div class="stat-rating" id="bestWinRating"></div>
-            </div>
+            <div class="stat-label">Best Win (Singles)</div>
+            <div id="bestWinContainer"><div class="stat-value" id="bestWinName"></div><div class="stat-rating" id="bestWinRating"></div></div>
         </div>
         <div class="stat-card border-red">
-            <div class="stat-label">Worst Loss (Najhoršia Prehra)</div>
-            <div id="worstLossContainer">
-                <div class="stat-value" id="worstLossName"></div>
-                <div class="stat-rating" id="worstLossRating"></div>
-            </div>
+            <div class="stat-label">Worst Loss (Singles)</div>
+            <div id="worstLossContainer"><div class="stat-value" id="worstLossName"></div><div class="stat-rating" id="worstLossRating"></div></div>
         </div>
     </div>
 
@@ -294,9 +298,6 @@
 </div>
 <script src="matchData.js"></script>
 <script>
-    // =================================================================
-    // 2. CONFIGURATION & LOGIC
-    // =================================================================
     const initialRating = 100;
     const players = {};
 
@@ -309,117 +310,144 @@
         return 10;
     }
 
-    function initPlayer(name) {
+    function initPlayer(nameRaw) {
+        const name = nameRaw.trim();
         if (!players[name]) {
             players[name] = {
-                name: name, rating: initialRating, matches: 0, wins: 0, losses: 0,
-                setsWin: 0, setsLose: 0, maxRating: initialRating, minRating: initialRating,
+                name: name,
+                rating: initialRating,
+                matches: 0, wins: 0, losses: 0,
+                setsWin: 0, setsLose: 0,
+                // Doubles Stats
+                dMatches: 0, dWins: 0, dLosses: 0, dSetsWin: 0, dSetsLose: 0,
+
+                maxRating: initialRating, minRating: initialRating,
                 team: 'N/A', lastPlayed: 'N/A',
                 bestWinOpponent: null, bestWinRating: -Infinity,
-                worstLossOpponent: null, worstLossRating: Infinity, // Added Worst Loss
+                worstLossOpponent: null, worstLossRating: Infinity,
                 history: {}, matchDetails: []
             };
         }
     }
 
+    function processMatch(scoreA, scoreB, playerA, playerB, match, isDoubles) {
+        // Handle multiple players in strings for doubles (split by /)
+        const playersA = playerA.split('/').map(n => n.trim());
+        const playersB = playerB.split('/').map(n => n.trim());
+
+        // Initialize all players found
+        playersA.forEach(p => initPlayer(p));
+        playersB.forEach(p => initPlayer(p));
+
+        // Set Team & Date for all
+        playersA.forEach(p => { players[p].team = match.player_a_team; players[p].lastPlayed = match.date; });
+        playersB.forEach(p => { players[p].team = match.player_b_team; players[p].lastPlayed = match.date; });
+
+        if (isDoubles) {
+            // --- DOUBLES LOGIC (No Rating Change) ---
+            playersA.forEach(p => {
+                const playerObj = players[p];
+                playerObj.dMatches++;
+                playerObj.dSetsWin += scoreA; playerObj.dSetsLose += scoreB;
+                if (scoreA > scoreB) playerObj.dWins++;
+                else if (scoreB > scoreA) playerObj.dLosses++;
+
+                playerObj.matchDetails.push({
+                    date: match.date, opponent: playerB, opponent_team: match.player_b_team,
+                    score_own: scoreA, score_opp: scoreB,
+                    rating_after: playerObj.rating, opp_rating_after: 0,
+                    delta_own: 0, delta_opp: 0,
+                    isDoubles: true
+                });
+            });
+
+            playersB.forEach(p => {
+                const playerObj = players[p];
+                playerObj.dMatches++;
+                playerObj.dSetsWin += scoreB; playerObj.dSetsLose += scoreA;
+                if (scoreB > scoreA) playerObj.dWins++;
+                else if (scoreA > scoreB) playerObj.dLosses++;
+
+                playerObj.matchDetails.push({
+                    date: match.date, opponent: playerA, opponent_team: match.player_a_team,
+                    score_own: scoreB, score_opp: scoreA,
+                    rating_after: playerObj.rating, opp_rating_after: 0,
+                    delta_own: 0, delta_opp: 0,
+                    isDoubles: true
+                });
+            });
+
+        } else {
+            // --- SINGLES LOGIC ---
+            const pA = playersA[0];
+            const pB = playersB[0];
+            const objA = players[pA];
+            const objB = players[pB];
+
+            const N = scoreA + scoreB;
+            const Ra = objA.rating;
+            const Rb = objB.rating;
+
+            objA.matches++; objB.matches++;
+
+            const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
+            const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
+            const Ka = getKFactor(objA.matches);
+            const Kb = getKFactor(objB.matches);
+
+            // Best Win / Worst Loss
+            if (scoreA > scoreB) {
+                if (objB.rating > objA.bestWinRating) { objA.bestWinOpponent = pB; objA.bestWinRating = objB.rating; }
+                if (objA.rating < objB.worstLossRating) { objB.worstLossOpponent = pA; objB.worstLossRating = objA.rating; }
+            } else if (scoreB > scoreA) {
+                if (objA.rating > objB.bestWinRating) { objB.bestWinOpponent = pA; objB.bestWinRating = objA.rating; }
+                if (objB.rating < objA.worstLossRating) { objA.worstLossOpponent = pB; objA.worstLossRating = objB.rating; }
+            }
+
+            const newRa = Ra + Ka * (scoreA - Ea);
+            const newRb = Rb + Kb * (scoreB - Eb);
+            const deltaA = newRa - Ra;
+            const deltaB = newRb - Rb;
+
+            objA.rating = newRa; objB.rating = newRb;
+            objA.history[match.date] = newRa; objB.history[match.date] = newRb;
+
+            // Stats
+            objA.maxRating = Math.max(newRa, objA.maxRating); objA.minRating = Math.min(newRa, objA.minRating);
+            objB.maxRating = Math.max(newRb, objB.maxRating); objB.minRating = Math.min(newRb, objB.minRating);
+
+            if (scoreA > scoreB) objA.wins++; else if(scoreB > scoreA) objA.losses++;
+            if (scoreB > scoreA) objB.wins++; else if(scoreA > scoreB) objB.losses++;
+
+            objA.setsWin += scoreA; objA.setsLose += scoreB;
+            objB.setsWin += scoreB; objB.setsLose += scoreA;
+
+            objA.matchDetails.push({
+                date: match.date, opponent: pB, opponent_team: match.player_b_team,
+                score_own: scoreA, score_opp: scoreB,
+                rating_after: newRa, opp_rating_after: newRb,
+                delta_own: deltaA, delta_opp: deltaB, isDoubles: false
+            });
+            objB.matchDetails.push({
+                date: match.date, opponent: pA, opponent_team: match.player_a_team,
+                score_own: scoreB, score_opp: scoreA,
+                rating_after: newRb, opp_rating_after: newRa,
+                delta_own: deltaB, delta_opp: deltaA, isDoubles: false
+            });
+        }
+    }
+
     matchResults.forEach(match => {
-        if (match.doubles) {
-            return;
-        }
-        if (match.player_a === 'WO' || match.player_b === 'WO') {
-            return;
-        }
-        const scoreA = parseInt(match.score_a);
-        const scoreB = parseInt(match.score_b);
-        const playerA = match.player_a;
-        const playerB = match.player_b;
-        const date = match.date;
-        const teamA = match.player_a_team;
-        const teamB = match.player_b_team;
-
-        initPlayer(playerA); initPlayer(playerB);
-        players[playerA].team = teamA; players[playerA].lastPlayed = date;
-        players[playerB].team = teamB; players[playerB].lastPlayed = date;
-
-        const N = scoreA + scoreB;
-        const Ra = players[playerA].rating;
-        const Rb = players[playerB].rating;
-        players[playerA].matches++; players[playerB].matches++;
-
-        const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
-        const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
-        const Ka = getKFactor(players[playerA].matches);
-        const Kb = getKFactor(players[playerB].matches);
-
-        // --- Best Win / Worst Loss Logic ---
-        if (scoreA > scoreB) {
-            // Player A won
-            if (players[playerB].rating > players[playerA].bestWinRating) {
-                players[playerA].bestWinOpponent = playerB;
-                players[playerA].bestWinRating = players[playerB].rating;
-            }
-            // Player B lost
-            if (players[playerA].rating < players[playerB].worstLossRating) {
-                players[playerB].worstLossOpponent = playerA;
-                players[playerB].worstLossRating = players[playerA].rating;
-            }
-        }
-        if (scoreB > scoreA) {
-            // Player B won
-            if (players[playerA].rating > players[playerB].bestWinRating) {
-                players[playerB].bestWinOpponent = playerA;
-                players[playerB].bestWinRating = players[playerA].rating;
-            }
-            // Player A lost
-            if (players[playerB].rating < players[playerA].worstLossRating) {
-                players[playerA].worstLossOpponent = playerB;
-                players[playerA].worstLossRating = players[playerB].rating;
-            }
-        }
-
-        const newRa = Ra + Ka * (scoreA - Ea);
-        const newRb = Rb + Kb * (scoreB - Eb);
-        const deltaA = newRa - Ra;
-        const deltaB = newRb - Rb;
-
-        players[playerA].rating = newRa; players[playerB].rating = newRb;
-        players[playerA].history[date] = newRa; players[playerB].history[date] = newRb;
-
-        players[playerA].maxRating = Math.max(players[playerA].rating, players[playerA].maxRating);
-        players[playerB].maxRating = Math.max(players[playerB].rating, players[playerB].maxRating);
-        players[playerA].minRating = Math.min(players[playerA].rating, players[playerA].minRating);
-        players[playerB].minRating = Math.min(players[playerB].rating, players[playerB].minRating);
-
-        players[playerA].wins += (scoreA > scoreB ? 1 : 0);
-        players[playerB].wins += (scoreB > scoreA ? 1 : 0);
-        players[playerA].losses += (scoreA < scoreB ? 1 : 0);
-        players[playerB].losses += (scoreB < scoreA ? 1 : 0);
-
-        players[playerA].setsWin += scoreA; players[playerB].setsWin += scoreB;
-        players[playerA].setsLose += scoreB; players[playerB].setsLose += scoreA;
-
-        players[playerA].matchDetails.push({
-            date: date, opponent: playerB, opponent_team: teamB,
-            score_own: scoreA, score_opp: scoreB,
-            rating_after: newRa, opp_rating_after: newRb,
-            delta_own: deltaA, delta_opp: deltaB
-        });
-        players[playerB].matchDetails.push({
-            date: date, opponent: playerA, opponent_team: teamA,
-            score_own: scoreB, score_opp: scoreA,
-            rating_after: newRb, opp_rating_after: newRa,
-            delta_own: deltaB, delta_opp: deltaA
-        });
+        if (match.player_a === 'WO' || match.player_b === 'WO') return;
+        processMatch(parseInt(match.score_a), parseInt(match.score_b), match.player_a, match.player_b, match, match.doubles);
     });
 
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
 
     // =================================================================
-    // 4. RENDERING
+    // RENDERING
     // =================================================================
-    let lineChartInstance = null;
-    let matchesPieInstance = null;
-    let setsPieInstance = null;
+    let chartRefs = {};
     let activePlayerName = null;
 
     function renderTable() {
@@ -460,91 +488,84 @@
     function togglePlayerView(name) {
         const header = document.getElementById('selectedPlayerHeader');
         const chartWrapper = document.getElementById('chartContainerWrapper');
+        const pieHeaderS = document.getElementById('pieHeaderSingles');
         const pieWrapper = document.getElementById('pieChartsWrapper');
+        const pieHeaderD = document.getElementById('pieHeaderDoubles');
+        const pieWrapperD = document.getElementById('pieChartsDoublesWrapper');
         const statsWrapper = document.getElementById('statsHighlightsWrapper');
         const historyContainer = document.getElementById('historyContainer');
 
         if (activePlayerName === name) {
             activePlayerName = null;
-            header.style.display = 'none';
-            chartWrapper.style.display = 'none';
-            pieWrapper.style.display = 'none';
-            statsWrapper.style.display = 'none';
-            historyContainer.style.display = 'none';
+            header.style.display = 'none'; chartWrapper.style.display = 'none';
+            pieHeaderS.style.display = 'none'; pieWrapper.style.display = 'none';
+            pieHeaderD.style.display = 'none'; pieWrapperD.style.display = 'none';
+            statsWrapper.style.display = 'none'; historyContainer.style.display = 'none';
         } else {
             activePlayerName = name;
-
-            // Populate Header
             const p = players[name];
             document.getElementById('headerName').innerText = p.name;
             document.getElementById('headerTeam').innerText = p.team || "";
 
-            // Populate Best/Worst Stats
-            const bwName = document.getElementById('bestWinName');
-            const bwRate = document.getElementById('bestWinRating');
-            if (p.bestWinOpponent) {
-                bwName.innerText = p.bestWinOpponent;
-                bwName.className = "stat-value";
-                bwRate.innerText = `Rating: ${p.bestWinRating.toFixed(2)}`;
-            } else {
-                bwName.innerText = "None";
-                bwName.className = "stat-value stat-none";
-                bwRate.innerText = "";
-            }
+            // Best/Worst
+            const setStat = (idName, idRate, oppName, oppRate) => {
+                const elName = document.getElementById(idName);
+                const elRate = document.getElementById(idRate);
+                if (oppName) {
+                    elName.innerText = oppName; elName.className = "stat-value";
+                    elRate.innerText = `Rating: ${oppRate.toFixed(2)}`;
+                } else {
+                    elName.innerText = "None"; elName.className = "stat-value stat-none"; elRate.innerText = "";
+                }
+            };
+            setStat('bestWinName', 'bestWinRating', p.bestWinOpponent, p.bestWinRating);
+            setStat('worstLossName', 'worstLossRating', p.worstLossOpponent, p.worstLossRating);
 
-            const wlName = document.getElementById('worstLossName');
-            const wlRate = document.getElementById('worstLossRating');
-            if (p.worstLossOpponent) {
-                wlName.innerText = p.worstLossOpponent;
-                wlName.className = "stat-value";
-                wlRate.innerText = `Rating: ${p.worstLossRating.toFixed(2)}`;
-            } else {
-                wlName.innerText = "None";
-                wlName.className = "stat-value stat-none";
-                wlRate.innerText = "";
-            }
-
-            // Show Elements
-            header.style.display = 'block';
-            chartWrapper.style.display = 'block';
-            pieWrapper.style.display = 'flex';
-            statsWrapper.style.display = 'flex';
-            historyContainer.style.display = 'block';
+            header.style.display = 'block'; chartWrapper.style.display = 'block';
+            pieHeaderS.style.display = 'block'; pieWrapper.style.display = 'flex';
+            pieHeaderD.style.display = 'block'; pieWrapperD.style.display = 'flex';
+            statsWrapper.style.display = 'flex'; historyContainer.style.display = 'block';
 
             renderLineChart(name);
-            renderPieCharts(name);
+            renderPieCharts(name, 'matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'singles');
+            renderPieCharts(name, 'dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'doubles');
             renderHistory(name);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 
-    function getDiffHtml(delta) {
+    function getDiffHtml(delta, isDoubles) {
+        if (isDoubles) return ``; // No rating change in doubles
         if (Math.abs(delta) < 0.01) return `<span class="diff-val diff-neu">-</span>`;
         const isPos = delta > 0;
         const arrow = isPos ? '▲' : '▼';
         const colorClass = isPos ? 'diff-up' : 'diff-down';
-        const val = Math.abs(delta).toFixed(2);
-        return `<span class="diff-val ${colorClass}">${arrow}${val}</span>`;
+        return `<span class="diff-val ${colorClass}">${arrow}${Math.abs(delta).toFixed(2)}</span>`;
     }
 
     function renderHistory(name) {
         const p = players[name];
         const container = document.getElementById('historyContainer');
-        let html = `<div class='history-section'><div class='history-title'>Match History: ${p.name} (${p.team})</div><div class='history-list'>`;
+        let html = `<div class='history-section'><div class='history-title'>Match History: ${p.name}</div><div class='history-list'>`;
 
+        // Reverse copy to show newest first? Or keep original order? Current: Original order.
         p.matchDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
             const scoreColorClass = isWin ? 'win-text' : 'loss-text';
+            const badge = m.isDoubles ? `<span class="doubles-badge">DOUBLES</span>` : ``;
+            const oppRatingHtml = m.isDoubles ? `` : `<span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
+            const myRatingHtml = m.isDoubles ? `<span class="rating-current">-</span>` : `<span class="rating-current">${m.rating_after.toFixed(2)}</span>`;
+
             html += `
                 <div class="history-item">
-                    <div class="match-date">${m.date}</div>
+                    <div class="match-date">${m.date} ${badge}</div>
                     <div class="match-content">
                         <div class="player-row">
-                            <span>${p.name}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}
+                            <span>${p.name}</span><span>(${p.team}, ${myRatingHtml})</span>${getDiffHtml(m.delta_own, m.isDoubles)}
                         </div>
                         <div class="score-row ${scoreColorClass}">${m.score_own}:${m.score_opp}</div>
                         <div class="player-row">
-                            <span>${m.opponent}</span><span>(${m.opponent_team}, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_opp)}
+                            <span>${m.opponent}</span><span>(${m.opponent_team}, ${oppRatingHtml})</span>${getDiffHtml(m.delta_opp, m.isDoubles)}
                         </div>
                     </div>
                 </div>`;
@@ -553,52 +574,40 @@
         container.innerHTML = html;
     }
 
-    function renderPieCharts(name) {
-        const p = players[name];
+    function renderPieCharts(name, matchCanvasId, setCanvasId, matches, wins, losses, setsWin, setsLose, prefix) {
+        // Calculate Pcts
+        const getPct = (part, total) => total > 0 ? ((part/total)*100).toFixed(1) : 0;
 
-        // 1. Calculate Percentages
-        const totalMatches = p.matches;
-        const winPctMatches = totalMatches > 0 ? ((p.wins / totalMatches) * 100).toFixed(1) : 0;
-        const lossPctMatches = totalMatches > 0 ? ((p.losses / totalMatches) * 100).toFixed(1) : 0;
+        // Correct Logic for IDs
+        let mBase = (prefix === 'doubles') ? 'dMatches' : 'matches';
+        let sBase = (prefix === 'doubles') ? 'dSets' : 'sets';
 
-        const totalSets = p.setsWin + p.setsLose;
-        const winPctSets = totalSets > 0 ? ((p.setsWin / totalSets) * 100).toFixed(1) : 0;
-        const lossPctSets = totalSets > 0 ? ((p.setsLose / totalSets) * 100).toFixed(1) : 0;
+        document.getElementById(mBase + 'TotalVal').innerText = matches;
+        document.getElementById(mBase + 'WinsVal').innerText = wins;
+        document.getElementById(mBase + 'LossVal').innerText = losses;
+        document.getElementById(mBase + 'WinsPct').innerText = `(${getPct(wins, matches)}%)`;
+        document.getElementById(mBase + 'LossPct').innerText = `(${getPct(losses, matches)}%)`;
 
-        // 2. Update Matches Card
-        document.getElementById('matchesTotalVal').innerText = p.matches;
-        document.getElementById('matchesWinsVal').innerText = p.wins;
-        document.getElementById('matchesLossVal').innerText = p.losses;
-        document.getElementById('matchesWinsPct').innerText = `(${winPctMatches}%)`;
-        document.getElementById('matchesLossPct').innerText = `(${lossPctMatches}%)`;
+        document.getElementById(sBase + 'TotalVal').innerText = (setsWin + setsLose);
+        document.getElementById(sBase + 'WinsVal').innerText = setsWin;
+        document.getElementById(sBase + 'LossVal').innerText = setsLose;
+        document.getElementById(sBase + 'WinsPct').innerText = `(${getPct(setsWin, setsWin + setsLose)}%)`;
+        document.getElementById(sBase + 'LossPct').innerText = `(${getPct(setsLose, setsWin + setsLose)}%)`;
 
-        // 3. Update Sets Card
-        document.getElementById('setsTotalVal').innerText = totalSets;
-        document.getElementById('setsWinsVal').innerText = p.setsWin;
-        document.getElementById('setsLossVal').innerText = p.setsLose;
-        document.getElementById('setsWinsPct').innerText = `(${winPctSets}%)`;
-        document.getElementById('setsLossPct').innerText = `(${lossPctSets}%)`;
-
-        // 4. Render Charts
-        const ctxMatches = document.getElementById('matchesChart').getContext('2d');
-        if (matchesPieInstance) matchesPieInstance.destroy();
-        matchesPieInstance = new Chart(ctxMatches, {
+        // Render Canvas
+        const ctxM = document.getElementById(matchCanvasId).getContext('2d');
+        if (chartRefs[matchCanvasId]) chartRefs[matchCanvasId].destroy();
+        chartRefs[matchCanvasId] = new Chart(ctxM, {
             type: 'doughnut',
-            data: {
-                labels: ['Výhry', 'Prehry'],
-                datasets: [{ data: [p.wins, p.losses], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }]
-            },
+            data: { labels: ['Win','Loss'], datasets: [{ data: [wins, losses], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
 
-        const ctxSets = document.getElementById('setsChart').getContext('2d');
-        if (setsPieInstance) setsPieInstance.destroy();
-        setsPieInstance = new Chart(ctxSets, {
+        const ctxS = document.getElementById(setCanvasId).getContext('2d');
+        if (chartRefs[setCanvasId]) chartRefs[setCanvasId].destroy();
+        chartRefs[setCanvasId] = new Chart(ctxS, {
             type: 'doughnut',
-            data: {
-                labels: ['Výhry', 'Prehry'],
-                datasets: [{ data: [p.setsWin, p.setsLose], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }]
-            },
+            data: { labels: ['Win','Loss'], datasets: [{ data: [setsWin, setsLose], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
     }
@@ -610,30 +619,19 @@
         const sortedDates = rawDates.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
         const dataPoints = sortedDates.map(date => p.history[date]);
 
-        if (lineChartInstance) lineChartInstance.destroy();
-
-        lineChartInstance = new Chart(ctx, {
+        if (chartRefs['line']) chartRefs['line'].destroy();
+        chartRefs['line'] = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: sortedDates,
                 datasets: [{
-                    label: p.name,
-                    data: dataPoints,
-                    borderColor: '#4A90E2',
-                    backgroundColor: 'rgba(74, 144, 226, 0.1)',
-                    borderWidth: 2,
-                    pointRadius: 4,
-                    tension: 0.1,
-                    fill: true
+                    label: p.name, data: dataPoints, borderColor: '#4A90E2',
+                    backgroundColor: 'rgba(74, 144, 226, 0.1)', borderWidth: 2, pointRadius: 4, tension: 0.1, fill: true
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { title: { display: true, text: 'Match Event' }, ticks: { autoSkip: true, maxTicksLimit: 10 } },
-                    y: { title: { display: true, text: 'Rating' } }
-                },
+                responsive: true, maintainAspectRatio: false,
+                scales: { x: { title: { display: true, text: 'Match Event' }, ticks: { autoSkip: true, maxTicksLimit: 10 } }, y: { title: { display: true, text: 'Rating' } } },
                 plugins: { legend: { display: true } }
             }
         });
@@ -641,6 +639,5 @@
 
     renderTable();
 </script>
-
 </body>
 </html>
