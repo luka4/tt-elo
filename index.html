@@ -41,137 +41,128 @@
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
-        /* --- SELECTED PLAYER HEADER --- */
+        /* --- MODAL (POPUP) STYLES --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 2000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Prevent body scroll behind */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 1000px;
+            height: 90%; /* Occupy 90% of screen height */
+            border-radius: 8px;
+            overflow-y: auto; /* Scroll inside the popup */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        /* Close Button */
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* --- INSIDE MODAL STYLES --- */
+
+        /* SELECTED PLAYER HEADER */
         #selectedPlayerHeader {
-            display: none;
-            text-align: center;
-            margin-bottom: 15px;
-            background: #fff;
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-            border-top: 1px solid #ddd;
+            text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee;
+            margin-top: 10px; /* Space for close button */
         }
         .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
         .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
 
-        /* --- HISTORY SECTION --- */
-        #historyContainer {
-            display: none; margin-bottom: 30px; width: 96%;
-            margin-left: auto; margin-right: auto; max-width: 800px;
-        }
-        .history-section {
-            margin: 20px 0; border: 2px solid #4A90E2; padding: 0;
-            border-radius: 5px; background: #fff; overflow: hidden;
-        }
-        .history-title {
-            font-size: 1.2em; font-weight: bold; padding: 15px; color: white;
-            background-color: #4A90E2; margin: 0; text-align: center;
-        }
-        .history-item {
-            padding: 15px; border-bottom: 1px solid #eee; font-size: 14px;
-            color: #333; display: flex; flex-direction: column;
-        }
-        .history-item:last-child { border-bottom: none; }
-        .history-item:nth-child(even) { background-color: #f9f9f9; }
-        .match-date {
-            font-size: 0.85em; font-weight: bold; color: #888; margin-bottom: 8px;
-            text-align: left; text-transform: uppercase;
-        }
-        .match-content { text-align: center; display: flex; flex-direction: column; gap: 4px; }
-
-        .player-row {
-            font-size: 1.1em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 5px;
-            line-height: 1.4;
-        }
-        /* Bold the names */
-        .player-name-span { font-weight: 600; }
-
-        .score-row { font-size: 1.6em; font-weight: 900; margin: 2px 0; letter-spacing: 2px; }
-        .rating-current { font-weight: bold; color: #444; }
-        .diff-val { font-size: 0.75em; vertical-align: super; font-weight: bold; margin-left: 2px; }
-        .win-text { color: #28a745; } .loss-text { color: #dc3545; }
-        .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
-
-        .doubles-badge {
-            background-color: #ff9800; color: white; padding: 2px 6px;
-            border-radius: 4px; font-size: 0.6em; margin-left: 8px;
-            vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-
-        /* --- CHART CONTAINERS --- */
+        /* CHART CONTAINERS */
         #chartContainerWrapper {
-            display: none; position: relative; height: 500px; width: 96%;
+            position: relative; height: 400px; width: 100%;
             margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px;
             box-sizing: border-box; background: white; border-radius: 5px;
         }
 
-        /* --- PIE CHARTS SECTION --- */
+        /* PIE CHARTS SECTION */
         .pie-row-wrapper {
-            display: none; justify-content: center; gap: 20px; width: 96%;
-            margin: 0 auto 20px auto; max-width: 800px;
+            display: flex; justify-content: center; gap: 20px; width: 100%;
+            margin: 0 auto 20px auto;
         }
         .pie-row-title {
-            display: none; width: 96%; max-width: 800px; margin: 0 auto 10px auto;
-            text-align: center; font-size: 0.9em; font-weight: bold; color: #888; text-transform: uppercase; letter-spacing: 1px;
-            border-bottom: 1px solid #eee; line-height: 0.1em;
+            width: 100%; text-align: center; font-size: 0.9em; font-weight: bold;
+            color: #888; text-transform: uppercase; letter-spacing: 1px;
+            border-bottom: 1px solid #eee; line-height: 0.1em; margin: 20px 0;
         }
-        .pie-row-title span { background:#f9f9f9; padding:0 10px; }
+        .pie-row-title span { background:#fff; padding:0 10px; }
 
         .pie-card {
             flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px;
             padding: 15px; display: flex; flex-direction: column; align-items: center;
         }
 
-        .pie-header {
-            text-align: center; margin-bottom: 10px; width: 100%;
-            border-bottom: 1px solid #eee; padding-bottom: 8px;
-        }
+        .pie-header { text-align: center; margin-bottom: 10px; width: 100%; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         .pie-title { font-size: 0.9em; color: #666; text-transform: uppercase; margin-bottom: 2px; }
         .pie-total-val { font-size: 1.4em; font-weight: 800; color: #333; }
+        .pie-canvas-holder { position: relative; height: 180px; width: 100%; max-width: 200px; }
 
-        .pie-canvas-holder {
-            position: relative; height: 180px; width: 100%; max-width: 200px;
-        }
-
-        .custom-legend {
-            margin-top: 10px; width: 100%;
-        }
-        .legend-row {
-            display: flex; justify-content: space-between; padding: 4px 10px;
-            font-size: 0.95em; font-weight: 600; border-bottom: 1px dashed #eee;
-        }
+        .custom-legend { margin-top: 10px; width: 100%; }
+        .legend-row { display: flex; justify-content: space-between; padding: 4px 10px; font-size: 0.95em; font-weight: 600; border-bottom: 1px dashed #eee; }
         .legend-row:last-child { border-bottom: none; }
         .legend-label { color: #555; }
         .legend-val { font-weight: 800; }
         .pct-text { font-weight: 400; color: #888; font-size: 0.85em; margin-left: 5px; }
+        .val-green { color: #28a745; } .val-red { color: #dc3545; }
 
-        .val-green { color: #28a745; }
-        .val-red { color: #dc3545; }
-
-        /* --- BEST/WORST STATS SECTION --- */
-        #statsHighlightsWrapper {
-            display: none;
-            justify-content: center; gap: 20px; width: 96%;
-            margin: 0 auto 30px auto; max-width: 800px;
-        }
-        .stat-card {
-            flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px;
-            padding: 15px; text-align: center;
-        }
-        .stat-label {
-            text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px;
-        }
+        /* BEST/WORST STATS */
+        #statsHighlightsWrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 30px auto; }
+        .stat-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; text-align: center; }
+        .stat-label { text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px; }
         .stat-value { font-size: 1.1em; font-weight: bold; color: #333; }
         .stat-rating { color: #888; font-size: 0.9em; font-weight: normal; }
         .stat-none { font-style: italic; color: #aaa; }
+        .border-green { border-top: 4px solid #28a745; } .border-red { border-top: 4px solid #dc3545; }
 
-        .border-green { border-top: 4px solid #28a745; }
-        .border-red { border-top: 4px solid #dc3545; }
+        /* HISTORY LIST */
+        #historyContainer { width: 100%; }
+        .history-section { border: 2px solid #4A90E2; padding: 0; border-radius: 5px; background: #fff; overflow: hidden; }
+        .history-title { font-size: 1.2em; font-weight: bold; padding: 15px; color: white; background-color: #4A90E2; margin: 0; text-align: center; }
+        .history-item { padding: 15px; border-bottom: 1px solid #eee; font-size: 14px; color: #333; display: flex; flex-direction: column; }
+        .history-item:last-child { border-bottom: none; }
+        .history-item:nth-child(even) { background-color: #f9f9f9; }
+        .match-date { font-size: 0.85em; font-weight: bold; color: #888; margin-bottom: 8px; text-align: left; text-transform: uppercase; }
+        .match-content { text-align: center; display: flex; flex-direction: column; gap: 4px; }
+        .player-row { font-size: 1.1em; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5px; line-height: 1.4; }
+        .player-name-span { font-weight: 600; }
+        .score-row { font-size: 1.6em; font-weight: 900; margin: 2px 0; letter-spacing: 2px; }
+        .rating-current { font-weight: bold; color: #444; }
+        .diff-val { font-size: 0.75em; vertical-align: super; font-weight: bold; margin-left: 2px; }
+        .win-text { color: #28a745; } .loss-text { color: #dc3545; }
+        .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
+        .doubles-badge { background-color: #ff9800; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6em; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* =========================================
            MOBILE RESPONSIVENESS
@@ -179,6 +170,11 @@
         @media screen and (max-width: 768px) {
             h1 { font-size: 1.4em; margin: 10px 0 20px 0; }
             .scroll-hint { display: block; }
+
+            /* Fullscreen Modal on Mobile */
+            .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; max-height: none; border: none; }
+            .close-btn { font-size: 35px; right: 15px; top: 5px; }
+
             #chartContainerWrapper { height: 300px; }
             .pie-row-wrapper { flex-direction: column; }
             #statsHighlightsWrapper { flex-direction: column; gap: 10px; }
@@ -208,80 +204,6 @@
 
     <h1>Kosice Miniliga Rating</h1>
 
-    <div id="selectedPlayerHeader">
-        <div class="player-header-name" id="headerName"></div>
-        <div class="player-header-team" id="headerTeam"></div>
-    </div>
-
-    <div id="chartContainerWrapper">
-        <canvas id="ratingChart"></canvas>
-    </div>
-
-    <div id="pieHeaderSingles" class="pie-row-title"><span>Singles Statistics</span></div>
-    <div id="pieChartsWrapper" class="pie-row-wrapper">
-        <div class="pie-card">
-            <div class="pie-header">
-                <div class="pie-title">Singles Matches</div>
-                <div class="pie-total-val" id="matchesTotalVal">0</div>
-            </div>
-            <div class="pie-canvas-holder"><canvas id="matchesChart"></canvas></div>
-            <div class="custom-legend">
-                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="matchesWinsVal">0</span><span class="pct-text" id="matchesWinsPct">(0%)</span></div></div>
-                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="matchesLossVal">0</span><span class="pct-text" id="matchesLossPct">(0%)</span></div></div>
-            </div>
-        </div>
-        <div class="pie-card">
-            <div class="pie-header">
-                <div class="pie-title">Singles Sets</div>
-                <div class="pie-total-val" id="setsTotalVal">0</div>
-            </div>
-            <div class="pie-canvas-holder"><canvas id="setsChart"></canvas></div>
-            <div class="custom-legend">
-                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="setsWinsVal">0</span><span class="pct-text" id="setsWinsPct">(0%)</span></div></div>
-                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="setsLossVal">0</span><span class="pct-text" id="setsLossPct">(0%)</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="pieHeaderDoubles" class="pie-row-title"><span>Doubles Statistics</span></div>
-    <div id="pieChartsDoublesWrapper" class="pie-row-wrapper">
-        <div class="pie-card">
-            <div class="pie-header">
-                <div class="pie-title">Doubles Matches</div>
-                <div class="pie-total-val" id="dMatchesTotalVal">0</div>
-            </div>
-            <div class="pie-canvas-holder"><canvas id="dMatchesChart"></canvas></div>
-            <div class="custom-legend">
-                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dMatchesWinsVal">0</span><span class="pct-text" id="dMatchesWinsPct">(0%)</span></div></div>
-                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dMatchesLossVal">0</span><span class="pct-text" id="dMatchesLossPct">(0%)</span></div></div>
-            </div>
-        </div>
-        <div class="pie-card">
-            <div class="pie-header">
-                <div class="pie-title">Doubles Sets</div>
-                <div class="pie-total-val" id="dSetsTotalVal">0</div>
-            </div>
-            <div class="pie-canvas-holder"><canvas id="dSetsChart"></canvas></div>
-            <div class="custom-legend">
-                <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dSetsWinsVal">0</span><span class="pct-text" id="dSetsWinsPct">(0%)</span></div></div>
-                <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dSetsLossVal">0</span><span class="pct-text" id="dSetsLossPct">(0%)</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="statsHighlightsWrapper">
-        <div class="stat-card border-green">
-            <div class="stat-label">Best Win (Singles)</div>
-            <div id="bestWinContainer"><div class="stat-value" id="bestWinName"></div><div class="stat-rating" id="bestWinRating"></div></div>
-        </div>
-        <div class="stat-card border-red">
-            <div class="stat-label">Worst Loss (Singles)</div>
-            <div id="worstLossContainer"><div class="stat-value" id="worstLossName"></div><div class="stat-rating" id="worstLossRating"></div></div>
-        </div>
-    </div>
-
-    <div id="historyContainer"></div>
-
     <div class="scroll-hint">↔ Swipe table to see more stats</div>
     <div class="table-wrapper">
         <table id="mainTable">
@@ -308,6 +230,87 @@
     </div>
 
 </div>
+
+<div id="playerModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+
+        <div id="selectedPlayerHeader">
+            <div class="player-header-name" id="headerName"></div>
+            <div class="player-header-team" id="headerTeam"></div>
+        </div>
+
+        <div id="chartContainerWrapper">
+            <canvas id="ratingChart"></canvas>
+        </div>
+
+        <div class="pie-row-title"><span>Singles Statistics</span></div>
+        <div class="pie-row-wrapper">
+            <div class="pie-card">
+                <div class="pie-header">
+                    <div class="pie-title">Singles Matches</div>
+                    <div class="pie-total-val" id="matchesTotalVal">0</div>
+                </div>
+                <div class="pie-canvas-holder"><canvas id="matchesChart"></canvas></div>
+                <div class="custom-legend">
+                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="matchesWinsVal">0</span><span class="pct-text" id="matchesWinsPct">(0%)</span></div></div>
+                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="matchesLossVal">0</span><span class="pct-text" id="matchesLossPct">(0%)</span></div></div>
+                </div>
+            </div>
+            <div class="pie-card">
+                <div class="pie-header">
+                    <div class="pie-title">Singles Sets</div>
+                    <div class="pie-total-val" id="setsTotalVal">0</div>
+                </div>
+                <div class="pie-canvas-holder"><canvas id="setsChart"></canvas></div>
+                <div class="custom-legend">
+                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="setsWinsVal">0</span><span class="pct-text" id="setsWinsPct">(0%)</span></div></div>
+                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="setsLossVal">0</span><span class="pct-text" id="setsLossPct">(0%)</span></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pie-row-title"><span>Doubles Statistics</span></div>
+        <div class="pie-row-wrapper">
+            <div class="pie-card">
+                <div class="pie-header">
+                    <div class="pie-title">Doubles Matches</div>
+                    <div class="pie-total-val" id="dMatchesTotalVal">0</div>
+                </div>
+                <div class="pie-canvas-holder"><canvas id="dMatchesChart"></canvas></div>
+                <div class="custom-legend">
+                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dMatchesWinsVal">0</span><span class="pct-text" id="dMatchesWinsPct">(0%)</span></div></div>
+                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dMatchesLossVal">0</span><span class="pct-text" id="dMatchesLossPct">(0%)</span></div></div>
+                </div>
+            </div>
+            <div class="pie-card">
+                <div class="pie-header">
+                    <div class="pie-title">Doubles Sets</div>
+                    <div class="pie-total-val" id="dSetsTotalVal">0</div>
+                </div>
+                <div class="pie-canvas-holder"><canvas id="dSetsChart"></canvas></div>
+                <div class="custom-legend">
+                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dSetsWinsVal">0</span><span class="pct-text" id="dSetsWinsPct">(0%)</span></div></div>
+                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dSetsLossVal">0</span><span class="pct-text" id="dSetsLossPct">(0%)</span></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="statsHighlightsWrapper">
+            <div class="stat-card border-green">
+                <div class="stat-label">Best Win (Singles)</div>
+                <div id="bestWinContainer"><div class="stat-value" id="bestWinName"></div><div class="stat-rating" id="bestWinRating"></div></div>
+            </div>
+            <div class="stat-card border-red">
+                <div class="stat-label">Worst Loss (Singles)</div>
+                <div id="worstLossContainer"><div class="stat-value" id="worstLossName"></div><div class="stat-rating" id="worstLossRating"></div></div>
+            </div>
+        </div>
+
+        <div id="historyContainer"></div>
+    </div>
+</div>
+
 <script src="matchData.js"></script>
 <script>
     const initialRating = 100;
@@ -330,7 +333,9 @@
                 rating: initialRating,
                 matches: 0, wins: 0, losses: 0,
                 setsWin: 0, setsLose: 0,
+                // Doubles Stats
                 dMatches: 0, dWins: 0, dLosses: 0, dSetsWin: 0, dSetsLose: 0,
+
                 maxRating: initialRating, minRating: initialRating,
                 team: 'N/A', lastPlayed: 'N/A',
                 bestWinOpponent: null, bestWinRating: -Infinity,
@@ -341,7 +346,6 @@
     }
 
     function processMatch(scoreA, scoreB, playerA, playerB, match, isDoubles) {
-        // Split potential multiple players
         const playersA = playerA.split('/').map(n => n.trim());
         const playersB = playerB.split('/').map(n => n.trim());
 
@@ -352,8 +356,6 @@
         playersB.forEach(p => { players[p].team = match.player_b_team; players[p].lastPlayed = match.date; });
 
         if (isDoubles) {
-            // --- DOUBLES LOGIC ---
-            // We store the *Full* pair name as the 'display name' in history
             playersA.forEach(p => {
                 const playerObj = players[p];
                 playerObj.dMatches++;
@@ -362,13 +364,13 @@
 
                 playerObj.matchDetails.push({
                     date: match.date,
-                    opponent: playerB, // Full Opponent String
+                    opponent: playerB,
                     opponent_team: match.player_b_team,
                     score_own: scoreA, score_opp: scoreB,
                     rating_after: playerObj.rating, opp_rating_after: 0,
                     delta_own: 0, delta_opp: 0,
                     isDoubles: true,
-                    own_name_display: playerA // Full Own Pair String
+                    own_name_display: playerA
                 });
             });
 
@@ -391,7 +393,6 @@
             });
 
         } else {
-            // --- SINGLES LOGIC ---
             const pA = playersA[0];
             const pB = playersB[0];
             const objA = players[pA];
@@ -438,7 +439,7 @@
                 score_own: scoreA, score_opp: scoreB,
                 rating_after: newRa, opp_rating_after: newRb,
                 delta_own: deltaA, delta_opp: deltaB, isDoubles: false,
-                own_name_display: pA // Single name
+                own_name_display: pA
             });
             objB.matchDetails.push({
                 date: match.date, opponent: pA, opponent_team: match.player_a_team,
@@ -467,7 +468,7 @@
             const tr = document.createElement('tr');
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
             if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
-            tr.onclick = () => togglePlayerView(p.name);
+            tr.onclick = () => openModal(p.name); // Changed to openModal
 
             const successMatches = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(2) : 0;
             const totalSets = p.setsWin + p.setsLose;
@@ -493,51 +494,50 @@
         });
     }
 
-    function togglePlayerView(name) {
-        const header = document.getElementById('selectedPlayerHeader');
-        const chartWrapper = document.getElementById('chartContainerWrapper');
-        const pieHeaderS = document.getElementById('pieHeaderSingles');
-        const pieWrapper = document.getElementById('pieChartsWrapper');
-        const pieHeaderD = document.getElementById('pieHeaderDoubles');
-        const pieWrapperD = document.getElementById('pieChartsDoublesWrapper');
-        const statsWrapper = document.getElementById('statsHighlightsWrapper');
-        const historyContainer = document.getElementById('historyContainer');
+    // --- MODAL LOGIC ---
+    const modal = document.getElementById("playerModal");
 
-        if (activePlayerName === name) {
-            activePlayerName = null;
-            header.style.display = 'none'; chartWrapper.style.display = 'none';
-            pieHeaderS.style.display = 'none'; pieWrapper.style.display = 'none';
-            pieHeaderD.style.display = 'none'; pieWrapperD.style.display = 'none';
-            statsWrapper.style.display = 'none'; historyContainer.style.display = 'none';
-        } else {
-            activePlayerName = name;
-            const p = players[name];
-            document.getElementById('headerName').innerText = p.name;
-            document.getElementById('headerTeam').innerText = p.team || "";
+    function openModal(name) {
+        activePlayerName = name;
+        const p = players[name];
 
-            const setStat = (idName, idRate, oppName, oppRate) => {
-                const elName = document.getElementById(idName);
-                const elRate = document.getElementById(idRate);
-                if (oppName) {
-                    elName.innerText = oppName; elName.className = "stat-value";
-                    elRate.innerText = `Rating: ${oppRate.toFixed(2)}`;
-                } else {
-                    elName.innerText = "None"; elName.className = "stat-value stat-none"; elRate.innerText = "";
-                }
-            };
-            setStat('bestWinName', 'bestWinRating', p.bestWinOpponent, p.bestWinRating);
-            setStat('worstLossName', 'worstLossRating', p.worstLossOpponent, p.worstLossRating);
+        // Populate Header
+        document.getElementById('headerName').innerText = p.name;
+        document.getElementById('headerTeam').innerText = p.team || "";
 
-            header.style.display = 'block'; chartWrapper.style.display = 'block';
-            pieHeaderS.style.display = 'block'; pieWrapper.style.display = 'flex';
-            pieHeaderD.style.display = 'block'; pieWrapperD.style.display = 'flex';
-            statsWrapper.style.display = 'flex'; historyContainer.style.display = 'block';
+        // Populate Best/Worst
+        const setStat = (idName, idRate, oppName, oppRate) => {
+            const elName = document.getElementById(idName);
+            const elRate = document.getElementById(idRate);
+            if (oppName) {
+                elName.innerText = oppName; elName.className = "stat-value";
+                elRate.innerText = `Rating: ${oppRate.toFixed(2)}`;
+            } else {
+                elName.innerText = "None"; elName.className = "stat-value stat-none"; elRate.innerText = "";
+            }
+        };
+        setStat('bestWinName', 'bestWinRating', p.bestWinOpponent, p.bestWinRating);
+        setStat('worstLossName', 'worstLossRating', p.worstLossOpponent, p.worstLossRating);
 
-            renderLineChart(name);
-            renderPieCharts(name, 'matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'singles');
-            renderPieCharts(name, 'dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'doubles');
-            renderHistory(name);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Show Modal
+        modal.style.display = "flex";
+
+        // Render Content
+        renderLineChart(name);
+        renderPieCharts(name, 'matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'singles');
+        renderPieCharts(name, 'dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'doubles');
+        renderHistory(name);
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+        activePlayerName = null;
+    }
+
+    // Close when clicking outside
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
         }
     }
 
@@ -560,15 +560,12 @@
             const scoreColorClass = isWin ? 'win-text' : 'loss-text';
             const badge = m.isDoubles ? `<span class="doubles-badge">DOUBLES</span>` : ``;
 
-            // Logic for displaying rating info
             let myInfoHtml, oppInfoHtml;
 
             if (m.isDoubles) {
-                // Doubles: Full Pair Name + Team, NO Rating
                 myInfoHtml = `<span class="player-name-span">${m.own_name_display}</span> <span>(${p.team})</span>`;
                 oppInfoHtml = `<span class="player-name-span">${m.opponent}</span> <span>(${m.opponent_team})</span>`;
             } else {
-                // Singles: Name + Team + Rating
                 myInfoHtml = `<span class="player-name-span">${p.name}</span> <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>`;
                 oppInfoHtml = `<span class="player-name-span">${m.opponent}</span> <span>(${m.opponent_team}, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>)</span>`;
             }
