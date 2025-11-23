@@ -1,33 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kosice Miniliga - League Table</title>
+    <title>Košická Miniliga - Tabuľka</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
+
     <style>
         /* --- Reset & Base --- */
-        body { 
+        body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 10px 0; 
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
             background-color: #f2f4f8;
             color: #333;
         }
-        
+
+        /* --- NAVIGATION MENU (FIXED) --- */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3000;
+            background-color: #4A90E2;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .nav-title {
+            font-size: 1.4em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .nav-links a.active {
+            background-color: white;
+            color: #4A90E2;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            width: 96%;
+            max-width: 1000px;
+            margin: 0 auto;
+            /* Padding top added by JS */
+        }
+
         h1 {
             text-align: center;
             color: #333;
-            margin: 15px 0 25px 0;
+            margin: 20px 0 20px 0;
             font-size: 1.8em;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .container { 
-            width: 96%; 
-            max-width: 1000px;
-            margin: 0 auto; 
         }
 
         /* --- Table Wrapper --- */
@@ -35,15 +89,15 @@
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            overflow-x: auto; 
             border: 1px solid #e1e4e8;
+            /* overflow is handled in media query to fix desktop sticky issue */
         }
 
         table {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            min-width: 600px; 
+            min-width: 600px;
         }
 
         th, td {
@@ -61,9 +115,12 @@
             text-transform: uppercase;
             font-size: 0.85em;
             letter-spacing: 0.5px;
+
             position: sticky;
-            top: 0;
+            /* DESKTOP DEFAULT: Stick exactly under the menu */
+            top: var(--header-offset, 80px);
             z-index: 10;
+            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
         }
 
         /* Sticky "Team Name" Column */
@@ -83,132 +140,98 @@
         .main-row:hover td:nth-child(2) { background-color: #f8f9fa; }
 
         /* --- Expanded Detail Row Styles --- */
-        .detail-row {
-            display: none; 
-            background-color: #fcfcfc;
-        }
-        .detail-row.open {
-            display: table-row;
-        }
-        .detail-cell {
-            padding: 0 !important; 
-            border-bottom: 2px solid #ddd !important;
-            background-color: #fcfcfc;
-        }
+        .detail-row { display: none; background-color: #fcfcfc; }
+        .detail-row.open { display: table-row; }
+        .detail-cell { padding: 0 !important; border-bottom: 2px solid #ddd !important; background-color: #fcfcfc; }
 
-        /* --- NEW HISTORY LIST STYLES (Single Row) --- */
-        .history-list {
-            padding: 5px 0;
-            width: 100%;
-        }
-
-        .history-row {
-            display: flex;
-            align-items: center;
-            padding: 8px 15px;
-            border-bottom: 1px solid #eee;
-            font-size: 13px;
-        }
+        /* --- History List Styles --- */
+        .history-list { padding: 5px 0; width: 100%; }
+        .history-row { display: flex; align-items: center; padding: 8px 15px; border-bottom: 1px solid #eee; font-size: 13px; }
         .history-row:last-child { border-bottom: none; }
         .history-row:nth-child(even) { background-color: #f9f9f9; }
 
-        .hr-date {
-            width: 80px; /* Fixed width for alignment */
-            color: #999;
-            font-size: 0.85em;
-            text-align: left;
-            flex-shrink: 0;
-        }
-
-        .hr-match {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hr-team {
-            flex: 1;
-            font-size: 1.1em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .hr-date { width: 80px; color: #999; font-size: 0.85em; text-align: left; flex-shrink: 0; }
+        .hr-match { flex-grow: 1; display: flex; align-items: center; justify-content: center; }
+        .hr-team { flex: 1; font-size: 1.1em; overflow: hidden; text-overflow: ellipsis; }
         .hr-home { text-align: right; }
         .hr-guest { text-align: left; }
-        
-        .hr-score {
-            width: 60px;
-            text-align: center;
-            font-weight: 900;
-            font-size: 1.2em;
-            margin: 0 10px;
-        }
+        .hr-score { width: 60px; text-align: center; font-weight: 900; font-size: 1.2em; margin: 0 10px; }
 
-        /* Status Colors */
         .score-win { color: #28a745; }
         .score-loss { color: #dc3545; }
-        .score-draw { color: #ffc403; }
-        
-        /* Highlight the team currently being viewed */
+        .score-draw { color: #888; }
         .current-team { color: #333; font-weight: 800; }
         .other-team { color: #666; font-weight: 400; }
-
-        /* --- Column Specifics --- */
         .col-pos { font-weight: bold; color: #888; width: 40px; }
         .col-pts { font-weight: 900; color: #4A90E2; font-size: 1.1em; background-color: #fbfbfb; }
         .col-score { font-family: monospace; font-size: 1.1em; letter-spacing: -1px; }
 
-        .expand-icon {
-            display: inline-block;
-            font-size: 0.7em;
-            margin-left: 8px;
-            color: #999;
-            transition: transform 0.2s;
-        }
+        .expand-icon { display: inline-block; font-size: 0.7em; margin-left: 8px; color: #999; transition: transform 0.2s; }
         .main-row.active .expand-icon { transform: rotate(180deg); }
 
+        /* --- MOBILE FIXES --- */
         @media screen and (max-width: 600px) {
             h1 { font-size: 1.4em; }
             th, td { padding: 10px 5px; font-size: 13px; }
-            
-            /* Compact mobile history row */
             .hr-date { width: 60px; font-size: 0.75em; }
             .hr-team { font-size: 0.95em; }
             .hr-score { width: 40px; font-size: 1.1em; margin: 0 5px; }
+
+            /* Mobile Scroll Fix */
+            .table-wrapper { overflow-x: auto; }
+
+            /* On Mobile, stick to top of container (0) instead of menu height to prevent overlap inside the scroll window */
+            th { top: 0; }
         }
     </style>
 </head>
 <body>
 
+<nav class="top-nav" id="mainNav">
+    <div class="nav-title">Košická Miniliga</div>
+    <div class="nav-links">
+        <a href="results.html">Výsledky</a>
+        <a href="table.html" class="active">Tabuľka</a>
+        <a href="index.html">Rebríček</a>
+    </div>
+</nav>
+
 <div class="container">
-    <h1>League Standings</h1>
-    
+    <h1>Tabuľka Ligy</h1>
+
     <div class="table-wrapper">
         <table id="leagueTable">
             <thead>
-                <tr>
-                    <th class="col-pos">#</th>
-                    <th>Team Name</th>
-                    <th>Matches</th>
-                    <th>Win</th>
-                    <th>Draw</th>
-                    <th>Lose</th>
-                    <th>Score</th>
-                    <th>Points</th>
-                </tr>
+            <tr>
+                <th class="col-pos">#</th>
+                <th>Tím</th>
+                <th title="Zápasy">Z</th>
+                <th title="Výhry">V</th>
+                <th title="Remízy">R</th>
+                <th title="Prehry">P</th>
+                <th>Skóre</th>
+                <th title="Body">B</th>
+            </tr>
             </thead>
-            <tbody id="tableBody">
-                </tbody>
+            <tbody id="tableBody"></tbody>
         </table>
     </div>
 </div>
 
 <script src="matchData.js"></script>
-
 <script>
-    // ============================================================
-    // 1. AGGREGATE DATA
-    // ============================================================
+    // --- DYNAMIC LAYOUT ---
+    function updateLayout() {
+        const nav = document.getElementById('mainNav');
+        const height = nav.offsetHeight;
+        document.body.style.paddingTop = height + 'px';
+        // Only applies to desktop view via CSS var
+        document.documentElement.style.setProperty('--header-offset', height + 'px');
+    }
+    window.addEventListener('load', updateLayout);
+    window.addEventListener('resize', updateLayout);
+
+    // --- LOGIC ---
     const teamMatchesArray = [];
     const tempMatches = {};
 
@@ -216,11 +239,7 @@
         const key = `${m.date}::${m.player_a_team}::${m.player_b_team}`;
         if (!tempMatches[key]) {
             tempMatches[key] = {
-                date: m.date,
-                teamA: m.player_a_team,
-                teamB: m.player_b_team,
-                scoreA: 0,
-                scoreB: 0
+                date: m.date, teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0
             };
         }
         const sA = parseInt(m.score_a);
@@ -228,31 +247,22 @@
         if (sA > sB) tempMatches[key].scoreA++;
         if (sB > sA) tempMatches[key].scoreB++;
     });
-    
-    for (const key in tempMatches) {
-        teamMatchesArray.push(tempMatches[key]);
-    }
+
+    for (const key in tempMatches) { teamMatchesArray.push(tempMatches[key]); }
 
     const teams = {};
-
     function initTeam(name) {
         if (!teams[name]) {
             teams[name] = {
-                name: name,
-                matches: 0, wins: 0, draws: 0, losses: 0,
-                scoreFor: 0, scoreAgainst: 0, points: 0
+                name: name, matches: 0, wins: 0, draws: 0, losses: 0, scoreFor: 0, scoreAgainst: 0, points: 0
             };
         }
     }
 
     teamMatchesArray.forEach(match => {
-        const tA = match.teamA;
-        const tB = match.teamB;
-        const sA = match.scoreA;
-        const sB = match.scoreB;
-
+        const tA = match.teamA; const tB = match.teamB;
+        const sA = match.scoreA; const sB = match.scoreB;
         initTeam(tA); initTeam(tB);
-
         teams[tA].matches++; teams[tB].matches++;
         teams[tA].scoreFor += sA; teams[tA].scoreAgainst += sB;
         teams[tB].scoreFor += sB; teams[tB].scoreAgainst += sA;
@@ -276,54 +286,26 @@
         return diffB - diffA;
     });
 
-    // ============================================================
-    // 2. RENDER
-    // ============================================================
     const tbody = document.getElementById('tableBody');
 
     function getTeamHistoryHtml(teamName) {
-        // Find matches for this team
         const myMatches = teamMatchesArray.filter(m => m.teamA === teamName || m.teamB === teamName);
-        
-        let html = `<div class="history-list">`;
-        
-        if (myMatches.length === 0) {
-            return `<div style="padding:15px; text-align:center; color:#999;">No matches found</div>`;
-        }
+        if (myMatches.length === 0) return `<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
 
+        let html = `<div class="history-list">`;
         myMatches.forEach(m => {
             const isHome = m.teamA === teamName;
-            
-            // Determine result color relative to 'teamName'
-            let scoreClass = "score-draw"; // Default grey
-            
-            // Logic: Did 'teamName' Win or Lose?
+            let scoreClass = "score-draw";
             if (isHome) {
-                // I am Team A
-                if (m.scoreA > m.scoreB) scoreClass = "score-win";
-                else if (m.scoreA < m.scoreB) scoreClass = "score-loss";
+                if (m.scoreA > m.scoreB) scoreClass = "score-win"; else if (m.scoreA < m.scoreB) scoreClass = "score-loss";
             } else {
-                // I am Team B
-                if (m.scoreB > m.scoreA) scoreClass = "score-win";
-                else if (m.scoreB < m.scoreA) scoreClass = "score-loss";
+                if (m.scoreB > m.scoreA) scoreClass = "score-win"; else if (m.scoreB < m.scoreA) scoreClass = "score-loss";
             }
-
-            // Bold the team name that matches the current row
             const homeClass = m.teamA === teamName ? "current-team" : "other-team";
             const guestClass = m.teamB === teamName ? "current-team" : "other-team";
 
-            html += `
-                <div class="history-row">
-                    <div class="hr-date">${m.date}</div>
-                    <div class="hr-match">
-                        <span class="hr-team hr-home ${homeClass}">${m.teamA}</span>
-                        <span class="hr-score ${scoreClass}">${m.scoreA}:${m.scoreB}</span>
-                        <span class="hr-team hr-guest ${guestClass}">${m.teamB}</span>
-                    </div>
-                </div>
-            `;
+            html += `<div class="history-row"><div class="hr-date">${m.date}</div><div class="hr-match"><span class="hr-team hr-home ${homeClass}">${m.teamA}</span><span class="hr-score ${scoreClass}">${m.scoreA}:${m.scoreB}</span><span class="hr-team hr-guest ${guestClass}">${m.teamB}</span></div></div>`;
         });
-        
         html += `</div>`;
         return html;
     }
@@ -331,41 +313,20 @@
     leagueTable.forEach((team, index) => {
         const tr = document.createElement('tr');
         tr.className = 'main-row';
-        tr.innerHTML = `
-            <td class="col-pos">${index + 1}.</td>
-            <td>${team.name} <span class="expand-icon">▼</span></td>
-            <td>${team.matches}</td>
-            <td>${team.wins}</td>
-            <td>${team.draws}</td>
-            <td>${team.losses}</td>
-            <td class="col-score">${team.scoreFor}:${team.scoreAgainst}</td>
-            <td class="col-pts">${team.points}</td>
-        `;
-        
+        tr.innerHTML = `<td class="col-pos">${index + 1}.</td><td>${team.name} <span class="expand-icon">▼</span></td><td>${team.matches}</td><td>${team.wins}</td><td>${team.draws}</td><td>${team.losses}</td><td class="col-score">${team.scoreFor}:${team.scoreAgainst}</td><td class="col-pts">${team.points}</td>`;
+
         const detailTr = document.createElement('tr');
         detailTr.className = 'detail-row';
-        detailTr.innerHTML = `
-            <td colspan="8" class="detail-cell">
-                ${getTeamHistoryHtml(team.name)}
-            </td>
-        `;
+        detailTr.innerHTML = `<td colspan="8" class="detail-cell">${getTeamHistoryHtml(team.name)}</td>`;
 
         tr.onclick = () => {
             const isOpen = detailTr.classList.contains('open');
-            if (isOpen) {
-                detailTr.classList.remove('open');
-                tr.classList.remove('active');
-            } else {
-                detailTr.classList.add('open');
-                tr.classList.add('active');
-            }
+            if (isOpen) { detailTr.classList.remove('open'); tr.classList.remove('active'); }
+            else { detailTr.classList.add('open'); tr.classList.add('active'); }
         };
-
         tbody.appendChild(tr);
         tbody.appendChild(detailTr);
     });
-
 </script>
-
 </body>
-    </html>
+</html>

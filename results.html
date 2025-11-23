@@ -1,33 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kosice Miniliga - Team Results</title>
+    <title>Košická Miniliga - Výsledky</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
+
     <style>
         /* --- Reset & Base --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 10px 0;
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
             background-color: #f2f4f8;
             color: #333;
         }
 
-        h1 {
+        /* --- NAVIGATION MENU --- */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 3000;
+            background-color: #4A90E2;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 10px 0;
             text-align: center;
-            color: #333;
-            margin: 15px 0 25px 0;
-            font-size: 1.8em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
+        .nav-title {
+            font-size: 1.4em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .nav-links a.active {
+            background-color: white;
+            color: #4A90E2;
+        }
+
+        /* --- CONTAINER --- */
         .container {
             width: 96%;
             max-width: 900px;
             margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 0 0 25px 0;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* --- Round Group Wrapper --- */
@@ -36,11 +88,11 @@
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            overflow: hidden;
+            /* Removed overflow:hidden to allow sticky header to interact better with viewport */
             border: 1px solid #e1e4e8;
         }
 
-        /* --- The Round Header (Sticky Left/Top) --- */
+        /* --- Round Header --- */
         .round-header {
             background: #d3d3d3;
             padding: 10px 15px;
@@ -49,9 +101,13 @@
             font-size: 1.1em;
             text-transform: uppercase;
             border-bottom: 1px solid #ccc;
+
+            /* STICKY LOGIC */
             position: sticky;
-            top: 0;
+            /* The variable --header-offset is set by JS. Default fallback is 80px */
+            top: var(--header-offset, 80px);
             z-index: 10;
+            border-radius: 8px 8px 0 0;
         }
 
         /* --- Team Match Row --- */
@@ -63,7 +119,6 @@
         .match-row:last-child { border-bottom: none; }
         .match-row:hover { background-color: #f9f9f9; }
 
-        /* Main clickable summary */
         .match-summary {
             display: flex;
             align-items: center;
@@ -91,16 +146,15 @@
             letter-spacing: 1px;
         }
 
-        /* --- Detailed Expansion (Accordion) --- */
+        /* --- Detailed Expansion --- */
         .match-details {
-            display: none; /* Hidden by default */
+            display: none;
             background-color: #fafafa;
             border-top: 1px solid #eee;
             padding: 10px 0;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
         }
 
-        /* Individual Game Row */
         .game-row {
             display: flex;
             flex-direction: column;
@@ -129,10 +183,9 @@
             color: #333;
         }
 
-        .game-score.win-left { color: #28a745; } /* Green if left won */
-        .game-score.win-right { color: #dc3545; } /* Red if right won (from perspective of left) */
+        .game-score.win-left { color: #28a745; }
+        .game-score.win-right { color: #dc3545; }
 
-        /* Doubles Badge */
         .doubles-badge {
             background-color: #FF9800;
             color: white;
@@ -144,7 +197,6 @@
             margin-bottom: 4px;
         }
 
-        /* Toggle Icon */
         .expand-icon {
             color: #999;
             font-size: 0.8em;
@@ -158,7 +210,6 @@
             .team-name { font-size: 0.95em; }
             .score-badge { font-size: 1em; padding: 4px 8px; min-width: 50px; }
             .match-summary { padding: 12px 10px; }
-
             .player-left, .player-right { font-size: 0.85em; }
             .game-score { font-size: 1em; }
         }
@@ -166,8 +217,17 @@
 </head>
 <body>
 
+<nav class="top-nav" id="mainNav">
+    <div class="nav-title">Košická Miniliga</div>
+    <div class="nav-links">
+        <a href="results.html" class="active">Výsledky</a>
+        <a href="table.html">Tabuľka</a>
+        <a href="index.html">Rebríček</a>
+    </div>
+</nav>
+
 <div class="container">
-    <h1>Team Matches Results</h1>
+    <h1>Výsledky Tímových Zápasov</h1>
 
     <div id="resultsContainer"></div>
 </div>
@@ -175,18 +235,23 @@
 <script src="matchData.js"></script>
 
 <script>
+    // --- DYNAMIC STICKY HEADER FIX ---
+    // This function measures the nav menu height and updates the CSS variable
+    function updateStickyHeader() {
+        const nav = document.getElementById('mainNav');
+        const height = nav.offsetHeight;
+        document.documentElement.style.setProperty('--header-offset', height + 'px');
+    }
+    window.addEventListener('load', updateStickyHeader);
+    window.addEventListener('resize', updateStickyHeader);
+    // ------------------------------------
+
     // ============================================================
     // 1. PROCESS DATA
     // ============================================================
-
-    // We need to group individual games into Team Matches.
-    // Key = Date + TeamA + TeamB
     const teamMatches = {};
 
     matchResults.forEach(m => {
-        // Normalize Key: ensure we handle A vs B same as B vs A for the same date
-        // However, usually in the file, the order is consistent for a specific match.
-        // We will trust the file structure: Team A is Home, Team B is Away for that entry.
         const key = `${m.date}::${m.player_a_team}::${m.player_b_team}`;
 
         if (!teamMatches[key]) {
@@ -200,7 +265,6 @@
             };
         }
 
-        // Add game score to team score
         const sA = parseInt(m.score_a);
         const sB = parseInt(m.score_b);
 
@@ -210,16 +274,11 @@
         teamMatches[key].games.push(m);
     });
 
-    // Convert object to array
     const matchesArray = Object.values(teamMatches);
 
     // ============================================================
     // 2. GROUP BY ROUND (Date)
     // ============================================================
-
-    // We want to display: 1. kolo -> List of matches
-    // Use a Map to preserve insertion order (assuming input is sorted chronologically)
-    // or standard object.
     const rounds = {};
 
     matchesArray.forEach(match => {
@@ -232,21 +291,18 @@
     // ============================================================
     // 3. RENDER
     // ============================================================
-
     const container = document.getElementById('resultsContainer');
 
-    // Helper to create HTML for a single game row
     function createGameRow(game) {
         const isDouble = game.doubles === true || game.doubles === "true";
         const sA = parseInt(game.score_a);
         const sB = parseInt(game.score_b);
 
-        // Determine color class
         let scoreClass = "";
         if (sA > sB) scoreClass = "win-left";
         else if (sB > sA) scoreClass = "win-right";
 
-        const doubleBadge = isDouble ? `<div class="doubles-badge">Doubles</div>` : '';
+        const doubleBadge = isDouble ? `<div class="doubles-badge">ŠTVORHRA</div>` : '';
 
         return `
             <div class="game-row">
@@ -260,32 +316,27 @@
         `;
     }
 
-    // Iterate through Rounds
     for (const [roundName, matchList] of Object.entries(rounds)) {
-
-        // Create Round Group
         const roundGroup = document.createElement('div');
         roundGroup.className = 'round-group';
 
-        // Header (e.g., "1. KOLO")
         const header = document.createElement('div');
         header.className = 'round-header';
         header.innerText = roundName;
         roundGroup.appendChild(header);
 
-        // Iterate Matches in this Round
         matchList.forEach(match => {
-            // Sort games: Doubles first
+            // Sort Doubles first
             const games = match.games.sort((a, b) => {
                 const isDoubleA = a.doubles ? 1 : 0;
                 const isDoubleB = b.doubles ? 1 : 0;
-                return isDoubleB - isDoubleA; // True (1) comes first
+                return isDoubleB - isDoubleA;
             });
 
             const matchRow = document.createElement('div');
             matchRow.className = 'match-row';
 
-            // 1. Summary Section (Visible)
+            // Summary
             const summary = document.createElement('div');
             summary.className = 'match-summary';
             summary.innerHTML = `
@@ -295,7 +346,7 @@
                 <div class="expand-icon">▼</div>
             `;
 
-            // 2. Details Section (Hidden)
+            // Details
             const details = document.createElement('div');
             details.className = 'match-details';
 
@@ -305,7 +356,7 @@
             });
             details.innerHTML = gamesHtml;
 
-            // 3. Click Event
+            // Click Event
             summary.onclick = () => {
                 const isExpanded = details.style.display === 'block';
                 details.style.display = isExpanded ? 'none' : 'block';
