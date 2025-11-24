@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Košická Miniliga - Rebríček</title>
+    <title>Košická Miniliga - Rating</title>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* --- Reset & Base --- */
-        body {
+        html, body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
+            height: 100%;
             box-sizing: border-box;
             background-color: #f9f9f9;
+            overflow: hidden; /* Dashboard style: Body doesn't scroll, wrapper does */
         }
 
-        /* --- NAVIGATION MENU --- */
+        /* --- NAVIGATION MENU (MATCHING table.html) --- */
         .top-nav {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 3000;
             background-color: #4A90E2;
             color: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            padding: 10px 0;
+            padding: 10px 0; /* Fixed: Padding based height */
             text-align: center;
         }
 
@@ -55,81 +59,126 @@
             transition: all 0.2s;
         }
 
-        .nav-links a:hover {
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-        }
+        .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
+        .nav-links a.active { background-color: white; color: #4A90E2; }
 
-        .nav-links a.active {
-            background-color: white;
-            color: #4A90E2;
-        }
-
-        /* --- Layout Container --- */
+        /* --- CONTAINER --- */
         .container {
+            /* Padding top calculated by JS to sit exactly under menu */
+            height: 100%;
             width: 100%;
-            overflow: visible;
-            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            box-sizing: border-box;
         }
 
         h1 {
             text-align: center;
             color: #333;
-            margin: 0 0 25px 0;
+            margin: 10px 0 15px 0;
             font-size: 1.8em;
             text-transform: uppercase;
             letter-spacing: 1px;
+            flex-shrink: 0;
         }
 
         .scroll-hint {
             display: none; font-size: 12px; color: #666; margin-bottom: 5px;
-            font-style: italic; text-align: center; padding-right: 10px;
+            font-style: italic; text-align: center; flex-shrink: 0;
         }
 
-        /* --- Table Wrappers --- */
-        .table-wrapper { width: 100%; position: relative; }
-        table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; }
-        th, td { padding: 12px 10px; border-bottom: 1px solid #eee; border-right: 1px solid #eee; text-align: center; white-space: nowrap; }
+        /* --- Table Wrapper --- */
+        .table-wrapper {
+            flex-grow: 1;
+            overflow: auto; /* Internal Scroll */
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #e1e4e8;
+            position: relative;
+        }
 
-        /* --- STICKY HEADER --- */
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            font-size: 14px;
+            min-width: 1200px; /* Force horizontal scroll on desktop */
+        }
+
+        th, td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* --- STICKY HEADER (Vertical Scroll) --- */
         th {
             position: sticky;
-            top: 85px; /* Height of nav menu */
+            top: 0; /* Sticks to top of .table-wrapper */
             background: #d3d3d3;
-            z-index: 1000;
+            z-index: 100;
             font-weight: 600;
             box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- STICKY COLUMNS (Horizontal Scroll) --- */
+
+        /* 1. Rank (#) */
+        th:nth-child(1), td:nth-child(1) {
+            position: sticky;
+            left: 0;
+            z-index: 101;
+            border-right: none;
+            min-width: 40px;
+            background-color: #fff;
+        }
+
+        /* 2. Player (Hráč) */
+        th:nth-child(2), td:nth-child(2) {
+            position: sticky;
+            left: 40px;
+            z-index: 101;
+            border-right: 2px solid #ccc;
+            background-color: #fff;
+        }
+
+        /* 3. Team (Tím) - FIXED: Removed 'position: static' */
+        /* It now inherits sticky-top from generic 'th', but scrolls horizontally */
+        th:nth-child(3), td:nth-child(3) {
+            border-right: 1px solid #eee;
+        }
+
+        /* Corner Overlap Fix */
+        th:nth-child(1), th:nth-child(2) {
+            z-index: 105;
+            background-color: #d3d3d3;
         }
 
         thead { background: #d3d3d3; }
         #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
         #mainTableBody tr:hover td { background-color: #f0f0f0; }
+
         .team-cokery td { background-color: #e0f0f3; }
         .team-astoria td { background-color: #f2f5d8; }
 
         /* --- MODAL STYLES --- */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 4000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            overflow: hidden;
-            background-color: rgba(0,0,0,0.5);
+            display: none; position: fixed; z-index: 4000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            overflow: hidden; background-color: rgba(0,0,0,0.5);
             align-items: center; justify-content: center;
         }
 
         .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 90%; max-width: 1000px;
-            height: 90%; /* Fixed height for scroll */
-            border-radius: 8px;
-            overflow-y: auto; /* Enable scroll inside popup */
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            position: relative;
+            background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888;
+            width: 90%; max-width: 1000px; height: 90%; border-radius: 8px;
+            overflow-y: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); position: relative;
         }
 
         .close-btn {
@@ -139,37 +188,17 @@
         .close-btn:hover { color: black; }
 
         /* --- INSIDE MODAL --- */
-        #selectedPlayerHeader {
-            text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee;
-            margin-top: 15px;
-        }
+        #selectedPlayerHeader { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-top: 15px; }
         .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
         .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
 
-        /* CHART CONTAINERS */
-        #chartContainerWrapper {
-            position: relative; height: 400px; width: 100%;
-            margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px;
-            box-sizing: border-box; background: white; border-radius: 5px;
-        }
+        #chartContainerWrapper { position: relative; height: 400px; width: 100%; margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; background: white; border-radius: 5px; }
 
-        /* PIE CHARTS SECTION */
-        .pie-row-wrapper {
-            display: flex; justify-content: center; gap: 20px; width: 100%;
-            margin: 0 auto 20px auto;
-        }
-        .pie-row-title {
-            width: 100%; text-align: center; font-size: 0.9em; font-weight: bold;
-            color: #888; text-transform: uppercase; letter-spacing: 1px;
-            border-bottom: 1px solid #eee; line-height: 0.1em; margin: 30px 0 20px 0;
-        }
+        .pie-row-wrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
+        .pie-row-title { width: 100%; text-align: center; font-size: 0.9em; font-weight: bold; color: #888; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #eee; line-height: 0.1em; margin: 30px 0 20px 0; }
         .pie-row-title span { background:#fff; padding:0 10px; }
 
-        .pie-card {
-            flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px;
-            padding: 15px; display: flex; flex-direction: column; align-items: center;
-        }
-
+        .pie-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; display: flex; flex-direction: column; align-items: center; }
         .pie-header { text-align: center; margin-bottom: 10px; width: 100%; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         .pie-title { font-size: 0.9em; color: #666; text-transform: uppercase; margin-bottom: 2px; }
         .pie-total-val { font-size: 1.4em; font-weight: 800; color: #333; }
@@ -183,7 +212,6 @@
         .pct-text { font-weight: 400; color: #888; font-size: 0.85em; margin-left: 5px; }
         .val-green { color: #28a745; } .val-red { color: #dc3545; }
 
-        /* BEST/WORST STATS */
         #statsHighlightsWrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 30px auto; }
         .stat-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; text-align: center; }
         .stat-label { text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px; }
@@ -192,7 +220,6 @@
         .stat-none { font-style: italic; color: #aaa; }
         .border-green { border-top: 4px solid #28a745; } .border-red { border-top: 4px solid #dc3545; }
 
-        /* HISTORY LIST */
         #historyContainer { width: 100%; margin-bottom: 30px; }
         .history-section { border: 2px solid #4A90E2; padding: 0; border-radius: 5px; background: #fff; overflow: hidden; }
         .history-title { font-size: 1.2em; font-weight: bold; padding: 15px; color: white; background-color: #4A90E2; margin: 0; text-align: center; }
@@ -214,6 +241,8 @@
            MOBILE RESPONSIVENESS
            ========================================= */
         @media screen and (max-width: 768px) {
+            h1 { font-size: 1.4em; margin: 10px 0 15px 0; } /* Tweak header margin */
+
             .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
             .close-btn { font-size: 35px; right: 15px; top: 5px; }
             .scroll-hint { display: block; }
@@ -230,31 +259,43 @@
             .score-row { font-size: 1.2em; }
             .match-date { font-size: 0.75em; }
 
-            #mainTable td:nth-child(2), #mainTable th:nth-child(2) {
-                position: sticky; left: 0; z-index: 105; border-right: 2px solid #ccc;
+            /* Mobile Sticky Logic */
+            #mainTable td:nth-child(1), #mainTable th:nth-child(1) {
+                position: sticky; left: 0; z-index: 105; border-right: none; min-width: 20px;
             }
-            #mainTable td:nth-child(2) { background-color: #ffffff; }
-            .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
-            .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
-            #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
-            #mainTable th:nth-child(2) { z-index: 1100; background: #d3d3d3; }
+            #mainTable td:nth-child(2), #mainTable th:nth-child(2) {
+                position: sticky; left: 28px; z-index: 105; border-right: 2px solid #ccc;
+            }
+
+            /* Team column (3) - normal scroll */
+            #mainTable td:nth-child(3), #mainTable th:nth-child(3) {
+                border-right: 1px solid #eee;
+            }
+
+            #mainTable td:nth-child(1), #mainTable td:nth-child(2) { background-color: #ffffff; }
+            .team-cokery td:nth-child(1), .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
+            .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
+            #mainTableBody tr:hover td:nth-child(1), #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
+
+            /* Header corners */
+            #mainTable th:nth-child(1), #mainTable th:nth-child(2) { z-index: 1100; background: #d3d3d3; }
         }
     </style>
 </head>
 <body>
 
-<nav class="top-nav">
+<nav class="top-nav" id="mainNav">
     <div class="nav-title">Košická Miniliga</div>
     <div class="nav-links">
         <a href="results.html">Výsledky</a>
         <a href="table.html">Tabuľka</a>
-        <a href="index.html" class="active">Rebríček</a>
+        <a href="index.html" class="active">Rating</a>
     </div>
 </nav>
 
-<div class="container">
+<div class="container" id="mainContainer">
 
-    <h1>Aktuálny Rebríček</h1>
+    <h1>Aktuálny Rating Hráčov</h1>
 
     <div class="scroll-hint">↔ Posuňte tabuľku pre viac štatistík</div>
     <div class="table-wrapper">
@@ -263,18 +304,18 @@
             <tr>
                 <th>#</th>
                 <th>Hráč</th>
+                <th>Tím</th>
                 <th>Rating</th>
-                <th>Max Rating</th>
-                <th>Min Rating</th>
                 <th>Zápasy</th>
                 <th>Výhry</th>
                 <th>Prehry</th>
                 <th>Sety</th>
                 <th>Úspešnosť Zápasy</th>
                 <th>Úspešnosť Sety</th>
-                <th>Tím</th>
                 <th>Naj Výhra</th>
                 <th>Naposledy Hral</th>
+                <th>Max Rating</th>
+                <th>Min Rating</th>
             </tr>
             </thead>
             <tbody id="mainTableBody"></tbody>
@@ -365,6 +406,19 @@
 
 <script src="matchData.js"></script>
 <script>
+    // --- DYNAMIC PADDING FIX ---
+    // This ensures the container starts exactly below the menu
+    function updateLayout() {
+        const nav = document.getElementById('mainNav');
+        const container = document.getElementById('mainContainer');
+        const height = nav.offsetHeight;
+        container.style.marginTop = height + 'px';
+        container.style.height = 'calc(100% - ' + height + 'px)';
+    }
+    window.addEventListener('load', updateLayout);
+    window.addEventListener('resize', updateLayout);
+    // ---------------------------
+
     const initialRating = 100;
     const players = {};
 
@@ -528,18 +582,19 @@
             tr.innerHTML = `
                 <td>${index + 1}</td>
                 <td>${p.name}</td>
+                <td>${p.team}</td>
                 <td>${p.rating.toFixed(2)}</td>
-                <td>${p.maxRating.toFixed(2)}</td>
-                <td>${p.minRating.toFixed(2)}</td>
                 <td>${p.matches}</td>
                 <td>${p.wins}</td>
                 <td>${p.losses}</td>
                 <td>${p.setsWin}:${p.setsLose}</td>
                 <td>${successMatches}</td>
                 <td>${successSets}</td>
-                <td>${p.team}</td>
                 <td>${bestWinStr}</td>
-                <td>${p.lastPlayed}</td>`;
+                <td>${p.lastPlayed}</td>
+                <td>${p.maxRating.toFixed(2)}</td>
+                <td>${p.minRating.toFixed(2)}</td>
+            `;
             tbody.appendChild(tr);
         });
     }
