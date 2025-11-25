@@ -17,7 +17,7 @@
             height: 100%;
             box-sizing: border-box;
             background-color: #f9f9f9;
-            overflow: hidden; /* Dashboard style: Body doesn't scroll, wrapper does */
+            overflow: hidden;
         }
 
         /* --- NAVIGATION MENU (MATCHING table.html) --- */
@@ -30,7 +30,7 @@
             background-color: #4A90E2;
             color: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            padding: 10px 0; /* Fixed: Padding based height */
+            padding: 10px 0;
             text-align: center;
         }
 
@@ -64,7 +64,6 @@
 
         /* --- CONTAINER --- */
         .container {
-            /* Padding top calculated by JS to sit exactly under menu */
             height: 100%;
             width: 100%;
             display: flex;
@@ -93,7 +92,7 @@
         /* --- Table Wrapper --- */
         .table-wrapper {
             flex-grow: 1;
-            overflow: auto; /* Internal Scroll */
+            overflow: auto;
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -106,7 +105,7 @@
             border-spacing: 0;
             width: 100%;
             font-size: 14px;
-            min-width: 1200px; /* Force horizontal scroll on desktop */
+            min-width: 1200px;
         }
 
         th, td {
@@ -120,7 +119,7 @@
         /* --- STICKY HEADER (Vertical Scroll) --- */
         th {
             position: sticky;
-            top: 0; /* Sticks to top of .table-wrapper */
+            top: 0;
             background: #d3d3d3;
             z-index: 100;
             font-weight: 600;
@@ -149,7 +148,6 @@
         }
 
         /* 3. Team (Tím) - FIXED: Removed 'position: static' */
-        /* It now inherits sticky-top from generic 'th', but scrolls horizontally */
         th:nth-child(3), td:nth-child(3) {
             border-right: 1px solid #eee;
         }
@@ -184,15 +182,15 @@
         /* --- UPDATED CLOSE BUTTON STYLES --- */
         .close-btn {
             position: absolute;
-            right: 20px; /* Moved away from edge */
-            top: 15px;   /* Moved down slightly */
-            width: 40px; /* Bigger hit area */
+            right: 20px;
+            top: 15px;
+            width: 40px;
             height: 40px;
-            background-color: #f0f0f0; /* Light grey background */
+            background-color: #f0f0f0;
             color: #333;
-            border-radius: 50%; /* Round button */
+            border-radius: 50%;
             text-align: center;
-            line-height: 40px; /* Center the X vertically */
+            line-height: 40px;
             font-size: 24px;
             font-weight: bold;
             cursor: pointer;
@@ -262,7 +260,6 @@
         @media screen and (max-width: 768px) {
             .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
 
-            /* Adjust close button for mobile header */
             .close-btn {
                 width: 45px; height: 45px; line-height: 45px; font-size: 28px;
                 right: 15px; top: 15px;
@@ -282,7 +279,6 @@
             .score-row { font-size: 1.2em; }
             .match-date { font-size: 0.75em; }
 
-            /* Mobile Sticky Logic */
             #mainTable td:nth-child(1), #mainTable th:nth-child(1) {
                 position: sticky; left: 0; z-index: 105; border-right: none; min-width: 20px;
             }
@@ -290,7 +286,6 @@
                 position: sticky; left: 28px; z-index: 105; border-right: 2px solid #ccc;
             }
 
-            /* Team column (3) - normal scroll */
             #mainTable td:nth-child(3), #mainTable th:nth-child(3) {
                 border-right: 1px solid #eee;
             }
@@ -300,13 +295,13 @@
             .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
             #mainTableBody tr:hover td:nth-child(1), #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
 
-            /* Header corners */
             #mainTable th:nth-child(1), #mainTable th:nth-child(2) { z-index: 1100; background: #d3d3d3; }
         }
     </style>
 </head>
 <body>
 
+<!-- 2. NAVIGATION MENU -->
 <nav class="top-nav" id="mainNav">
     <div class="nav-title">Košická Miniliga</div>
     <div class="nav-links">
@@ -347,6 +342,7 @@
 
 </div>
 
+<!-- ================== THE MODAL ================== -->
 <div id="playerModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -356,10 +352,12 @@
             <div class="player-header-team" id="headerTeam"></div>
         </div>
 
+        <!-- Rating Graph -->
         <div id="chartContainerWrapper">
             <canvas id="ratingChart"></canvas>
         </div>
 
+        <!-- Singles Charts -->
         <div class="pie-row-title"><span>Štatistiky Dvojhry</span></div>
         <div class="pie-row-wrapper">
             <div class="pie-card">
@@ -386,6 +384,7 @@
             </div>
         </div>
 
+        <!-- Doubles Charts -->
         <div class="pie-row-title"><span>Štatistiky Štvorhry</span></div>
         <div class="pie-row-wrapper">
             <div class="pie-card">
@@ -412,6 +411,7 @@
             </div>
         </div>
 
+        <!-- Best/Worst -->
         <div id="statsHighlightsWrapper">
             <div class="stat-card border-green">
                 <div class="stat-label">Najlepšia Výhra</div>
@@ -430,7 +430,6 @@
 <script src="matchData.js"></script>
 <script>
     // --- DYNAMIC PADDING FIX ---
-    // This ensures the container starts exactly below the menu
     function updateLayout() {
         const nav = document.getElementById('mainNav');
         const container = document.getElementById('mainContainer');
@@ -483,19 +482,63 @@
         playersB.forEach(p => { players[p].team = match.player_b_team; players[p].lastPlayed = match.date; });
 
         if (isDoubles) {
+            // --- NEW DOUBLES LOGIC ---
+            // 1. Calculate Pair Average Ratings
+            const getRating = (pName) => players[pName] ? players[pName].rating : initialRating;
+
+            // Handle cases where playersA might just be 1 person (unlikely but safe)
+            const rA1 = getRating(playersA[0]);
+            const rA2 = playersA[1] ? getRating(playersA[1]) : rA1;
+            const Ra = (rA1 + rA2) / 2;
+
+            const rB1 = getRating(playersB[0]);
+            const rB2 = playersB[1] ? getRating(playersB[1]) : rB1;
+            const Rb = (rB1 + rB2) / 2;
+
+            // 2. Calculate Pair Average K-Factors
+            const getK = (pName) => players[pName] ? getKFactor(players[pName].matches + players[pName].dMatches + 1) : 30;
+            const kA1 = getK(playersA[0]);
+            const kA2 = playersA[1] ? getK(playersA[1]) : kA1;
+            const Ka = (kA1 + kA2) / 2;
+
+            const kB1 = getK(playersB[0]);
+            const kB2 = playersB[1] ? getK(playersB[1]) : kB1;
+            const Kb = (kB1 + kB2) / 2;
+
+            // 3. Calculate ELO for the Pair
+            const N = scoreA + scoreB;
+            const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
+            const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
+
+            // 4. Calculate Deltas (Total for the pair)
+            const pairDeltaA = Ka * (scoreA - Ea);
+            const pairDeltaB = Kb * (scoreB - Eb);
+
+            // 5. Split Delta per player
+            const deltaA = pairDeltaA / 2;
+            const deltaB = pairDeltaB / 2;
+
+            // 6. Apply Updates
             playersA.forEach(p => {
                 const playerObj = players[p];
                 playerObj.dMatches++;
                 playerObj.dSetsWin += scoreA; playerObj.dSetsLose += scoreB;
                 if (scoreA > scoreB) playerObj.dWins++; else if (scoreB > scoreA) playerObj.dLosses++;
 
+                // Update Rating
+                const newRating = playerObj.rating + deltaA;
+                playerObj.rating = newRating;
+                playerObj.history[match.date] = newRating;
+                playerObj.maxRating = Math.max(newRating, playerObj.maxRating);
+                playerObj.minRating = Math.min(newRating, playerObj.minRating);
+
                 playerObj.matchDetails.push({
                     date: match.date,
                     opponent: playerB,
                     opponent_team: match.player_b_team,
                     score_own: scoreA, score_opp: scoreB,
-                    rating_after: playerObj.rating, opp_rating_after: 0,
-                    delta_own: 0, delta_opp: 0,
+                    rating_after: newRating, opp_rating_after: 0,
+                    delta_own: deltaA, delta_opp: deltaB,
                     isDoubles: true,
                     own_name_display: playerA
                 });
@@ -507,13 +550,20 @@
                 playerObj.dSetsWin += scoreB; playerObj.dSetsLose += scoreA;
                 if (scoreB > scoreA) playerObj.dWins++; else if (scoreA > scoreB) playerObj.dLosses++;
 
+                // Update Rating
+                const newRating = playerObj.rating + deltaB;
+                playerObj.rating = newRating;
+                playerObj.history[match.date] = newRating;
+                playerObj.maxRating = Math.max(newRating, playerObj.maxRating);
+                playerObj.minRating = Math.min(newRating, playerObj.minRating);
+
                 playerObj.matchDetails.push({
                     date: match.date,
                     opponent: playerA,
                     opponent_team: match.player_a_team,
                     score_own: scoreB, score_opp: scoreA,
-                    rating_after: playerObj.rating, opp_rating_after: 0,
-                    delta_own: 0, delta_opp: 0,
+                    rating_after: newRating, opp_rating_after: 0,
+                    delta_own: deltaB, delta_opp: deltaA,
                     isDoubles: true,
                     own_name_display: playerB
                 });
@@ -665,7 +715,6 @@
     }
 
     function getDiffHtml(delta, isDoubles) {
-        if (isDoubles) return ``;
         if (Math.abs(delta) < 0.01) return `<span class="diff-val diff-neu">-</span>`;
         const isPos = delta > 0;
         const arrow = isPos ? '▲' : '▼';
@@ -686,7 +735,7 @@
             let myInfoHtml, oppInfoHtml;
 
             if (m.isDoubles) {
-                myInfoHtml = `<span class="player-name-span">${m.own_name_display}</span> <span>(${p.team})</span>`;
+                myInfoHtml = `<span class="player-name-span">${m.own_name_display}</span> <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>`;
                 oppInfoHtml = `<span class="player-name-span">${m.opponent}</span> <span>(${m.opponent_team})</span>`;
             } else {
                 myInfoHtml = `<span class="player-name-span">${p.name}</span> <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>`;
@@ -698,11 +747,11 @@
                     <div class="match-date">${m.date} ${badge}</div>
                     <div class="match-content">
                         <div class="player-row">
-                            ${myInfoHtml} ${getDiffHtml(m.delta_own, m.isDoubles)}
+                            ${myInfoHtml} ${getDiffHtml(m.delta_own, false)}
                         </div>
                         <div class="score-row ${scoreColorClass}">${m.score_own}:${m.score_opp}</div>
                         <div class="player-row">
-                            ${oppInfoHtml} ${getDiffHtml(m.delta_opp, m.isDoubles)}
+                            ${oppInfoHtml} ${getDiffHtml(m.delta_opp, false)}
                         </div>
                     </div>
                 </div>`;
