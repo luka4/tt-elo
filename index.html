@@ -99,7 +99,7 @@
         }
 
         table {
-            border-collapse: separate; /* Required for sticky to work properly with borders */
+            border-collapse: separate;
             border-spacing: 0;
             width: 100%;
             font-size: 14px;
@@ -107,125 +107,92 @@
         }
 
         th, td {
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-bottom: 1px solid #eee;
             border-right: 1px solid #eee;
             text-align: center;
             white-space: nowrap;
         }
 
-        /* --- HEADER DESIGN & COLORS --- */
+        /* --- COMPACT HEADER DESIGN --- */
         thead {
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        /* Row 1: Main Headers (Blue) */
+        /* Row 1: Main Headers (Blue) - COMPACT */
         thead tr:first-child th {
             background-color: #4A90E2;
             color: white;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9em;
+            font-size: 0.8em; /* Smaller font */
             letter-spacing: 0.5px;
             border-right: 1px solid rgba(255,255,255,0.2);
-            height: 40px;
+            height: 32px; /* Fixed Compact Height */
+            padding: 2px 5px;
             vertical-align: middle;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        /* Row 2: Sub-headers (Matches, Wins, etc.) */
+        /* Row 2: Sub-headers - COMPACT */
         thead tr:nth-child(2) th {
             color: #444;
             font-weight: 600;
-            font-size: 0.85em;
+            font-size: 0.75em; /* Smaller font */
             border-bottom: 2px solid #ddd;
-            height: 35px;
+            height: 24px; /* Fixed Compact Height */
+            padding: 2px 5px;
             position: sticky;
-            top: 61px; /* Height of first row + padding adjustments */
+            top: 33px; /* 32px (row 1) + 1px border */
             z-index: 900;
         }
 
         /* Singles Sub-headers Color */
-        thead tr:nth-child(2) th.sub-singles {
-            background-color: #e3f2fd; /* Light Blue */
-            color: #1565c0;
-        }
-
-        /* Doubles Sub-headers Color */
-        thead tr:nth-child(2) th.sub-doubles {
-            background-color: #fff3e0; /* Light Orange */
-            color: #ef6c00;
-        }
-
-        /* Separation Borders */
-        th.border-left-thick, td.border-left-thick {
-            border-left: 2px solid #ccc !important;
-        }
+        thead tr:nth-child(2) th.sub-singles { background-color: #e3f2fd; color: #1565c0; }
+        thead tr:nth-child(2) th.sub-doubles { background-color: #fff3e0; color: #ef6c00; }
+        .border-left-thick { border-left: 2px solid #ccc !important; }
 
         /* --- STICKY COLUMNS LOGIC (Rank & Player) --- */
+        thead tr:first-child th:nth-child(1) { position: sticky; left: 0; z-index: 2000 !important; border-right: none; width: 40px; min-width: 40px; }
+        thead tr:first-child th:nth-child(2) { position: sticky; left: 40px; z-index: 2000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
 
-        /* 1. Rank (#) Header */
-        thead tr:first-child th:nth-child(1) {
-            position: sticky;
-            left: 0;
-            z-index: 2000 !important; /* Highest priority: Top Left Corner */
-            background-color: #4A90E2;
-            border-right: none;
-        }
+        tbody td:nth-child(1) { position: sticky; left: 0; background-color: #fff; z-index: 500; font-weight: bold; color: #666; border-right: none; width: 40px; min-width: 40px; }
+        tbody td:nth-child(2) { position: sticky; left: 40px; background-color: #fff; z-index: 500; font-weight: 600; color: #333; text-align: left; box-shadow: 2px 0 5px rgba(0,0,0,0.05); border-right: 2px solid #e0e0e0; }
 
-        /* 2. Player Header */
-        thead tr:first-child th:nth-child(2) {
-            position: sticky;
-            left: 45px; /* Width of Rank col */
-            z-index: 2000 !important;
-            background-color: #4A90E2;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-
-        /* 3. Rank (#) Body Cells */
-        tbody td:nth-child(1) {
-            position: sticky;
-            left: 0;
-            background-color: #fff;
-            z-index: 500;
-            font-weight: bold;
-            color: #666;
-            border-right: none;
-        }
-
-        /* 4. Player Body Cells */
-        tbody td:nth-child(2) {
-            position: sticky;
-            left: 45px;
-            background-color: #fff;
-            z-index: 500;
-            font-weight: 600;
-            color: #333;
-            text-align: left;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-            border-right: 2px solid #e0e0e0;
-        }
-
-        /* Team Colors overrides for Sticky Columns */
         .team-cokery td:nth-child(1), .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
         .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
-
-        /* Hover Effect for Sticky Columns */
-        #mainTableBody tr:hover td:nth-child(1),
-        #mainTableBody tr:hover td:nth-child(2) {
-            background-color: #f0f0f0 !important;
-        }
+        #mainTableBody tr:hover td:nth-child(1), #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
 
         /* --- BODY STYLING --- */
         #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
         #mainTableBody tr:hover td { background-color: #f0f0f0; }
-
-        /* Rating Column Emphasis */
         td:nth-child(4) { font-weight: bold; color: #4A90E2; background-color: #fdfdfd; }
+
+        /* --- TEAM FILTER STYLES --- */
+        .team-filter-wrapper { position: relative; display: inline-block; cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+        .team-filter-btn { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; height: 100%; color: white; }
+        .team-filter-btn:hover { text-decoration: underline; }
+
+        .team-filter-dropdown {
+            display: none; position: absolute; top: 100%; left: 0;
+            background-color: white; color: #333; min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 3000;
+            border: 1px solid #ddd; border-radius: 4px; padding: 5px 0;
+            max-height: 300px; overflow-y: auto; text-align: left;
+        }
+        .team-filter-dropdown.show { display: block; }
+
+        .team-option { padding: 8px 12px; display: block; font-size: 13px; cursor: pointer; text-transform: none; border-bottom: 1px solid #f9f9f9; }
+        .team-option:hover { background-color: #f1f1f1; }
+        .team-option input { margin-right: 8px; vertical-align: middle; transform: scale(1.2); }
+        .team-option span { vertical-align: middle; font-weight: normal; }
+
+        .filter-actions { padding: 8px 10px; border-top: 1px solid #eee; text-align: center; background: #f9f9f9; }
+        .clear-filter { color: #d32f2f; font-size: 12px; text-decoration: underline; cursor: pointer; font-weight: bold; }
 
         /* --- MODAL STYLES --- */
         .modal {
@@ -254,19 +221,15 @@
         #selectedPlayerHeader { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-top: 25px; }
         .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
         .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
-
         #chartContainerWrapper { position: relative; height: 350px; width: 100%; margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; background: white; border-radius: 5px; }
-
         .pie-row-wrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
         .pie-row-title { width: 100%; text-align: center; font-size: 0.9em; font-weight: bold; color: #888; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #eee; line-height: 0.1em; margin: 30px 0 20px 0; }
         .pie-row-title span { background:#fff; padding:0 10px; }
-
         .pie-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; display: flex; flex-direction: column; align-items: center; }
         .pie-header { text-align: center; margin-bottom: 10px; width: 100%; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         .pie-title { font-size: 0.9em; color: #666; text-transform: uppercase; margin-bottom: 2px; }
         .pie-total-val { font-size: 1.4em; font-weight: 800; color: #333; }
         .pie-canvas-holder { position: relative; height: 180px; width: 100%; max-width: 200px; }
-
         .custom-legend { margin-top: 10px; width: 100%; }
         .legend-row { display: flex; justify-content: space-between; padding: 4px 10px; font-size: 0.95em; font-weight: 600; border-bottom: 1px dashed #eee; }
         .legend-row:last-child { border-bottom: none; }
@@ -274,20 +237,13 @@
         .legend-val { font-weight: 800; }
         .pct-text { font-weight: 400; color: #888; font-size: 0.85em; margin-left: 5px; }
         .val-green { color: #28a745; } .val-red { color: #dc3545; }
-
-        /* General Stats and Highlights Wrapper */
         #generalStatsWrapper, #statsHighlightsWrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
-
         .stat-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; text-align: center; }
         .stat-label { text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px; }
         .stat-value { font-size: 1.1em; font-weight: bold; color: #333; }
         .stat-rating { color: #888; font-size: 0.9em; font-weight: normal; }
         .stat-none { font-style: italic; color: #aaa; }
-
-        .border-green { border-top: 4px solid #28a745; }
-        .border-red { border-top: 4px solid #dc3545; }
-        .border-blue { border-top: 4px solid #4A90E2; }
-
+        .border-green { border-top: 4px solid #28a745; } .border-red { border-top: 4px solid #dc3545; } .border-blue { border-top: 4px solid #4A90E2; }
         #historyContainer { width: 100%; margin-bottom: 30px; }
         .history-section { border: 2px solid #4A90E2; padding: 0; border-radius: 5px; background: #fff; overflow: hidden; }
         .history-title { font-size: 1.2em; font-weight: bold; padding: 15px; color: white; background-color: #4A90E2; margin: 0; text-align: center; }
@@ -305,9 +261,6 @@
         .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
         .doubles-badge { background-color: #ef6c00; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6em; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* =========================================
-           MOBILE RESPONSIVENESS
-           ========================================= */
         @media screen and (max-width: 768px) {
             .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
             .close-btn { width: 45px; height: 45px; line-height: 45px; font-size: 28px; right: 15px; top: 15px; }
@@ -320,16 +273,12 @@
             th, td { padding: 8px 4px; }
 
             /* Mobile Sticky Adjustments */
-            thead tr:nth-child(2) th { top: 61px; }
+            thead tr:nth-child(2) th { top: 33px; }
 
-            /* Ensure sticky columns on mobile match desktop z-indexing */
-            thead tr:first-child th:nth-child(1),
-            thead tr:first-child th:nth-child(2) { z-index: 5000 !important; }
-
+            thead tr:first-child th:nth-child(1), thead tr:first-child th:nth-child(2) { z-index: 5000 !important; }
             tbody td:nth-child(1) { left: 0; z-index: 500; }
             tbody td:nth-child(2) { left: 28px; z-index: 500; border-right: 2px solid #ccc; }
 
-            /* Adjust widths for mobile sticky cols */
             thead tr:first-child th:nth-child(1) { width: 28px; min-width: 28px; }
             thead tr:first-child th:nth-child(2) { left: 28px; }
         }
@@ -357,11 +306,18 @@
             <tr>
                 <th rowspan="2" style="min-width: 40px;">#</th>
                 <th rowspan="2" style="min-width: 150px;">Hráč</th>
-                <th rowspan="2">Tím</th>
+                <th rowspan="2">
+                    <div class="team-filter-wrapper">
+                        <div class="team-filter-btn" onclick="toggleTeamDropdown(event)">
+                            Tím <span style="font-size: 0.8em">▼</span>
+                        </div>
+                        <div id="teamDropdown" class="team-filter-dropdown">
+                        </div>
+                    </div>
+                </th>
                 <th rowspan="2">Rating</th>
 
                 <th colspan="6" class="border-left-thick">Zápasy Dvojhra (Singles)</th>
-
                 <th colspan="3" class="border-left-thick">Zápasy Štvorhra (Doubles)</th>
 
                 <th rowspan="2" class="border-left-thick">Naj Výhra</th>
@@ -498,6 +454,8 @@
 
     const initialRating = 100;
     const players = {};
+    let chartRefs = {};
+    let selectedTeams = [];
 
     function getKFactor(matches) {
         if (matches === 1) return 30;
@@ -675,17 +633,21 @@
 
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
 
-    let chartRefs = {};
     let activePlayerName = null;
 
     function renderTable() {
         const tbody = document.getElementById('mainTableBody');
         tbody.innerHTML = '';
         sortedPlayers.forEach((p, index) => {
+            if (selectedTeams.length > 0 && !selectedTeams.includes(p.team)) return;
+
             const tr = document.createElement('tr');
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
             if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
-            tr.onclick = () => openModal(p.name);
+            tr.onclick = (e) => {
+                if (window.getSelection().toString().length > 0) return;
+                openModal(p.name);
+            };
 
             const successMatches = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(2) : 0;
             const totalSets = p.setsWin + p.setsLose;
@@ -716,7 +678,73 @@
             `;
             tbody.appendChild(tr);
         });
+
+        initTeamFilter();
     }
+
+    // --- TEAM FILTER FUNCTIONALITY ---
+    function toggleTeamDropdown(e) {
+        e.stopPropagation();
+        const dd = document.getElementById('teamDropdown');
+        dd.classList.toggle('show');
+    }
+
+    window.addEventListener('click', function(e) {
+        if (!e.target.matches('.team-filter-btn') && !e.target.closest('.team-filter-dropdown')) {
+            document.getElementById('teamDropdown').classList.remove('show');
+        }
+    });
+
+    function initTeamFilter() {
+        const dd = document.getElementById('teamDropdown');
+        if (dd.childElementCount > 0) return;
+
+        const teams = [...new Set(sortedPlayers.map(p => p.team))].sort();
+
+        // Add options
+        teams.forEach(team => {
+            if(team === "N/A") return;
+            const div = document.createElement('div');
+            div.className = 'team-option';
+            div.innerHTML = `<input type="checkbox" value="${team}"><span>${team}</span>`;
+            div.onclick = (e) => {
+                // Prevent bubbling if clicking div but not input
+                if(e.target.tagName !== 'INPUT') {
+                    const box = div.querySelector('input');
+                    box.checked = !box.checked;
+                    handleTeamCheck(box);
+                }
+            };
+            div.querySelector('input').onclick = function(e) {
+                e.stopPropagation();
+                handleTeamCheck(this);
+            };
+            dd.appendChild(div);
+        });
+
+        // Actions footer
+        const footer = document.createElement('div');
+        footer.className = 'filter-actions';
+        footer.innerHTML = '<span class="clear-filter" onclick="clearTeamFilter()">Zrušiť filter</span>';
+        dd.appendChild(footer);
+    }
+
+    function handleTeamCheck(checkbox) {
+        const val = checkbox.value;
+        if (checkbox.checked) {
+            selectedTeams.push(val);
+        } else {
+            selectedTeams = selectedTeams.filter(t => t !== val);
+        }
+        renderTable();
+    }
+
+    function clearTeamFilter() {
+        selectedTeams = [];
+        document.querySelectorAll('.team-option input').forEach(i => i.checked = false);
+        renderTable();
+    }
+
 
     // --- MODAL LOGIC ---
     const modal = document.getElementById("playerModal");
@@ -785,11 +813,9 @@
     function renderHistory(name) {
         const p = players[name];
         const container = document.getElementById('historyContainer');
-        const reversedDetails = [...p.matchDetails].reverse();
-
         let html = `<div class='history-section'><div class='history-title'>História Zápasov: ${p.name}</div><div class='history-list'>`;
 
-        reversedDetails.forEach(m => {
+        p.matchDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
             const scoreColorClass = isWin ? 'win-text' : 'loss-text';
             const badge = m.isDoubles ? `<span class="doubles-badge">ŠTVORHRA</span>` : ``;
