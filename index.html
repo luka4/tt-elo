@@ -16,17 +16,17 @@
             padding: 0;
             height: 100%;
             box-sizing: border-box;
-            background-color: #f9f9f9;
+            background-color: #f4f6f9;
             overflow: hidden;
         }
 
-        /* --- NAVIGATION MENU (MATCHING table.html) --- */
+        /* --- NAVIGATION MENU --- */
         .top-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 3000;
+            z-index: 5000;
             background-color: #4A90E2;
             color: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -68,9 +68,7 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 10px;
+            padding: 10px;
             box-sizing: border-box;
         }
 
@@ -89,85 +87,149 @@
             font-style: italic; text-align: center; flex-shrink: 0;
         }
 
-        /* --- Table Wrapper --- */
+        /* --- TABLE STYLING --- */
         .table-wrapper {
             flex-grow: 1;
             overflow: auto;
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border: 1px solid #e1e4e8;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border: 1px solid #dfe3e8;
             position: relative;
         }
 
         table {
-            border-collapse: separate;
+            border-collapse: separate; /* Required for sticky to work properly with borders */
             border-spacing: 0;
             width: 100%;
             font-size: 14px;
-            min-width: 1200px;
+            min-width: 1500px;
         }
 
         th, td {
-            padding: 12px 10px;
+            padding: 10px 12px;
             border-bottom: 1px solid #eee;
             border-right: 1px solid #eee;
             text-align: center;
             white-space: nowrap;
         }
 
-        /* --- STICKY HEADER (Vertical Scroll) --- */
-        th {
+        /* --- HEADER DESIGN & COLORS --- */
+        thead {
             position: sticky;
             top: 0;
-            background: #d3d3d3;
-            z-index: 100;
-            font-weight: 600;
-            box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
         }
 
-        /* --- STICKY COLUMNS (Horizontal Scroll) --- */
+        /* Row 1: Main Headers (Blue) */
+        thead tr:first-child th {
+            background-color: #4A90E2;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            border-right: 1px solid rgba(255,255,255,0.2);
+            height: 40px;
+            vertical-align: middle;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-        /* 1. Rank (#) */
-        th:nth-child(1), td:nth-child(1) {
+        /* Row 2: Sub-headers (Matches, Wins, etc.) */
+        thead tr:nth-child(2) th {
+            color: #444;
+            font-weight: 600;
+            font-size: 0.85em;
+            border-bottom: 2px solid #ddd;
+            height: 35px;
+            position: sticky;
+            top: 61px; /* Height of first row + padding adjustments */
+            z-index: 900;
+        }
+
+        /* Singles Sub-headers Color */
+        thead tr:nth-child(2) th.sub-singles {
+            background-color: #e3f2fd; /* Light Blue */
+            color: #1565c0;
+        }
+
+        /* Doubles Sub-headers Color */
+        thead tr:nth-child(2) th.sub-doubles {
+            background-color: #fff3e0; /* Light Orange */
+            color: #ef6c00;
+        }
+
+        /* Separation Borders */
+        th.border-left-thick, td.border-left-thick {
+            border-left: 2px solid #ccc !important;
+        }
+
+        /* --- STICKY COLUMNS LOGIC (Rank & Player) --- */
+
+        /* 1. Rank (#) Header */
+        thead tr:first-child th:nth-child(1) {
             position: sticky;
             left: 0;
-            z-index: 101;
+            z-index: 2000 !important; /* Highest priority: Top Left Corner */
+            background-color: #4A90E2;
             border-right: none;
-            min-width: 40px;
-            background-color: #fff;
         }
 
-        /* 2. Player (Hráč) */
-        th:nth-child(2), td:nth-child(2) {
+        /* 2. Player Header */
+        thead tr:first-child th:nth-child(2) {
             position: sticky;
-            left: 40px;
-            z-index: 101;
-            border-right: 2px solid #ccc;
+            left: 45px; /* Width of Rank col */
+            z-index: 2000 !important;
+            background-color: #4A90E2;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        /* 3. Rank (#) Body Cells */
+        tbody td:nth-child(1) {
+            position: sticky;
+            left: 0;
             background-color: #fff;
+            z-index: 500;
+            font-weight: bold;
+            color: #666;
+            border-right: none;
         }
 
-        /* 3. Team (Tím) - FIXED: Removed 'position: static' */
-        th:nth-child(3), td:nth-child(3) {
-            border-right: 1px solid #eee;
+        /* 4. Player Body Cells */
+        tbody td:nth-child(2) {
+            position: sticky;
+            left: 45px;
+            background-color: #fff;
+            z-index: 500;
+            font-weight: 600;
+            color: #333;
+            text-align: left;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+            border-right: 2px solid #e0e0e0;
         }
 
-        /* Corner Overlap Fix */
-        th:nth-child(1), th:nth-child(2) {
-            z-index: 105;
-            background-color: #d3d3d3;
+        /* Team Colors overrides for Sticky Columns */
+        .team-cokery td:nth-child(1), .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
+        .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
+
+        /* Hover Effect for Sticky Columns */
+        #mainTableBody tr:hover td:nth-child(1),
+        #mainTableBody tr:hover td:nth-child(2) {
+            background-color: #f0f0f0 !important;
         }
 
-        thead { background: #d3d3d3; }
+        /* --- BODY STYLING --- */
         #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
         #mainTableBody tr:hover td { background-color: #f0f0f0; }
 
-        .team-cokery td { background-color: #e0f0f3; }
-        .team-astoria td { background-color: #f2f5d8; }
+        /* Rating Column Emphasis */
+        td:nth-child(4) { font-weight: bold; color: #4A90E2; background-color: #fdfdfd; }
 
         /* --- MODAL STYLES --- */
         .modal {
-            display: none; position: fixed; z-index: 4000;
+            display: none; position: fixed; z-index: 6000;
             left: 0; top: 0; width: 100%; height: 100%;
             overflow: hidden; background-color: rgba(0,0,0,0.5);
             align-items: center; justify-content: center;
@@ -179,37 +241,21 @@
             overflow-y: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); position: relative;
         }
 
-        /* --- UPDATED CLOSE BUTTON STYLES --- */
         .close-btn {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            width: 40px;
-            height: 40px;
-            background-color: #f0f0f0;
-            color: #333;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 4001;
-            transition: background-color 0.2s, transform 0.1s;
+            position: absolute; right: 20px; top: 15px; width: 40px; height: 40px;
+            background-color: #f0f0f0; color: #333; border-radius: 50%;
+            text-align: center; line-height: 40px; font-size: 24px; font-weight: bold;
+            cursor: pointer; z-index: 4001; transition: background-color 0.2s, transform 0.1s;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .close-btn:hover {
-            background-color: #e0e0e0;
-            color: #000;
-            transform: scale(1.05);
-        }
+        .close-btn:hover { background-color: #e0e0e0; color: #000; transform: scale(1.05); }
 
         /* --- INSIDE MODAL --- */
-        #selectedPlayerHeader { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-top: 25px; } /* Increased margin-top so header clears button */
+        #selectedPlayerHeader { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-top: 25px; }
         .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
         .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
 
-        #chartContainerWrapper { position: relative; height: 400px; width: 100%; margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; background: white; border-radius: 5px; }
+        #chartContainerWrapper { position: relative; height: 350px; width: 100%; margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; background: white; border-radius: 5px; }
 
         .pie-row-wrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
         .pie-row-title { width: 100%; text-align: center; font-size: 0.9em; font-weight: bold; color: #888; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #eee; line-height: 0.1em; margin: 30px 0 20px 0; }
@@ -229,13 +275,18 @@
         .pct-text { font-weight: 400; color: #888; font-size: 0.85em; margin-left: 5px; }
         .val-green { color: #28a745; } .val-red { color: #dc3545; }
 
-        #statsHighlightsWrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 30px auto; }
+        /* General Stats and Highlights Wrapper */
+        #generalStatsWrapper, #statsHighlightsWrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
+
         .stat-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; text-align: center; }
         .stat-label { text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px; }
         .stat-value { font-size: 1.1em; font-weight: bold; color: #333; }
         .stat-rating { color: #888; font-size: 0.9em; font-weight: normal; }
         .stat-none { font-style: italic; color: #aaa; }
-        .border-green { border-top: 4px solid #28a745; } .border-red { border-top: 4px solid #dc3545; }
+
+        .border-green { border-top: 4px solid #28a745; }
+        .border-red { border-top: 4px solid #dc3545; }
+        .border-blue { border-top: 4px solid #4A90E2; }
 
         #historyContainer { width: 100%; margin-bottom: 30px; }
         .history-section { border: 2px solid #4A90E2; padding: 0; border-radius: 5px; background: #fff; overflow: hidden; }
@@ -252,56 +303,40 @@
         .diff-val { font-size: 0.75em; vertical-align: super; font-weight: bold; margin-left: 2px; }
         .win-text { color: #28a745; } .loss-text { color: #dc3545; }
         .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
-        .doubles-badge { background-color: #ff9800; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6em; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
+        .doubles-badge { background-color: #ef6c00; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6em; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* =========================================
            MOBILE RESPONSIVENESS
            ========================================= */
         @media screen and (max-width: 768px) {
             .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
-
-            .close-btn {
-                width: 45px; height: 45px; line-height: 45px; font-size: 28px;
-                right: 15px; top: 15px;
-            }
-
+            .close-btn { width: 45px; height: 45px; line-height: 45px; font-size: 28px; right: 15px; top: 15px; }
             .scroll-hint { display: block; }
-
             #chartContainerWrapper { height: 300px; }
             .pie-row-wrapper { flex-direction: column; }
-            #statsHighlightsWrapper { flex-direction: column; gap: 10px; }
+            #statsHighlightsWrapper, #generalStatsWrapper { flex-direction: column; gap: 10px; }
 
             table { font-size: 12px; }
             th, td { padding: 8px 4px; }
 
-            .history-item { padding: 10px; }
-            .player-row { font-size: 0.95em; }
-            .score-row { font-size: 1.2em; }
-            .match-date { font-size: 0.75em; }
+            /* Mobile Sticky Adjustments */
+            thead tr:nth-child(2) th { top: 61px; }
 
-            #mainTable td:nth-child(1), #mainTable th:nth-child(1) {
-                position: sticky; left: 0; z-index: 105; border-right: none; min-width: 20px;
-            }
-            #mainTable td:nth-child(2), #mainTable th:nth-child(2) {
-                position: sticky; left: 28px; z-index: 105; border-right: 2px solid #ccc;
-            }
+            /* Ensure sticky columns on mobile match desktop z-indexing */
+            thead tr:first-child th:nth-child(1),
+            thead tr:first-child th:nth-child(2) { z-index: 5000 !important; }
 
-            #mainTable td:nth-child(3), #mainTable th:nth-child(3) {
-                border-right: 1px solid #eee;
-            }
+            tbody td:nth-child(1) { left: 0; z-index: 500; }
+            tbody td:nth-child(2) { left: 28px; z-index: 500; border-right: 2px solid #ccc; }
 
-            #mainTable td:nth-child(1), #mainTable td:nth-child(2) { background-color: #ffffff; }
-            .team-cokery td:nth-child(1), .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
-            .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
-            #mainTableBody tr:hover td:nth-child(1), #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
-
-            #mainTable th:nth-child(1), #mainTable th:nth-child(2) { z-index: 1100; background: #d3d3d3; }
+            /* Adjust widths for mobile sticky cols */
+            thead tr:first-child th:nth-child(1) { width: 28px; min-width: 28px; }
+            thead tr:first-child th:nth-child(2) { left: 28px; }
         }
     </style>
 </head>
 <body>
 
-<!-- 2. NAVIGATION MENU -->
 <nav class="top-nav" id="mainNav">
     <div class="nav-title">Košická Miniliga</div>
     <div class="nav-links">
@@ -320,20 +355,31 @@
         <table id="mainTable">
             <thead>
             <tr>
-                <th>#</th>
-                <th>Hráč</th>
-                <th>Tím</th>
-                <th>Rating</th>
-                <th>Zápasy</th>
-                <th>Výhry</th>
-                <th>Prehry</th>
-                <th>Sety</th>
-                <th>Úspešnosť Zápasy</th>
-                <th>Úspešnosť Sety</th>
-                <th>Naj Výhra</th>
-                <th>Naposledy Hral</th>
-                <th>Max Rating</th>
-                <th>Min Rating</th>
+                <th rowspan="2" style="min-width: 40px;">#</th>
+                <th rowspan="2" style="min-width: 150px;">Hráč</th>
+                <th rowspan="2">Tím</th>
+                <th rowspan="2">Rating</th>
+
+                <th colspan="6" class="border-left-thick">Zápasy Dvojhra (Singles)</th>
+
+                <th colspan="3" class="border-left-thick">Zápasy Štvorhra (Doubles)</th>
+
+                <th rowspan="2" class="border-left-thick">Naj Výhra</th>
+                <th rowspan="2">Naposledy Hral</th>
+                <th rowspan="2">Max Rating</th>
+                <th rowspan="2">Min Rating</th>
+            </tr>
+            <tr>
+                <th class="sub-singles border-left-thick">Zápasy</th>
+                <th class="sub-singles">Výhry</th>
+                <th class="sub-singles">Prehry</th>
+                <th class="sub-singles">Sety</th>
+                <th class="sub-singles">Úspešnosť Zápasy</th>
+                <th class="sub-singles">Úspešnosť Sety</th>
+
+                <th class="sub-doubles border-left-thick">Zápasy</th>
+                <th class="sub-doubles">Výhry</th>
+                <th class="sub-doubles">Prehry</th>
             </tr>
             </thead>
             <tbody id="mainTableBody"></tbody>
@@ -342,7 +388,6 @@
 
 </div>
 
-<!-- ================== THE MODAL ================== -->
 <div id="playerModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -352,12 +397,23 @@
             <div class="player-header-team" id="headerTeam"></div>
         </div>
 
-        <!-- Rating Graph -->
         <div id="chartContainerWrapper">
             <canvas id="ratingChart"></canvas>
         </div>
 
-        <!-- Singles Charts -->
+        <div class="pie-row-title"><span>Prehľad</span></div>
+        <div id="generalStatsWrapper">
+            <div class="stat-card border-blue">
+                <div class="stat-label">Aktuálny Rating</div>
+                <div id="currentRatingVal" class="stat-value"></div>
+            </div>
+            <div class="stat-card border-blue">
+                <div class="stat-label">Priemerný Rating Súpera</div>
+                <div id="avgOpponentVal" class="stat-value"></div>
+                <div class="stat-rating" style="font-size:0.75em">(Iba dvojhry)</div>
+            </div>
+        </div>
+
         <div class="pie-row-title"><span>Štatistiky Dvojhry</span></div>
         <div class="pie-row-wrapper">
             <div class="pie-card">
@@ -384,7 +440,6 @@
             </div>
         </div>
 
-        <!-- Doubles Charts -->
         <div class="pie-row-title"><span>Štatistiky Štvorhry</span></div>
         <div class="pie-row-wrapper">
             <div class="pie-card">
@@ -411,7 +466,7 @@
             </div>
         </div>
 
-        <!-- Best/Worst -->
+        <div class="pie-row-title"><span>Highlighty</span></div>
         <div id="statsHighlightsWrapper">
             <div class="stat-card border-green">
                 <div class="stat-label">Najlepšia Výhra</div>
@@ -482,11 +537,8 @@
         playersB.forEach(p => { players[p].team = match.player_b_team; players[p].lastPlayed = match.date; });
 
         if (isDoubles) {
-            // --- NEW DOUBLES LOGIC ---
-            // 1. Calculate Pair Average Ratings
             const getRating = (pName) => players[pName] ? players[pName].rating : initialRating;
 
-            // Handle cases where playersA might just be 1 person (unlikely but safe)
             const rA1 = getRating(playersA[0]);
             const rA2 = playersA[1] ? getRating(playersA[1]) : rA1;
             const Ra = (rA1 + rA2) / 2;
@@ -495,37 +547,26 @@
             const rB2 = playersB[1] ? getRating(playersB[1]) : rB1;
             const Rb = (rB1 + rB2) / 2;
 
-            // 2. Calculate Pair Average K-Factors
             const getK = (pName) => players[pName] ? getKFactor(players[pName].matches + players[pName].dMatches + 1) : 30;
-            const kA1 = getK(playersA[0]);
-            const kA2 = playersA[1] ? getK(playersA[1]) : kA1;
-            const Ka = (kA1 + kA2) / 2;
+            const Ka = (getK(playersA[0]) + (playersA[1] ? getK(playersA[1]) : getK(playersA[0]))) / 2;
+            const Kb = (getK(playersB[0]) + (playersB[1] ? getK(playersB[1]) : getK(playersB[0]))) / 2;
 
-            const kB1 = getK(playersB[0]);
-            const kB2 = playersB[1] ? getK(playersB[1]) : kB1;
-            const Kb = (kB1 + kB2) / 2;
-
-            // 3. Calculate ELO for the Pair
             const N = scoreA + scoreB;
             const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
             const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
 
-            // 4. Calculate Deltas (Total for the pair)
             const pairDeltaA = Ka * (scoreA - Ea);
             const pairDeltaB = Kb * (scoreB - Eb);
 
-            // 5. Split Delta per player
             const deltaA = pairDeltaA / 2;
             const deltaB = pairDeltaB / 2;
 
-            // 6. Apply Updates
             playersA.forEach(p => {
                 const playerObj = players[p];
                 playerObj.dMatches++;
                 playerObj.dSetsWin += scoreA; playerObj.dSetsLose += scoreB;
                 if (scoreA > scoreB) playerObj.dWins++; else if (scoreB > scoreA) playerObj.dLosses++;
 
-                // Update Rating
                 const newRating = playerObj.rating + deltaA;
                 playerObj.rating = newRating;
                 playerObj.history[match.date] = newRating;
@@ -550,7 +591,6 @@
                 playerObj.dSetsWin += scoreB; playerObj.dSetsLose += scoreA;
                 if (scoreB > scoreA) playerObj.dWins++; else if (scoreA > scoreB) playerObj.dLosses++;
 
-                // Update Rating
                 const newRating = playerObj.rating + deltaB;
                 playerObj.rating = newRating;
                 playerObj.history[match.date] = newRating;
@@ -657,13 +697,19 @@
                 <td>${p.name}</td>
                 <td>${p.team}</td>
                 <td>${p.rating.toFixed(2)}</td>
-                <td>${p.matches}</td>
+
+                <td class="border-left-thick">${p.matches}</td>
                 <td>${p.wins}</td>
                 <td>${p.losses}</td>
                 <td>${p.setsWin}:${p.setsLose}</td>
                 <td>${successMatches}</td>
                 <td>${successSets}</td>
-                <td>${bestWinStr}</td>
+
+                <td class="border-left-thick">${p.dMatches}</td>
+                <td>${p.dWins}</td>
+                <td>${p.dLosses}</td>
+
+                <td class="border-left-thick">${bestWinStr}</td>
                 <td>${p.lastPlayed}</td>
                 <td>${p.maxRating.toFixed(2)}</td>
                 <td>${p.minRating.toFixed(2)}</td>
@@ -695,6 +741,20 @@
         setStat('bestWinName', 'bestWinRating', p.bestWinOpponent, p.bestWinRating);
         setStat('worstLossName', 'worstLossRating', p.worstLossOpponent, p.worstLossRating);
 
+        // New Stats
+        document.getElementById('currentRatingVal').innerText = p.rating.toFixed(2);
+
+        let totalOpp = 0;
+        let countOpp = 0;
+        p.matchDetails.forEach(m => {
+            if (!m.isDoubles && m.opp_rating_after > 0) {
+                totalOpp += m.opp_rating_after;
+                countOpp++;
+            }
+        });
+        const avgOpp = countOpp > 0 ? (totalOpp / countOpp).toFixed(2) : "-";
+        document.getElementById('avgOpponentVal').innerText = avgOpp;
+
         modal.style.display = "flex";
 
         renderLineChart(name);
@@ -725,9 +785,11 @@
     function renderHistory(name) {
         const p = players[name];
         const container = document.getElementById('historyContainer');
+        const reversedDetails = [...p.matchDetails].reverse();
+
         let html = `<div class='history-section'><div class='history-title'>História Zápasov: ${p.name}</div><div class='history-list'>`;
 
-        p.matchDetails.forEach(m => {
+        reversedDetails.forEach(m => {
             const isWin = m.score_own > m.score_opp;
             const scoreColorClass = isWin ? 'win-text' : 'loss-text';
             const badge = m.isDoubles ? `<span class="doubles-badge">ŠTVORHRA</span>` : ``;
@@ -762,7 +824,6 @@
 
     function renderPieCharts(name, matchCanvasId, setCanvasId, matches, wins, losses, setsWin, setsLose, prefix) {
         const getPct = (part, total) => total > 0 ? ((part/total)*100).toFixed(1) : 0;
-
         let mBase = (prefix === 'doubles') ? 'dMatches' : 'matches';
         let sBase = (prefix === 'doubles') ? 'dSets' : 'sets';
 
