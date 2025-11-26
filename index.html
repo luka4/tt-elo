@@ -186,10 +186,10 @@
         }
         .team-filter-dropdown.show { display: block; }
 
-        .team-option { padding: 8px 12px; display: block; font-size: 13px; cursor: pointer; text-transform: none; border-bottom: 1px solid #f9f9f9; }
+        .team-option { padding: 8px 12px; display: flex; align-items: center; font-size: 13px; cursor: pointer; text-transform: none; border-bottom: 1px solid #f9f9f9; }
         .team-option:hover { background-color: #f1f1f1; }
-        .team-option input { margin-right: 8px; vertical-align: middle; transform: scale(1.2); }
-        .team-option span { vertical-align: middle; font-weight: normal; }
+        .team-option input { margin-right: 8px; transform: scale(1.2); }
+        .team-option span { font-weight: normal; }
 
         .filter-actions { padding: 8px 10px; border-top: 1px solid #eee; text-align: center; background: #f9f9f9; }
         .clear-filter { color: #d32f2f; font-size: 12px; text-decoration: underline; cursor: pointer; font-weight: bold; }
@@ -454,7 +454,9 @@
 
     const initialRating = 100;
     const players = {};
+    // GLOBAL CHART REFS TO FIX BUG
     let chartRefs = {};
+    // TEAM FILTER STATE
     let selectedTeams = [];
 
     function getKFactor(matches) {
@@ -639,12 +641,14 @@
         const tbody = document.getElementById('mainTableBody');
         tbody.innerHTML = '';
         sortedPlayers.forEach((p, index) => {
+            // FILTER LOGIC
             if (selectedTeams.length > 0 && !selectedTeams.includes(p.team)) return;
 
             const tr = document.createElement('tr');
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
             if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
             tr.onclick = (e) => {
+                // Ignore clicks if user is selecting text (or team filter if it was there)
                 if (window.getSelection().toString().length > 0) return;
                 openModal(p.name);
             };
@@ -679,6 +683,7 @@
             tbody.appendChild(tr);
         });
 
+        // Initialize filter dropdown options after rendering (or re-rendering)
         initTeamFilter();
     }
 
@@ -689,6 +694,7 @@
         dd.classList.toggle('show');
     }
 
+    // Close dropdown when clicking outside
     window.addEventListener('click', function(e) {
         if (!e.target.matches('.team-filter-btn') && !e.target.closest('.team-filter-dropdown')) {
             document.getElementById('teamDropdown').classList.remove('show');
@@ -701,24 +707,36 @@
 
         const teams = [...new Set(sortedPlayers.map(p => p.team))].sort();
 
-        // Add options
         teams.forEach(team => {
             if(team === "N/A") return;
             const div = document.createElement('div');
             div.className = 'team-option';
-            div.innerHTML = `<input type="checkbox" value="${team}"><span>${team}</span>`;
+
+            // Create Checkbox Safely (DOM API)
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = team;
+
+            // Create Label
+            const span = document.createElement('span');
+            span.innerText = team;
+
+            // Append
+            div.appendChild(checkbox);
+            div.appendChild(span);
+
+            // Listeners
             div.onclick = (e) => {
-                // Prevent bubbling if clicking div but not input
                 if(e.target.tagName !== 'INPUT') {
-                    const box = div.querySelector('input');
-                    box.checked = !box.checked;
-                    handleTeamCheck(box);
+                    checkbox.checked = !checkbox.checked;
+                    handleTeamCheck(checkbox);
                 }
             };
-            div.querySelector('input').onclick = function(e) {
+            checkbox.onclick = function(e) {
                 e.stopPropagation();
                 handleTeamCheck(this);
             };
+
             dd.appendChild(div);
         });
 

@@ -14102,5 +14102,825 @@ const matchResults = [
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Matúš HRČKA\/Marek KUNDRIK",
+        "player_b": "Tomáš BEKECS\/Ing. Karol GERGELY",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA\/Andrej KAČKOŠ",
+        "player_b": "JUDr. Andrej MAKRANSKÝ\/Eduard KUDLA",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA",
+        "player_b": "Ing. Karol GERGELY",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Matúš HRČKA",
+        "player_b": "Tomáš BEKECS",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Marek KUNDRIK",
+        "player_b": "Eduard KUDLA",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Martin MUCHA",
+        "player_b": "Tomáš BEKECS",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Matúš HRČKA",
+        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Eduard KUDLA",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Marek KUNDRIK",
+        "player_b": "Ing. Karol GERGELY",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA",
+        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Matúš HRČKA",
+        "player_b": "Eduard KUDLA",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Andrej KAČKOŠ",
+        "player_b": "Ing. Karol GERGELY",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Marek KUNDRIK",
+        "player_b": "Tomáš BEKECS",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA",
+        "player_b": "Eduard KUDLA",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Matúš HRČKA",
+        "player_b": "Ing. Karol GERGELY",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Tomáš BEKECS",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Andrej KAČKOŠ",
+        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "date": "12. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "TTC KVP"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Peter POLÁK\/Miro. HANIČÁK",
+        "player_b": "David LEŠUNDÁK\/Ing. Martin ĎURIŠIN",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\"",
+        "doubles": true
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Igor BAŠTI\/Jozef MOLNÁR",
+        "player_b": "Mgr. Michal NINITZ\/Ing. Marek SKYBA",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\"",
+        "doubles": true
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Peter POLÁK",
+        "player_b": "David LEŠUNDÁK",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Igor BAŠTI",
+        "player_b": "Ing. Martin ĎURIŠIN",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Miro. HANIČÁK",
+        "player_b": "Mgr. Michal NINITZ",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Jozef MOLNÁR",
+        "player_b": "Ing. Marek SKYBA",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Ing. Martin ĎURIŠIN",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Igor BAŠTI",
+        "player_b": "Mgr. Michal NINITZ",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Miro. HANIČÁK",
+        "player_b": "Ing. Marek SKYBA",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Jozef MOLNÁR",
+        "player_b": "David LEŠUNDÁK",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Peter POLÁK",
+        "player_b": "Mgr. Michal NINITZ",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Igor BAŠTI",
+        "player_b": "Ing. Marek SKYBA",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_b": "David LEŠUNDÁK",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Jozef MOLNÁR",
+        "player_b": "Ing. Martin ĎURIŠIN",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Peter POLÁK",
+        "player_b": "Ing. Marek SKYBA",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Igor BAŠTI",
+        "player_b": "David LEŠUNDÁK",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Miro. HANIČÁK",
+        "player_b": "Ing. Martin ĎURIŠIN",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Mgr. Michal NINITZ",
+        "date": "12. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "SKP \"B\""
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ing. Marián HOVAN\/Milan ŠOLC",
+        "player_b": "Ing. M. ZÁRIK\/Luboš MRÁZ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ján FOTTA\/Ing. Jozef FOTTA",
+        "player_b": "Ing. Štefan PČOLA\/Milan MICHLOVIČ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL",
+        "doubles": true
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Ing. Jozef FOTTA",
+        "player_b": "Ing. M. ZÁRIK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ing. Marián HOVAN",
+        "player_b": "Milan MICHLOVIČ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Vladimír VARGOVČÁK",
+        "player_b": "Ing. Štefan PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ján FOTTA",
+        "player_b": "Luboš MRÁZ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ing. Jozef FOTTA",
+        "player_b": "Milan MICHLOVIČ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Ing. Marián HOVAN",
+        "player_b": "Ing. Štefan PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Vladimír VARGOVČÁK",
+        "player_b": "Luboš MRÁZ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ján FOTTA",
+        "player_b": "Ing. M. ZÁRIK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ing. Jozef FOTTA",
+        "player_b": "Ing. Štefan PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ing. Marián HOVAN",
+        "player_b": "Luboš MRÁZ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Vladimír VARGOVČÁK",
+        "player_b": "Ing. M. ZÁRIK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Milan ŠOLC",
+        "player_b": "Milan MICHLOVIČ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ing. Jozef FOTTA",
+        "player_b": "Luboš MRÁZ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Ing. Marián HOVAN",
+        "player_b": "Ing. M. ZÁRIK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Vladimír VARGOVČÁK",
+        "player_b": "Milan MICHLOVIČ",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Milan ŠOLC",
+        "player_b": "Ing. Štefan PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "WO",
+        "player_b": "Ing. Tibor FIĽAK\/Ing. Stanislav PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ing. Matej KOVAČIK\/Martin SOĽÁR",
+        "player_b": "Roman ČIŽMÁR\/Radoslav POĽA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club",
+        "doubles": true
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "WO",
+        "player_b": "Ing. Stanislav PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin SOĽÁR",
+        "player_b": "Ing. Tibor FIĽAK",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Roman ČIŽMÁR",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Ing. Matej KOVAČIK",
+        "player_b": "Radoslav POĽA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "WO",
+        "player_b": "Ing. Tibor FIĽAK",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Martin SOĽÁR",
+        "player_b": "Roman ČIŽMÁR",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Radoslav POĽA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ing. Matej KOVAČIK",
+        "player_b": "Ing. Stanislav PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "WO",
+        "player_b": "Roman ČIŽMÁR",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Martin SOĽÁR",
+        "player_b": "Radoslav POĽA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Ing. Stanislav PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ing. Matej KOVAČIK",
+        "player_b": "Ing. Tibor FIĽAK",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "WO",
+        "player_b": "Radoslav POĽA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Martin SOĽÁR",
+        "player_b": "Ing. Stanislav PČOLA",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Ing. Tibor FIĽAK",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ing. Matej KOVAČIK",
+        "player_b": "Roman ČIŽMÁR",
+        "date": "12. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "BERNARD Club"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "PAVOL CINKANIČ\/Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Ľubomír HOCHVART\/Miloslav KOCÚR",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ing. Izabela VARGOVÁ\/Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Ing. Peter RUSNÁK\/RNDr. Štefan VENDEL",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Ľubomír HOCHVART",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "PAVOL CINKANIČ",
+        "player_b": "Miloslav KOCÚR",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "RNDr. Štefan VENDEL",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Zuzana GAŽI",
+        "player_b": "Ing. Peter RUSNÁK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Miloslav KOCÚR",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "PAVOL CINKANIČ",
+        "player_b": "RNDr. Štefan VENDEL",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Ing. Peter RUSNÁK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_b": "Ľubomír HOCHVART",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "RNDr. Štefan VENDEL",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "PAVOL CINKANIČ",
+        "player_b": "Ing. Peter RUSNÁK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Ľubomír HOCHVART",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Zuzana GAŽI",
+        "player_b": "Miloslav KOCÚR",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Ing. Peter RUSNÁK",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "PAVOL CINKANIČ",
+        "player_b": "Ľubomír HOCHVART",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Miloslav KOCÚR",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_b": "RNDr. Štefan VENDEL",
+        "date": "12. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "REPREX"
     }
 ]
