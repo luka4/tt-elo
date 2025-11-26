@@ -280,6 +280,24 @@
             tbody td:nth-child(2) { left: 28px; z-index: 500; border-right: 2px solid #ccc; }
             thead tr:first-child th:nth-child(1) { width: 28px; min-width: 28px; }
             thead tr:first-child th:nth-child(2) { left: 28px; }
+            thead tr:first-child th:nth-child(2),
+            tbody td:nth-child(2) {
+                min-width: 0 !important;      /* Override any defaults */
+                width: 35vw !important;       /* Set width to 35% of screen width */
+                max-width: 130px !important;  /* hard limit to prevent it getting huge */
+                white-space: normal !important; /* Allow text to wrap to next line */
+                word-wrap: break-word;        /* Break long names if needed */
+                line-height: 1.2;             /* Tighter line height for wrapped text */
+                font-size: 11px;              /* Smaller font for names */
+            }
+
+            /* Adjust the search input to fit the smaller column */
+            .header-search-input {
+                width: 100% !important;
+                min-width: 0 !important;
+                font-size: 10px;
+                padding: 2px;
+            }
         }
     </style>
 </head>
@@ -304,8 +322,8 @@
         <table id="mainTable">
             <thead>
             <tr>
-                <th rowspan="2" style="min-width: 40px;">#</th>
-                <th rowspan="2" style="min-width: 150px;">Hráč</th>
+                <th rowspan="2" style="min-width: 20px;">#</th>
+                <th rowspan="2">Hráč</th>
                 <th rowspan="2">
                     <div class="team-filter-wrapper">
                         <div class="team-filter-btn" onclick="toggleTeamDropdown(event)">
