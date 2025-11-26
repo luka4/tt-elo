@@ -170,7 +170,14 @@
         /* --- BODY STYLING --- */
         #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
         #mainTableBody tr:hover td { background-color: #f0f0f0; }
-        td:nth-child(4) { font-weight: bold; color: #4A90E2; background-color: #fdfdfd; }
+
+        /* RATING COLOR STABILITY INDICATORS */
+        /* Default bold styling */
+        td:nth-child(4) { font-weight: bold; background-color: #fdfdfd; }
+
+        .rating-low { color: #d32f2f !important; } /* Red - Unstable */
+        .rating-med { color: #f57c00 !important; } /* Orange - Developing */
+        .rating-high { color: #25a840 !important; } /* Green - Stable */
 
         /* --- TEAM FILTER STYLES --- */
         .team-filter-wrapper { position: relative; display: inline-block; cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
@@ -658,11 +665,20 @@
             const successSets = totalSets > 0 ? ((p.setsWin / totalSets) * 100).toFixed(2) : 0;
             const bestWinStr = p.bestWinOpponent ? `${p.bestWinOpponent} (${p.bestWinRating.toFixed(2)})` : '';
 
+            // Logic for Rating Color based on total matches played
+            const totalMatchesPlayed = p.matches + p.dMatches;
+            let ratingClass = 'rating-high'; // Default Green (Matches > 20)
+            if (totalMatchesPlayed <= 10) {
+                ratingClass = 'rating-low'; // Red
+            } else if (totalMatchesPlayed <= 20) {
+                ratingClass = 'rating-med'; // Orange
+            }
+
             tr.innerHTML = `
                 <td>${index + 1}</td>
                 <td>${p.name}</td>
                 <td>${p.team}</td>
-                <td>${p.rating.toFixed(2)}</td>
+                <td class="${ratingClass}">${p.rating.toFixed(2)}</td>
 
                 <td class="border-left-thick">${p.matches}</td>
                 <td>${p.wins}</td>
