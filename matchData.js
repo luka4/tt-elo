@@ -2,7 +2,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK/Jozef MOLNÁR",
+        "player_a": "Slavomír KEŠELÁK/Jozef MOLNÁR",
         "player_b": "Ľubomír HOCHVART/Milan PAŽIČ",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
@@ -13,7 +13,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miro. HANIČÁK/Peter POLÁK",
-        "player_b": "Ing. Ján PETRŽALA/Ing. Peter RUSNÁK",
+        "player_b": "Ján PETRŽALA/Peter RUSNÁK",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX",
@@ -22,7 +22,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Štefan LISSÝ/Martin SOĽÁR",
+        "player_a": "Štefan LISSÝ/Martin SOĽÁR",
         "player_b": "Andrej KAČKOŠ/Julus WÉBER",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -32,7 +32,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Peter JAKUBEC/Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Peter JAKUBEC/Miroslav KOSCELANSKÝ",
         "player_b": "Martin MUCHA/Matúš HRČKA",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -43,7 +43,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Milan ŠOLC/Vladimír VARGOVČÁK",
-        "player_b": "Tomáš BEKECS/JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Tomáš BEKECS/Andrej MAKRANSKÝ",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TTC KVP",
@@ -52,7 +52,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ján FOTTA/Ing. Jozef FOTTA",
+        "player_a": "Ján FOTTA/Jozef FOTTA",
         "player_b": "Viliam MAYER/Andrej MAKRANSKÝ ml.",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
@@ -62,7 +62,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Milan SUCHÝ/Ing. Igor TKÁČ",
+        "player_a": "Milan SUCHÝ/Igor TKÁČ",
         "player_b": "Milan GAJTKO/Luboš MRÁZ",
         "date": "1. kolo",
         "player_a_team": "COKERY",
@@ -73,7 +73,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav WIENER/Miro. HARČÁRIK",
-        "player_b": "Ing. Štefan PČOLA/Milan MICHLOVIČ",
+        "player_b": "Štefan PČOLA/Milan MICHLOVIČ",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL",
@@ -83,7 +83,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Juraj POLYAK/Peter RUŽIČKA",
-        "player_b": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
+        "player_b": "David LEŠUNDÁK/Martin ĎURIŠIN",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\"",
@@ -92,8 +92,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Andrej FELBER/Ing. Ján SIMKO",
-        "player_b": "Peter GABOŠ/Ing. Marek SKYBA",
+        "player_a": "Andrej FELBER/Ján SIMKO",
+        "player_b": "Peter GABOŠ/Marek SKYBA",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\"",
@@ -102,7 +102,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek PATAKY/Ing. Ján GUZY",
+        "player_a": "Marek PATAKY/Ján GUZY",
         "player_b": "WO",
         "date": "1. kolo",
         "player_a_team": "BOMBERE",
@@ -112,7 +112,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Bc. Ján ŘIHAK/Ing. Slavomír KRÁLIK",
+        "player_a": "Ján ŘIHAK/Slavomír KRÁLIK",
         "player_b": "WO",
         "date": "1. kolo",
         "player_a_team": "BOMBERE",
@@ -122,8 +122,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef MOHŇANSKÝ/Ing. Juraj BUCHNER",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ/Zuzana GAŽI",
+        "player_a": "Jozef MOHŇANSKÝ/Juraj BUCHNER",
+        "player_b": "Jarmila SOMOŠOVÁ/Zuzana GAŽI",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -133,7 +133,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "František CZINGELY/Ľubomír VARTÁS",
-        "player_b": "PAVOL CINKANIČ/Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Pavol CINKANIČ/Martina KOLIBÁROVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -142,8 +142,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter ŠTEFANCO/Andrej KARLIK",
-        "player_b": "Jozef HUDÁK/Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠTEFANCO/Andrej KARLIK",
+        "player_b": "Jozef HUDÁK/Peter ŠEBEK st.",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST",
@@ -181,7 +181,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Ing. Daniel VAŇO",
+        "player_b": "Daniel VAŇO",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -189,8 +189,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Ján PETRŽALA",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -199,7 +199,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Peter POLÁK",
-        "player_b": "Ing.Ľubomír HOCHVART",
+        "player_b": "Ľubomír HOCHVART",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -208,7 +208,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Daniel GIESE",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -217,7 +217,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -225,7 +225,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Milan PAŽIČ",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
@@ -235,7 +235,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter POLÁK",
-        "player_b": "RNDr. Štefan VENDEL",
+        "player_b": "Štefan VENDEL",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -244,7 +244,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -252,8 +252,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -271,7 +271,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Peter POLÁK",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -289,7 +289,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Ing.Ľubomír HOCHVART",
+        "player_b": "Ľubomír HOCHVART",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -298,7 +298,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Ing. Daniel VAŇO",
+        "player_b": "Daniel VAŇO",
         "date": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX"
@@ -315,7 +315,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Martin MUCHA",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -333,7 +333,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Andrej KAČKOŠ",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -351,7 +351,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Matúš HRČKA",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -369,7 +369,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Marek KUNDRIK",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -387,7 +387,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Andrej KAČKOŠ",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -405,7 +405,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Martin MUCHA",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -423,7 +423,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Marek KUNDRIK",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -441,7 +441,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Matúš HRČKA",
         "date": "1. kolo",
         "player_a_team": "SKP \"A\"",
@@ -450,8 +450,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Jozef FOTTA",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TTC KVP"
@@ -486,7 +486,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
@@ -514,7 +514,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Milan ŠOLC",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TTC KVP"
@@ -522,7 +522,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Tomáš BEKECS",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
@@ -541,7 +541,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Ján FOTTA",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TTC KVP"
@@ -558,7 +558,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Viliam MAYER",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
@@ -568,7 +568,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "1. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TTC KVP"
@@ -595,7 +595,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -604,7 +604,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -621,7 +621,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
+        "player_a": "Igor TKÁČ",
         "player_b": "Luboš MRÁZ",
         "date": "1. kolo",
         "player_a_team": "COKERY",
@@ -631,7 +631,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Anton STANICKÝ",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -657,8 +657,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Igor TKÁČ",
+        "player_b": "Štefan PČOLA",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -676,7 +676,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -693,8 +693,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Igor TKÁČ",
+        "player_b": "M. ZÁRIK",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -703,7 +703,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -721,7 +721,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Miro. HARČÁRIK",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL"
@@ -729,7 +729,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
+        "player_a": "Igor TKÁČ",
         "player_b": "Milan MICHLOVIČ",
         "date": "1. kolo",
         "player_a_team": "COKERY",
@@ -738,7 +738,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "David LEŠUNDÁK",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
@@ -748,7 +748,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Andrej FELBER",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -766,7 +766,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -774,8 +774,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_a": "Marek SIMKO",
+        "player_b": "Martin ĎURIŠIN",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -793,7 +793,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Juraj POLYAK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -810,7 +810,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "Peter GABOŠ",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
@@ -820,7 +820,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Andrej FELBER",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -838,7 +838,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -846,8 +846,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SIMKO",
-        "player_b": "Ing. Marek SKYBA",
+        "player_a": "Marek SIMKO",
+        "player_b": "Marek SKYBA",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -865,7 +865,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Juraj POLYAK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\""
@@ -883,7 +883,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -892,7 +892,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "František CZINGELY",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -900,8 +900,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "PAVOL CINKANIČ",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Pavol CINKANIČ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -909,8 +909,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -919,7 +919,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -936,8 +936,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -946,7 +946,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -955,7 +955,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "PAVOL CINKANIČ",
+        "player_b": "Pavol CINKANIČ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -972,8 +972,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -981,8 +981,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -991,7 +991,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -1000,7 +1000,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "František CZINGELY",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -1018,7 +1018,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "PAVOL CINKANIČ",
+        "player_b": "Pavol CINKANIČ",
         "date": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -1036,7 +1036,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK st.",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1063,7 +1063,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Peter BARSA",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1080,7 +1080,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter ŠTEFANCO",
+        "player_a": "Peter ŠTEFANCO",
         "player_b": "Patrík TIRPÁK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -1089,7 +1089,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján GAJDOŠ",
+        "player_a": "Ján GAJDOŠ",
         "player_b": "Julius PILLÁR",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -1126,7 +1126,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan KRASNAY",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1152,8 +1152,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter ŠTEFANCO",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_a": "Peter ŠTEFANCO",
+        "player_b": "P. ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1161,7 +1161,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján GAJDOŠ",
+        "player_a": "Ján GAJDOŠ",
         "player_b": "Jozef HUDÁK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -1344,8 +1344,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter ŠEBEK st./Jozef HUDÁK",
-        "player_b": "Milan SUCHÝ/Ing. Igor TKÁČ",
+        "player_a": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_b": "Milan SUCHÝ/Igor TKÁČ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "COKERY",
@@ -1354,7 +1354,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Štefan LISSÝ/Martin SOĽÁR",
+        "player_a": "Štefan LISSÝ/Martin SOĽÁR",
         "player_b": "Csaba BECSE/Tamás BÓNI",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1364,7 +1364,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ/Peter JAKUBEC",
+        "player_a": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
         "player_b": "Ľubomír VARTÁS/František CZINGELY",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1375,7 +1375,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Matúš HRČKA/Martin MUCHA",
-        "player_b": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
+        "player_b": "David LEŠUNDÁK/Martin ĎURIŠIN",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\"",
@@ -1385,7 +1385,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Marek KUNDRIK/Andrej KAČKOŠ",
-        "player_b": "Mgr. Michal NINITZ/Ing. Marek SKYBA",
+        "player_b": "Michal NINITZ/Marek SKYBA",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\"",
@@ -1394,8 +1394,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ/Zuzana GAŽI",
-        "player_b": "Ján FOTTA/Ing. Jozef FOTTA",
+        "player_a": "Jarmila SOMOŠOVÁ/Zuzana GAŽI",
+        "player_b": "Ján FOTTA/Jozef FOTTA",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA",
@@ -1404,8 +1404,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Izabela VARGOVÁ/Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Milan ŠOLC/Ing. Marián HOVAN",
+        "player_a": "Izabela VARGOVÁ/Martina KOLIBÁROVÁ",
+        "player_b": "Milan ŠOLC/Marián HOVAN",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA",
@@ -1415,7 +1415,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART/Milan PAŽIČ",
-        "player_b": "Bc. Ján ŘIHAK/Ing. Marek PATAKY",
+        "player_b": "Ján ŘIHAK/Marek PATAKY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE",
@@ -1424,8 +1424,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Miloslav KOCÚR/Ing. Daniel VAŇO",
-        "player_b": "Ing. Slavomír KRÁLIK/Ing. Ján GUZY",
+        "player_a": "Miloslav KOCÚR/Daniel VAŇO",
+        "player_b": "Slavomír KRÁLIK/Ján GUZY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE",
@@ -1434,8 +1434,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA/Milan MICHLOVIČ",
-        "player_b": "Ing. Marek SIMKO/Andrej FELBER",
+        "player_a": "Štefan PČOLA/Milan MICHLOVIČ",
+        "player_b": "Marek SIMKO/Andrej FELBER",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "TT TEAM",
@@ -1472,7 +1472,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK st.",
         "player_b": "Milan SUCHÝ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -1482,7 +1482,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Jozef ZAVACKÝ",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_b": "Igor TKÁČ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "COKERY"
@@ -1508,8 +1508,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter ŠEBEK st.",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_a": "Peter ŠEBEK st.",
+        "player_b": "Igor TKÁČ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "COKERY"
@@ -1536,7 +1536,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_b": "Igor TKÁČ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "COKERY"
@@ -1544,7 +1544,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK st.",
         "player_b": "Miro. HARČÁRIK",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -1580,7 +1580,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK st.",
         "player_b": "Jaroslav WIENER",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -1616,7 +1616,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Nándor BORTNYÁK",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1625,7 +1625,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Csaba BECSE",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1652,7 +1652,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Tamás BÓNI",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1661,7 +1661,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Ľubomír VARTÁS",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1688,7 +1688,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Ľubomír VARTÁS",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1697,7 +1697,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "František CZINGELY",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1724,7 +1724,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "František CZINGELY",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1733,7 +1733,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Nándor BORTNYÁK",
         "date": "2. kolo",
         "player_a_team": "SKP \"A\"",
@@ -1742,7 +1742,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "David LEŠUNDÁK",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -1752,7 +1752,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1761,7 +1761,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1770,7 +1770,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1779,7 +1779,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1788,7 +1788,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1797,7 +1797,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1814,8 +1814,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Michal NINITZ",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1824,7 +1824,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1842,7 +1842,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1850,8 +1850,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Marek SKYBA",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1869,7 +1869,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Martin MUCHA",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1878,7 +1878,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\""
@@ -1886,7 +1886,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Ján FOTTA",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -1895,7 +1895,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -1905,7 +1905,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Marián HOVAN",
+        "player_b": "Marián HOVAN",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -1913,8 +1913,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Izabela VARGOVÁ",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Izabela VARGOVÁ",
+        "player_b": "Jozef FOTTA",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -1922,7 +1922,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -1931,8 +1931,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Marián HOVAN",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -1941,7 +1941,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -1949,7 +1949,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Ján FOTTA",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -1958,8 +1958,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Jarmila SOMOŠOVÁ",
+        "player_b": "Marián HOVAN",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -1967,8 +1967,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Jozef FOTTA",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -1985,7 +1985,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -1994,8 +1994,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Jarmila SOMOŠOVÁ",
+        "player_b": "Jozef FOTTA",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -2003,7 +2003,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Milan ŠOLC",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -2021,8 +2021,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Marián HOVAN",
         "date": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA"
@@ -2031,7 +2031,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2040,7 +2040,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2049,7 +2049,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2057,8 +2057,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Daniel VAŇO",
-        "player_b": "Ing. Ján GUZY",
+        "player_a": "Daniel VAŇO",
+        "player_b": "Ján GUZY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2067,7 +2067,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2076,7 +2076,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2085,7 +2085,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2093,8 +2093,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Daniel VAŇO",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_a": "Daniel VAŇO",
+        "player_b": "Ján ŘIHAK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2103,7 +2103,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2112,7 +2112,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2121,7 +2121,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2129,8 +2129,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Daniel VAŇO",
-        "player_b": "Ing. Marek PATAKY",
+        "player_a": "Daniel VAŇO",
+        "player_b": "Marek PATAKY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2139,7 +2139,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2148,7 +2148,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2157,7 +2157,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2165,8 +2165,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Daniel VAŇO",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Daniel VAŇO",
+        "player_b": "Slavomír KRÁLIK",
         "date": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE"
@@ -2183,7 +2183,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Peter RUŽIČKA",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
@@ -2201,8 +2201,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "M. ZÁRIK",
+        "player_b": "Marek SIMKO",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "TT TEAM"
@@ -2219,7 +2219,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Andrej FELBER",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
@@ -2229,7 +2229,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Luboš MRÁZ",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "TT TEAM"
@@ -2237,7 +2237,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Juraj POLYAK",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
@@ -2255,8 +2255,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Štefan PČOLA",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Štefan PČOLA",
+        "player_b": "Marek SIMKO",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "TT TEAM"
@@ -2273,7 +2273,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Peter RUŽIČKA",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
@@ -2283,7 +2283,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Milan MICHLOVIČ",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "TT TEAM"
@@ -2291,7 +2291,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Juraj POLYAK",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
@@ -2309,7 +2309,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Andrej FELBER",
         "date": "2. kolo",
         "player_a_team": "MONTREAL",
@@ -2462,8 +2462,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Milan ŠOLC/Ing. Marián HOVAN",
-        "player_b": "Mgr. Štefan LISSÝ/Martin SOĽÁR",
+        "player_a": "Milan ŠOLC/Marián HOVAN",
+        "player_b": "Štefan LISSÝ/Martin SOĽÁR",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\"",
@@ -2472,8 +2472,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ján FOTTA/Ing. Jozef FOTTA",
-        "player_b": "Ing. Matej KOVAČIK/ĽUBOMÍR FRANČÁK",
+        "player_a": "Ján FOTTA/Jozef FOTTA",
+        "player_b": "Matej KOVAČIK/Ľubomír FRANČÁK",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\"",
@@ -2482,8 +2482,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
-        "player_b": "Milan MICHLOVIČ/Ing. Štefan PČOLA",
+        "player_a": "David LEŠUNDÁK/Martin ĎURIŠIN",
+        "player_b": "Milan MICHLOVIČ/Štefan PČOLA",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL",
@@ -2492,7 +2492,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ/Ing. Marek SKYBA",
+        "player_a": "Michal NINITZ/Marek SKYBA",
         "player_b": "Luboš MRÁZ/Milan GAJTKO",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2502,8 +2502,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Daniel GIESE/SLAVOMÍR KEŠELÁK",
-        "player_b": "Zuzana GAŽI/Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Daniel GIESE/Slavomír KEŠELÁK",
+        "player_b": "Zuzana GAŽI/Jarmila SOMOŠOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -2513,7 +2513,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Jozef MOLNÁR/Igor BAŠTI",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ/Ing. Izabela VARGOVÁ",
+        "player_b": "Martina KOLIBÁROVÁ/Izabela VARGOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -2522,8 +2522,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Jaroslav WIENER/Peter Szceczina",
-        "player_b": "Roman ČIŽMÁR/Ing. Stanislav PČOLA",
+        "player_a": "Jaroslav WIENER/Peter SZCZECZINA",
+        "player_b": "Roman ČIŽMÁR/Stanislav PČOLA",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club",
@@ -2532,8 +2532,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Milan SUCHÝ/Ing. Igor TKÁČ",
-        "player_b": "Radoslav POĽA/Ing. Slav. FEČKE",
+        "player_a": "Milan SUCHÝ/Igor TKÁČ",
+        "player_b": "Radoslav POĽA/Slav. FEČKE",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club",
@@ -2542,7 +2542,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "MUDr.Peter. MACH/Milan KRASNAY",
+        "player_a": "Peter MACH/Milan KRASNAY",
         "player_b": "Ľubomír HOCHVART/Milan PAŽIČ",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -2553,7 +2553,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Peter BARSA/Juraj ANTOŠ",
-        "player_b": "Miloslav KOCÚR/Ing. Ján PETRŽALA",
+        "player_b": "Miloslav KOCÚR/Ján PETRŽALA",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX",
@@ -2562,8 +2562,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter VYHONSKÝ/Bc. Ján ŘIHAK",
-        "player_b": "Eduard KUDLA/JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Peter VYHONSKÝ/Ján ŘIHAK",
+        "player_b": "Eduard KUDLA/Andrej MAKRANSKÝ",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TTC KVP",
@@ -2572,7 +2572,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slavomír KRÁLIK/Ing. Ján GUZY",
+        "player_a": "Slavomír KRÁLIK/Ján GUZY",
         "player_b": "Ondrej KRÁLIK/Andrej MAKRANSKÝ ml.",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -2583,7 +2583,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER/Ľubomír BENDZÁK",
-        "player_b": "Ing. Peter ŠEBEK st./Jozef HUDÁK",
+        "player_b": "Peter ŠEBEK st./Jozef HUDÁK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST",
@@ -2631,7 +2631,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Peter JAKUBEC",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
@@ -2640,8 +2640,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Marián HOVAN",
+        "player_b": "Ľubomír FRANČÁK",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2650,7 +2650,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ján FOTTA",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_b": "Štefan LISSÝ",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2667,8 +2667,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Jozef FOTTA",
+        "player_b": "Ľubomír FRANČÁK",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2676,8 +2676,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_a": "Marián HOVAN",
+        "player_b": "Štefan LISSÝ",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2695,7 +2695,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_b": "Matej KOVAČIK",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2703,8 +2703,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_a": "Jozef FOTTA",
+        "player_b": "Štefan LISSÝ",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2712,7 +2712,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Martin SOĽÁR",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
@@ -2731,7 +2731,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_b": "Štefan LISSÝ",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2739,7 +2739,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Martin SOĽÁR",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
@@ -2748,7 +2748,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Peter JAKUBEC",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
@@ -2758,7 +2758,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Milan ŠOLC",
-        "player_b": "ĽUBOMÍR FRANČÁK",
+        "player_b": "Ľubomír FRANČÁK",
         "date": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\""
@@ -2775,8 +2775,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "M. ZÁRIK",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL"
@@ -2784,8 +2784,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Michal NINITZ",
+        "player_b": "Štefan PČOLA",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL"
@@ -2793,7 +2793,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Milan GAJTKO",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2803,7 +2803,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL"
@@ -2811,7 +2811,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Luboš MRÁZ",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2820,7 +2820,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Milan GAJTKO",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2829,7 +2829,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Milan MICHLOVIČ",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2839,7 +2839,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL"
@@ -2847,7 +2847,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Milan GAJTKO",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2856,7 +2856,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Luboš MRÁZ",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2865,8 +2865,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Marek SKYBA",
+        "player_b": "M. ZÁRIK",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL"
@@ -2883,7 +2883,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Milan MICHLOVIČ",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
@@ -2892,8 +2892,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Michal NINITZ",
+        "player_b": "M. ZÁRIK",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL"
@@ -2901,8 +2901,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Marek SKYBA",
+        "player_b": "Štefan PČOLA",
         "date": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL"
@@ -2911,7 +2911,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Daniel GIESE",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -2920,7 +2920,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Igor BAŠTI",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -2937,8 +2937,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -2947,7 +2947,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_b": "Izabela VARGOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -2965,7 +2965,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Vilo POLÁK",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -2973,8 +2973,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -2992,7 +2992,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Igor BAŠTI",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -3001,7 +3001,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -3009,8 +3009,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -3019,7 +3019,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Daniel GIESE",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -3028,7 +3028,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Igor BAŠTI",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -3037,7 +3037,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Vilo POLÁK",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_b": "Izabela VARGOVÁ",
         "date": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -3055,7 +3055,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3072,7 +3072,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
+        "player_a": "Peter SZCZECZINA",
         "player_b": "Roman ČIŽMÁR",
         "date": "3. kolo",
         "player_a_team": "COKERY",
@@ -3081,8 +3081,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Igor TKÁČ",
+        "player_b": "Stanislav PČOLA",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3108,8 +3108,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Peter SZCZECZINA",
+        "player_b": "Stanislav PČOLA",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3117,8 +3117,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_a": "Igor TKÁČ",
+        "player_b": "Slav. FEČKE",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3136,7 +3136,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3145,7 +3145,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Anton STANICKÝ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3153,7 +3153,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
+        "player_a": "Igor TKÁČ",
         "player_b": "Radoslav POĽA",
         "date": "3. kolo",
         "player_a_team": "COKERY",
@@ -3163,7 +3163,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3172,7 +3172,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club"
@@ -3180,7 +3180,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
+        "player_a": "Peter SZCZECZINA",
         "player_b": "Radoslav POĽA",
         "date": "3. kolo",
         "player_a_team": "COKERY",
@@ -3189,7 +3189,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
+        "player_a": "Igor TKÁČ",
         "player_b": "Roman ČIŽMÁR",
         "date": "3. kolo",
         "player_a_team": "COKERY",
@@ -3208,7 +3208,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter BARSA",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX"
@@ -3216,7 +3216,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "MUDr.Peter. MACH",
+        "player_a": "Peter MACH",
         "player_b": "Milan PAŽIČ",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -3235,7 +3235,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Andrej KARLIK",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX"
@@ -3244,7 +3244,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter BARSA",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX"
@@ -3252,7 +3252,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠTEFANCO",
+        "player_a": "Peter ŠTEFANCO",
         "player_b": "Miloslav KOCÚR",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -3288,8 +3288,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "MUDr.Peter. MACH",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_a": "Peter MACH",
+        "player_b": "Peter RUSNÁK",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX"
@@ -3298,7 +3298,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX"
@@ -3307,7 +3307,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX"
@@ -3324,8 +3324,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠTEFANCO",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_a": "Peter ŠTEFANCO",
+        "player_b": "Ján PETRŽALA",
         "date": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX"
@@ -3342,7 +3342,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Tomáš BEKECS",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3351,7 +3351,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3360,8 +3360,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TTC KVP"
@@ -3369,7 +3369,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Eduard KUDLA",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3378,7 +3378,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3387,8 +3387,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TTC KVP"
@@ -3396,7 +3396,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Eduard KUDLA",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3405,7 +3405,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Tomáš BEKECS",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3414,8 +3414,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Peter VYHONSKÝ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Peter VYHONSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TTC KVP"
@@ -3423,7 +3423,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Eduard KUDLA",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3432,7 +3432,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Tomáš BEKECS",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3441,7 +3441,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3450,7 +3450,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Eduard KUDLA",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3459,7 +3459,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Tomáš BEKECS",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3468,7 +3468,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
@@ -3477,8 +3477,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Ján GUZY",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "3. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TTC KVP"
@@ -3496,7 +3496,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír BENDZÁK",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3523,7 +3523,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Andrej FELBER",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3586,7 +3586,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3613,7 +3613,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Juraj POLYAK",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3795,7 +3795,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Martin MUCHA/Matúš HRČKA",
-        "player_b": "Milan MICHLOVIČ/Ing. Štefan PČOLA",
+        "player_b": "Milan MICHLOVIČ/Štefan PČOLA",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL",
@@ -3814,8 +3814,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Martin SOĽÁR/Mgr. Štefan LISSÝ",
-        "player_b": "SLAVOMÍR KEŠELÁK/Jozef MOLNÁR",
+        "player_a": "Martin SOĽÁR/Štefan LISSÝ",
+        "player_b": "Slavomír KEŠELÁK/Jozef MOLNÁR",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "SOŠ Ž",
@@ -3824,7 +3824,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Matej KOVAČIK/Peter JAKUBEC",
+        "player_a": "Matej KOVAČIK/Peter JAKUBEC",
         "player_b": "Peter POLÁK/Igor BAŠTI",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
@@ -3835,7 +3835,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Julius PILLÁR/Patrík TIRPÁK",
-        "player_b": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
+        "player_b": "David LEŠUNDÁK/Martin ĎURIŠIN",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\"",
@@ -3844,8 +3844,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠEBEK st./Jozef HUDÁK",
-        "player_b": "Ing. Marek SKYBA/Mgr. Michal NINITZ",
+        "player_a": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_b": "Marek SKYBA/Michal NINITZ",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\"",
@@ -3854,8 +3854,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ/PAVOL CINKANIČ",
-        "player_b": "Ing. Ján GUZY/Ing. Slavomír KRÁLIK",
+        "player_a": "Martina KOLIBÁROVÁ/Pavol CINKANIČ",
+        "player_b": "Ján GUZY/Slavomír KRÁLIK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE",
@@ -3864,8 +3864,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Zuzana GAŽI/Ing. Iveta SOLČANIOVÁ",
-        "player_b": "Ing. Matuš MATEJ/Bc. Ján ŘIHAK",
+        "player_a": "Zuzana GAŽI/Iveta SOLČANIOVÁ",
+        "player_b": "Matuš MATEJ/Ján ŘIHAK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE",
@@ -3874,7 +3874,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Roman ČIŽMÁR/Ing. Tibor FIĽAK",
+        "player_a": "Roman ČIŽMÁR/Tibor FIĽAK",
         "player_b": "Andrej FELBER/Ľubomír BENDZÁK",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
@@ -3884,8 +3884,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Stanislav PČOLA/Radoslav POĽA",
-        "player_b": "Ing. Marek SIMKO/Peter RUŽIČKA",
+        "player_a": "Stanislav PČOLA/Radoslav POĽA",
+        "player_b": "Marek SIMKO/Peter RUŽIČKA",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "TT TEAM",
@@ -3895,7 +3895,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Ľubomír HOCHVART/Milan PAŽIČ",
-        "player_b": "Peter Szceczina/Anton STANICKÝ",
+        "player_b": "Peter SZCZECZINA/Anton STANICKÝ",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY",
@@ -3904,8 +3904,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Ján PETRŽALA/Miloslav KOCÚR",
-        "player_b": "Ing. Igor TKÁČ/Miro. HARČÁRIK",
+        "player_a": "Ján PETRŽALA/Miloslav KOCÚR",
+        "player_b": "Igor TKÁČ/Miro. HARČÁRIK",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY",
@@ -3915,7 +3915,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "František CZINGELY/Csaba BECSE",
-        "player_b": "Ing. Marián HOVAN/Vladimír VARGOVČÁK",
+        "player_b": "Marián HOVAN/Vladimír VARGOVČÁK",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA",
@@ -3924,8 +3924,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER/Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Ján FOTTA/Ing. Jozef FOTTA",
+        "player_a": "Juraj BUCHNER/Jozef MOHŇANSKÝ",
+        "player_b": "Ján FOTTA/Jozef FOTTA",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA",
@@ -3934,7 +3934,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Milan MICHLOVIČ",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -3944,7 +3944,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Martin MUCHA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL"
@@ -3953,7 +3953,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL"
@@ -3971,7 +3971,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL"
@@ -4006,8 +4006,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Štefan PČOLA",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL"
@@ -4034,7 +4034,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL"
@@ -4061,7 +4061,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL"
@@ -4070,7 +4070,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL"
@@ -4096,8 +4096,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Matej KOVAČIK",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Matej KOVAČIK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "SOŠ Ž"
@@ -4105,7 +4105,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Jozef MOLNÁR",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
@@ -4124,7 +4124,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter JAKUBEC",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "SOŠ Ž"
@@ -4132,7 +4132,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Matej KOVAČIK",
+        "player_a": "Matej KOVAČIK",
         "player_b": "Jozef MOLNÁR",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
@@ -4141,7 +4141,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Igor BAŠTI",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
@@ -4151,7 +4151,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Martin SOĽÁR",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "SOŠ Ž"
@@ -4168,7 +4168,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Matej KOVAČIK",
+        "player_a": "Matej KOVAČIK",
         "player_b": "Igor BAŠTI",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
@@ -4177,7 +4177,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Peter POLÁK",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
@@ -4204,7 +4204,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Matej KOVAČIK",
+        "player_a": "Matej KOVAČIK",
         "player_b": "Peter POLÁK",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
@@ -4213,8 +4213,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Štefan LISSÝ",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "4. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "SOŠ Ž"
@@ -4232,7 +4232,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4240,8 +4240,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. P. ŠEBEK",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_a": "P. ŠEBEK",
+        "player_b": "Michal NINITZ",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4250,7 +4250,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef HUDÁK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4259,7 +4259,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Julius PILLÁR",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4268,7 +4268,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4276,8 +4276,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. P. ŠEBEK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_a": "P. ŠEBEK",
+        "player_b": "Marek SKYBA",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4295,7 +4295,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Julius PILLÁR",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4304,7 +4304,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4312,7 +4312,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. P. ŠEBEK",
+        "player_a": "P. ŠEBEK",
         "player_b": "David LEŠUNDÁK",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
@@ -4322,7 +4322,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef HUDÁK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4331,7 +4331,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Julius PILLÁR",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4348,8 +4348,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. P. ŠEBEK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_a": "P. ŠEBEK",
+        "player_b": "Martin ĎURIŠIN",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4358,7 +4358,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef ZAVACKÝ",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\""
@@ -4366,8 +4366,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Slavomír KRÁLIK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4375,8 +4375,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "Ing. Matuš MATEJ",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Matuš MATEJ",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4385,7 +4385,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4393,8 +4393,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
-        "player_b": "Ing. Ján GUZY",
+        "player_a": "Iveta SOLČANIOVÁ",
+        "player_b": "Ján GUZY",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4402,8 +4402,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Matuš MATEJ",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Matuš MATEJ",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4411,8 +4411,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Ján ŘIHAK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4421,7 +4421,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4429,8 +4429,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Iveta SOLČANIOVÁ",
+        "player_b": "Slavomír KRÁLIK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4438,8 +4438,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Ján ŘIHAK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4447,8 +4447,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "Ing. Ján GUZY",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Ján GUZY",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4457,7 +4457,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4465,8 +4465,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
-        "player_b": "Ing. Matuš MATEJ",
+        "player_a": "Iveta SOLČANIOVÁ",
+        "player_b": "Matuš MATEJ",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4474,8 +4474,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Ján GUZY",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Ján GUZY",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4483,8 +4483,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Slavomír KRÁLIK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4493,7 +4493,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Matuš MATEJ",
+        "player_b": "Matuš MATEJ",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4501,8 +4501,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_a": "Iveta SOLČANIOVÁ",
+        "player_b": "Ján ŘIHAK",
         "date": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE"
@@ -4510,7 +4510,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Andrej FELBER",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
@@ -4519,8 +4519,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Tibor FIĽAK",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Tibor FIĽAK",
+        "player_b": "Marek SIMKO",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "TT TEAM"
@@ -4546,8 +4546,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Stanislav PČOLA",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Stanislav PČOLA",
+        "player_b": "Marek SIMKO",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "TT TEAM"
@@ -4555,7 +4555,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Tibor FIĽAK",
+        "player_a": "Tibor FIĽAK",
         "player_b": "Juraj POLYAK",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
@@ -4582,7 +4582,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Juraj POLYAK",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
@@ -4591,7 +4591,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Tibor FIĽAK",
+        "player_a": "Tibor FIĽAK",
         "player_b": "Ľubomír BENDZÁK",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
@@ -4610,7 +4610,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Radoslav POĽA",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "TT TEAM"
@@ -4618,7 +4618,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Peter RUŽIČKA",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
@@ -4627,7 +4627,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Tibor FIĽAK",
+        "player_a": "Tibor FIĽAK",
         "player_b": "Andrej FELBER",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
@@ -4637,7 +4637,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Roman ČIŽMÁR",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "4. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "TT TEAM"
@@ -4655,7 +4655,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_b": "Igor TKÁČ",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4664,7 +4664,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Peter Szceczina",
+        "player_b": "Peter SZCZECZINA",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4672,7 +4672,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter RUSNÁK",
+        "player_a": "Peter RUSNÁK",
         "player_b": "Miro. HARČÁRIK",
         "date": "4. kolo",
         "player_a_team": "REPREX",
@@ -4690,8 +4690,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján PETRŽALA",
-        "player_b": "Peter Szceczina",
+        "player_a": "Ján PETRŽALA",
+        "player_b": "Peter SZCZECZINA",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4708,7 +4708,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter RUSNÁK",
+        "player_a": "Peter RUSNÁK",
         "player_b": "Anton STANICKÝ",
         "date": "4. kolo",
         "player_a_team": "REPREX",
@@ -4718,7 +4718,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_b": "Igor TKÁČ",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4727,7 +4727,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Peter Szceczina",
+        "player_b": "Peter SZCZECZINA",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4744,8 +4744,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján PETRŽALA",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_a": "Ján PETRŽALA",
+        "player_b": "Igor TKÁČ",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4754,7 +4754,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Peter Szceczina",
+        "player_b": "Peter SZCZECZINA",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4762,7 +4762,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "RNDr. Štefan VENDEL",
+        "player_a": "Štefan VENDEL",
         "player_b": "Anton STANICKÝ",
         "date": "4. kolo",
         "player_a_team": "REPREX",
@@ -4772,7 +4772,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_b": "Igor TKÁČ",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4780,8 +4780,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter RUSNÁK",
-        "player_b": "Peter Szceczina",
+        "player_a": "Peter RUSNÁK",
+        "player_b": "Peter SZCZECZINA",
         "date": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY"
@@ -4789,7 +4789,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján PETRŽALA",
+        "player_a": "Ján PETRŽALA",
         "player_b": "Miro. HARČÁRIK",
         "date": "4. kolo",
         "player_a_team": "REPREX",
@@ -4807,7 +4807,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER",
+        "player_a": "Juraj BUCHNER",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
@@ -4816,8 +4816,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Marián HOVAN",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -4826,7 +4826,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Csaba BECSE",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -4843,8 +4843,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Marián HOVAN",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -4853,7 +4853,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -4871,7 +4871,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "František CZINGELY",
-        "player_b": "Ing. Marián HOVAN",
+        "player_b": "Marián HOVAN",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -4879,8 +4879,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Jozef FOTTA",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -4888,7 +4888,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
+        "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Ján FOTTA",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
@@ -4907,7 +4907,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "František CZINGELY",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -4915,7 +4915,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER",
+        "player_a": "Juraj BUCHNER",
         "player_b": "Ján FOTTA",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
@@ -4924,7 +4924,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
+        "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
@@ -4934,7 +4934,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Ing. Marián HOVAN",
+        "player_b": "Marián HOVAN",
         "date": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA"
@@ -5106,8 +5106,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN/David LEŠUNDÁK",
-        "player_b": "Ing. Slav. FEČKE/Roman ČIŽMÁR",
+        "player_a": "Martin ĎURIŠIN/David LEŠUNDÁK",
+        "player_b": "Slav. FEČKE/Roman ČIŽMÁR",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club",
@@ -5116,8 +5116,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter GABOŠ/Mgr. Michal NINITZ",
-        "player_b": "Ing. Stanislav PČOLA/Radoslav POĽA",
+        "player_a": "Peter GABOŠ/Michal NINITZ",
+        "player_b": "Stanislav PČOLA/Radoslav POĽA",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club",
@@ -5126,7 +5126,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Milan SUCHÝ/Peter Szceczina",
+        "player_a": "Milan SUCHÝ/Peter SZCZECZINA",
         "player_b": "Eduard KUDLA/Andrej MAKRANSKÝ ml.",
         "date": "5. kolo",
         "player_a_team": "COKERY",
@@ -5136,8 +5136,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Miro. HARČÁRIK/Ing. Igor TKÁČ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ/Ing. Karol GERGELY",
+        "player_a": "Miro. HARČÁRIK/Igor TKÁČ",
+        "player_b": "Andrej MAKRANSKÝ/Karol GERGELY",
         "date": "5. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "TTC KVP",
@@ -5147,7 +5147,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter BARSA/Juraj ANTOŠ",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ/Zuzana GAŽI",
+        "player_b": "Jarmila SOMOŠOVÁ/Zuzana GAŽI",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -5156,8 +5156,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Andrej KARLIK/Ing. Peter ŠTEFANCO",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ/Ing. Izabela VARGOVÁ",
+        "player_a": "Andrej KARLIK/Peter ŠTEFANCO",
+        "player_b": "Martina KOLIBÁROVÁ/Izabela VARGOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -5166,7 +5166,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY/Ing. Ján GUZY",
+        "player_a": "Marek PATAKY/Ján GUZY",
         "player_b": "Peter JAKUBEC/Martin SOĽÁR",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5176,8 +5176,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter VYHONSKÝ/Bc. Ján ŘIHAK",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ/ĽUBOMÍR FRANČÁK",
+        "player_a": "Peter VYHONSKÝ/Ján ŘIHAK",
+        "player_b": "Miroslav KOSCELANSKÝ/Ľubomír FRANČÁK",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\"",
@@ -5196,8 +5196,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján SIMKO/Peter RUŽIČKA",
-        "player_b": "Ing. Peter RUSNÁK/Ing. Daniel VAŇO",
+        "player_a": "Ján SIMKO/Peter RUŽIČKA",
+        "player_b": "Peter RUSNÁK/Daniel VAŇO",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX",
@@ -5216,8 +5216,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA/Milan MICHLOVIČ",
-        "player_b": "Ing. P. ŠEBEK/Jozef ZAVACKÝ",
+        "player_a": "Štefan PČOLA/Milan MICHLOVIČ",
+        "player_b": "P. ŠEBEK/Jozef ZAVACKÝ",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST",
@@ -5226,7 +5226,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Milan ŠOLC/Ing. Marián HOVAN",
+        "player_a": "Milan ŠOLC/Marián HOVAN",
         "player_b": "Julus WÉBER/Andrej KAČKOŠ",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -5236,7 +5236,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ján FOTTA/Ing. Jozef FOTTA",
+        "player_a": "Ján FOTTA/Jozef FOTTA",
         "player_b": "Martin MUCHA/Matúš HRČKA",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -5264,7 +5264,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Nándor BORTNYÁK",
         "date": "5. kolo",
         "player_a_team": "SOŠ Ž",
@@ -5300,7 +5300,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Csaba BECSE",
         "date": "5. kolo",
         "player_a_team": "SOŠ Ž",
@@ -5372,7 +5372,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "František CZINGELY",
         "date": "5. kolo",
         "player_a_team": "SOŠ Ž",
@@ -5390,7 +5390,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Radoslav POĽA",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
@@ -5400,7 +5400,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5408,8 +5408,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Michal NINITZ",
+        "player_b": "Stanislav PČOLA",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5426,8 +5426,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_a": "Marek SKYBA",
+        "player_b": "Slav. FEČKE",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5436,7 +5436,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5444,7 +5444,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Roman ČIŽMÁR",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
@@ -5462,8 +5462,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Stanislav PČOLA",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5480,7 +5480,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Radoslav POĽA",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
@@ -5490,7 +5490,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Peter GABOŠ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5498,7 +5498,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Roman ČIŽMÁR",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
@@ -5516,8 +5516,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_a": "Michal NINITZ",
+        "player_b": "Slav. FEČKE",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5525,8 +5525,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Marek SKYBA",
+        "player_b": "Stanislav PČOLA",
         "date": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club"
@@ -5543,7 +5543,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
+        "player_a": "Igor TKÁČ",
         "player_b": "Csaba BECSE",
         "date": "5. kolo",
         "player_a_team": "COKERY",
@@ -5553,7 +5553,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "5. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "TTC KVP"
@@ -5579,8 +5579,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Igor TKÁČ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "5. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "TTC KVP"
@@ -5607,7 +5607,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miro. HARČÁRIK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "5. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "TTC KVP"
@@ -5615,7 +5615,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Igor TKÁČ",
+        "player_a": "Igor TKÁČ",
         "player_b": "Eduard KUDLA",
         "date": "5. kolo",
         "player_a_team": "COKERY",
@@ -5624,7 +5624,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Peter Szceczina",
+        "player_a": "Peter SZCZECZINA",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "5. kolo",
         "player_a_team": "COKERY",
@@ -5651,7 +5651,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Igor TKÁČ",
+        "player_a": "Igor TKÁČ",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "5. kolo",
         "player_a_team": "COKERY",
@@ -5669,8 +5669,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Peter SZCZECZINA",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "5. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "TTC KVP"
@@ -5679,7 +5679,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5688,7 +5688,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Peter BARSA",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5696,8 +5696,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "MUDr.Peter. MACH",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Peter MACH",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5705,7 +5705,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter ŠTEFANCO",
+        "player_a": "Peter ŠTEFANCO",
         "player_b": "Zuzana GAŽI",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -5715,7 +5715,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5724,7 +5724,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter BARSA",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_b": "Izabela VARGOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5742,7 +5742,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Andrej KARLIK",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5751,7 +5751,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5768,8 +5768,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "MUDr.Peter. MACH",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Peter MACH",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5777,8 +5777,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter ŠTEFANCO",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Peter ŠTEFANCO",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5796,7 +5796,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Peter BARSA",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5805,7 +5805,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Milan KRASNAY",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5814,7 +5814,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej KARLIK",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -5822,7 +5822,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Martin SOĽÁR",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5831,7 +5831,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Peter JAKUBEC",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5840,8 +5840,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5849,8 +5849,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján GUZY",
-        "player_b": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Ján GUZY",
+        "player_b": "Ľubomír FRANČÁK",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5858,7 +5858,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Peter JAKUBEC",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5867,8 +5867,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter VYHONSKÝ",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Peter VYHONSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5876,8 +5876,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Ľubomír FRANČÁK",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5885,7 +5885,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Martin SOĽÁR",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5894,8 +5894,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek PATAKY",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Marek PATAKY",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5903,8 +5903,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter VYHONSKÝ",
-        "player_b": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Peter VYHONSKÝ",
+        "player_b": "Ľubomír FRANČÁK",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5912,7 +5912,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Martin SOĽÁR",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5921,7 +5921,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Peter JAKUBEC",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5930,8 +5930,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
-        "player_b": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Marek PATAKY",
+        "player_b": "Ľubomír FRANČÁK",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5939,7 +5939,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Martin SOĽÁR",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5948,7 +5948,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Peter JAKUBEC",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
@@ -5957,8 +5957,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Ján GUZY",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\""
@@ -5985,7 +5985,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "Ing. Daniel VAŇO",
+        "player_b": "Daniel VAŇO",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -5993,8 +5993,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján SIMKO",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_a": "Ján SIMKO",
+        "player_b": "Peter RUSNÁK",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -6012,7 +6012,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj POLYAK",
-        "player_b": "RNDr. Štefan VENDEL",
+        "player_b": "Štefan VENDEL",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -6021,7 +6021,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -6029,7 +6029,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján SIMKO",
+        "player_a": "Ján SIMKO",
         "player_b": "Ľubomír HOCHVART",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
@@ -6039,7 +6039,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER",
-        "player_b": "Ing. Daniel VAŇO",
+        "player_b": "Daniel VAŇO",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -6048,7 +6048,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj POLYAK",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -6065,7 +6065,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján SIMKO",
+        "player_a": "Ján SIMKO",
         "player_b": "Miloslav KOCÚR",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
@@ -6075,7 +6075,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -6101,8 +6101,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján SIMKO",
-        "player_b": "RNDr. Štefan VENDEL",
+        "player_a": "Ján SIMKO",
+        "player_b": "Štefan VENDEL",
         "date": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX"
@@ -6119,7 +6119,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Julius PILLÁR",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
@@ -6128,8 +6128,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Štefan PČOLA",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_a": "Štefan PČOLA",
+        "player_b": "P. ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6155,8 +6155,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_a": "M. ZÁRIK",
+        "player_b": "P. ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6164,7 +6164,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Patrík TIRPÁK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
@@ -6183,7 +6183,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan MICHLOVIČ",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6191,7 +6191,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Patrík TIRPÁK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
@@ -6227,7 +6227,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Jozef ZAVACKÝ",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
@@ -6236,7 +6236,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Julius PILLÁR",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
@@ -6246,7 +6246,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Luboš MRÁZ",
-        "player_b": "Ing. P. ŠEBEK",
+        "player_b": "P. ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6254,7 +6254,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Matúš HRČKA",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -6263,7 +6263,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Martin MUCHA",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -6282,7 +6282,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Ján FOTTA",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "ASTORIA FIT"
@@ -6290,7 +6290,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Martin MUCHA",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -6299,7 +6299,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Julus WÉBER",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -6309,7 +6309,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "ASTORIA FIT"
@@ -6326,7 +6326,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Andrej KAČKOŠ",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -6335,8 +6335,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Marián HOVAN",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "ASTORIA FIT"
@@ -6362,7 +6362,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Julus WÉBER",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -6371,7 +6371,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Matúš HRČKA",
         "date": "5. kolo",
         "player_a_team": "MYSLAVA",
@@ -6398,7 +6398,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Milan ŠOLC/Ing. Marián HOVAN",
+        "player_a": "Milan ŠOLC/Marián HOVAN",
         "player_b": "Peter POLÁK/Igor BAŠTI",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
@@ -6408,8 +6408,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ján FOTTA/Ing. Jozef FOTTA",
-        "player_b": "Jozef MOLNÁR/SLAVOMÍR KEŠELÁK",
+        "player_a": "Ján FOTTA/Jozef FOTTA",
+        "player_b": "Jozef MOLNÁR/Slavomír KEŠELÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž",
@@ -6428,8 +6428,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Marek KUNDRIK/Mgr. Viktor ŠIDLÍK",
-        "player_b": "Ing. Peter ŠEBEK st./Jozef ZAVACKÝ",
+        "player_a": "Marek KUNDRIK/Viktor ŠIDLÍK",
+        "player_b": "Peter ŠEBEK st./Jozef ZAVACKÝ",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST",
@@ -6438,7 +6438,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Štefan LISSÝ/Martin SOĽÁR",
+        "player_a": "Štefan LISSÝ/Martin SOĽÁR",
         "player_b": "Juraj ANTOŠ/Peter BARSA",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6448,8 +6448,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ/Peter JAKUBEC",
-        "player_b": "Ing. Peter ŠTEFANCO/Andrej KARLIK",
+        "player_a": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
+        "player_b": "Peter ŠTEFANCO/Andrej KARLIK",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "KOMÉTA KE",
@@ -6458,8 +6458,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Roman ČIŽMÁR/Ing. Slav. FEČKE",
-        "player_b": "Ing. Štefan PČOLA/Milan MICHLOVIČ",
+        "player_a": "Roman ČIŽMÁR/Slav. FEČKE",
+        "player_b": "Štefan PČOLA/Milan MICHLOVIČ",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL",
@@ -6468,7 +6468,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA/Radoslav POĽA",
+        "player_a": "Stanislav PČOLA/Radoslav POĽA",
         "player_b": "Milan GAJTKO/Luboš MRÁZ",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
@@ -6478,7 +6478,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Izabela VARGOVÁ/Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Izabela VARGOVÁ/Martina KOLIBÁROVÁ",
         "player_b": "Jaroslav JANOVSKÝ/Milan SUCHÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -6488,7 +6488,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ/PAVOL CINKANIČ",
+        "player_a": "Jarmila SOMOŠOVÁ/Pavol CINKANIČ",
         "player_b": "Jaroslav WIENER/Anton STANICKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -6498,8 +6498,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Karol GERGELY/Tomáš BEKECS",
-        "player_b": "Ing. Marek SIMKO/Ľubomír BENDZÁK",
+        "player_a": "Karol GERGELY/Tomáš BEKECS",
+        "player_b": "Marek SIMKO/Ľubomír BENDZÁK",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "TT TEAM",
@@ -6508,7 +6508,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ/Eduard KUDLA",
+        "player_a": "Andrej MAKRANSKÝ/Eduard KUDLA",
         "player_b": "Juraj POLYAK/Andrej FELBER",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
@@ -6518,8 +6518,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Vladimír LÁSLOFI/Ing. Juraj BUCHNER",
-        "player_b": "Ing. Marek PATAKY/Ing. Ján GUZY",
+        "player_a": "Vladimír LÁSLOFI/Juraj BUCHNER",
+        "player_b": "Marek PATAKY/Ján GUZY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE",
@@ -6529,7 +6529,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS/František CZINGELY",
-        "player_b": "Ing. Slavomír KRÁLIK/Ondrej KRÁLIK",
+        "player_b": "Slavomír KRÁLIK/Ondrej KRÁLIK",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE",
@@ -6539,7 +6539,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Ľubomír HOCHVART/Milan PAŽIČ",
-        "player_b": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
+        "player_b": "David LEŠUNDÁK/Martin ĎURIŠIN",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\"",
@@ -6548,8 +6548,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Miloslav KOCÚR/Ing. Ján PETRŽALA",
-        "player_b": "Ing. Marek SKYBA/Peter GABOŠ",
+        "player_a": "Miloslav KOCÚR/Ján PETRŽALA",
+        "player_b": "Marek SKYBA/Peter GABOŠ",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\"",
@@ -6559,7 +6559,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK st.",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -6622,7 +6622,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK st.",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -6648,8 +6648,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Peter ŠEBEK st.",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -6676,7 +6676,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK st.",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -6684,7 +6684,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Jozef HUDÁK",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -6693,7 +6693,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Julius PILLÁR",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -6702,7 +6702,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Igor BAŠTI",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
@@ -6711,7 +6711,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Jozef MOLNÁR",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
@@ -6721,7 +6721,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž"
@@ -6738,7 +6738,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Jozef MOLNÁR",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
@@ -6747,8 +6747,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Marián HOVAN",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž"
@@ -6774,8 +6774,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Jozef FOTTA",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž"
@@ -6783,7 +6783,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Peter POLÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
@@ -6802,7 +6802,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan ŠOLC",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž"
@@ -6810,7 +6810,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Peter POLÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
@@ -6819,7 +6819,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Igor BAŠTI",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
@@ -6829,7 +6829,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž"
@@ -6838,7 +6838,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Milan ŠOLC",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž"
@@ -6855,7 +6855,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Peter BARSA",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6865,7 +6865,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter JAKUBEC",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_b": "Peter ŠTEFANCO",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "KOMÉTA KE"
@@ -6873,7 +6873,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Milan KRASNAY",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6891,7 +6891,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Andrej KARLIK",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6901,7 +6901,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter JAKUBEC",
-        "player_b": "Ing. Ján GAJDOŠ",
+        "player_b": "Ján GAJDOŠ",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "KOMÉTA KE"
@@ -6909,7 +6909,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Juraj ANTOŠ",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6919,7 +6919,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin SOĽÁR",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_b": "Peter ŠTEFANCO",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "KOMÉTA KE"
@@ -6927,7 +6927,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Milan KRASNAY",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6945,7 +6945,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Peter BARSA",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6963,8 +6963,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
-        "player_b": "Ing. Ján GAJDOŠ",
+        "player_a": "Štefan LISSÝ",
+        "player_b": "Ján GAJDOŠ",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "KOMÉTA KE"
@@ -6981,7 +6981,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Andrej KARLIK",
         "date": "6. kolo",
         "player_a_team": "SKP \"A\"",
@@ -6990,7 +6990,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slav. FEČKE",
+        "player_a": "Slav. FEČKE",
         "player_b": "Milan MICHLOVIČ",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
@@ -7000,7 +7000,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Radoslav POĽA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL"
@@ -7009,7 +7009,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Roman ČIŽMÁR",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL"
@@ -7017,7 +7017,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Milan GAJTKO",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
@@ -7026,8 +7026,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Slav. FEČKE",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Slav. FEČKE",
+        "player_b": "M. ZÁRIK",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL"
@@ -7053,7 +7053,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Milan MICHLOVIČ",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
@@ -7062,8 +7062,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Tibor FIĽAK",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Tibor FIĽAK",
+        "player_b": "Štefan PČOLA",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL"
@@ -7089,8 +7089,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Stanislav PČOLA",
+        "player_b": "M. ZÁRIK",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL"
@@ -7098,7 +7098,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Tibor FIĽAK",
+        "player_a": "Tibor FIĽAK",
         "player_b": "Luboš MRÁZ",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
@@ -7117,7 +7117,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Roman ČIŽMÁR",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL"
@@ -7125,8 +7125,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Stanislav PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL"
@@ -7134,7 +7134,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Jaroslav WIENER",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7143,7 +7143,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Milan SUCHÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7152,7 +7152,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Anton STANICKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7170,7 +7170,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Milan SUCHÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7179,7 +7179,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Anton STANICKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7188,7 +7188,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Jaroslav JANOVSKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7206,7 +7206,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Anton STANICKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7215,7 +7215,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Jaroslav JANOVSKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7224,7 +7224,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Jaroslav WIENER",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7242,7 +7242,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Jaroslav JANOVSKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7251,7 +7251,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Jaroslav WIENER",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7260,7 +7260,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Milan SUCHÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7269,7 +7269,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Anton STANICKÝ",
         "date": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -7287,8 +7287,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Karol GERGELY",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Karol GERGELY",
+        "player_b": "Marek SIMKO",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "TT TEAM"
@@ -7305,7 +7305,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Andrej MAKRANSKÝ",
         "player_b": "Juraj POLYAK",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
@@ -7315,7 +7315,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Eduard KUDLA",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "TT TEAM"
@@ -7323,7 +7323,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Karol GERGELY",
+        "player_a": "Karol GERGELY",
         "player_b": "Andrej FELBER",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
@@ -7341,7 +7341,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Andrej MAKRANSKÝ",
         "player_b": "Ľubomír BENDZÁK",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
@@ -7359,7 +7359,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Karol GERGELY",
+        "player_a": "Karol GERGELY",
         "player_b": "Juraj POLYAK",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
@@ -7377,8 +7377,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Andrej MAKRANSKÝ",
+        "player_b": "Marek SIMKO",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "TT TEAM"
@@ -7395,7 +7395,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Karol GERGELY",
+        "player_a": "Karol GERGELY",
         "player_b": "Ľubomír BENDZÁK",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
@@ -7405,7 +7405,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Tomáš BEKECS",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "TT TEAM"
@@ -7413,7 +7413,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Andrej MAKRANSKÝ",
         "player_b": "Andrej FELBER",
         "date": "6. kolo",
         "player_a_team": "TTC KVP",
@@ -7422,8 +7422,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Slavomír KRÁLIK",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7441,7 +7441,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "František CZINGELY",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7449,8 +7449,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "Ing. Marek PATAKY",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Marek PATAKY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7458,7 +7458,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
+        "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Ondrej KRÁLIK",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
@@ -7468,7 +7468,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7477,7 +7477,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7485,8 +7485,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Slavomír KRÁLIK",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7494,8 +7494,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Ing. Ján GUZY",
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Ján GUZY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7504,7 +7504,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7513,7 +7513,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "František CZINGELY",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7521,7 +7521,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Juraj BUCHNER",
+        "player_a": "Juraj BUCHNER",
         "player_b": "Ondrej KRÁLIK",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
@@ -7530,8 +7530,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Ing. Marek PATAKY",
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Marek PATAKY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7540,7 +7540,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7558,7 +7558,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE"
@@ -7576,7 +7576,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7584,8 +7584,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján PETRŽALA",
-        "player_b": "Ing. Marek SKYBA",
+        "player_a": "Ján PETRŽALA",
+        "player_b": "Marek SKYBA",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7593,7 +7593,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter RUSNÁK",
+        "player_a": "Peter RUSNÁK",
         "player_b": "Peter GABOŠ",
         "date": "6. kolo",
         "player_a_team": "REPREX",
@@ -7603,7 +7603,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7612,7 +7612,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7620,7 +7620,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján PETRŽALA",
+        "player_a": "Ján PETRŽALA",
         "player_b": "Peter GABOŠ",
         "date": "6. kolo",
         "player_a_team": "REPREX",
@@ -7629,7 +7629,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter RUSNÁK",
+        "player_a": "Peter RUSNÁK",
         "player_b": "David LEŠUNDÁK",
         "date": "6. kolo",
         "player_a_team": "REPREX",
@@ -7639,7 +7639,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7665,8 +7665,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter RUSNÁK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_a": "Peter RUSNÁK",
+        "player_b": "Martin ĎURIŠIN",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7692,8 +7692,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján PETRŽALA",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_a": "Ján PETRŽALA",
+        "player_b": "Martin ĎURIŠIN",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7702,7 +7702,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\""
@@ -7711,7 +7711,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Jozef HUDÁK/Jozef ZAVACKÝ",
-        "player_b": "Radoslav POĽA/Ing. Stanislav PČOLA",
+        "player_b": "Radoslav POĽA/Stanislav PČOLA",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club",
@@ -7721,7 +7721,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Patrík TIRPÁK/Julius PILLÁR",
-        "player_b": "Roman ČIŽMÁR/Ing. Slav. FEČKE",
+        "player_b": "Roman ČIŽMÁR/Slav. FEČKE",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club",
@@ -7730,8 +7730,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Karol GERGELY/Tomáš BEKECS",
+        "player_a": "David LEŠUNDÁK/Martin ĎURIŠIN",
+        "player_b": "Karol GERGELY/Tomáš BEKECS",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP",
@@ -7740,8 +7740,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek SKYBA/Mgr. Michal NINITZ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ/Andrej MAKRANSKÝ ml.",
+        "player_a": "Marek SKYBA/Michal NINITZ",
+        "player_b": "Andrej MAKRANSKÝ/Andrej MAKRANSKÝ ml.",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP",
@@ -7760,8 +7760,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK/Igor BAŠTI",
-        "player_b": "Marek KUNDRIK/Mgr. Viktor ŠIDLÍK",
+        "player_a": "Slavomír KEŠELÁK/Igor BAŠTI",
+        "player_b": "Marek KUNDRIK/Viktor ŠIDLÍK",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "ASTORIA FIT",
@@ -7771,7 +7771,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav JANOVSKÝ/Anton STANICKÝ",
-        "player_b": "Mgr. Štefan LISSÝ/Martin SOĽÁR",
+        "player_b": "Štefan LISSÝ/Martin SOĽÁR",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\"",
@@ -7781,7 +7781,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ/Jaroslav WIENER",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ/Peter JAKUBEC",
+        "player_b": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\"",
@@ -7790,7 +7790,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter ŠTEFANCO/Andrej KARLIK",
+        "player_a": "Peter ŠTEFANCO/Andrej KARLIK",
         "player_b": "František CZINGELY/Ľubomír VARTÁS",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -7801,7 +7801,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Peter BARSA/Juraj ANTOŠ",
-        "player_b": "Ing. Juraj BUCHNER/Ing. Jozef MOHŇANSKÝ",
+        "player_b": "Juraj BUCHNER/Jozef MOHŇANSKÝ",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV",
@@ -7810,8 +7810,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slavomír KRÁLIK/Ing. Ján GUZY",
-        "player_b": "Milan ŠOLC/Ing. Marián HOVAN",
+        "player_a": "Slavomír KRÁLIK/Ján GUZY",
+        "player_b": "Milan ŠOLC/Marián HOVAN",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA",
@@ -7820,8 +7820,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek PATAKY/Bc. Ján ŘIHAK",
-        "player_b": "Ján FOTTA/Ing. Jozef FOTTA",
+        "player_a": "Marek PATAKY/Ján ŘIHAK",
+        "player_b": "Ján FOTTA/Jozef FOTTA",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA",
@@ -7831,7 +7831,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Peter RUŽIČKA/Ľubomír BENDZÁK",
-        "player_b": "Ing. Izabela VARGOVÁ/Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Izabela VARGOVÁ/Martina KOLIBÁROVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -7841,7 +7841,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Juraj POLYAK/Andrej FELBER",
-        "player_b": "PAVOL CINKANIČ/Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Pavol CINKANIČ/Jarmila SOMOŠOVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -7860,8 +7860,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Milan MICHLOVIČ/Ing. Štefan PČOLA",
-        "player_b": "Miloslav KOCÚR/Ing. Ján PETRŽALA",
+        "player_a": "Milan MICHLOVIČ/Štefan PČOLA",
+        "player_b": "Miloslav KOCÚR/Ján PETRŽALA",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "REPREX",
@@ -7880,7 +7880,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -7889,7 +7889,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef ZAVACKÝ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -7907,7 +7907,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Julius PILLÁR",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -7916,7 +7916,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -7943,7 +7943,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Julius PILLÁR",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -7970,7 +7970,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef HUDÁK",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -7997,7 +7997,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef ZAVACKÝ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -8006,7 +8006,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Jozef HUDÁK",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club"
@@ -8014,8 +8014,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Karol GERGELY",
+        "player_a": "Michal NINITZ",
+        "player_b": "Karol GERGELY",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8023,7 +8023,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Tomáš BEKECS",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
@@ -8033,7 +8033,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8041,7 +8041,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
@@ -8050,7 +8050,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Tomáš BEKECS",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
@@ -8059,8 +8059,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Marek SKYBA",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8077,8 +8077,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Karol GERGELY",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Karol GERGELY",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8086,8 +8086,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Michal NINITZ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8095,7 +8095,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
@@ -8105,7 +8105,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8113,7 +8113,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Tomáš BEKECS",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
@@ -8122,7 +8122,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Andrej MAKRANSKÝ ml.",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
@@ -8131,8 +8131,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Ing. Karol GERGELY",
+        "player_a": "Marek SKYBA",
+        "player_b": "Karol GERGELY",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8149,8 +8149,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP"
@@ -8185,7 +8185,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Marek KUNDRIK",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
@@ -8204,7 +8204,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Igor BAŠTI",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "ASTORIA FIT"
@@ -8212,7 +8212,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Marek KUNDRIK",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
@@ -8248,7 +8248,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Ladislav RADVÁNI",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
@@ -8267,7 +8267,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter POLÁK",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "ASTORIA FIT"
@@ -8276,7 +8276,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Igor BAŠTI",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "ASTORIA FIT"
@@ -8284,7 +8284,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Martin MUCHA",
         "date": "7. kolo",
         "player_a_team": "SOŠ Ž",
@@ -8303,7 +8303,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8321,7 +8321,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Anton STANICKÝ",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_b": "Štefan LISSÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8348,7 +8348,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_b": "Štefan LISSÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8357,7 +8357,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Anton STANICKÝ",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8375,7 +8375,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_b": "Štefan LISSÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8393,7 +8393,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Anton STANICKÝ",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8420,7 +8420,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8438,7 +8438,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav JANOVSKÝ",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_b": "Štefan LISSÝ",
         "date": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\""
@@ -8464,8 +8464,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter ŠTEFANCO",
-        "player_b": "Ing. Juraj BUCHNER",
+        "player_a": "Peter ŠTEFANCO",
+        "player_b": "Juraj BUCHNER",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV"
@@ -8474,7 +8474,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan KRASNAY",
-        "player_b": "Ing. Jozef MOHŇANSKÝ",
+        "player_b": "Jozef MOHŇANSKÝ",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV"
@@ -8501,7 +8501,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej KARLIK",
-        "player_b": "Ing. Jozef MOHŇANSKÝ",
+        "player_b": "Jozef MOHŇANSKÝ",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV"
@@ -8519,7 +8519,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Ing. Juraj BUCHNER",
+        "player_b": "Juraj BUCHNER",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV"
@@ -8528,7 +8528,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter BARSA",
-        "player_b": "Ing. Jozef MOHŇANSKÝ",
+        "player_b": "Jozef MOHŇANSKÝ",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV"
@@ -8536,7 +8536,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠTEFANCO",
+        "player_a": "Peter ŠTEFANCO",
         "player_b": "František CZINGELY",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -8545,7 +8545,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján GAJDOŠ",
+        "player_a": "Ján GAJDOŠ",
         "player_b": "Ľubomír VARTÁS",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -8554,8 +8554,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján GAJDOŠ",
-        "player_b": "Ing. Jozef MOHŇANSKÝ",
+        "player_a": "Ján GAJDOŠ",
+        "player_b": "Jozef MOHŇANSKÝ",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV"
@@ -8582,7 +8582,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Milan KRASNAY",
-        "player_b": "Ing. Juraj BUCHNER",
+        "player_b": "Juraj BUCHNER",
         "date": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV"
@@ -8590,7 +8590,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Ján FOTTA",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8599,7 +8599,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8608,8 +8608,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Jozef FOTTA",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8617,8 +8617,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Marek PATAKY",
+        "player_b": "Marián HOVAN",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8626,7 +8626,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8635,8 +8635,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter VYHONSKÝ",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Peter VYHONSKÝ",
+        "player_b": "Jozef FOTTA",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8644,8 +8644,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Marián HOVAN",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8653,7 +8653,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Ján FOTTA",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8662,8 +8662,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Jozef FOTTA",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8671,8 +8671,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter VYHONSKÝ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Peter VYHONSKÝ",
+        "player_b": "Marián HOVAN",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8680,7 +8680,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Milan ŠOLC",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8689,7 +8689,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8698,8 +8698,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Marián HOVAN",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8707,7 +8707,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Milan ŠOLC",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8716,7 +8716,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
@@ -8725,8 +8725,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Ján GUZY",
+        "player_b": "Jozef FOTTA",
         "date": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA"
@@ -8744,7 +8744,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Andrej FELBER",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8753,7 +8753,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ľubomír BENDZÁK",
-        "player_b": "PAVOL CINKANIČ",
+        "player_b": "Pavol CINKANIČ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8761,8 +8761,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek SIMKO",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_a": "Marek SIMKO",
+        "player_b": "Izabela VARGOVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8771,7 +8771,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8780,7 +8780,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8789,7 +8789,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír BENDZÁK",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_b": "Izabela VARGOVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8797,7 +8797,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "Zuzana GAŽI",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
@@ -8807,7 +8807,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Juraj POLYAK",
-        "player_b": "PAVOL CINKANIČ",
+        "player_b": "Pavol CINKANIČ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8816,7 +8816,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_b": "Izabela VARGOVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8825,7 +8825,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8833,8 +8833,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Marek SIMKO",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8843,7 +8843,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Juraj POLYAK",
-        "player_b": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_b": "Jarmila SOMOŠOVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8861,7 +8861,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Ľubomír BENDZÁK",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8869,8 +8869,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO",
-        "player_b": "PAVOL CINKANIČ",
+        "player_a": "Marek SIMKO",
+        "player_b": "Pavol CINKANIČ",
         "date": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -8887,7 +8887,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Milan PAŽIČ",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
@@ -8897,7 +8897,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan GAJTKO",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "REPREX"
@@ -8905,7 +8905,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Miloslav KOCÚR",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
@@ -8932,8 +8932,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. M. ZÁRIK",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_a": "M. ZÁRIK",
+        "player_b": "Ján PETRŽALA",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "REPREX"
@@ -8950,7 +8950,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Ľubomír HOCHVART",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
@@ -8960,7 +8960,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan MICHLOVIČ",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "REPREX"
@@ -8968,7 +8968,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Miloslav KOCÚR",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
@@ -8995,7 +8995,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. M. ZÁRIK",
+        "player_a": "M. ZÁRIK",
         "player_b": "Ľubomír HOCHVART",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
@@ -9014,7 +9014,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Luboš MRÁZ",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "7. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "REPREX"
@@ -9023,7 +9023,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA/Marek KUNDRIK",
-        "player_b": "Roman ČIŽMÁR/Ing. Tibor FIĽAK",
+        "player_b": "Roman ČIŽMÁR/Tibor FIĽAK",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club",
@@ -9033,7 +9033,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Julus WÉBER/Andrej KAČKOŠ",
-        "player_b": "Ing. Stanislav PČOLA/Radoslav POĽA",
+        "player_b": "Stanislav PČOLA/Radoslav POĽA",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club",
@@ -9042,8 +9042,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Milan ŠOLC/Ing. Marián HOVAN",
-        "player_b": "MUDr.Peter. MACH/Milan KRASNAY",
+        "player_a": "Milan ŠOLC/Marián HOVAN",
+        "player_b": "Peter MACH/Milan KRASNAY",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE",
@@ -9052,7 +9052,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ján FOTTA/Ing. Jozef FOTTA",
+        "player_a": "Ján FOTTA/Jozef FOTTA",
         "player_b": "Juraj ANTOŠ/Peter BARSA",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
@@ -9063,7 +9063,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Igor BAŠTI/Jozef MOLNÁR",
-        "player_b": "Ing. Marek PATAKY/Bc. Ján ŘIHAK",
+        "player_b": "Marek PATAKY/Ján ŘIHAK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE",
@@ -9073,7 +9073,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Peter POLÁK/Miro. HANIČÁK",
-        "player_b": "Ing. Ján GUZY/Ing. Slavomír KRÁLIK",
+        "player_b": "Ján GUZY/Slavomír KRÁLIK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE",
@@ -9082,8 +9082,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ/Martin SOĽÁR",
-        "player_b": "Ing. Marek SIMKO/Jarosl ANDRAŠČIK",
+        "player_a": "Štefan LISSÝ/Martin SOĽÁR",
+        "player_b": "Marek SIMKO/Jarosl ANDRAŠČIK",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "TT TEAM",
@@ -9092,7 +9092,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ/Peter JAKUBEC",
+        "player_a": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
         "player_b": "Juraj POLYAK/Andrej FELBER",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9102,8 +9102,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ/Ing. Izabela VARGOVÁ",
-        "player_b": "Mgr. Tomáš KUNDRÁK/David LEŠUNDÁK",
+        "player_a": "Martina KOLIBÁROVÁ/Izabela VARGOVÁ",
+        "player_b": "Tomáš KUNDRÁK/David LEŠUNDÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\"",
@@ -9112,8 +9112,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ/Zuzana GAŽI",
-        "player_b": "Mgr. Michal NINITZ/Peter GABOŠ",
+        "player_a": "Jarmila SOMOŠOVÁ/Zuzana GAŽI",
+        "player_b": "Michal NINITZ/Peter GABOŠ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\"",
@@ -9123,7 +9123,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Ľubomír HOCHVART/Milan PAŽIČ",
-        "player_b": "Ing. Peter ŠEBEK st./Jozef HUDÁK",
+        "player_b": "Peter ŠEBEK st./Jozef HUDÁK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST",
@@ -9132,7 +9132,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján PETRŽALA/RNDr. Štefan VENDEL",
+        "player_a": "Ján PETRŽALA/Štefan VENDEL",
         "player_b": "Julius PILLÁR/Patrík TIRPÁK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
@@ -9142,8 +9142,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Eduard KUDLA/JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Milan GAJTKO/Ing. M. ZÁRIK",
+        "player_a": "Eduard KUDLA/Andrej MAKRANSKÝ",
+        "player_b": "Milan GAJTKO/M. ZÁRIK",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL",
@@ -9152,8 +9152,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Tomáš BEKECS/Ing. Karol GERGELY",
-        "player_b": "Milan MICHLOVIČ/Ing. Štefan PČOLA",
+        "player_a": "Tomáš BEKECS/Karol GERGELY",
+        "player_b": "Milan MICHLOVIČ/Štefan PČOLA",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL",
@@ -9163,7 +9163,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "František CZINGELY/Csaba BECSE",
-        "player_b": "Milan SUCHÝ/Ing. Igor TKÁČ",
+        "player_b": "Milan SUCHÝ/Igor TKÁČ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "COKERY",
@@ -9172,7 +9172,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Juraj BUCHNER/Ing. Jozef MOHŇANSKÝ",
+        "player_a": "Juraj BUCHNER/Jozef MOHŇANSKÝ",
         "player_b": "Jaroslav WIENER/Anton STANICKÝ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
@@ -9183,7 +9183,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9192,7 +9192,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9200,7 +9200,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Radoslav POĽA",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -9219,7 +9219,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Julus WÉBER",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9236,7 +9236,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Roman ČIŽMÁR",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -9246,7 +9246,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9273,7 +9273,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Julus WÉBER",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9282,7 +9282,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9300,7 +9300,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9308,8 +9308,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Stanislav PČOLA",
         "date": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club"
@@ -9326,7 +9326,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Peter BARSA",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
@@ -9335,7 +9335,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Juraj ANTOŠ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
@@ -9345,7 +9345,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_b": "Peter ŠTEFANCO",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE"
@@ -9354,7 +9354,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Ján FOTTA",
-        "player_b": "MUDr.Peter. MACH",
+        "player_b": "Peter MACH",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE"
@@ -9362,7 +9362,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Juraj ANTOŠ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
@@ -9371,8 +9371,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_a": "Marián HOVAN",
+        "player_b": "Peter ŠTEFANCO",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE"
@@ -9398,8 +9398,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_a": "Jozef FOTTA",
+        "player_b": "Peter ŠTEFANCO",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE"
@@ -9407,8 +9407,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "MUDr.Peter. MACH",
+        "player_a": "Marián HOVAN",
+        "player_b": "Peter MACH",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE"
@@ -9434,7 +9434,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Milan KRASNAY",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
@@ -9443,7 +9443,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Peter BARSA",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
@@ -9462,7 +9462,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan ŠOLC",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_b": "Peter ŠTEFANCO",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE"
@@ -9471,7 +9471,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vilo POLÁK",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9480,7 +9480,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Igor BAŠTI",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9489,7 +9489,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9498,7 +9498,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Peter POLÁK",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9507,7 +9507,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9516,7 +9516,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Igor BAŠTI",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9525,7 +9525,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9534,7 +9534,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Peter POLÁK",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9543,7 +9543,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Vilo POLÁK",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9552,7 +9552,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Igor BAŠTI",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9561,7 +9561,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9570,7 +9570,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Peter POLÁK",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9579,7 +9579,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vilo POLÁK",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9588,7 +9588,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Igor BAŠTI",
-        "player_b": "Ing. Marek PATAKY",
+        "player_b": "Marek PATAKY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9597,7 +9597,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9606,7 +9606,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE"
@@ -9614,7 +9614,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Juraj POLYAK",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9624,7 +9624,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter JAKUBEC",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "TT TEAM"
@@ -9641,7 +9641,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Jarosl ANDRAŠČIK",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9650,8 +9650,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Matej KOVAČIK",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Matej KOVAČIK",
+        "player_b": "Marek SIMKO",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "TT TEAM"
@@ -9677,7 +9677,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Juraj POLYAK",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9686,7 +9686,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Andrej FELBER",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9704,7 +9704,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Matej KOVAČIK",
+        "player_a": "Matej KOVAČIK",
         "player_b": "Juraj POLYAK",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9713,8 +9713,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Štefan LISSÝ",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Štefan LISSÝ",
+        "player_b": "Marek SIMKO",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "TT TEAM"
@@ -9722,7 +9722,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Jarosl ANDRAŠČIK",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9741,7 +9741,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Martin SOĽÁR",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "TT TEAM"
@@ -9749,7 +9749,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Andrej FELBER",
         "date": "8. kolo",
         "player_a_team": "SKP \"A\"",
@@ -9758,7 +9758,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "David LEŠUNDÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -9767,8 +9767,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Izabela VARGOVÁ",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_a": "Izabela VARGOVÁ",
+        "player_b": "Michal NINITZ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9776,7 +9776,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Peter GABOŠ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -9786,7 +9786,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Mgr. Tomáš KUNDRÁK",
+        "player_b": "Tomáš KUNDRÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9794,8 +9794,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Michal NINITZ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9803,7 +9803,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_a": "Izabela VARGOVÁ",
         "player_b": "Peter GABOŠ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -9812,8 +9812,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
-        "player_b": "Mgr. Tomáš KUNDRÁK",
+        "player_a": "Jarmila SOMOŠOVÁ",
+        "player_b": "Tomáš KUNDRÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9830,7 +9830,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Peter GABOŠ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -9839,8 +9839,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Izabela VARGOVÁ",
-        "player_b": "Mgr. Tomáš KUNDRÁK",
+        "player_a": "Izabela VARGOVÁ",
+        "player_b": "Tomáš KUNDRÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9848,7 +9848,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "David LEŠUNDÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -9858,7 +9858,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9866,8 +9866,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Mgr. Tomáš KUNDRÁK",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Tomáš KUNDRÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9875,7 +9875,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_a": "Izabela VARGOVÁ",
         "player_b": "David LEŠUNDÁK",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -9884,8 +9884,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_a": "Jarmila SOMOŠOVÁ",
+        "player_b": "Michal NINITZ",
         "date": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\""
@@ -9911,8 +9911,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "RNDr. Štefan VENDEL",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_a": "Štefan VENDEL",
+        "player_b": "Peter ŠEBEK st.",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -9920,7 +9920,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján PETRŽALA",
+        "player_a": "Ján PETRŽALA",
         "player_b": "Julius PILLÁR",
         "date": "8. kolo",
         "player_a_team": "REPREX",
@@ -9939,7 +9939,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK st.",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -9947,7 +9947,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "RNDr. Štefan VENDEL",
+        "player_a": "Štefan VENDEL",
         "player_b": "Julius PILLÁR",
         "date": "8. kolo",
         "player_a_team": "REPREX",
@@ -9956,7 +9956,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján PETRŽALA",
+        "player_a": "Ján PETRŽALA",
         "player_b": "Jozef HUDÁK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
@@ -9983,7 +9983,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "RNDr. Štefan VENDEL",
+        "player_a": "Štefan VENDEL",
         "player_b": "Patrík TIRPÁK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
@@ -9992,7 +9992,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján PETRŽALA",
+        "player_a": "Ján PETRŽALA",
         "player_b": "Jozef HUDÁK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
@@ -10002,7 +10002,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK st.",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -10019,7 +10019,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "RNDr. Štefan VENDEL",
+        "player_a": "Štefan VENDEL",
         "player_b": "Jozef HUDÁK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
@@ -10028,8 +10028,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján PETRŽALA",
-        "player_b": "Ing. Peter ŠEBEK st.",
+        "player_a": "Ján PETRŽALA",
+        "player_b": "Peter ŠEBEK st.",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -10046,7 +10046,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Karol GERGELY",
+        "player_a": "Karol GERGELY",
         "player_b": "Milan GAJTKO",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
@@ -10056,7 +10056,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Tomáš BEKECS",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL"
@@ -10065,7 +10065,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Eduard KUDLA",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL"
@@ -10073,7 +10073,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Andrej MAKRANSKÝ",
         "player_b": "Milan MICHLOVIČ",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
@@ -10082,8 +10082,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Karol GERGELY",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Karol GERGELY",
+        "player_b": "M. ZÁRIK",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL"
@@ -10092,49 +10092,13 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Tomáš BEKECS",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL"
     },
     {
         "score_a": 1,
-        "score_b": 3,
-        "player_a": "Eduard KUDLA",
-        "player_b": "Milan GAJTKO",
-        "date": "8. kolo",
-        "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
-    },
-    {
-        "score_a": 0,
-        "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Milan MICHLOVIČ",
-        "date": "8. kolo",
-        "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
-    },
-    {
-        "score_a": 2,
-        "score_b": 3,
-        "player_a": "Ing. Karol GERGELY",
-        "player_b": "Ing. Štefan PČOLA",
-        "date": "8. kolo",
-        "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
-    },
-    {
-        "score_a": 1,
-        "score_b": 3,
-        "player_a": "Tomáš BEKECS",
-        "player_b": "Milan MICHLOVIČ",
-        "date": "8. kolo",
-        "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
-    },
-    {
-        "score_a": 0,
         "score_b": 3,
         "player_a": "Eduard KUDLA",
         "player_b": "Milan GAJTKO",
@@ -10145,8 +10109,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Andrej MAKRANSKÝ",
+        "player_b": "Milan MICHLOVIČ",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL"
@@ -10154,7 +10118,43 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Karol GERGELY",
+        "player_a": "Karol GERGELY",
+        "player_b": "Štefan PČOLA",
+        "date": "8. kolo",
+        "player_a_team": "TTC KVP",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Tomáš BEKECS",
+        "player_b": "Milan MICHLOVIČ",
+        "date": "8. kolo",
+        "player_a_team": "TTC KVP",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Eduard KUDLA",
+        "player_b": "Milan GAJTKO",
+        "date": "8. kolo",
+        "player_a_team": "TTC KVP",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Andrej MAKRANSKÝ",
+        "player_b": "M. ZÁRIK",
+        "date": "8. kolo",
+        "player_a_team": "TTC KVP",
+        "player_b_team": "MONTREAL"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Karol GERGELY",
         "player_b": "Milan MICHLOVIČ",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
@@ -10173,7 +10173,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Eduard KUDLA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL"
@@ -10181,8 +10181,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Andrej MAKRANSKÝ",
+        "player_b": "Štefan PČOLA",
         "date": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL"
@@ -10190,7 +10190,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Juraj BUCHNER",
+        "player_a": "Juraj BUCHNER",
         "player_b": "Jaroslav WIENER",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
@@ -10208,7 +10208,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
+        "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Anton STANICKÝ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
@@ -10218,7 +10218,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Csaba BECSE",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_b": "Igor TKÁČ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "COKERY"
@@ -10244,8 +10244,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Igor TKÁČ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "COKERY"
@@ -10262,7 +10262,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Juraj BUCHNER",
+        "player_a": "Juraj BUCHNER",
         "player_b": "Anton STANICKÝ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
@@ -10272,7 +10272,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "František CZINGELY",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_b": "Igor TKÁČ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "COKERY"
@@ -10298,8 +10298,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Juraj BUCHNER",
-        "player_b": "Ing. Igor TKÁČ",
+        "player_a": "Juraj BUCHNER",
+        "player_b": "Igor TKÁČ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "COKERY"
@@ -10316,7 +10316,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Jozef MOHŇANSKÝ",
+        "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Milan SUCHÝ",
         "date": "8. kolo",
         "player_a_team": "METALKOV",
@@ -10334,7 +10334,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Radoslav POĽA/Ing. Stanislav PČOLA",
+        "player_a": "Radoslav POĽA/Stanislav PČOLA",
         "player_b": "Milan PAŽIČ/Miloslav KOCÚR",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
@@ -10344,8 +10344,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Slav. FEČKE/Roman ČIŽMÁR",
-        "player_b": "Ing. Ján PETRŽALA/Ľubomír HOCHVART",
+        "player_a": "Slav. FEČKE/Roman ČIŽMÁR",
+        "player_b": "Ján PETRŽALA/Ľubomír HOCHVART",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "REPREX",
@@ -10354,8 +10354,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
-        "player_b": "Martin SOĽÁR/Mgr. Štefan LISSÝ",
+        "player_a": "David LEŠUNDÁK/Martin ĎURIŠIN",
+        "player_b": "Martin SOĽÁR/Štefan LISSÝ",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\"",
@@ -10364,8 +10364,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA/Mgr. Michal NINITZ",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ/Peter JAKUBEC",
+        "player_a": "Marek SKYBA/Michal NINITZ",
+        "player_b": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\"",
@@ -10374,8 +10374,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Julius PILLÁR/Ing. Peter ŠEBEK st.",
-        "player_b": "Ing. Karol GERGELY/Tomáš BEKECS",
+        "player_a": "Julius PILLÁR/Peter ŠEBEK st.",
+        "player_b": "Karol GERGELY/Tomáš BEKECS",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP",
@@ -10385,7 +10385,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef HUDÁK/Jozef ZAVACKÝ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ/Eduard KUDLA",
+        "player_b": "Andrej MAKRANSKÝ/Eduard KUDLA",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP",
@@ -10394,8 +10394,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina/Jaroslav WIENER",
-        "player_b": "Ing. Jozef FOTTA/Vladimír VARGOVČÁK",
+        "player_a": "Peter SZCZECZINA/Jaroslav WIENER",
+        "player_b": "Jozef FOTTA/Vladimír VARGOVČÁK",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA",
@@ -10405,7 +10405,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ/Jaroslav JANOVSKÝ",
-        "player_b": "Ing. Marián HOVAN/Milan ŠOLC",
+        "player_b": "Marián HOVAN/Milan ŠOLC",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA",
@@ -10414,7 +10414,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK/Ing. Marek PATAKY",
+        "player_a": "Ján ŘIHAK/Marek PATAKY",
         "player_b": "Andrej KAČKOŠ/Julus WÉBER",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -10424,7 +10424,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK/Ing. Peter VYHONSKÝ",
+        "player_a": "Slavomír KRÁLIK/Peter VYHONSKÝ",
         "player_b": "Matúš HRČKA/Marek KUNDRIK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -10445,7 +10445,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Juraj ANTOŠ/Andrej KARLIK",
-        "player_b": "SLAVOMÍR KEŠELÁK/Jozef MOLNÁR",
+        "player_b": "Slavomír KEŠELÁK/Jozef MOLNÁR",
         "date": "9. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "SOŠ Ž",
@@ -10464,7 +10464,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO/Peter RUŽIČKA",
+        "player_a": "Marek SIMKO/Peter RUŽIČKA",
         "player_b": "Csaba BECSE/Tamás BÓNI",
         "date": "9. kolo",
         "player_a_team": "TT TEAM",
@@ -10474,8 +10474,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. M. ZÁRIK/Luboš MRÁZ",
-        "player_b": "PAVOL CINKANIČ/Zuzana GAŽI",
+        "player_a": "M. ZÁRIK/Luboš MRÁZ",
+        "player_b": "Pavol CINKANIČ/Zuzana GAŽI",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -10484,8 +10484,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Štefan PČOLA/Milan MICHLOVIČ",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ/Ing. Izabela VARGOVÁ",
+        "player_a": "Štefan PČOLA/Milan MICHLOVIČ",
+        "player_b": "Martina KOLIBÁROVÁ/Izabela VARGOVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -10503,7 +10503,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Slav. FEČKE",
+        "player_a": "Slav. FEČKE",
         "player_b": "Ľubomír HOCHVART",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
@@ -10512,7 +10512,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Miloslav KOCÚR",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
@@ -10522,7 +10522,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Roman ČIŽMÁR",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "REPREX"
@@ -10539,7 +10539,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Slav. FEČKE",
+        "player_a": "Slav. FEČKE",
         "player_b": "Miloslav KOCÚR",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
@@ -10548,8 +10548,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Stanislav PČOLA",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_a": "Stanislav PČOLA",
+        "player_b": "Ján PETRŽALA",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "REPREX"
@@ -10575,8 +10575,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slav. FEČKE",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_a": "Slav. FEČKE",
+        "player_b": "Ján PETRŽALA",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "REPREX"
@@ -10584,7 +10584,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Milan PAŽIČ",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
@@ -10603,7 +10603,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Radoslav POĽA",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "REPREX"
@@ -10611,7 +10611,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Slav. FEČKE",
+        "player_a": "Slav. FEČKE",
         "player_b": "Milan PAŽIČ",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
@@ -10620,7 +10620,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Stanislav PČOLA",
+        "player_a": "Stanislav PČOLA",
         "player_b": "Ľubomír HOCHVART",
         "date": "9. kolo",
         "player_a_team": "BERNARD Club",
@@ -10638,7 +10638,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Martin SOĽÁR",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
@@ -10656,8 +10656,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Matej KOVAČIK",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10665,8 +10665,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_a": "Marek SKYBA",
+        "player_b": "Štefan LISSÝ",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10674,7 +10674,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Peter JAKUBEC",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
@@ -10684,7 +10684,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10692,8 +10692,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Štefan LISSÝ",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10701,7 +10701,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Martin SOĽÁR",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
@@ -10710,8 +10710,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_a": "Michal NINITZ",
+        "player_b": "Matej KOVAČIK",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10720,7 +10720,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Mgr. Štefan LISSÝ",
+        "player_b": "Štefan LISSÝ",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10728,8 +10728,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10737,7 +10737,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Peter JAKUBEC",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
@@ -10746,8 +10746,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Michal NINITZ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10764,7 +10764,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Peter JAKUBEC",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
@@ -10773,8 +10773,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_a": "Marek SKYBA",
+        "player_b": "Matej KOVAČIK",
         "date": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\""
@@ -10783,7 +10783,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Julius PILLÁR",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10791,7 +10791,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK st.",
         "player_b": "Eduard KUDLA",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
@@ -10801,7 +10801,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef HUDÁK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10827,8 +10827,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter ŠEBEK st.",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Peter ŠEBEK st.",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10846,7 +10846,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef ZAVACKÝ",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10855,7 +10855,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Julius PILLÁR",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10863,7 +10863,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK st.",
         "player_b": "Tomáš BEKECS",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
@@ -10873,7 +10873,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef HUDÁK",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10899,8 +10899,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠEBEK st.",
-        "player_b": "Ing. Karol GERGELY",
+        "player_a": "Peter ŠEBEK st.",
+        "player_b": "Karol GERGELY",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10918,7 +10918,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef ZAVACKÝ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP"
@@ -10927,7 +10927,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -10944,8 +10944,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Peter SZCZECZINA",
+        "player_b": "Marián HOVAN",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -10972,7 +10972,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Marián HOVAN",
+        "player_b": "Marián HOVAN",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -10980,7 +10980,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Peter Szceczina",
+        "player_a": "Peter SZCZECZINA",
         "player_b": "Milan ŠOLC",
         "date": "9. kolo",
         "player_a_team": "COKERY",
@@ -10990,7 +10990,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav JANOVSKÝ",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -10999,7 +10999,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_b": "Marián HOVAN",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -11016,8 +11016,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Peter SZCZECZINA",
+        "player_b": "Jozef FOTTA",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -11044,7 +11044,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -11052,7 +11052,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
+        "player_a": "Peter SZCZECZINA",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "9. kolo",
         "player_a_team": "COKERY",
@@ -11062,7 +11062,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav JANOVSKÝ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_b": "Marián HOVAN",
         "date": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA"
@@ -11070,7 +11070,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Andrej KAČKOŠ",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11079,7 +11079,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Matúš HRČKA",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11088,7 +11088,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Marek KUNDRIK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11097,8 +11097,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek PATAKY",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Marek PATAKY",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "ASTORIA FIT"
@@ -11106,7 +11106,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Matúš HRČKA",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11115,7 +11115,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Marek KUNDRIK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11124,8 +11124,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Slavomír KRÁLIK",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "ASTORIA FIT"
@@ -11133,7 +11133,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Andrej KAČKOŠ",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11142,7 +11142,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Marek KUNDRIK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11151,8 +11151,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "ASTORIA FIT"
@@ -11160,7 +11160,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Julus WÉBER",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11169,7 +11169,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Matúš HRČKA",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11178,7 +11178,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Peter VYHONSKÝ",
+        "player_a": "Peter VYHONSKÝ",
         "player_b": "Julus WÉBER",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11187,7 +11187,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Andrej KAČKOŠ",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11196,7 +11196,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Matúš HRČKA",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11205,7 +11205,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Marek KUNDRIK",
         "date": "9. kolo",
         "player_a_team": "BOMBERE",
@@ -11215,7 +11215,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "9. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "SOŠ Ž"
@@ -11277,8 +11277,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján GAJDOŠ",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Ján GAJDOŠ",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "9. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "SOŠ Ž"
@@ -11313,7 +11313,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "MUDr.Peter. MACH",
+        "player_a": "Peter MACH",
         "player_b": "Peter POLÁK",
         "date": "9. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -11332,7 +11332,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter BARSA",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "9. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "SOŠ Ž"
@@ -11349,7 +11349,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "MUDr.Peter. MACH",
+        "player_a": "Peter MACH",
         "player_b": "Vilo POLÁK",
         "date": "9. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -11385,7 +11385,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "Tamás BÓNI",
         "date": "9. kolo",
         "player_a_team": "TT TEAM",
@@ -11421,7 +11421,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "Ľubomír VARTÁS",
         "date": "9. kolo",
         "player_a_team": "TT TEAM",
@@ -11457,7 +11457,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "František CZINGELY",
         "date": "9. kolo",
         "player_a_team": "TT TEAM",
@@ -11493,7 +11493,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "Csaba BECSE",
         "date": "9. kolo",
         "player_a_team": "TT TEAM",
@@ -11502,8 +11502,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_a": "Štefan PČOLA",
+        "player_b": "Izabela VARGOVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11512,7 +11512,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan GAJTKO",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11520,8 +11520,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. M. ZÁRIK",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "M. ZÁRIK",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11530,7 +11530,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan MICHLOVIČ",
-        "player_b": "PAVOL CINKANIČ",
+        "player_b": "Pavol CINKANIČ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11539,7 +11539,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Luboš MRÁZ",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11556,8 +11556,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. M. ZÁRIK",
-        "player_b": "PAVOL CINKANIČ",
+        "player_a": "M. ZÁRIK",
+        "player_b": "Pavol CINKANIČ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11566,7 +11566,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan MICHLOVIČ",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_b": "Izabela VARGOVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11574,8 +11574,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Štefan PČOLA",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11584,7 +11584,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan GAJTKO",
-        "player_b": "PAVOL CINKANIČ",
+        "player_b": "Pavol CINKANIČ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11602,7 +11602,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Milan MICHLOVIČ",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11610,7 +11610,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Štefan PČOLA",
+        "player_a": "Štefan PČOLA",
         "player_b": "Zuzana GAŽI",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
@@ -11620,7 +11620,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan GAJTKO",
-        "player_b": "Ing. Izabela VARGOVÁ",
+        "player_b": "Izabela VARGOVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11628,8 +11628,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. M. ZÁRIK",
-        "player_b": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "M. ZÁRIK",
+        "player_b": "Martina KOLIBÁROVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11638,7 +11638,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Luboš MRÁZ",
-        "player_b": "Ing. Iveta SOLČANIOVÁ",
+        "player_b": "Iveta SOLČANIOVÁ",
         "date": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\""
@@ -11647,7 +11647,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter POLÁK/Jozef MOLNÁR",
-        "player_b": "Peter Szceczina/Dmitro LUKACHUK",
+        "player_b": "Peter SZCZECZINA/Dmytro LUKACHUK",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY",
@@ -11656,7 +11656,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Igor BAŠTI/SLAVOMÍR KEŠELÁK",
+        "player_a": "Igor BAŠTI/Slavomír KEŠELÁK",
         "player_b": "Milan SUCHÝ/Jaroslav WIENER",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
@@ -11666,7 +11666,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Jozef FOTTA/Vladimír VARGOVČÁK",
+        "player_a": "Jozef FOTTA/Vladimír VARGOVČÁK",
         "player_b": "Peter RUŽIČKA/Ľubomír BENDZÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -11676,7 +11676,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Milan ŠOLC/Ing. Marián HOVAN",
+        "player_a": "Milan ŠOLC/Marián HOVAN",
         "player_b": "Andrej FELBER/Juraj POLYAK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -11686,8 +11686,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Peter JAKUBEC/Mgr. Štefan LISSÝ",
-        "player_b": "Ing. M. ZÁRIK/Luboš MRÁZ",
+        "player_a": "Peter JAKUBEC/Štefan LISSÝ",
+        "player_b": "M. ZÁRIK/Luboš MRÁZ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL",
@@ -11696,8 +11696,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Martin SOĽÁR/ĽUBOMÍR FRANČÁK",
-        "player_b": "Milan MICHLOVIČ/Ing. Štefan PČOLA",
+        "player_a": "Martin SOĽÁR/Ľubomír FRANČÁK",
+        "player_b": "Milan MICHLOVIČ/Štefan PČOLA",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL",
@@ -11716,8 +11716,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK/Andrej KAČKOŠ",
-        "player_b": "Ing. Ján PETRŽALA/Ing. Peter RUSNÁK",
+        "player_a": "Viktor ŠIDLÍK/Andrej KAČKOŠ",
+        "player_b": "Ján PETRŽALA/Peter RUSNÁK",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX",
@@ -11726,7 +11726,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ/Ing. Izabela VARGOVÁ",
+        "player_a": "Martina KOLIBÁROVÁ/Izabela VARGOVÁ",
         "player_b": "Julius PILLÁR/Patrík TIRPÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -11736,7 +11736,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ/Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ/Iveta SOLČANIOVÁ",
         "player_b": "Jozef HUDÁK/Jozef ZAVACKÝ",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -11746,8 +11746,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek PATAKY/Bc. Ján ŘIHAK",
-        "player_b": "MUDr.Peter. MACH/Ing. Peter ŠTEFANCO",
+        "player_a": "Marek PATAKY/Ján ŘIHAK",
+        "player_b": "Peter MACH/Peter ŠTEFANCO",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE",
@@ -11756,7 +11756,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY/Ing. Slavomír KRÁLIK",
+        "player_a": "Ján GUZY/Slavomír KRÁLIK",
         "player_b": "Juraj ANTOŠ/Peter BARSA",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -11766,8 +11766,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "JUDr. Andrej MAKRANSKÝ/Tomáš BEKECS",
-        "player_b": "Ing. Slav. FEČKE/Ing. Tibor FIĽAK",
+        "player_a": "Andrej MAKRANSKÝ/Tomáš BEKECS",
+        "player_b": "Slav. FEČKE/Tibor FIĽAK",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club",
@@ -11777,7 +11777,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej MAKRANSKÝ ml./Eduard KUDLA",
-        "player_b": "Radoslav POĽA/Ing. Stanislav PČOLA",
+        "player_b": "Radoslav POĽA/Stanislav PČOLA",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club",
@@ -11787,7 +11787,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI/Nándor BORTNYÁK",
-        "player_b": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
+        "player_b": "David LEŠUNDÁK/Martin ĎURIŠIN",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\"",
@@ -11797,7 +11797,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "František CZINGELY/Ľubomír VARTÁS",
-        "player_b": "Mgr. Michal NINITZ/Ing. Marek SKYBA",
+        "player_b": "Michal NINITZ/Marek SKYBA",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\"",
@@ -11807,7 +11807,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Peter Szceczina",
+        "player_b": "Peter SZCZECZINA",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11816,7 +11816,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Igor BAŠTI",
-        "player_b": "Dmitro LUKACHUK",
+        "player_b": "Dmytro LUKACHUK",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11824,7 +11824,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Milan SUCHÝ",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
@@ -11843,7 +11843,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vilo POLÁK",
-        "player_b": "Dmitro LUKACHUK",
+        "player_b": "Dmytro LUKACHUK",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11860,7 +11860,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "Jaroslav WIENER",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
@@ -11870,7 +11870,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Peter POLÁK",
-        "player_b": "Peter Szceczina",
+        "player_b": "Peter SZCZECZINA",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11897,7 +11897,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Vilo POLÁK",
-        "player_b": "Peter Szceczina",
+        "player_b": "Peter SZCZECZINA",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11906,7 +11906,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Peter POLÁK",
-        "player_b": "Dmitro LUKACHUK",
+        "player_b": "Dmytro LUKACHUK",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11924,7 +11924,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Igor BAŠTI",
-        "player_b": "Peter Szceczina",
+        "player_b": "Peter SZCZECZINA",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11932,8 +11932,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Dmitro LUKACHUK",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Dmytro LUKACHUK",
         "date": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY"
@@ -11950,7 +11950,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Ľubomír BENDZÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -11959,7 +11959,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Andrej FELBER",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -11986,7 +11986,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Andrej FELBER",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -11995,8 +11995,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Marián HOVAN",
+        "player_b": "Marek SIMKO",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TT TEAM"
@@ -12022,7 +12022,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Juraj POLYAK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -12031,7 +12031,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Peter RUŽIČKA",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -12041,7 +12041,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "Ing. Marek SIMKO",
+        "player_b": "Marek SIMKO",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TT TEAM"
@@ -12058,8 +12058,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "Ing. Marek SIMKO",
+        "player_a": "Jozef FOTTA",
+        "player_b": "Marek SIMKO",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TT TEAM"
@@ -12067,7 +12067,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Ľubomír BENDZÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA",
@@ -12095,7 +12095,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Peter JAKUBEC",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12103,8 +12103,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "ĽUBOMÍR FRANČÁK",
-        "player_b": "Ing. Julius BACSÓ",
+        "player_a": "Ľubomír FRANČÁK",
+        "player_b": "Julius BACSÓ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12112,8 +12112,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Štefan LISSÝ",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Štefan LISSÝ",
+        "player_b": "Štefan PČOLA",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12131,7 +12131,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Peter JAKUBEC",
-        "player_b": "Ing. Julius BACSÓ",
+        "player_b": "Julius BACSÓ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12139,7 +12139,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Ľubomír FRANČÁK",
         "player_b": "Milan MICHLOVIČ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
@@ -12148,7 +12148,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Luboš MRÁZ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
@@ -12158,7 +12158,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Martin SOĽÁR",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12167,7 +12167,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter JAKUBEC",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12175,7 +12175,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "ĽUBOMÍR FRANČÁK",
+        "player_a": "Ľubomír FRANČÁK",
         "player_b": "Milan MICHLOVIČ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
@@ -12184,7 +12184,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Štefan LISSÝ",
+        "player_a": "Štefan LISSÝ",
         "player_b": "Milan MICHLOVIČ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
@@ -12194,7 +12194,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Martin SOĽÁR",
-        "player_b": "Ing. Julius BACSÓ",
+        "player_b": "Julius BACSÓ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12211,8 +12211,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "ĽUBOMÍR FRANČÁK",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Ľubomír FRANČÁK",
+        "player_b": "M. ZÁRIK",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12220,8 +12220,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Štefan LISSÝ",
-        "player_b": "Ing. Julius BACSÓ",
+        "player_a": "Štefan LISSÝ",
+        "player_b": "Julius BACSÓ",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12230,7 +12230,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Martin SOĽÁR",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL"
@@ -12239,7 +12239,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12257,7 +12257,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12265,7 +12265,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Ľubomír HOCHVART",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -12284,7 +12284,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12301,8 +12301,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Peter RUSNÁK",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12311,7 +12311,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12329,7 +12329,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ladislav RADVÁNI",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12337,7 +12337,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Milan PAŽIČ",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -12356,7 +12356,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12374,7 +12374,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Ján PETRŽALA",
+        "player_b": "Ján PETRŽALA",
         "date": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX"
@@ -12382,7 +12382,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Julius PILLÁR",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12391,7 +12391,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Patrík TIRPÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12409,7 +12409,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Jozef ZAVACKÝ",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12418,7 +12418,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_a": "Izabela VARGOVÁ",
         "player_b": "Patrík TIRPÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12427,7 +12427,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Jozef HUDÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12445,7 +12445,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Julius PILLÁR",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12454,7 +12454,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Jozef HUDÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12463,7 +12463,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Jozef ZAVACKÝ",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12472,7 +12472,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_a": "Izabela VARGOVÁ",
         "player_b": "Julius PILLÁR",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12481,7 +12481,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Patrík TIRPÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12490,7 +12490,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Jozef ZAVACKÝ",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12499,7 +12499,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Julius PILLÁR",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12517,7 +12517,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_a": "Izabela VARGOVÁ",
         "player_b": "Jozef HUDÁK",
         "date": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -12526,7 +12526,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Juraj ANTOŠ",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12535,7 +12535,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Peter BARSA",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12544,8 +12544,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_a": "Ján GUZY",
+        "player_b": "Peter ŠTEFANCO",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12553,8 +12553,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Slavomír KRÁLIK",
-        "player_b": "MUDr.Peter. MACH",
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Peter MACH",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12562,7 +12562,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Marek PATAKY",
+        "player_a": "Marek PATAKY",
         "player_b": "Peter BARSA",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12571,8 +12571,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Peter ŠTEFANCO",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12580,8 +12580,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján GUZY",
-        "player_b": "Ing. Ján GAJDOŠ",
+        "player_a": "Ján GUZY",
+        "player_b": "Ján GAJDOŠ",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12589,7 +12589,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Juraj ANTOŠ",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12598,8 +12598,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek PATAKY",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_a": "Marek PATAKY",
+        "player_b": "Peter ŠTEFANCO",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12607,8 +12607,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Bc. Ján ŘIHAK",
-        "player_b": "MUDr.Peter. MACH",
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Peter MACH",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12616,7 +12616,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Juraj ANTOŠ",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12625,7 +12625,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Slavomír KRÁLIK",
+        "player_a": "Slavomír KRÁLIK",
         "player_b": "Peter BARSA",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12634,8 +12634,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek PATAKY",
-        "player_b": "Ing. Ján GAJDOŠ",
+        "player_a": "Marek PATAKY",
+        "player_b": "Ján GAJDOŠ",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12643,7 +12643,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Bc. Ján ŘIHAK",
+        "player_a": "Ján ŘIHAK",
         "player_b": "Juraj ANTOŠ",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12652,7 +12652,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján GUZY",
+        "player_a": "Ján GUZY",
         "player_b": "Peter BARSA",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
@@ -12661,8 +12661,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Slavomír KRÁLIK",
-        "player_b": "Ing. Peter ŠTEFANCO",
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Peter ŠTEFANCO",
         "date": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE"
@@ -12680,7 +12680,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Tomáš BEKECS",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12689,7 +12689,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej MAKRANSKÝ ml.",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12697,8 +12697,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_a": "Andrej MAKRANSKÝ",
+        "player_b": "Tibor FIĽAK",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12707,7 +12707,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Eduard KUDLA",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12716,7 +12716,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Tomáš BEKECS",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12725,7 +12725,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej MAKRANSKÝ ml.",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12733,7 +12733,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Andrej MAKRANSKÝ",
         "player_b": "Radoslav POĽA",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
@@ -12743,7 +12743,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Eduard KUDLA",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12752,7 +12752,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Tomáš BEKECS",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12769,8 +12769,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Andrej MAKRANSKÝ",
+        "player_b": "Stanislav PČOLA",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12779,7 +12779,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Eduard KUDLA",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12797,7 +12797,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Andrej MAKRANSKÝ ml.",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12805,8 +12805,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "JUDr. Andrej MAKRANSKÝ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_a": "Andrej MAKRANSKÝ",
+        "player_b": "Slav. FEČKE",
         "date": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club"
@@ -12815,7 +12815,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "František CZINGELY",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12824,7 +12824,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12842,7 +12842,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12851,7 +12851,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "František CZINGELY",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12869,7 +12869,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Nándor BORTNYÁK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12878,7 +12878,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12896,7 +12896,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12905,7 +12905,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Nándor BORTNYÁK",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12914,7 +12914,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12923,7 +12923,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "František CZINGELY",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12932,7 +12932,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12941,7 +12941,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Nándor BORTNYÁK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\""
@@ -12958,8 +12958,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "David LEŠUNDÁK/Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Marián HOVAN/Vladimír VARGOVČÁK",
+        "player_a": "David LEŠUNDÁK/Martin ĎURIŠIN",
+        "player_b": "Marián HOVAN/Vladimír VARGOVČÁK",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA",
@@ -12968,8 +12968,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ/Ing. Marek SKYBA",
-        "player_b": "Ján FOTTA/Ing. Jozef FOTTA",
+        "player_a": "Michal NINITZ/Marek SKYBA",
+        "player_b": "Ján FOTTA/Jozef FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA",
@@ -12979,7 +12979,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miro. HARČÁRIK/Jaroslav WIENER",
-        "player_b": "Ing. Ján GUZY/Bc. Ján ŘIHAK",
+        "player_b": "Ján GUZY/Ján ŘIHAK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE",
@@ -12988,8 +12988,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Dmitro LUKACHUK/Peter Szceczina",
-        "player_b": "Ing. Slavomír KRÁLIK/Ondrej KRÁLIK",
+        "player_a": "Dmytro LUKACHUK/Peter SZCZECZINA",
+        "player_b": "Slavomír KRÁLIK/Ondrej KRÁLIK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE",
@@ -12998,8 +12998,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ/Zuzana GAŽI",
-        "player_b": "Radoslav POĽA/Ing. Stanislav PČOLA",
+        "player_a": "Jarmila SOMOŠOVÁ/Zuzana GAŽI",
+        "player_b": "Radoslav POĽA/Stanislav PČOLA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club",
@@ -13008,8 +13008,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ/PAVOL CINKANIČ",
-        "player_b": "Roman ČIŽMÁR/Ing. Slav. FEČKE",
+        "player_a": "Martina KOLIBÁROVÁ/Pavol CINKANIČ",
+        "player_b": "Roman ČIŽMÁR/Slav. FEČKE",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club",
@@ -13018,8 +13018,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Peter RUSNÁK/Milan PAŽIČ",
-        "player_b": "Eduard KUDLA/JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Peter RUSNÁK/Milan PAŽIČ",
+        "player_b": "Eduard KUDLA/Andrej MAKRANSKÝ",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP",
@@ -13028,8 +13028,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján PETRŽALA/Miloslav KOCÚR",
-        "player_b": "Ing. Karol GERGELY/Tomáš BEKECS",
+        "player_a": "Ján PETRŽALA/Miloslav KOCÚR",
+        "player_b": "Karol GERGELY/Tomáš BEKECS",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP",
@@ -13048,8 +13048,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "MUDr.Peter. MACH/Ing. Peter ŠTEFANCO",
-        "player_b": "Mgr. Viktor ŠIDLÍK/Marek KUNDRIK",
+        "player_a": "Peter MACH/Peter ŠTEFANCO",
+        "player_b": "Viktor ŠIDLÍK/Marek KUNDRIK",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "ASTORIA FIT",
@@ -13059,7 +13059,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER/Ľubomír BENDZÁK",
-        "player_b": "SLAVOMÍR KEŠELÁK/Jozef MOLNÁR",
+        "player_b": "Slavomír KEŠELÁK/Jozef MOLNÁR",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SOŠ Ž",
@@ -13068,7 +13068,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján SIMKO/Peter RUŽIČKA",
+        "player_a": "Ján SIMKO/Peter RUŽIČKA",
         "player_b": "Peter POLÁK/Vilo POLÁK",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
@@ -13079,7 +13079,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Julius PILLÁR/Patrík TIRPÁK",
-        "player_b": "Ing. Matej KOVAČIK/Martin SOĽÁR",
+        "player_b": "Matej KOVAČIK/Martin SOĽÁR",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\"",
@@ -13088,8 +13088,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠEBEK st./Jozef HUDÁK",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ/Peter JAKUBEC",
+        "player_a": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_b": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\"",
@@ -13098,7 +13098,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Ján FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
@@ -13107,7 +13107,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
@@ -13116,8 +13116,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Jozef FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA"
@@ -13126,7 +13126,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. Marián HOVAN",
+        "player_b": "Marián HOVAN",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA"
@@ -13134,7 +13134,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
+        "player_a": "Michal NINITZ",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
@@ -13143,8 +13143,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SKYBA",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Marek SKYBA",
+        "player_b": "Jozef FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA"
@@ -13152,7 +13152,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Ján FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
@@ -13170,8 +13170,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_a": "Michal NINITZ",
+        "player_b": "Jozef FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA"
@@ -13179,7 +13179,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Ján FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
@@ -13188,8 +13188,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Martin ĎURIŠIN",
+        "player_b": "Marián HOVAN",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA"
@@ -13206,8 +13206,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Michal NINITZ",
-        "player_b": "Ing. Marián HOVAN",
+        "player_a": "Michal NINITZ",
+        "player_b": "Marián HOVAN",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA"
@@ -13215,7 +13215,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SKYBA",
+        "player_a": "Marek SKYBA",
         "player_b": "Ján FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
@@ -13224,7 +13224,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Martin ĎURIŠIN",
+        "player_a": "Martin ĎURIŠIN",
         "player_b": "Vladimír VARGOVČÁK",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
@@ -13234,7 +13234,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "David LEŠUNDÁK",
-        "player_b": "Ing. Jozef FOTTA",
+        "player_b": "Jozef FOTTA",
         "date": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA"
@@ -13243,7 +13243,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Miro. HARČÁRIK",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13252,7 +13252,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13260,8 +13260,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Dmitro LUKACHUK",
-        "player_b": "Ing. Ján GUZY",
+        "player_a": "Dmytro LUKACHUK",
+        "player_b": "Ján GUZY",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13279,7 +13279,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Miro. HARČÁRIK",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13288,7 +13288,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13296,7 +13296,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Dmitro LUKACHUK",
+        "player_a": "Dmytro LUKACHUK",
         "player_b": "Ondrej KRÁLIK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
@@ -13305,8 +13305,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Peter SZCZECZINA",
+        "player_b": "Slavomír KRÁLIK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13315,7 +13315,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Miro. HARČÁRIK",
-        "player_b": "Ing. Ján GUZY",
+        "player_b": "Ján GUZY",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13332,8 +13332,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Dmitro LUKACHUK",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_a": "Dmytro LUKACHUK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13342,7 +13342,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan SUCHÝ",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_b": "Ján ŘIHAK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13360,7 +13360,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jaroslav WIENER",
-        "player_b": "Ing. Slavomír KRÁLIK",
+        "player_b": "Slavomír KRÁLIK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13368,8 +13368,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Dmitro LUKACHUK",
-        "player_b": "Bc. Ján ŘIHAK",
+        "player_a": "Dmytro LUKACHUK",
+        "player_b": "Ján ŘIHAK",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13377,8 +13377,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter Szceczina",
-        "player_b": "Ing. Ján GUZY",
+        "player_a": "Peter SZCZECZINA",
+        "player_b": "Ján GUZY",
         "date": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE"
@@ -13386,7 +13386,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Radoslav POĽA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -13395,8 +13395,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Slav. FEČKE",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13404,7 +13404,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Roman ČIŽMÁR",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -13414,7 +13414,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13422,8 +13422,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_a": "Iveta SOLČANIOVÁ",
+        "player_b": "Slav. FEČKE",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13431,7 +13431,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Roman ČIŽMÁR",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -13440,8 +13440,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Jarmila SOMOŠOVÁ",
+        "player_b": "Stanislav PČOLA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13458,7 +13458,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Roman ČIŽMÁR",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -13467,8 +13467,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Stanislav PČOLA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13476,7 +13476,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Radoslav POĽA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -13486,7 +13486,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_b": "Slav. FEČKE",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13494,8 +13494,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Stanislav PČOLA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13503,7 +13503,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Radoslav POĽA",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -13512,8 +13512,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
-        "player_b": "Ing. Slav. FEČKE",
+        "player_a": "Jarmila SOMOŠOVÁ",
+        "player_b": "Slav. FEČKE",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club"
@@ -13521,7 +13521,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Roman ČIŽMÁR",
         "date": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -13530,8 +13530,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Ján PETRŽALA",
-        "player_b": "Ing. Karol GERGELY",
+        "player_a": "Ján PETRŽALA",
+        "player_b": "Karol GERGELY",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13539,7 +13539,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Peter RUSNÁK",
+        "player_a": "Peter RUSNÁK",
         "player_b": "Eduard KUDLA",
         "date": "11. kolo",
         "player_a_team": "REPREX",
@@ -13549,7 +13549,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13566,7 +13566,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Ján PETRŽALA",
+        "player_a": "Ján PETRŽALA",
         "player_b": "Eduard KUDLA",
         "date": "11. kolo",
         "player_a_team": "REPREX",
@@ -13575,8 +13575,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter RUSNÁK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Peter RUSNÁK",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13594,7 +13594,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13602,8 +13602,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Ján PETRŽALA",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Ján PETRŽALA",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13611,7 +13611,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter RUSNÁK",
+        "player_a": "Peter RUSNÁK",
         "player_b": "Tomáš BEKECS",
         "date": "11. kolo",
         "player_a_team": "REPREX",
@@ -13621,7 +13621,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Miloslav KOCÚR",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13638,7 +13638,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Ján PETRŽALA",
+        "player_a": "Ján PETRŽALA",
         "player_b": "Tomáš BEKECS",
         "date": "11. kolo",
         "player_a_team": "REPREX",
@@ -13647,8 +13647,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter RUSNÁK",
-        "player_b": "Ing. Karol GERGELY",
+        "player_a": "Peter RUSNÁK",
+        "player_b": "Karol GERGELY",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13666,7 +13666,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Milan PAŽIČ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP"
@@ -13692,7 +13692,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter ŠTEFANCO",
+        "player_a": "Peter ŠTEFANCO",
         "player_b": "Andrej KAČKOŠ",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -13702,7 +13702,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Milan KRASNAY",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "ASTORIA FIT"
@@ -13728,8 +13728,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠTEFANCO",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Peter ŠTEFANCO",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "ASTORIA FIT"
@@ -13737,7 +13737,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "MUDr.Peter. MACH",
+        "player_a": "Peter MACH",
         "player_b": "Julus WÉBER",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -13756,7 +13756,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej KARLIK",
-        "player_b": "Mgr. Viktor ŠIDLÍK",
+        "player_b": "Viktor ŠIDLÍK",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "ASTORIA FIT"
@@ -13764,7 +13764,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠTEFANCO",
+        "player_a": "Peter ŠTEFANCO",
         "player_b": "Matúš HRČKA",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -13800,7 +13800,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠTEFANCO",
+        "player_a": "Peter ŠTEFANCO",
         "player_b": "Marek KUNDRIK",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -13809,7 +13809,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "MUDr.Peter. MACH",
+        "player_a": "Peter MACH",
         "player_b": "Andrej KAČKOŠ",
         "date": "11. kolo",
         "player_a_team": "KOMÉTA KE",
@@ -13828,7 +13828,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SOŠ Ž"
@@ -13854,8 +13854,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SIMKO",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Marek SIMKO",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SOŠ Ž"
@@ -13908,7 +13908,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "Peter POLÁK",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
@@ -13918,7 +13918,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Ľubomír BENDZÁK",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SOŠ Ž"
@@ -13945,7 +13945,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj POLYAK",
-        "player_b": "SLAVOMÍR KEŠELÁK",
+        "player_b": "Slavomír KEŠELÁK",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SOŠ Ž"
@@ -13953,7 +13953,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marek SIMKO",
+        "player_a": "Marek SIMKO",
         "player_b": "Jozef MOLNÁR",
         "date": "11. kolo",
         "player_a_team": "TT TEAM",
@@ -13971,7 +13971,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK st.",
         "player_b": "Martin SOĽÁR",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
@@ -13981,7 +13981,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -13990,7 +13990,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Jozef ZAVACKÝ",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_b": "Matej KOVAČIK",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -14007,8 +14007,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠEBEK st.",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Peter ŠEBEK st.",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -14017,7 +14017,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Patrík TIRPÁK",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_b": "Matej KOVAČIK",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -14035,7 +14035,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Julius PILLÁR",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -14043,8 +14043,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠEBEK st.",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_a": "Peter ŠEBEK st.",
+        "player_b": "Matej KOVAČIK",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -14071,7 +14071,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Julius PILLÁR",
-        "player_b": "Ing. Matej KOVAČIK",
+        "player_b": "Matej KOVAČIK",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -14079,7 +14079,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK st.",
         "player_b": "Peter JAKUBEC",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
@@ -14098,7 +14098,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef HUDÁK",
-        "player_b": "Ing. Miroslav KOSCELANSKÝ",
+        "player_b": "Miroslav KOSCELANSKÝ",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\""
@@ -14107,7 +14107,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Matúš HRČKA\/Marek KUNDRIK",
-        "player_b": "Tomáš BEKECS\/Ing. Karol GERGELY",
+        "player_b": "Tomáš BEKECS\/Karol GERGELY",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP",
@@ -14117,7 +14117,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA\/Andrej KAČKOŠ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ\/Eduard KUDLA",
+        "player_b": "Andrej MAKRANSKÝ\/Eduard KUDLA",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP",
@@ -14127,7 +14127,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14144,8 +14144,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14172,7 +14172,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14180,7 +14180,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Eduard KUDLA",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -14190,7 +14190,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14199,7 +14199,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14217,7 +14217,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14244,7 +14244,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA",
-        "player_b": "Ing. Karol GERGELY",
+        "player_b": "Karol GERGELY",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14252,7 +14252,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Viktor ŠIDLÍK",
+        "player_a": "Viktor ŠIDLÍK",
         "player_b": "Tomáš BEKECS",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
@@ -14262,7 +14262,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Andrej KAČKOŠ",
-        "player_b": "JUDr. Andrej MAKRANSKÝ",
+        "player_b": "Andrej MAKRANSKÝ",
         "date": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP"
@@ -14271,7 +14271,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Peter POLÁK\/Miro. HANIČÁK",
-        "player_b": "David LEŠUNDÁK\/Ing. Martin ĎURIŠIN",
+        "player_b": "David LEŠUNDÁK\/Martin ĎURIŠIN",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\"",
@@ -14281,7 +14281,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Igor BAŠTI\/Jozef MOLNÁR",
-        "player_b": "Mgr. Michal NINITZ\/Ing. Marek SKYBA",
+        "player_b": "Michal NINITZ\/Marek SKYBA",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\"",
@@ -14300,7 +14300,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Igor BAŠTI",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14309,7 +14309,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14318,7 +14318,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14326,8 +14326,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Martin ĎURIŠIN",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14336,7 +14336,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Igor BAŠTI",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14345,7 +14345,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14363,7 +14363,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Peter POLÁK",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_b": "Michal NINITZ",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14372,7 +14372,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Igor BAŠTI",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14380,7 +14380,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "SLAVOMÍR KEŠELÁK",
+        "player_a": "Slavomír KEŠELÁK",
         "player_b": "David LEŠUNDÁK",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
@@ -14390,7 +14390,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Jozef MOLNÁR",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14399,7 +14399,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter POLÁK",
-        "player_b": "Ing. Marek SKYBA",
+        "player_b": "Marek SKYBA",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14417,7 +14417,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Miro. HANIČÁK",
-        "player_b": "Ing. Martin ĎURIŠIN",
+        "player_b": "Martin ĎURIŠIN",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14425,8 +14425,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "SLAVOMÍR KEŠELÁK",
-        "player_b": "Mgr. Michal NINITZ",
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Michal NINITZ",
         "date": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\""
@@ -14434,8 +14434,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN\/Milan ŠOLC",
-        "player_b": "Ing. M. ZÁRIK\/Luboš MRÁZ",
+        "player_a": "Marián HOVAN\/Milan ŠOLC",
+        "player_b": "M. ZÁRIK\/Luboš MRÁZ",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL",
@@ -14444,8 +14444,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ján FOTTA\/Ing. Jozef FOTTA",
-        "player_b": "Ing. Štefan PČOLA\/Milan MICHLOVIČ",
+        "player_a": "Ján FOTTA\/Jozef FOTTA",
+        "player_b": "Štefan PČOLA\/Milan MICHLOVIČ",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL",
@@ -14454,8 +14454,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Jozef FOTTA",
+        "player_b": "M. ZÁRIK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14463,7 +14463,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Milan MICHLOVIČ",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
@@ -14473,7 +14473,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14490,7 +14490,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Milan MICHLOVIČ",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
@@ -14499,8 +14499,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Marián HOVAN",
+        "player_b": "Štefan PČOLA",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14518,7 +14518,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ján FOTTA",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14526,8 +14526,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Jozef FOTTA",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_a": "Jozef FOTTA",
+        "player_b": "Štefan PČOLA",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14535,7 +14535,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Marián HOVAN",
+        "player_a": "Marián HOVAN",
         "player_b": "Luboš MRÁZ",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
@@ -14545,7 +14545,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Vladimír VARGOVČÁK",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_b": "M. ZÁRIK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14562,7 +14562,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Jozef FOTTA",
+        "player_a": "Jozef FOTTA",
         "player_b": "Luboš MRÁZ",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
@@ -14571,8 +14571,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Marián HOVAN",
-        "player_b": "Ing. M. ZÁRIK",
+        "player_a": "Marián HOVAN",
+        "player_b": "M. ZÁRIK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14590,7 +14590,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan ŠOLC",
-        "player_b": "Ing. Štefan PČOLA",
+        "player_b": "Štefan PČOLA",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL"
@@ -14599,7 +14599,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "WO",
-        "player_b": "Ing. Tibor FIĽAK\/Ing. Stanislav PČOLA",
+        "player_b": "Tibor FIĽAK\/Stanislav PČOLA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club",
@@ -14608,7 +14608,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Matej KOVAČIK\/Martin SOĽÁR",
+        "player_a": "Matej KOVAČIK\/Martin SOĽÁR",
         "player_b": "Roman ČIŽMÁR\/Radoslav POĽA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
@@ -14619,7 +14619,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "WO",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14628,7 +14628,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin SOĽÁR",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14636,7 +14636,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Roman ČIŽMÁR",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
@@ -14645,7 +14645,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Ing. Matej KOVAČIK",
+        "player_a": "Matej KOVAČIK",
         "player_b": "Radoslav POĽA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
@@ -14655,7 +14655,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "WO",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_b": "Tibor FIĽAK",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14672,7 +14672,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
+        "player_a": "Miroslav KOSCELANSKÝ",
         "player_b": "Radoslav POĽA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
@@ -14681,8 +14681,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Matej KOVAČIK",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Matej KOVAČIK",
+        "player_b": "Stanislav PČOLA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14708,8 +14708,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_a": "Miroslav KOSCELANSKÝ",
+        "player_b": "Stanislav PČOLA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14717,8 +14717,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Matej KOVAČIK",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_a": "Matej KOVAČIK",
+        "player_b": "Tibor FIĽAK",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14736,7 +14736,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Martin SOĽÁR",
-        "player_b": "Ing. Stanislav PČOLA",
+        "player_b": "Stanislav PČOLA",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14744,8 +14744,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Miroslav KOSCELANSKÝ",
-        "player_b": "Ing. Tibor FIĽAK",
+        "player_a": "Miroslav KOSCELANSKÝ",
+        "player_b": "Tibor FIĽAK",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club"
@@ -14753,7 +14753,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Matej KOVAČIK",
+        "player_a": "Matej KOVAČIK",
         "player_b": "Roman ČIŽMÁR",
         "date": "12. kolo",
         "player_a_team": "SKP \"A\"",
@@ -14762,7 +14762,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "PAVOL CINKANIČ\/Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Pavol CINKANIČ\/Jarmila SOMOŠOVÁ",
         "player_b": "Ľubomír HOCHVART\/Miloslav KOCÚR",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14772,8 +14772,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Ing. Izabela VARGOVÁ\/Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Peter RUSNÁK\/RNDr. Štefan VENDEL",
+        "player_a": "Izabela VARGOVÁ\/Martina KOLIBÁROVÁ",
+        "player_b": "Peter RUSNÁK\/Štefan VENDEL",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX",
@@ -14782,7 +14782,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Ľubomír HOCHVART",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14791,7 +14791,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Miloslav KOCÚR",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14800,8 +14800,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
-        "player_b": "RNDr. Štefan VENDEL",
+        "player_a": "Jarmila SOMOŠOVÁ",
+        "player_b": "Štefan VENDEL",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
@@ -14810,7 +14810,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Zuzana GAŽI",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_b": "Peter RUSNÁK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
@@ -14818,7 +14818,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
+        "player_a": "Martina KOLIBÁROVÁ",
         "player_b": "Miloslav KOCÚR",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14827,8 +14827,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "RNDr. Štefan VENDEL",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Štefan VENDEL",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
@@ -14836,8 +14836,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_a": "Iveta SOLČANIOVÁ",
+        "player_b": "Peter RUSNÁK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
@@ -14845,7 +14845,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ing. Izabela VARGOVÁ",
+        "player_a": "Izabela VARGOVÁ",
         "player_b": "Ľubomír HOCHVART",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14854,8 +14854,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "RNDr. Štefan VENDEL",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Štefan VENDEL",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
@@ -14863,8 +14863,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "PAVOL CINKANIČ",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_a": "Pavol CINKANIČ",
+        "player_b": "Peter RUSNÁK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
@@ -14872,7 +14872,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Mgr. Jarmila SOMOŠOVÁ",
+        "player_a": "Jarmila SOMOŠOVÁ",
         "player_b": "Ľubomír HOCHVART",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14890,8 +14890,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Mgr. Martina KOLIBÁROVÁ",
-        "player_b": "Ing. Peter RUSNÁK",
+        "player_a": "Martina KOLIBÁROVÁ",
+        "player_b": "Peter RUSNÁK",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
@@ -14899,7 +14899,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "PAVOL CINKANIČ",
+        "player_a": "Pavol CINKANIČ",
         "player_b": "Ľubomír HOCHVART",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14908,7 +14908,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Ing. Iveta SOLČANIOVÁ",
+        "player_a": "Iveta SOLČANIOVÁ",
         "player_b": "Miloslav KOCÚR",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
@@ -14917,8 +14917,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Ing. Izabela VARGOVÁ",
-        "player_b": "RNDr. Štefan VENDEL",
+        "player_a": "Izabela VARGOVÁ",
+        "player_b": "Štefan VENDEL",
         "date": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX"
