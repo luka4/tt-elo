@@ -8,6 +8,9 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         /* --- Reset & Base --- */
         html, body {
@@ -75,12 +78,25 @@
         h1 {
             text-align: center;
             color: #333;
-            margin: 10px 0 15px 0;
+            margin: 10px 0 5px 0;
             font-size: 1.8em;
             text-transform: uppercase;
             letter-spacing: 1px;
             flex-shrink: 0;
         }
+
+        /* INFO TRIGGER LINK */
+        .info-trigger {
+            text-align: center;
+            color: #4A90E2;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+        .info-trigger:hover { color: #1565c0; }
 
         .scroll-hint {
             display: none; font-size: 12px; color: #666; margin-bottom: 5px;
@@ -127,10 +143,10 @@
             color: white;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.8em; /* Smaller font */
+            font-size: 0.8em;
             letter-spacing: 0.5px;
             border-right: 1px solid rgba(255,255,255,0.2);
-            height: 32px; /* Fixed Compact Height */
+            height: 32px;
             padding: 2px 5px;
             vertical-align: middle;
             position: sticky;
@@ -142,27 +158,24 @@
         thead tr:nth-child(2) th {
             color: #444;
             font-weight: 600;
-            font-size: 0.75em; /* Smaller font */
+            font-size: 0.75em;
             border-bottom: 2px solid #ddd;
-            height: 24px; /* Fixed Compact Height */
+            height: 24px;
             padding: 2px 5px;
             position: sticky;
-            top: 33px; /* 32px (row 1) + 1px border */
+            top: 33px;
             z-index: 900;
         }
 
-        /* Singles Sub-headers Color */
         thead tr:nth-child(2) th.sub-singles { background-color: #e3f2fd; color: #1565c0; }
         thead tr:nth-child(2) th.sub-doubles { background-color: #fff3e0; color: #ef6c00; }
         .border-left-thick { border-left: 2px solid #ccc !important; }
 
-        /* --- STICKY COLUMNS LOGIC (Rank & Player) --- */
+        /* --- STICKY COLUMNS --- */
         thead tr:first-child th:nth-child(1) { position: sticky; left: 0; z-index: 2000 !important; border-right: none; width: 40px; min-width: 40px; }
         thead tr:first-child th:nth-child(2) { position: sticky; left: 40px; z-index: 2000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
-
         tbody td:nth-child(1) { position: sticky; left: 0; background-color: #fff; z-index: 500; font-weight: bold; color: #666; border-right: none; width: 40px; min-width: 40px; }
         tbody td:nth-child(2) { position: sticky; left: 40px; background-color: #fff; z-index: 500; font-weight: 600; color: #333; text-align: left; box-shadow: 2px 0 5px rgba(0,0,0,0.05); border-right: 2px solid #e0e0e0; }
-
         .team-cokery td:nth-child(1), .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
         .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
         #mainTableBody tr:hover td:nth-child(1), #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
@@ -171,60 +184,44 @@
         #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
         #mainTableBody tr:hover td { background-color: #f0f0f0; }
 
-        /* RATING COLOR STABILITY INDICATORS */
-        /* Default bold styling */
         td:nth-child(4) { font-weight: bold; background-color: #fdfdfd; }
 
-        .rating-low { color: #d32f2f !important; } /* Red - Unstable */
-        .rating-med { color: #f57c00 !important; } /* Orange - Developing */
-        .rating-high { color: #25a840 !important; } /* Green - Stable */
+        .rating-low { color: #d32f2f !important; }
+        .rating-med { color: #f57c00 !important; }
+        .rating-high { color: #25a840 !important; }
 
         /* --- TEAM FILTER STYLES --- */
         .team-filter-wrapper { position: relative; display: inline-block; cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
         .team-filter-btn { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; height: 100%; color: white; }
         .team-filter-btn:hover { text-decoration: underline; }
-
-        .team-filter-dropdown {
-            display: none; position: absolute; top: 100%; left: 0;
-            background-color: white; color: #333; min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 3000;
-            border: 1px solid #ddd; border-radius: 4px; padding: 5px 0;
-            max-height: 300px; overflow-y: auto; text-align: left;
-        }
+        .team-filter-dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: white; color: #333; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 3000; border: 1px solid #ddd; border-radius: 4px; padding: 5px 0; max-height: 300px; overflow-y: auto; text-align: left; }
         .team-filter-dropdown.show { display: block; }
-
         .team-option { padding: 8px 12px; display: flex; align-items: center; font-size: 13px; cursor: pointer; text-transform: none; border-bottom: 1px solid #f9f9f9; }
         .team-option:hover { background-color: #f1f1f1; }
         .team-option input { margin-right: 8px; transform: scale(1.2); }
         .team-option span { font-weight: normal; }
-
         .filter-actions { padding: 8px 10px; border-top: 1px solid #eee; text-align: center; background: #f9f9f9; }
         .clear-filter { color: #d32f2f; font-size: 12px; text-decoration: underline; cursor: pointer; font-weight: bold; }
 
         /* --- MODAL STYLES --- */
-        .modal {
-            display: none; position: fixed; z-index: 6000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            overflow: hidden; background-color: rgba(0,0,0,0.5);
-            align-items: center; justify-content: center;
-        }
-
-        .modal-content {
-            background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888;
-            width: 90%; max-width: 1000px; height: 90%; border-radius: 8px;
-            overflow-y: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); position: relative;
-        }
-
-        .close-btn {
-            position: absolute; right: 20px; top: 15px; width: 40px; height: 40px;
-            background-color: #f0f0f0; color: #333; border-radius: 50%;
-            text-align: center; line-height: 40px; font-size: 24px; font-weight: bold;
-            cursor: pointer; z-index: 4001; transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+        .modal { display: none; position: fixed; z-index: 6000; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+        .modal-content { background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888; width: 90%; max-width: 1000px; height: 90%; border-radius: 8px; overflow-y: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; width: 40px; height: 40px; background-color: #f0f0f0; color: #333; border-radius: 50%; text-align: center; line-height: 40px; font-size: 24px; font-weight: bold; cursor: pointer; z-index: 4001; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .close-btn:hover { background-color: #e0e0e0; color: #000; transform: scale(1.05); }
 
-        /* --- INSIDE MODAL --- */
+        /* --- INFO MODAL STYLES --- */
+        .info-content { padding: 20px; color: #333; line-height: 1.6; }
+        .info-section { margin-bottom: 25px; }
+        .info-title { font-size: 1.3em; font-weight: 800; color: #4A90E2; border-bottom: 2px solid #eee; padding-bottom: 5px; margin-bottom: 10px; }
+        .info-text { font-size: 1em; color: #555; }
+        .info-list { margin-left: 20px; }
+        .info-list li { margin-bottom: 8px; }
+
+        .formula-box { background: #f4f6f9; border: 1px solid #ddd; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; margin: 10px 0; overflow-x: auto; }
+        .math-var { font-weight: bold; color: #d32f2f; }
+        .math-const { color: #1976d2; font-weight: bold; }
+
+        /* --- INSIDE PLAYER MODAL --- */
         #selectedPlayerHeader { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-top: 25px; }
         .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
         .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
@@ -275,17 +272,12 @@
             #chartContainerWrapper { height: 300px; }
             .pie-row-wrapper { flex-direction: column; }
             #statsHighlightsWrapper, #generalStatsWrapper { flex-direction: column; gap: 10px; }
-
             table { font-size: 12px; }
             th, td { padding: 8px 4px; }
-
-            /* Mobile Sticky Adjustments */
             thead tr:nth-child(2) th { top: 33px; }
-
             thead tr:first-child th:nth-child(1), thead tr:first-child th:nth-child(2) { z-index: 5000 !important; }
             tbody td:nth-child(1) { left: 0; z-index: 500; }
             tbody td:nth-child(2) { left: 28px; z-index: 500; border-right: 2px solid #ccc; }
-
             thead tr:first-child th:nth-child(1) { width: 28px; min-width: 28px; }
             thead tr:first-child th:nth-child(2) { left: 28px; }
         }
@@ -305,6 +297,7 @@
 <div class="container" id="mainContainer">
 
     <h1>Aktuálny Rating Hráčov</h1>
+    <div class="info-trigger" onclick="openInfoModal()">ⓘ Ako funguje Rating?</div>
 
     <div class="scroll-hint">↔ Posuňte tabuľku pre viac štatistík</div>
     <div class="table-wrapper">
@@ -353,7 +346,7 @@
 
 <div id="playerModal" class="modal">
     <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <span class="close-btn" onclick="closePlayerModal()">&times;</span>
 
         <div id="selectedPlayerHeader">
             <div class="player-header-name" id="headerName"></div>
@@ -442,6 +435,68 @@
         </div>
 
         <div id="historyContainer"></div>
+    </div>
+</div>
+
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeInfoModal()">&times;</span>
+
+        <div class="info-content">
+            <div class="info-title">Ako funguje Rating?</div>
+
+            <div class="info-section" style="background-color: #e3f2fd; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+                <b>💡 Tip:</b> Kliknutím na meno hráča v tabuľke zobrazíte jeho <b>detailný profil</b> – grafy vývoja ratingu, koláčové grafy úspešnosti a kompletnú históriu zápasov.
+            </div>
+
+            <div class="info-section">
+                <p class="info-text">
+                    Ratingový systém v Košickej Minilige je založený na modifikovanom <b>ELO systéme</b> (podobnom ako v šachu), ktorý je prispôsobený pre stolný tenis. Cieľom je spravodlivo ohodnotiť aktuálnu výkonnosť hráčov.
+                </p>
+                <ul class="info-list">
+                    <li><b>Všetci začínajú na 100:</b> Každý nový hráč vstupuje do systému so základným ratingom 100.</li>
+                    <li><b>Počítajú sa sety, nielen výhry:</b> Systém nepozerá len na to, či ste vyhrali zápas, ale <b>koľko setov</b> ste uhrali. Výhra 3:0 vám pridá viac bodov (a súperovi viac vezme) ako výhra 3:2.</li>
+                    <li><b>Sila súpera rozhoduje:</b> Ak porazíte hráča s vyšším ratingom, získate viac bodov. Ak prehráte s výrazne silnejším hráčom, stratíte len málo bodov (systém to očakával).</li>
+                    <li><b>Aj prehra môže znamenať zisk:</b> Ak máte výrazne nižší rating ako súper, ale uhráte proti nemu 1 alebo 2 sety, môžete si polepšiť (získať body) aj napriek tomu, že ste zápas celkovo prehrali.</li>
+                    <li><b>Stabilita (K-Faktor):</b> Prvých 5 zápasov sa váš rating mení rýchlejšie, aby sa čo najskôr našla vaša "skutočná" úroveň. Po odohratí viac ako 5 zápasov sa rating stabilizuje.</li>
+                </ul>
+            </div>
+
+            <div class="info-title" style="margin-top: 25px;">Farebná legenda (Stabilita)</div>
+            <div class="info-section">
+                <p class="info-text">Farba ratingu v tabuľke naznačuje štatistickú presnosť údajov:</p>
+                <ul class="info-list">
+                    <li><b style="color: #d32f2f;">Červená (0-10 zápasov):</b> <b>Nováčik / Dočasný.</b> Hráč odohral málo zápasov, hodnota sa môže rýchlo meniť a nemusí plne odrážať jeho úroveň.</li>
+                    <li><b style="color: #f57c00;">Oranžová (11-20 zápasov):</b> <b>Rozvíjajúci sa.</b> Presnosť ratingu sa zvyšuje.</li>
+                    <li><b style="color: #2e7d32;">Zelená (21+ zápasov):</b> <b>Stabilný.</b> Hráč odohral dostatok zápasov, rating je štatisticky presný.</li>
+                </ul>
+            </div>
+
+            <div class="info-title" style="margin-top: 25px;">Matematický Vzorec</div>
+            <div class="info-section">
+                <p class="info-text">
+                    Systém najprv vypočíta <b>Očakávaný počet setov</b>, ktoré by ste mali uhrať vzhľadom na rozdiel ratingov. Potom porovná tento odhad s realitou.
+                </p>
+
+                <div class="formula-box">
+                    Nový Rating = <span class="math-var">R_old</span> + <span class="math-var">K</span> × (<span class="math-var">Sety_skutočné</span> - <span class="math-var">Sety_očakávané</span>)
+                </div>
+
+                <p class="info-text">Kde:</p>
+                <ul class="info-list" style="font-size: 0.9em;">
+                    <li><span class="math-var">R_old</span>: Váš aktuálny rating pred zápasom.</li>
+                    <li><span class="math-var">K</span>: Váhový faktor (30 pre nováčikov, klesá na 10 pre stabilných hráčov).</li>
+                    <li><span class="math-var">Sety_očakávané</span>: Vypočítané podľa vzorca: <br>
+                        \( E_a = \frac{PočetSetov}{1 + 10^{(R_b - R_a) / 300}} \)
+                    </li>
+                    <li>(Deliteľ 300 určuje citlivosť systému na rozdiely v ratingu).</li>
+                </ul>
+
+                <p class="info-text" style="margin-top:15px; font-style: italic; font-size: 0.9em; color:#666;">
+                    * Pre štvorhry (Doubles) sa berie do úvahy priemerný rating a priemerný K-faktor dvojice. Získané body sa následne delia medzi oboch hráčov.
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -781,7 +836,8 @@
 
 
     // --- MODAL LOGIC ---
-    const modal = document.getElementById("playerModal");
+    const playerModal = document.getElementById("playerModal");
+    const infoModal = document.getElementById("infoModal");
 
     function openModal(name) {
         activePlayerName = name;
@@ -817,7 +873,7 @@
         const avgOpp = countOpp > 0 ? (totalOpp / countOpp).toFixed(2) : "-";
         document.getElementById('avgOpponentVal').innerText = avgOpp;
 
-        modal.style.display = "flex";
+        playerModal.style.display = "flex";
 
         renderLineChart(name);
         renderPieCharts(name, 'matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'singles');
@@ -825,14 +881,26 @@
         renderHistory(name);
     }
 
-    function closeModal() {
-        modal.style.display = "none";
+    function closePlayerModal() {
+        playerModal.style.display = "none";
         activePlayerName = null;
     }
 
+    // --- INFO MODAL LOGIC ---
+    function openInfoModal() {
+        infoModal.style.display = "flex";
+    }
+
+    function closeInfoModal() {
+        infoModal.style.display = "none";
+    }
+
     window.onclick = function(event) {
-        if (event.target == modal) {
-            closeModal();
+        if (event.target == playerModal) {
+            closePlayerModal();
+        }
+        if (event.target == infoModal) {
+            closeInfoModal();
         }
     }
 
