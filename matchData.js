@@ -15087,4 +15087,168 @@ const matchResults = [
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
     },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ján ŘIHAK\/Marek PATAKY",
+        "player_b": "Andrej FELBER\/Ľubomír BENDZÁK",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Slavomír KRÁLIK\/Ján GUZY",
+        "player_b": "Marek SIMKO\/Ján SIMKO",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM",
+        "doubles": true
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Marek PATAKY",
+        "player_b": "Peter RUŽIČKA",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Andrej FELBER",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ján GUZY",
+        "player_b": "Juraj POLYAK",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Marek SIMKO",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Marek PATAKY",
+        "player_b": "Andrej FELBER",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Juraj POLYAK",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ján GUZY",
+        "player_b": "Marek SIMKO",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Peter RUŽIČKA",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Marek PATAKY",
+        "player_b": "Juraj POLYAK",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Marek SIMKO",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ján GUZY",
+        "player_b": "Peter RUŽIČKA",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Andrej FELBER",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Marek PATAKY",
+        "player_b": "Marek SIMKO",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ján ŘIHAK",
+        "player_b": "Peter RUŽIČKA",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ján GUZY",
+        "player_b": "Andrej FELBER",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Slavomír KRÁLIK",
+        "player_b": "Juraj POLYAK",
+        "date": "12. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "TT TEAM"
+    }
 ]
