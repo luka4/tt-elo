@@ -40,6 +40,25 @@
             margin-bottom: 8px;
         }
 
+        /* Badge Style */
+        .nav-badge {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #FFD700;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            white-space: nowrap;
+            z-index: 5002;
+            line-height: 1.2;
+            text-align: right;
+        }
+
         .nav-links {
             display: flex;
             justify-content: center;
@@ -164,8 +183,8 @@
             visibility: hidden; width: 140px; background-color: #333; color: #fff; text-align: center;
             border-radius: 6px; padding: 8px; position: absolute; z-index: 1000;
             top: 125%; right: 0; opacity: 0; transition: opacity 0.3s;
-            font-weight: normal; font-size: 11px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            pointer-events: none; text-transform: none;
+            font-weight: normal; font-size: 11px; line-height: 1.4;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); pointer-events: none; text-transform: none;
         }
         .tooltip-container:hover .tooltip-text, .tooltip-container:active .tooltip-text { visibility: visible; opacity: 1; }
         .tooltip-text::after {
@@ -203,13 +222,19 @@
             th { top: 0; }
             table { min-width: auto; width: 100%; table-layout: fixed; }
 
-            /* Strict Columns */
             th:nth-child(1), td:nth-child(1) { width: 8%; }
-            th:nth-child(2), td:nth-child(2) { width: 28%; white-space: normal; word-wrap: break-word; font-size: 13px; font-weight: 600; line-height: 1.2; }
-            th:nth-child(3), td:nth-child(3), th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6) { width: 7%; font-size: 12px; font-weight: 700; }
-            th:nth-child(7), td:nth-child(7) { width: 18%; font-size: 11px; }
-            th:nth-child(8), td:nth-child(8) { width: 8%; font-size: 12px; }
+            th:nth-child(2), td:nth-child(2) { width: 30%; white-space: normal; word-wrap: break-word; font-size: 13px; font-weight: 600; line-height: 1.2; }
+            th:nth-child(3), td:nth-child(3), th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6) { width: 8%; font-size: 12px; font-weight: 700; }
+            th:nth-child(7), td:nth-child(7) { width: 20%; font-size: 11px; }
+            th:nth-child(8), td:nth-child(8) { width: 10%; font-size: 12px; }
             th:nth-child(9), td:nth-child(9) { width: 10%; font-size: 11px; font-weight: bold; }
+
+            .nav-badge {
+                top: 5px; right: 5px; transform: none;
+                padding: 2px 6px; font-size: 0.6em; border-radius: 4px;
+            }
+            .tooltip-text { left: auto; right: 0; margin-left: 0; width: 150px; }
+            .tooltip-text::after { left: auto; right: 10px; }
 
             .pred-controls { flex-direction: column; gap: 10px; }
             select { width: 100%; }
@@ -221,6 +246,7 @@
 
 <nav class="top-nav" id="mainNav">
     <div class="nav-title">Košická Miniliga</div>
+    <div class="nav-badge">Aktualizované:<br>28.11.2025 15:30</div>
     <div class="nav-links">
         <a href="results.html">Výsledky</a>
         <a href="table.html" class="active">Tabuľka</a>
@@ -272,7 +298,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <script src="matchData.js"></script>
@@ -478,7 +503,6 @@
         if (!teamA || !teamB) { alert("Prosím vyberte oba tímy."); return; }
         if (teamA === teamB) { alert("Prosím vyberte rozdielne tímy."); return; }
 
-        // Use data already calculated in 'teams' object
         const avgA = teams[teamA].avgRating;
         const avgB = teams[teamB].avgRating;
 
