@@ -57,15 +57,8 @@
             transition: all 0.2s;
         }
 
-        .nav-links a:hover {
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-        }
-
-        .nav-links a.active {
-            background-color: white;
-            color: #4A90E2;
-        }
+        .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
+        .nav-links a.active { background-color: white; color: #4A90E2; }
 
         /* --- CONTAINER --- */
         .container {
@@ -119,28 +112,18 @@
             box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* Sticky "Team Name" Column */
-        th:nth-child(2), td:nth-child(2) {
-            position: sticky;
-            left: 0;
-            z-index: 11;
-            text-align: left;
-            border-right: 2px solid #f0f0f0;
-        }
+        th:nth-child(2), td:nth-child(2) { position: sticky; left: 0; z-index: 11; text-align: left; border-right: 2px solid #f0f0f0; }
         th:nth-child(2) { z-index: 12; }
         td:nth-child(2) { background-color: #fff; font-weight: 600; color: #2c3e50; }
 
-        /* --- Row Styles --- */
         .main-row { cursor: pointer; transition: background-color 0.1s; }
         .main-row:hover td { background-color: #f8f9fa; }
         .main-row:hover td:nth-child(2) { background-color: #f8f9fa; }
 
-        /* --- Expanded Detail Row Styles --- */
         .detail-row { display: none; background-color: #fcfcfc; }
         .detail-row.open { display: table-row; }
         .detail-cell { padding: 0 !important; border-bottom: 2px solid #ddd !important; background-color: #fcfcfc; }
 
-        /* --- History List Styles --- */
         .history-list { padding: 5px 0; width: 100%; }
         .history-row { display: flex; align-items: center; padding: 8px 15px; border-bottom: 1px solid #eee; font-size: 13px; }
         .history-row:last-child { border-bottom: none; }
@@ -153,73 +136,77 @@
         .hr-guest { text-align: left; }
         .hr-score { width: 60px; text-align: center; font-weight: 900; font-size: 1.2em; margin: 0 10px; }
 
-        .score-win { color: #28a745; }
-        .score-loss { color: #dc3545; }
-        .score-draw { color: #888; }
-        .current-team { color: #333; font-weight: 800; }
-        .other-team { color: #666; font-weight: 400; }
+        .score-win { color: #28a745; } .score-loss { color: #dc3545; } .score-draw { color: #888; }
+        .current-team { color: #333; font-weight: 800; } .other-team { color: #666; font-weight: 400; }
         .col-pos { font-weight: bold; color: #888; width: 40px; }
         .col-pts { font-weight: 900; color: #4A90E2; font-size: 1.1em; background-color: #fbfbfb; }
         .col-score { font-family: monospace; font-size: 1.1em; letter-spacing: -1px; }
-        .col-avg { font-weight: bold; color: #555; background-color: #fdfdfd; }
-
         .expand-icon { display: inline-block; font-size: 0.7em; margin-left: 8px; color: #999; transition: transform 0.2s; }
         .main-row.active .expand-icon { transform: rotate(180deg); }
 
-        /* --- TOOLTIP STYLES (FIXED) --- */
-        .tooltip-icon {
-            cursor: pointer;
-            display: inline-block;
-            margin-left: 4px;
-            font-size: 0.9em;
-            color: rgba(255,255,255,0.8);
-        }
-        .tooltip-container {
-            position: relative;
-            display: inline-block;
-        }
-        .tooltip-text {
-            visibility: hidden;
-            width: 140px; /* Reduced width for mobile safety */
-            background-color: #333;
-            color: #fff;
+        /* --- PREDICTION CALCULATOR STYLES --- */
+        .prediction-wrapper {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e1e4e8;
+            padding: 20px;
             text-align: center;
-            border-radius: 6px;
-            padding: 8px;
+        }
 
-            /* Positioning Logic */
-            position: absolute;
-            z-index: 1000;
-            top: 130%; /* Push down */
-            right: 0;  /* Align to right edge of container */
-            left: auto; /* Override potential defaults */
-            margin-left: 0;
+        .pred-title { font-size: 1.4em; color: #4A90E2; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; }
 
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-weight: normal;
-            font-size: 11px;
-            line-height: 1.4;
-            text-transform: none;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            pointer-events: none;
+        .pred-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        .tooltip-container:hover .tooltip-text,
-        .tooltip-container:focus-within .tooltip-text,
-        .tooltip-container:active .tooltip-text { /* Active added for tap */
-            visibility: visible;
-            opacity: 1;
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            min-width: 150px;
         }
-        .tooltip-text::after {
-            content: "";
-            position: absolute;
-            bottom: 100%;
-            right: 10px; /* Arrow matches right alignment */
-            margin-left: 0;
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent transparent #333 transparent;
+
+        .pred-vs { font-weight: 900; color: #ccc; font-size: 1.2em; }
+
+        .pred-btn {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.2s;
         }
+        .pred-btn:hover { background-color: #357ABD; }
+
+        .pred-result {
+            display: none; /* Hidden initially */
+            margin-top: 20px;
+            border-top: 1px dashed #eee;
+            padding-top: 20px;
+            animation: fadeIn 0.5s;
+            scroll-margin-top: 100px; /* Smooth scroll offset */
+        }
+
+        .score-prediction { font-size: 3em; font-weight: 900; color: #333; margin: 10px 0; letter-spacing: 2px; }
+        .pred-details { font-size: 0.9em; color: #666; display: flex; justify-content: center; gap: 30px; }
+        .rating-box { background: #f9f9f9; padding: 8px 15px; border-radius: 4px; border: 1px solid #eee; }
+        .rating-val { font-weight: bold; color: #4A90E2; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- MOBILE FIXES --- */
         @media screen and (max-width: 600px) {
@@ -228,39 +215,19 @@
             .hr-date { width: 60px; font-size: 0.75em; }
             .hr-team { font-size: 0.95em; }
             .hr-score { width: 40px; font-size: 1.1em; margin: 0 5px; }
-
             .table-wrapper { overflow-x: auto; }
             th { top: 0; }
-
             table { min-width: auto; width: 100%; table-layout: fixed; }
 
-            /* --- STRICT COLUMN SIZING --- */
             th:nth-child(1), td:nth-child(1) { width: 8%; }
-
-            /* Team (Tím) */
-            th:nth-child(2), td:nth-child(2) {
-                width: 30%;
-                white-space: normal;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                line-height: 1.2;
-                font-size: 13px; font-weight: 600;
-            }
-
-            /* Stats */
-            th:nth-child(3), td:nth-child(3),
-            th:nth-child(4), td:nth-child(4),
-            th:nth-child(5), td:nth-child(5),
-            th:nth-child(6), td:nth-child(6) { width: 8%; font-size: 12px; font-weight: 700; }
-
-            /* Score */
+            th:nth-child(2), td:nth-child(2) { width: 30%; white-space: normal; word-wrap: break-word; font-size: 13px; font-weight: 600; }
+            th:nth-child(3), td:nth-child(3), th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6) { width: 8%; font-size: 12px; font-weight: 700; }
             th:nth-child(7), td:nth-child(7) { width: 20%; font-size: 11px; }
-
-            /* Points (B) */
             th:nth-child(8), td:nth-child(8) { width: 10%; font-size: 12px; }
 
-            /* Avg Rating (Ø) */
-            th:nth-child(9), td:nth-child(9) { width: 10%; font-size: 11px; font-weight: bold; }
+            .pred-controls { flex-direction: column; gap: 10px; }
+            select { width: 100%; }
+            .score-prediction { font-size: 2.2em; }
         }
     </style>
 </head>
@@ -290,17 +257,30 @@
                 <th title="Prehry">P</th>
                 <th>Skóre</th>
                 <th title="Body">B</th>
-                <th title="Priemerný Rating">
-                    <div class="tooltip-container">
-                        Ø<span class="tooltip-icon">🛈</span>
-                        <span class="tooltip-text">Priemerný rating<br>4 najaktívnejších<br>hráčov tímu</span>
-                    </div>
-                </th>
             </tr>
             </thead>
             <tbody id="tableBody"></tbody>
         </table>
     </div>
+
+    <div class="prediction-wrapper">
+        <div class="pred-title">Predikcia Zápasu</div>
+        <div class="pred-controls">
+            <select id="teamSelectA"><option value="">Vyber Domácich</option></select>
+            <span class="pred-vs">VS</span>
+            <select id="teamSelectB"><option value="">Vyber Hostí</option></select>
+        </div>
+        <button class="pred-btn" onclick="calculatePrediction()">Vypočítať Výsledok</button>
+
+        <div id="predictionResult" class="pred-result">
+            <div class="score-prediction" id="predScore">0 : 0</div>
+            <div class="pred-details">
+                <div class="rating-box">Ø Rating: <span class="rating-val" id="rateA">0</span></div>
+                <div class="rating-box">Ø Rating: <span class="rating-val" id="rateB">0</span></div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script src="matchData.js"></script>
@@ -314,7 +294,9 @@
     window.addEventListener('load', updateLayout);
     window.addEventListener('resize', updateLayout);
 
-    // --- RATING LOGIC COPIED FOR AVERAGE ---
+    // ============================================================
+    // 1. RATING CALCULATION (Required for Prediction)
+    // ============================================================
     const initialRating = 100;
     const players = {};
 
@@ -331,7 +313,7 @@
         }
     }
 
-    // 1. Calculate Player Ratings
+    // Calculate Ratings based on History
     matchResults.forEach(match => {
         const scoreA = parseInt(match.score_a);
         const scoreB = parseInt(match.score_b);
@@ -355,15 +337,12 @@
             Rb = (getR(playersB[0]) + (playersB[1] ? getR(playersB[1]) : getR(playersB[0]))) / 2;
             const ka1 = getK(playersA[0]); const ka2 = playersA[1] ? getK(playersA[1]) : ka1;
             const kb1 = getK(playersB[0]); const kb2 = playersB[1] ? getK(playersB[1]) : kb1;
-            Ka = (ka1 + ka2) / 2;
-            Kb = (kb1 + kb2) / 2;
+            Ka = (ka1 + ka2) / 2; Kb = (kb1 + kb2) / 2;
             playersA.forEach(p => players[p].dMatches++);
             playersB.forEach(p => players[p].dMatches++);
         } else {
-            Ra = getR(playersA[0]);
-            Rb = getR(playersB[0]);
-            Ka = getK(playersA[0]);
-            Kb = getK(playersB[0]);
+            Ra = getR(playersA[0]); Rb = getR(playersB[0]);
+            Ka = getK(playersA[0]); Kb = getK(playersB[0]);
             playersA.forEach(p => players[p].matches++);
             playersB.forEach(p => players[p].matches++);
         }
@@ -381,7 +360,9 @@
         playersB.forEach(p => players[p].rating += deltaB);
     });
 
-    // 2. Calculate Team Stats
+    // ============================================================
+    // 2. TABLE LOGIC
+    // ============================================================
     const teamMatchesArray = [];
     const tempMatches = {};
 
@@ -407,7 +388,6 @@
         const tA = match.teamA; const tB = match.teamB;
         const sA = match.scoreA; const sB = match.scoreB;
         initTeam(tA); initTeam(tB);
-
         teams[tA].matches++; teams[tB].matches++;
         teams[tA].scoreFor += sA; teams[tA].scoreAgainst += sB;
         teams[tB].scoreFor += sB; teams[tB].scoreAgainst += sA;
@@ -417,22 +397,23 @@
         else { teams[tA].draws++; teams[tA].points += 2; teams[tB].draws++; teams[tB].points += 2; }
     });
 
-    // 3. Calculate Averages
-    Object.values(teams).forEach(team => {
-        const teamPlayers = Object.values(players).filter(p => p.team === team.name);
-        teamPlayers.sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches));
-        const top4 = teamPlayers.slice(0, 4);
-        if (top4.length > 0) {
-            const sumRating = top4.reduce((sum, p) => sum + p.rating, 0);
-            team.avgRating = sumRating / top4.length;
-        } else {
-            team.avgRating = 0;
-        }
-    });
-
     const leagueTable = Object.values(teams).sort((a, b) => {
         if (b.points !== a.points) return b.points - a.points;
-        return (b.scoreFor - b.scoreAgainst) - (a.scoreFor - a.scoreAgainst);
+        const diffA = a.scoreFor - a.scoreAgainst;
+        const diffB = b.scoreFor - b.scoreAgainst;
+        return diffB - diffA;
+    });
+
+    // Fill Dropdowns
+    const selectA = document.getElementById('teamSelectA');
+    const selectB = document.getElementById('teamSelectB');
+
+    const teamNames = Object.keys(teams).sort();
+    teamNames.forEach(t => {
+        const optA = document.createElement('option'); optA.value = t; optA.innerText = t;
+        const optB = document.createElement('option'); optB.value = t; optB.innerText = t;
+        selectA.appendChild(optA);
+        selectB.appendChild(optB);
     });
 
     const tbody = document.getElementById('tableBody');
@@ -462,18 +443,11 @@
     leagueTable.forEach((team, index) => {
         const tr = document.createElement('tr');
         tr.className = 'main-row';
-        tr.innerHTML = `
-            <td class="col-pos">${index + 1}.</td>
-            <td>${team.name} <span class="expand-icon">▼</span></td>
-            <td>${team.matches}</td><td>${team.wins}</td><td>${team.draws}</td><td>${team.losses}</td>
-            <td class="col-score">${team.scoreFor}:${team.scoreAgainst}</td>
-            <td class="col-pts">${team.points}</td>
-            <td class="col-avg">${team.avgRating.toFixed(1)}</td>
-        `;
+        tr.innerHTML = `<td class="col-pos">${index + 1}.</td><td>${team.name} <span class="expand-icon">▼</span></td><td>${team.matches}</td><td>${team.wins}</td><td>${team.draws}</td><td>${team.losses}</td><td class="col-score">${team.scoreFor}:${team.scoreAgainst}</td><td class="col-pts">${team.points}</td>`;
 
         const detailTr = document.createElement('tr');
         detailTr.className = 'detail-row';
-        detailTr.innerHTML = `<td colspan="9" class="detail-cell">${getTeamHistoryHtml(team.name)}</td>`;
+        detailTr.innerHTML = `<td colspan="8" class="detail-cell">${getTeamHistoryHtml(team.name)}</td>`;
 
         tr.onclick = () => {
             const isOpen = detailTr.classList.contains('open');
@@ -483,6 +457,59 @@
         tbody.appendChild(tr);
         tbody.appendChild(detailTr);
     });
+
+    // ============================================================
+    // 3. PREDICTION LOGIC
+    // ============================================================
+    function calculatePrediction() {
+        const teamA = document.getElementById('teamSelectA').value;
+        const teamB = document.getElementById('teamSelectB').value;
+
+        if (!teamA || !teamB) {
+            alert("Prosím vyberte oba tímy.");
+            return;
+        }
+        if (teamA === teamB) {
+            alert("Prosím vyberte rozdielne tímy.");
+            return;
+        }
+
+        // Helper to get Top 4 Active Players Avg Rating
+        const getTeamAvgRating = (tName) => {
+            const teamPlayers = Object.values(players).filter(p => p.team === tName);
+            // Sort by Activity (Matches)
+            teamPlayers.sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches));
+            // Take top 4
+            const top4 = teamPlayers.slice(0, 4);
+            if (top4.length === 0) return 100;
+            const sum = top4.reduce((acc, p) => acc + p.rating, 0);
+            return sum / top4.length;
+        };
+
+        const avgA = getTeamAvgRating(teamA);
+        const avgB = getTeamAvgRating(teamB);
+
+        // ELO Probability for ONE match
+        const probA = 1 / (1 + Math.pow(10, (avgB - avgA) / 300));
+
+        const totalPoints = 18;
+        let scoreA = Math.round(totalPoints * probA);
+        let scoreB = totalPoints - scoreA;
+
+        // Display Results
+        document.getElementById('predScore').innerText = `${scoreA} : ${scoreB}`;
+        document.getElementById('rateA').innerText = avgA.toFixed(1);
+        document.getElementById('rateB').innerText = avgB.toFixed(1);
+
+        // Show and Scroll
+        const resultBox = document.getElementById('predictionResult');
+        resultBox.style.display = 'block';
+        setTimeout(() => {
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    }
+
 </script>
+
 </body>
 </html>
