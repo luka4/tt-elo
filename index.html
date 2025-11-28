@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Košická Miniliga - Rating</title>
+    <title>Košická Miniliga - Domov</title>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <style>
         /* --- Reset & Base --- */
-        html, body {
+        body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100%;
             box-sizing: border-box;
-            background-color: #f4f6f9;
-            overflow: hidden;
+            background-color: #f2f4f8;
+            color: #333;
         }
 
         /* --- NAVIGATION MENU --- */
@@ -29,13 +24,22 @@
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 5000;
+            z-index: 3000;
             background-color: #4A90E2;
             color: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             padding: 10px 0;
             text-align: center;
         }
+
+        .nav-title {
+            font-size: 1.4em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .nav-title a { text-decoration: none; color: white; }
 
         .nav-badge {
             position: absolute;
@@ -51,22 +55,11 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             white-space: nowrap;
             z-index: 5002;
+            line-height: 1.2;
+            text-align: right;
         }
 
-        .nav-title {
-            font-size: 1.4em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
+        .nav-links { display: flex; justify-content: center; gap: 20px; }
         .nav-links a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
@@ -77,982 +70,454 @@
             border-radius: 4px;
             transition: all 0.2s;
         }
-
         .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
-        .nav-links a.active { background-color: white; color: #4A90E2; }
 
         /* --- CONTAINER --- */
         .container {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            box-sizing: border-box;
+            width: 96%;
+            max-width: 1000px;
+            margin: 90px auto 40px auto;
         }
 
-        h1 {
+        h1, h2 { text-align: center; color: #333; margin: 20px 0; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 1.4em; margin-top: 40px; border-bottom: 2px solid #4A90E2; display: inline-block; padding-bottom: 5px; }
+        .section-header { text-align: center; margin-bottom: 20px; }
+
+        /* --- GLOBAL STATS CARDS --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             text-align: center;
-            color: #333;
-            margin: 10px 0 5px 0;
-            font-size: 1.8em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            flex-shrink: 0;
+            border-bottom: 4px solid #4A90E2;
         }
+        .stat-number { font-size: 2em; font-weight: 900; color: #333; display: block; }
+        .stat-label { font-size: 0.9em; color: #666; text-transform: uppercase; font-weight: 600; margin-top: 5px; display: block;}
 
-        /* INFO TRIGGER LINK */
-        .info-trigger {
-            text-align: center;
-            color: #4A90E2;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            text-decoration: underline;
-            flex-shrink: 0;
-            font-weight: 600;
-        }
-        .info-trigger:hover { color: #1565c0; }
-
-        .scroll-hint {
-            display: none; font-size: 12px; color: #666; margin-bottom: 5px;
-            font-style: italic; text-align: center; flex-shrink: 0;
-        }
-
-        /* --- TABLE STYLING --- */
-        .table-wrapper {
-            flex-grow: 1;
-            overflow: auto;
+        /* --- LATEST RESULTS STYLES (Copied from results.html) --- */
+        .round-group {
+            margin-bottom: 20px;
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            border: 1px solid #dfe3e8;
-            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #e1e4e8;
         }
-
-        table {
-            border-collapse: separate;
-            border-spacing: 0;
-            width: 100%;
-            font-size: 14px;
-            min-width: 1500px;
-        }
-
-        th, td {
-            padding: 8px 10px;
-            border-bottom: 1px solid #eee;
-            border-right: 1px solid #eee;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        /* --- COMPACT HEADER DESIGN --- */
-        thead {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        /* Row 1: Main Headers (Blue) - COMPACT */
-        thead tr:first-child th {
-            background-color: #4A90E2;
+        .round-header {
+            background: #4A90E2;
+            padding: 10px 15px;
+            font-weight: 800;
             color: white;
-            font-weight: 700;
+            font-size: 1.1em;
             text-transform: uppercase;
-            font-size: 0.8em;
-            letter-spacing: 0.5px;
-            border-right: 1px solid rgba(255,255,255,0.2);
-            height: 32px;
-            padding: 2px 5px;
-            vertical-align: middle;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            border-bottom: 1px solid #ccc;
+        }
+        .match-row {
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .match-row:last-child { border-bottom: none; }
+        .match-row:hover { background-color: #f9f9f9; }
+
+        .match-summary {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            justify-content: space-between;
+        }
+        .team-name { flex: 1; font-size: 1.1em; font-weight: 500; }
+        .team-left { text-align: right; padding-right: 15px; }
+        .team-right { text-align: left; padding-left: 15px; }
+
+        .score-badge {
+            background: #4A90E2; color: white; font-weight: 800;
+            font-size: 1.2em; padding: 5px 12px; border-radius: 6px;
+            min-width: 60px; text-align: center; letter-spacing: 1px;
         }
 
-        /* Row 2: Sub-headers - COMPACT */
-        thead tr:nth-child(2) th {
-            color: #444;
-            font-weight: 600;
-            font-size: 0.75em;
-            border-bottom: 2px solid #ddd;
-            height: 24px;
-            padding: 2px 5px;
-            position: sticky;
-            top: 33px;
-            z-index: 900;
+        .match-details {
+            display: none; background-color: #fafafa;
+            border-top: 1px solid #eee; padding: 10px 0;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
         }
 
-        thead tr:nth-child(2) th.sub-singles { background-color: #e3f2fd; color: #1565c0; }
-        thead tr:nth-child(2) th.sub-doubles { background-color: #fff3e0; color: #ef6c00; }
-        .border-left-thick { border-left: 2px solid #ccc !important; }
+        .game-row {
+            display: flex; flex-direction: column; align-items: center;
+            padding: 12px 15px; border-bottom: 1px solid #e0e0e0; position: relative;
+        }
+        .game-row:last-child { border-bottom: none; }
 
-        /* --- STICKY COLUMNS --- */
-        thead tr:first-child th:nth-child(1) { position: sticky; left: 0; z-index: 2000 !important; border-right: none; width: 40px; min-width: 40px; }
-        thead tr:first-child th:nth-child(2) { position: sticky; left: 40px; z-index: 2000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
-        tbody td:nth-child(1) { position: sticky; left: 0; background-color: #fff; z-index: 500; font-weight: bold; color: #666; border-right: none; width: 40px; min-width: 40px; }
-        tbody td:nth-child(2) { position: sticky; left: 40px; background-color: #fff; z-index: 500; font-weight: 600; color: #333; text-align: left; box-shadow: 2px 0 5px rgba(0,0,0,0.05); border-right: 2px solid #e0e0e0; }
-        .team-cokery td:nth-child(1), .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
-        .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
-        #mainTableBody tr:hover td:nth-child(1), #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
+        .game-names {
+            display: flex; justify-content: space-between; width: 100%;
+            font-size: 0.95em; margin-bottom: 5px; align-items: center;
+        }
+        .player-left { text-align: right; flex: 1; padding-right: 10px; font-weight: 500; }
+        .player-right { text-align: left; flex: 1; padding-left: 10px; font-weight: 500; }
 
-        /* --- BODY STYLING --- */
-        #mainTableBody tr { cursor: pointer; transition: background-color 0.15s; }
-        #mainTableBody tr:hover td { background-color: #f0f0f0; }
+        .game-score { font-weight: 900; font-size: 1.2em; color: #333; }
+        .game-score.win-left { color: #28a745; }
+        .game-score.win-right { color: #dc3545; }
 
-        td:nth-child(4) { font-weight: bold; background-color: #fdfdfd; }
+        .doubles-badge {
+            background-color: #FF9800; color: white; font-size: 0.7em;
+            padding: 2px 6px; border-radius: 3px; text-transform: uppercase;
+            font-weight: bold; margin-bottom: 4px;
+        }
 
-        .rating-low { color: #d32f2f !important; }
-        .rating-med { color: #f57c00 !important; }
-        .rating-high { color: #25a840 !important; }
+        .expand-icon {
+            color: #999; font-size: 0.8em; margin-left: 10px; transition: transform 0.3s;
+        }
+        .match-row.active .expand-icon { transform: rotate(180deg); }
 
-        /* --- TEAM FILTER STYLES --- */
-        .team-filter-wrapper { position: relative; display: inline-block; cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-        .team-filter-btn { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; height: 100%; color: white; }
-        .team-filter-btn:hover { text-decoration: underline; }
-        .team-filter-dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: white; color: #333; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 3000; border: 1px solid #ddd; border-radius: 4px; padding: 5px 0; max-height: 300px; overflow-y: auto; text-align: left; }
-        .team-filter-dropdown.show { display: block; }
-        .team-option { padding: 8px 12px; display: flex; align-items: center; font-size: 13px; cursor: pointer; text-transform: none; border-bottom: 1px solid #f9f9f9; }
-        .team-option:hover { background-color: #f1f1f1; }
-        .team-option input { margin-right: 8px; transform: scale(1.2); }
-        .team-option span { font-weight: normal; }
-        .filter-actions { padding: 8px 10px; border-top: 1px solid #eee; text-align: center; background: #f9f9f9; }
-        .clear-filter { color: #d32f2f; font-size: 12px; text-decoration: underline; cursor: pointer; font-weight: bold; }
+        /* --- TOP 5 PLAYERS (Risers) --- */
+        .top-players-list {
+            list-style: none; padding: 0; margin: 0 auto; max-width: 600px;
+            background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .top-player-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 20px; border-bottom: 1px solid #eee;
+        }
+        .top-player-row:last-child { border-bottom: none; }
+        .tp-rank { font-weight: 900; color: #ccc; width: 30px; font-size: 1.2em; }
+        .tp-name { flex: 1; font-weight: 600; color: #333; }
+        .tp-gain { font-weight: 800; color: #28a745; background: #e8f5e9; padding: 4px 8px; border-radius: 4px; }
+        .tp-team { font-size: 0.85em; color: #888; margin-right: 10px; font-weight: normal; }
 
-        /* --- MODAL STYLES --- */
-        .modal { display: none; position: fixed; z-index: 6000; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
-        .modal-content { background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888; width: 90%; max-width: 1000px; height: 90%; border-radius: 8px; overflow-y: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); position: relative; }
-        .close-btn { position: absolute; right: 20px; top: 15px; width: 40px; height: 40px; background-color: #f0f0f0; color: #333; border-radius: 50%; text-align: center; line-height: 40px; font-size: 24px; font-weight: bold; cursor: pointer; z-index: 4001; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .close-btn:hover { background-color: #e0e0e0; color: #000; transform: scale(1.05); }
+        /* --- UPSET CARD --- */
+        .upset-card {
+            background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 20px; max-width: 600px; margin: 0 auto; text-align: center;
+            border-left: 5px solid #ff9800;
+        }
+        .upset-label { color: #ff9800; font-weight: 800; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; margin-bottom: 15px;}
+        .upset-match { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 10px; }
+        .upset-player { font-weight: 700; font-size: 1.1em; }
+        .upset-score { background: #333; color: white; padding: 5px 10px; border-radius: 4px; font-weight: 800; }
+        .upset-rating { display: block; font-size: 0.8em; color: #888; font-weight: normal; margin-top: 4px; }
+        .upset-diff { color: #dc3545; font-weight: bold; font-size: 0.9em; margin-top: 10px; }
 
-        /* --- INFO MODAL STYLES --- */
-        .info-content { padding: 20px; color: #333; line-height: 1.6; }
-        .info-section { margin-bottom: 25px; }
-        .info-title { font-size: 1.3em; font-weight: 800; color: #4A90E2; border-bottom: 2px solid #eee; padding-bottom: 5px; margin-bottom: 10px; }
-        .info-text { font-size: 1em; color: #555; }
-        .info-list { margin-left: 20px; }
-        .info-list li { margin-bottom: 8px; }
-
-        .formula-box { background: #f4f6f9; border: 1px solid #ddd; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; margin: 10px 0; overflow-x: auto; }
-        .math-var { font-weight: bold; color: #d32f2f; }
-        .math-const { color: #1976d2; font-weight: bold; }
-
-        /* --- INSIDE PLAYER MODAL --- */
-        #selectedPlayerHeader { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; margin-top: 25px; }
-        .player-header-name { font-size: 1.6em; font-weight: 800; color: #333; margin-bottom: 5px; }
-        .player-header-team { font-size: 1.1em; color: #666; font-weight: 500; }
-        #chartContainerWrapper { position: relative; height: 350px; width: 100%; margin: 0 auto 20px auto; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; background: white; border-radius: 5px; }
-        .pie-row-wrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
-        .pie-row-title { width: 100%; text-align: center; font-size: 0.9em; font-weight: bold; color: #888; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #eee; line-height: 0.1em; margin: 30px 0 20px 0; }
-        .pie-row-title span { background:#fff; padding:0 10px; }
-        .pie-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; display: flex; flex-direction: column; align-items: center; }
-        .pie-header { text-align: center; margin-bottom: 10px; width: 100%; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-        .pie-title { font-size: 0.9em; color: #666; text-transform: uppercase; margin-bottom: 2px; }
-        .pie-total-val { font-size: 1.4em; font-weight: 800; color: #333; }
-        .pie-canvas-holder { position: relative; height: 180px; width: 100%; max-width: 200px; }
-        .custom-legend { margin-top: 10px; width: 100%; }
-        .legend-row { display: flex; justify-content: space-between; padding: 4px 10px; font-size: 0.95em; font-weight: 600; border-bottom: 1px dashed #eee; }
-        .legend-row:last-child { border-bottom: none; }
-        .legend-label { color: #555; }
-        .legend-val { font-weight: 800; }
-        .pct-text { font-weight: 400; color: #888; font-size: 0.85em; margin-left: 5px; }
-        .val-green { color: #28a745; } .val-red { color: #dc3545; }
-        #generalStatsWrapper, #statsHighlightsWrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
-        .stat-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; text-align: center; }
-        .stat-label { text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px; }
-        .stat-value { font-size: 1.1em; font-weight: bold; color: #333; }
-        .stat-rating { color: #888; font-size: 0.9em; font-weight: normal; }
-        .stat-none { font-style: italic; color: #aaa; }
-        .border-green { border-top: 4px solid #28a745; } .border-red { border-top: 4px solid #dc3545; } .border-blue { border-top: 4px solid #4A90E2; }
-        #historyContainer { width: 100%; margin-bottom: 30px; }
-        .history-section { border: 2px solid #4A90E2; padding: 0; border-radius: 5px; background: #fff; overflow: hidden; }
-        .history-title { font-size: 1.2em; font-weight: bold; padding: 15px; color: white; background-color: #4A90E2; margin: 0; text-align: center; }
-        .history-item { padding: 15px; border-bottom: 1px solid #eee; font-size: 14px; color: #333; display: flex; flex-direction: column; }
-        .history-item:last-child { border-bottom: none; }
-        .history-item:nth-child(even) { background-color: #f9f9f9; }
-        .match-date { font-size: 0.85em; font-weight: bold; color: #888; margin-bottom: 8px; text-align: left; text-transform: uppercase; }
-        .match-content { text-align: center; display: flex; flex-direction: column; gap: 4px; }
-        .player-row { font-size: 1.1em; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 5px; line-height: 1.4; }
-        .player-name-span { font-weight: 600; }
-        .score-row { font-size: 1.6em; font-weight: 900; margin: 2px 0; letter-spacing: 2px; }
-        .rating-current { font-weight: bold; color: #444; }
-        .diff-val { font-size: 0.75em; vertical-align: super; font-weight: bold; margin-left: 2px; }
-        .win-text { color: #28a745; } .loss-text { color: #dc3545; }
-        .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
-        .doubles-badge { background-color: #ef6c00; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6em; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
-
-        @media screen and (max-width: 768px) {
-            .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
-            .close-btn { width: 45px; height: 45px; line-height: 45px; font-size: 28px; right: 15px; top: 15px; }
-            .scroll-hint { display: block; }
-            #chartContainerWrapper { height: 300px; }
-            .pie-row-wrapper { flex-direction: column; }
-            #statsHighlightsWrapper, #generalStatsWrapper { flex-direction: column; gap: 10px; }
-            table { font-size: 12px; }
-            th, td { padding: 8px 4px; }
-            thead tr:nth-child(2) th { top: 33px; }
-            thead tr:first-child th:nth-child(1), thead tr:first-child th:nth-child(2) { z-index: 5000 !important; }
-            tbody td:nth-child(1) { left: 0; z-index: 500; }
-            tbody td:nth-child(2) { left: 28px; z-index: 500; border-right: 2px solid #ccc; }
-            thead tr:first-child th:nth-child(1) { width: 28px; min-width: 28px; }
-            thead tr:first-child th:nth-child(2) { left: 28px; }
-            thead tr:first-child th:nth-child(2),
-            tbody td:nth-child(2) {
-                min-width: 0 !important;      /* Override any defaults */
-                width: 35vw !important;       /* Set width to 35% of screen width */
-                max-width: 130px !important;  /* hard limit to prevent it getting huge */
-                white-space: normal !important; /* Allow text to wrap to next line */
-                word-wrap: break-word;        /* Break long names if needed */
-                line-height: 1.2;             /* Tighter line height for wrapped text */
-                font-size: 11px;              /* Smaller font for names */
-            }
-
-            /* Adjust the search input to fit the smaller column */
-            .header-search-input {
-                width: 100% !important;
-                min-width: 0 !important;
-                font-size: 10px;
-                padding: 2px;
-            }
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .match-summary { padding: 12px 10px; }
+            .team-name { font-size: 0.95em; }
+            .score-badge { font-size: 1em; padding: 4px 8px; min-width: 50px; }
             .nav-badge {
-                top: 5px;
-                right: 5px;
-                transform: none;
-                padding: 2px 6px;
-                font-size: 0.6em;
-                border-radius: 4px;
+                top: 5px; right: 5px; transform: none;
+                padding: 2px 6px; font-size: 0.6em; border-radius: 4px;
             }
         }
     </style>
 </head>
 <body>
 
-<nav class="top-nav" id="mainNav">
-    <div class="nav-title">Košická Miniliga</div>
+<nav class="top-nav">
+    <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
     <div class="nav-badge">Aktualizované:<br>28.11.2025 15:30</div>
     <div class="nav-links">
         <a href="results.html">Výsledky</a>
         <a href="table.html">Tabuľka</a>
-        <a href="index.html" class="active">Rating</a>
+        <a href="rating.html">Rating</a>
     </div>
 </nav>
 
-<div class="container" id="mainContainer">
+<div class="container">
 
-    <h1>Aktuálny Rating Hráčov</h1>
-    <div class="info-trigger" onclick="openInfoModal()">ⓘ Ako funguje Rating?</div>
-
-    <div class="scroll-hint">↔ Posuňte tabuľku pre viac štatistík</div>
-    <div class="table-wrapper">
-        <table id="mainTable">
-            <thead>
-            <tr>
-                <th rowspan="2" style="min-width: 20px;">#</th>
-                <th rowspan="2">Hráč</th>
-                <th rowspan="2">
-                    <div class="team-filter-wrapper">
-                        <div class="team-filter-btn" onclick="toggleTeamDropdown(event)">
-                            Tím <span style="font-size: 0.8em">▼</span>
-                        </div>
-                        <div id="teamDropdown" class="team-filter-dropdown">
-                        </div>
-                    </div>
-                </th>
-                <th rowspan="2">Rating</th>
-
-                <th colspan="6" class="border-left-thick">Zápasy Dvojhra (Singles)</th>
-                <th colspan="3" class="border-left-thick">Zápasy Štvorhra (Doubles)</th>
-
-                <th rowspan="2" class="border-left-thick">Naj Výhra</th>
-                <th rowspan="2">Naposledy Hral</th>
-                <th rowspan="2">Max Rating</th>
-                <th rowspan="2">Min Rating</th>
-            </tr>
-            <tr>
-                <th class="sub-singles border-left-thick">Zápasy</th>
-                <th class="sub-singles">Výhry</th>
-                <th class="sub-singles">Prehry</th>
-                <th class="sub-singles">Sety</th>
-                <th class="sub-singles">Úspešnosť Zápasy</th>
-                <th class="sub-singles">Úspešnosť Sety</th>
-
-                <th class="sub-doubles border-left-thick">Zápasy</th>
-                <th class="sub-doubles">Výhry</th>
-                <th class="sub-doubles">Prehry</th>
-            </tr>
-            </thead>
-            <tbody id="mainTableBody"></tbody>
-        </table>
-    </div>
-
-</div>
-
-<div id="playerModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closePlayerModal()">&times;</span>
-
-        <div id="selectedPlayerHeader">
-            <div class="player-header-name" id="headerName"></div>
-            <div class="player-header-team" id="headerTeam"></div>
+    <div class="stats-grid">
+        <div class="stat-box">
+            <span class="stat-number" id="totalRounds">0</span>
+            <span class="stat-label">Odohraných Kôl</span>
         </div>
-
-        <div id="chartContainerWrapper">
-            <canvas id="ratingChart"></canvas>
+        <div class="stat-box">
+            <span class="stat-number" id="totalTeamMatches">0</span>
+            <span class="stat-label">Tímových Zápasov</span>
         </div>
-
-        <div class="pie-row-title"><span>Prehľad</span></div>
-        <div id="generalStatsWrapper">
-            <div class="stat-card border-blue">
-                <div class="stat-label">Aktuálny Rating</div>
-                <div id="currentRatingVal" class="stat-value"></div>
-            </div>
-            <div class="stat-card border-blue">
-                <div class="stat-label">Priemerný Rating Súpera</div>
-                <div id="avgOpponentVal" class="stat-value"></div>
-                <div class="stat-rating" style="font-size:0.75em">(Iba dvojhry)</div>
-            </div>
+        <div class="stat-box">
+            <span class="stat-number" id="totalMatches">0</span>
+            <span class="stat-label">Všetkých Zápasov</span>
         </div>
-
-        <div class="pie-row-title"><span>Štatistiky Dvojhry</span></div>
-        <div class="pie-row-wrapper">
-            <div class="pie-card">
-                <div class="pie-header">
-                    <div class="pie-title">Zápasy (Dvojhra)</div>
-                    <div class="pie-total-val" id="matchesTotalVal">0</div>
-                </div>
-                <div class="pie-canvas-holder"><canvas id="matchesChart"></canvas></div>
-                <div class="custom-legend">
-                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="matchesWinsVal">0</span><span class="pct-text" id="matchesWinsPct">(0%)</span></div></div>
-                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="matchesLossVal">0</span><span class="pct-text" id="matchesLossPct">(0%)</span></div></div>
-                </div>
-            </div>
-            <div class="pie-card">
-                <div class="pie-header">
-                    <div class="pie-title">Sety (Dvojhra)</div>
-                    <div class="pie-total-val" id="setsTotalVal">0</div>
-                </div>
-                <div class="pie-canvas-holder"><canvas id="setsChart"></canvas></div>
-                <div class="custom-legend">
-                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="setsWinsVal">0</span><span class="pct-text" id="setsWinsPct">(0%)</span></div></div>
-                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="setsLossVal">0</span><span class="pct-text" id="setsLossPct">(0%)</span></div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pie-row-title"><span>Štatistiky Štvorhry</span></div>
-        <div class="pie-row-wrapper">
-            <div class="pie-card">
-                <div class="pie-header">
-                    <div class="pie-title">Zápasy (Štvorhra)</div>
-                    <div class="pie-total-val" id="dMatchesTotalVal">0</div>
-                </div>
-                <div class="pie-canvas-holder"><canvas id="dMatchesChart"></canvas></div>
-                <div class="custom-legend">
-                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dMatchesWinsVal">0</span><span class="pct-text" id="dMatchesWinsPct">(0%)</span></div></div>
-                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dMatchesLossVal">0</span><span class="pct-text" id="dMatchesLossPct">(0%)</span></div></div>
-                </div>
-            </div>
-            <div class="pie-card">
-                <div class="pie-header">
-                    <div class="pie-title">Sety (Štvorhra)</div>
-                    <div class="pie-total-val" id="dSetsTotalVal">0</div>
-                </div>
-                <div class="pie-canvas-holder"><canvas id="dSetsChart"></canvas></div>
-                <div class="custom-legend">
-                    <div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dSetsWinsVal">0</span><span class="pct-text" id="dSetsWinsPct">(0%)</span></div></div>
-                    <div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dSetsLossVal">0</span><span class="pct-text" id="dSetsLossPct">(0%)</span></div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pie-row-title"><span>Highlighty</span></div>
-        <div id="statsHighlightsWrapper">
-            <div class="stat-card border-green">
-                <div class="stat-label">Najlepšia Výhra</div>
-                <div id="bestWinContainer"><div class="stat-value" id="bestWinName"></div><div class="stat-rating" id="bestWinRating"></div></div>
-            </div>
-            <div class="stat-card border-red">
-                <div class="stat-label">Najhoršia Prehra</div>
-                <div id="worstLossContainer"><div class="stat-value" id="worstLossName"></div><div class="stat-rating" id="worstLossRating"></div></div>
-            </div>
-        </div>
-
-        <div id="historyContainer"></div>
-    </div>
-</div>
-
-<div id="infoModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeInfoModal()">&times;</span>
-
-        <div class="info-content">
-            <div class="info-title">Ako funguje Rating?</div>
-
-            <div class="info-section" style="background-color: #e3f2fd; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
-                <b>💡 Tip:</b> Kliknutím na meno hráča v tabuľke zobrazíte jeho <b>detailný profil</b> – grafy vývoja ratingu, koláčové grafy úspešnosti a kompletnú históriu zápasov.
-            </div>
-
-            <div class="info-section">
-                <p class="info-text">
-                    Ratingový systém v Košickej Minilige je založený na modifikovanom <b>ELO systéme</b> (podobnom ako v šachu), ktorý je prispôsobený pre stolný tenis. Cieľom je spravodlivo ohodnotiť aktuálnu výkonnosť hráčov.
-                </p>
-                <ul class="info-list">
-                    <li><b>Všetci začínajú na 100:</b> Každý nový hráč vstupuje do systému so základným ratingom 100.</li>
-                    <li><b>Počítajú sa sety, nielen výhry:</b> Systém nepozerá len na to, či ste vyhrali zápas, ale <b>koľko setov</b> ste uhrali. Výhra 3:0 vám pridá viac bodov (a súperovi viac vezme) ako výhra 3:2.</li>
-                    <li><b>Sila súpera rozhoduje:</b> Ak porazíte hráča s vyšším ratingom, získate viac bodov. Ak prehráte s výrazne silnejším hráčom, stratíte len málo bodov (systém to očakával).</li>
-                    <li><b>Aj prehra môže znamenať zisk:</b> Ak máte výrazne nižší rating ako súper, ale uhráte proti nemu 1 alebo 2 sety, môžete si polepšiť (získať body) aj napriek tomu, že ste zápas celkovo prehrali.</li>
-                    <li><b>Stabilita (K-Faktor):</b> Prvých 5 zápasov sa váš rating mení rýchlejšie, aby sa čo najskôr našla vaša "skutočná" úroveň. Po odohratí viac ako 5 zápasov sa rating stabilizuje.</li>
-                </ul>
-            </div>
-
-            <div class="info-title" style="margin-top: 25px;">Farebná legenda (Stabilita)</div>
-            <div class="info-section">
-                <p class="info-text">Farba ratingu v tabuľke naznačuje štatistickú presnosť údajov:</p>
-                <ul class="info-list">
-                    <li><b style="color: #d32f2f;">Červená (0-10 zápasov):</b> <b>Nováčik / Dočasný.</b> Hráč odohral málo zápasov, hodnota sa môže rýchlo meniť a nemusí plne odrážať jeho úroveň.</li>
-                    <li><b style="color: #f57c00;">Oranžová (11-20 zápasov):</b> <b>Rozvíjajúci sa.</b> Presnosť ratingu sa zvyšuje.</li>
-                    <li><b style="color: #2e7d32;">Zelená (21+ zápasov):</b> <b>Stabilný.</b> Hráč odohral dostatok zápasov, rating je štatisticky presný.</li>
-                </ul>
-            </div>
-
-            <div class="info-title" style="margin-top: 25px;">Matematický Vzorec</div>
-            <div class="info-section">
-                <p class="info-text">
-                    Systém najprv vypočíta <b>Očakávaný počet setov</b>, ktoré by ste mali uhrať vzhľadom na rozdiel ratingov. Potom porovná tento odhad s realitou.
-                </p>
-
-                <div class="formula-box">
-                    Nový Rating = <span class="math-var">R_old</span> + <span class="math-var">K</span> × (<span class="math-var">Sety_skutočné</span> - <span class="math-var">Sety_očakávané</span>)
-                </div>
-
-                <p class="info-text">Kde:</p>
-                <ul class="info-list" style="font-size: 0.9em;">
-                    <li><span class="math-var">R_old</span>: Váš aktuálny rating pred zápasom.</li>
-                    <li><span class="math-var">K</span>: Váhový faktor (30 pre nováčikov, klesá na 10 pre stabilných hráčov).</li>
-                    <li><span class="math-var">Sety_očakávané</span>: Vypočítané podľa vzorca: <br>
-                        \( E_a = \frac{PočetSetov}{1 + 10^{(R_b - R_a) / 300}} \)
-                    </li>
-                    <li>(Deliteľ 300 určuje citlivosť systému na rozdiely v ratingu).</li>
-                </ul>
-
-                <p class="info-text" style="margin-top:15px; font-style: italic; font-size: 0.9em; color:#666;">
-                    * Pre štvorhry (Doubles) sa berie do úvahy priemerný rating a priemerný K-faktor dvojice. Získané body sa následne delia medzi oboch hráčov.
-                </p>
-            </div>
+        <div class="stat-box">
+            <span class="stat-number" id="totalSets">0</span>
+            <span class="stat-label">Odohraných Setov</span>
         </div>
     </div>
+
+    <div id="latestRoundContainer"></div>
+
+    <div class="section-header">
+        <h2>Top 5 Skokanov Kola</h2>
+    </div>
+    <ul class="top-players-list" id="topGainersList">
+    </ul>
+
+    <div class="section-header">
+        <h2>Prekvapenie Kola</h2>
+    </div>
+    <div id="upsetContainer">
+    </div>
+
 </div>
 
 <script src="matchData.js"></script>
 <script>
-    // --- DYNAMIC PADDING FIX ---
-    function updateLayout() {
-        const nav = document.getElementById('mainNav');
-        const container = document.getElementById('mainContainer');
-        const height = nav.offsetHeight;
-        container.style.marginTop = height + 'px';
-        container.style.height = 'calc(100% - ' + height + 'px)';
-    }
-    window.addEventListener('load', updateLayout);
-    window.addEventListener('resize', updateLayout);
-    // ---------------------------
+    // ============================================================
+    // 1. DATA PROCESSING & RATING CALCULATION ENGINE
+    // ============================================================
 
+    const roundsSet = new Set();
+    const teamMatchesSet = new Set();
+    let totalSets = 0;
+
+    matchResults.forEach(m => {
+        roundsSet.add(m.date);
+        teamMatchesSet.add(`${m.date}_${m.player_a_team}_${m.player_b_team}`);
+        totalSets += (parseInt(m.score_a) + parseInt(m.score_b));
+    });
+
+    // Identify Latest Round
+    const latestRoundName = matchResults[matchResults.length - 1].date;
+
+    // DOM: Update Global Stats
+    document.getElementById('totalRounds').innerText = roundsSet.size;
+    document.getElementById('totalTeamMatches').innerText = teamMatchesSet.size;
+    document.getElementById('totalMatches').innerText = matchResults.length;
+    document.getElementById('totalSets').innerText = totalSets;
+
+
+    // --- RATING ENGINE (To calculate gains & upsets) ---
     const initialRating = 100;
     const players = {};
-    // GLOBAL CHART REFS TO FIX BUG
-    let chartRefs = {};
-    // TEAM FILTER STATE
-    let selectedTeams = [];
+    let biggestUpsetDiff = -1;
+    let upsetMatchData = null;
 
     function getKFactor(matches) {
-        if (matches === 1) return 30;
-        if (matches === 2) return 26;
-        if (matches === 3) return 22;
-        if (matches === 4) return 18;
-        if (matches === 5) return 14;
-        return 10;
+        if (matches === 1) return 30; if (matches === 2) return 26;
+        if (matches === 3) return 22; if (matches === 4) return 18;
+        if (matches === 5) return 14; return 10;
     }
 
     function initPlayer(nameRaw) {
         const name = nameRaw.trim();
         if (!players[name]) {
-            players[name] = {
-                name: name,
-                rating: initialRating,
-                matches: 0, wins: 0, losses: 0,
-                setsWin: 0, setsLose: 0,
-                dMatches: 0, dWins: 0, dLosses: 0, dSetsWin: 0, dSetsLose: 0,
-                maxRating: initialRating, minRating: initialRating,
-                team: 'N/A', lastPlayed: 'N/A',
-                bestWinOpponent: null, bestWinRating: -Infinity,
-                worstLossOpponent: null, worstLossRating: Infinity,
-                history: {}, matchDetails: []
-            };
-        }
-    }
-
-    function processMatch(scoreA, scoreB, playerA, playerB, match, isDoubles) {
-        const playersA = playerA.split('/').map(n => n.trim());
-        const playersB = playerB.split('/').map(n => n.trim());
-
-        playersA.forEach(p => initPlayer(p));
-        playersB.forEach(p => initPlayer(p));
-
-        playersA.forEach(p => { players[p].team = match.player_a_team; players[p].lastPlayed = match.date; });
-        playersB.forEach(p => { players[p].team = match.player_b_team; players[p].lastPlayed = match.date; });
-
-        if (isDoubles) {
-            const getRating = (pName) => players[pName] ? players[pName].rating : initialRating;
-
-            const rA1 = getRating(playersA[0]);
-            const rA2 = playersA[1] ? getRating(playersA[1]) : rA1;
-            const Ra = (rA1 + rA2) / 2;
-
-            const rB1 = getRating(playersB[0]);
-            const rB2 = playersB[1] ? getRating(playersB[1]) : rB1;
-            const Rb = (rB1 + rB2) / 2;
-
-            const getK = (pName) => players[pName] ? getKFactor(players[pName].matches + players[pName].dMatches + 1) : 30;
-            const Ka = (getK(playersA[0]) + (playersA[1] ? getK(playersA[1]) : getK(playersA[0]))) / 2;
-            const Kb = (getK(playersB[0]) + (playersB[1] ? getK(playersB[1]) : getK(playersB[0]))) / 2;
-
-            const N = scoreA + scoreB;
-            const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
-            const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
-
-            const pairDeltaA = Ka * (scoreA - Ea);
-            const pairDeltaB = Kb * (scoreB - Eb);
-
-            const deltaA = pairDeltaA / 2;
-            const deltaB = pairDeltaB / 2;
-
-            playersA.forEach(p => {
-                const playerObj = players[p];
-                playerObj.dMatches++;
-                playerObj.dSetsWin += scoreA; playerObj.dSetsLose += scoreB;
-                if (scoreA > scoreB) playerObj.dWins++; else if (scoreB > scoreA) playerObj.dLosses++;
-
-                const newRating = playerObj.rating + deltaA;
-                playerObj.rating = newRating;
-                playerObj.history[match.date] = newRating;
-                playerObj.maxRating = Math.max(newRating, playerObj.maxRating);
-                playerObj.minRating = Math.min(newRating, playerObj.minRating);
-
-                playerObj.matchDetails.push({
-                    date: match.date,
-                    opponent: playerB,
-                    opponent_team: match.player_b_team,
-                    score_own: scoreA, score_opp: scoreB,
-                    rating_after: newRating, opp_rating_after: 0,
-                    delta_own: deltaA, delta_opp: deltaB,
-                    isDoubles: true,
-                    own_name_display: playerA
-                });
-            });
-
-            playersB.forEach(p => {
-                const playerObj = players[p];
-                playerObj.dMatches++;
-                playerObj.dSetsWin += scoreB; playerObj.dSetsLose += scoreA;
-                if (scoreB > scoreA) playerObj.dWins++; else if (scoreA > scoreB) playerObj.dLosses++;
-
-                const newRating = playerObj.rating + deltaB;
-                playerObj.rating = newRating;
-                playerObj.history[match.date] = newRating;
-                playerObj.maxRating = Math.max(newRating, playerObj.maxRating);
-                playerObj.minRating = Math.min(newRating, playerObj.minRating);
-
-                playerObj.matchDetails.push({
-                    date: match.date,
-                    opponent: playerA,
-                    opponent_team: match.player_a_team,
-                    score_own: scoreB, score_opp: scoreA,
-                    rating_after: newRating, opp_rating_after: 0,
-                    delta_own: deltaB, delta_opp: deltaA,
-                    isDoubles: true,
-                    own_name_display: playerB
-                });
-            });
-
-        } else {
-            const pA = playersA[0];
-            const pB = playersB[0];
-            const objA = players[pA];
-            const objB = players[pB];
-
-            const N = scoreA + scoreB;
-            const Ra = objA.rating;
-            const Rb = objB.rating;
-
-            objA.matches++; objB.matches++;
-
-            const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
-            const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
-            const Ka = getKFactor(objA.matches);
-            const Kb = getKFactor(objB.matches);
-
-            if (scoreA > scoreB) {
-                if (objB.rating > objA.bestWinRating) { objA.bestWinOpponent = pB; objA.bestWinRating = objB.rating; }
-                if (objA.rating < objB.worstLossRating) { objB.worstLossOpponent = pA; objB.worstLossRating = objA.rating; }
-            } else if (scoreB > scoreA) {
-                if (objA.rating > objB.bestWinRating) { objB.bestWinOpponent = pA; objB.bestWinRating = objA.rating; }
-                if (objB.rating < objA.worstLossRating) { objA.worstLossOpponent = pB; objA.worstLossRating = objB.rating; }
-            }
-
-            const newRa = Ra + Ka * (scoreA - Ea);
-            const newRb = Rb + Kb * (scoreB - Eb);
-            const deltaA = newRa - Ra;
-            const deltaB = newRb - Rb;
-
-            objA.rating = newRa; objB.rating = newRb;
-            objA.history[match.date] = newRa; objB.history[match.date] = newRb;
-
-            objA.maxRating = Math.max(newRa, objA.maxRating); objA.minRating = Math.min(newRa, objA.minRating);
-            objB.maxRating = Math.max(newRb, objB.maxRating); objB.minRating = Math.min(newRb, objB.minRating);
-
-            if (scoreA > scoreB) objA.wins++; else if(scoreB > scoreA) objA.losses++;
-            if (scoreB > scoreA) objB.wins++; else if(scoreA > scoreB) objB.losses++;
-
-            objA.setsWin += scoreA; objA.setsLose += scoreB;
-            objB.setsWin += scoreB; objB.setsLose += scoreA;
-
-            objA.matchDetails.push({
-                date: match.date, opponent: pB, opponent_team: match.player_b_team,
-                score_own: scoreA, score_opp: scoreB,
-                rating_after: newRa, opp_rating_after: newRb,
-                delta_own: deltaA, delta_opp: deltaB, isDoubles: false,
-                own_name_display: pA
-            });
-            objB.matchDetails.push({
-                date: match.date, opponent: pA, opponent_team: match.player_a_team,
-                score_own: scoreB, score_opp: scoreA,
-                rating_after: newRb, opp_rating_after: newRa,
-                delta_own: deltaB, delta_opp: deltaA, isDoubles: false,
-                own_name_display: pB
-            });
+            players[name] = { name: name, rating: initialRating, matches: 0, dMatches: 0, team: 'N/A', roundGain: 0 };
         }
     }
 
     matchResults.forEach(match => {
-        if (match.player_a === 'WO' || match.player_b === 'WO') return;
-        processMatch(parseInt(match.score_a), parseInt(match.score_b), match.player_a, match.player_b, match, match.doubles);
-    });
+        const scoreA = parseInt(match.score_a);
+        const scoreB = parseInt(match.score_b);
+        const isDoubles = match.doubles === true;
+        const isLatestRound = match.date === latestRoundName;
 
-    const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
+        const playersA = match.player_a.split('/').map(n => n.trim());
+        const playersB = match.player_b.split('/').map(n => n.trim());
 
-    let activePlayerName = null;
+        playersA.forEach(p => initPlayer(p));
+        playersB.forEach(p => initPlayer(p));
 
-    function renderTable() {
-        const tbody = document.getElementById('mainTableBody');
-        tbody.innerHTML = '';
-        sortedPlayers.forEach((p, index) => {
-            // FILTER LOGIC
-            if (selectedTeams.length > 0 && !selectedTeams.includes(p.team)) return;
+        playersA.forEach(p => players[p].team = match.player_a_team);
+        playersB.forEach(p => players[p].team = match.player_b_team);
 
-            const tr = document.createElement('tr');
-            if (p.team === 'COKERY') tr.classList.add('team-cokery');
-            if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
-            tr.onclick = (e) => {
-                // Ignore clicks if user is selecting text (or team filter if it was there)
-                if (window.getSelection().toString().length > 0) return;
-                openModal(p.name);
-            };
+        const getR = (p) => players[p].rating;
+        const getK = (p) => getKFactor(players[p].matches + players[p].dMatches + 1);
 
-            const successMatches = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(2) : 0;
-            const totalSets = p.setsWin + p.setsLose;
-            const successSets = totalSets > 0 ? ((p.setsWin / totalSets) * 100).toFixed(2) : 0;
-            const bestWinStr = p.bestWinOpponent ? `${p.bestWinOpponent} (${p.bestWinRating.toFixed(2)})` : '';
+        let Ra, Rb, Ka, Kb;
 
-            // Logic for Rating Color based on total matches played
-            const totalMatchesPlayed = p.matches + p.dMatches;
-            let ratingClass = 'rating-high'; // Default Green (Matches > 20)
-            if (totalMatchesPlayed <= 10) {
-                ratingClass = 'rating-low'; // Red
-            } else if (totalMatchesPlayed <= 20) {
-                ratingClass = 'rating-med'; // Orange
-            }
+        if (isDoubles) {
+            Ra = (getR(playersA[0]) + (playersA[1] ? getR(playersA[1]) : getR(playersA[0]))) / 2;
+            Rb = (getR(playersB[0]) + (playersB[1] ? getR(playersB[1]) : getR(playersB[0]))) / 2;
 
-            tr.innerHTML = `
-                <td>${index + 1}</td>
-                <td>${p.name}</td>
-                <td>${p.team}</td>
-                <td class="${ratingClass}">${p.rating.toFixed(2)}</td>
+            const ka1 = getK(playersA[0]); const ka2 = playersA[1] ? getK(playersA[1]) : ka1;
+            const kb1 = getK(playersB[0]); const kb2 = playersB[1] ? getK(playersB[1]) : kb1;
+            Ka = (ka1 + ka2) / 2; Kb = (kb1 + kb2) / 2;
 
-                <td class="border-left-thick">${p.matches}</td>
-                <td>${p.wins}</td>
-                <td>${p.losses}</td>
-                <td>${p.setsWin}:${p.setsLose}</td>
-                <td>${successMatches}</td>
-                <td>${successSets}</td>
-
-                <td class="border-left-thick">${p.dMatches}</td>
-                <td>${p.dWins}</td>
-                <td>${p.dLosses}</td>
-
-                <td class="border-left-thick">${bestWinStr}</td>
-                <td>${p.lastPlayed}</td>
-                <td>${p.maxRating.toFixed(2)}</td>
-                <td>${p.minRating.toFixed(2)}</td>
-            `;
-            tbody.appendChild(tr);
-        });
-
-        // Initialize filter dropdown options after rendering (or re-rendering)
-        initTeamFilter();
-    }
-
-    // --- TEAM FILTER FUNCTIONALITY ---
-    function toggleTeamDropdown(e) {
-        e.stopPropagation();
-        const dd = document.getElementById('teamDropdown');
-        dd.classList.toggle('show');
-    }
-
-    // Close dropdown when clicking outside
-    window.addEventListener('click', function(e) {
-        if (!e.target.matches('.team-filter-btn') && !e.target.closest('.team-filter-dropdown')) {
-            document.getElementById('teamDropdown').classList.remove('show');
-        }
-    });
-
-    function initTeamFilter() {
-        const dd = document.getElementById('teamDropdown');
-        if (dd.childElementCount > 0) return;
-
-        const teams = [...new Set(sortedPlayers.map(p => p.team))].sort();
-
-        teams.forEach(team => {
-            if(team === "N/A") return;
-            const div = document.createElement('div');
-            div.className = 'team-option';
-
-            // Create Checkbox Safely (DOM API)
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.value = team;
-
-            // Create Label
-            const span = document.createElement('span');
-            span.innerText = team;
-
-            // Append
-            div.appendChild(checkbox);
-            div.appendChild(span);
-
-            // Listeners
-            div.onclick = (e) => {
-                if(e.target.tagName !== 'INPUT') {
-                    checkbox.checked = !checkbox.checked;
-                    handleTeamCheck(checkbox);
-                }
-            };
-            checkbox.onclick = function(e) {
-                e.stopPropagation();
-                handleTeamCheck(this);
-            };
-
-            dd.appendChild(div);
-        });
-
-        // Actions footer
-        const footer = document.createElement('div');
-        footer.className = 'filter-actions';
-        footer.innerHTML = '<span class="clear-filter" onclick="clearTeamFilter()">Zrušiť filter</span>';
-        dd.appendChild(footer);
-    }
-
-    function handleTeamCheck(checkbox) {
-        const val = checkbox.value;
-        if (checkbox.checked) {
-            selectedTeams.push(val);
+            playersA.forEach(p => players[p].dMatches++);
+            playersB.forEach(p => players[p].dMatches++);
         } else {
-            selectedTeams = selectedTeams.filter(t => t !== val);
+            Ra = getR(playersA[0]); Rb = getR(playersB[0]);
+            Ka = getK(playersA[0]); Kb = getK(playersB[0]);
+            playersA.forEach(p => players[p].matches++);
+            playersB.forEach(p => players[p].matches++);
         }
-        renderTable();
-    }
 
-    function clearTeamFilter() {
-        selectedTeams = [];
-        document.querySelectorAll('.team-option input').forEach(i => i.checked = false);
-        renderTable();
-    }
+        const N = scoreA + scoreB;
+        const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
+        const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
 
+        let deltaA = Ka * (scoreA - Ea);
+        let deltaB = Kb * (scoreB - Eb);
 
-    // --- MODAL LOGIC ---
-    const playerModal = document.getElementById("playerModal");
-    const infoModal = document.getElementById("infoModal");
+        if (isDoubles) { deltaA /= 2; deltaB /= 2; }
 
-    function openModal(name) {
-        activePlayerName = name;
-        const p = players[name];
-
-        document.getElementById('headerName').innerText = p.name;
-        document.getElementById('headerTeam').innerText = p.team || "";
-
-        const setStat = (idName, idRate, oppName, oppRate) => {
-            const elName = document.getElementById(idName);
-            const elRate = document.getElementById(idRate);
-            if (oppName) {
-                elName.innerText = oppName; elName.className = "stat-value";
-                elRate.innerText = `Rating: ${oppRate.toFixed(2)}`;
-            } else {
-                elName.innerText = "-"; elName.className = "stat-value stat-none"; elRate.innerText = "";
+        // UPSET DETECTION (Singles Only, Latest Round)
+        if (isLatestRound && !isDoubles) {
+            if (scoreA > scoreB && Rb > Ra) {
+                const diff = Rb - Ra;
+                if (diff > biggestUpsetDiff) {
+                    biggestUpsetDiff = diff;
+                    upsetMatchData = { winner: playersA[0], loser: playersB[0], wRate: Ra, lRate: Rb, score: `${scoreA}:${scoreB}` };
+                }
             }
+            else if (scoreB > scoreA && Ra > Rb) {
+                const diff = Ra - Rb;
+                if (diff > biggestUpsetDiff) {
+                    biggestUpsetDiff = diff;
+                    upsetMatchData = { winner: playersB[0], loser: playersA[0], wRate: Rb, lRate: Ra, score: `${scoreB}:${scoreA}` };
+                }
+            }
+        }
+
+        playersA.forEach(p => {
+            players[p].rating += deltaA;
+            if(isLatestRound) players[p].roundGain += deltaA;
+        });
+        playersB.forEach(p => {
+            players[p].rating += deltaB;
+            if(isLatestRound) players[p].roundGain += deltaB;
+        });
+    });
+
+    // ============================================================
+    // 2. RENDER TOP 5 GAINERS
+    // ============================================================
+    const sortedByGain = Object.values(players).sort((a, b) => b.roundGain - a.roundGain);
+    const top5 = sortedByGain.slice(0, 5);
+    const gainList = document.getElementById('topGainersList');
+
+    top5.forEach((p, index) => {
+        if (p.roundGain <= 0) return;
+        const li = document.createElement('li');
+        li.className = 'top-player-row';
+        li.innerHTML = `
+            <div class="tp-rank">${index + 1}</div>
+            <div class="tp-name">${p.name} <span class="tp-team">(${p.team})</span></div>
+            <div class="tp-gain">+${p.roundGain.toFixed(1)}</div>
+        `;
+        gainList.appendChild(li);
+    });
+
+    // ============================================================
+    // 3. RENDER UPSET
+    // ============================================================
+    const upsetDiv = document.getElementById('upsetContainer');
+    if (upsetMatchData) {
+        upsetDiv.innerHTML = `
+            <div class="upset-card">
+                <div class="upset-label">(Rating rozdiel ${Math.round(biggestUpsetDiff)})</div>
+                <div class="upset-match">
+                    <div class="upset-player">${upsetMatchData.winner}<span class="upset-rating">${upsetMatchData.wRate.toFixed(0)}</span></div>
+                    <div class="upset-score">${upsetMatchData.score}</div>
+                    <div class="upset-player">${upsetMatchData.loser}<span class="upset-rating">${upsetMatchData.lRate.toFixed(0)}</span></div>
+                </div>
+            </div>
+        `;
+    } else {
+        upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`;
+    }
+
+    // ============================================================
+    // 4. RENDER LATEST ROUND MATCHES (Reused Design)
+    // ============================================================
+    const teamMatches = {};
+    matchResults.filter(m => m.date === latestRoundName).forEach(m => {
+        const key = `${m.player_a_team}::${m.player_b_team}`;
+        if (!teamMatches[key]) {
+            teamMatches[key] = { teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0, games: [] };
+        }
+        const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
+        if (sA > sB) teamMatches[key].scoreA++; if (sB > sA) teamMatches[key].scoreB++;
+        teamMatches[key].games.push(m);
+    });
+
+    const resultsContainer = document.getElementById('latestRoundContainer');
+
+    function createGameRow(game) {
+        const isDouble = game.doubles === true || game.doubles === "true";
+        const sA = parseInt(game.score_a);
+        const sB = parseInt(game.score_b);
+
+        let scoreClass = "";
+        if (sA > sB) scoreClass = "win-left";
+        else if (sB > sA) scoreClass = "win-right";
+
+        const doubleBadge = isDouble ? `<div class="doubles-badge">ŠTVORHRA</div>` : '';
+
+        return `
+            <div class="game-row">
+                ${doubleBadge}
+                <div class="game-names">
+                    <div class="player-left">${game.player_a}</div>
+                    <div class="game-score ${scoreClass}">${sA}:${sB}</div>
+                    <div class="player-right">${game.player_b}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Create the Round Group
+    const roundGroup = document.createElement('div');
+    roundGroup.className = 'round-group';
+
+    const header = document.createElement('div');
+    header.className = 'round-header';
+    header.innerText = latestRoundName;
+    roundGroup.appendChild(header);
+
+    Object.values(teamMatches).forEach(match => {
+        // Sort games: Doubles first
+        const games = match.games.sort((a, b) => {
+            const isDoubleA = a.doubles ? 1 : 0;
+            const isDoubleB = b.doubles ? 1 : 0;
+            return isDoubleB - isDoubleA;
+        });
+
+        const matchRow = document.createElement('div');
+        matchRow.className = 'match-row';
+
+        // Summary
+        const summary = document.createElement('div');
+        summary.className = 'match-summary';
+        summary.innerHTML = `
+            <div class="team-name team-left">${match.teamA}</div>
+            <div class="score-badge">${match.scoreA}-${match.scoreB}</div>
+            <div class="team-name team-right">${match.teamB}</div>
+            <div class="expand-icon">▼</div>
+        `;
+
+        // Details
+        const details = document.createElement('div');
+        details.className = 'match-details';
+
+        let gamesHtml = '';
+        games.forEach(g => {
+            gamesHtml += createGameRow(g);
+        });
+        details.innerHTML = gamesHtml;
+
+        // Click Event
+        summary.onclick = () => {
+            const isExpanded = details.style.display === 'block';
+            details.style.display = isExpanded ? 'none' : 'block';
+            if(isExpanded) matchRow.classList.remove('active');
+            else matchRow.classList.add('active');
         };
-        setStat('bestWinName', 'bestWinRating', p.bestWinOpponent, p.bestWinRating);
-        setStat('worstLossName', 'worstLossRating', p.worstLossOpponent, p.worstLossRating);
 
-        // New Stats
-        document.getElementById('currentRatingVal').innerText = p.rating.toFixed(2);
+        matchRow.appendChild(summary);
+        matchRow.appendChild(details);
+        roundGroup.appendChild(matchRow);
+    });
 
-        let totalOpp = 0;
-        let countOpp = 0;
-        p.matchDetails.forEach(m => {
-            if (!m.isDoubles && m.opp_rating_after > 0) {
-                totalOpp += m.opp_rating_after;
-                countOpp++;
-            }
-        });
-        const avgOpp = countOpp > 0 ? (totalOpp / countOpp).toFixed(2) : "-";
-        document.getElementById('avgOpponentVal').innerText = avgOpp;
+    resultsContainer.appendChild(roundGroup);
 
-        playerModal.style.display = "flex";
-
-        renderLineChart(name);
-        renderPieCharts(name, 'matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'singles');
-        renderPieCharts(name, 'dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'doubles');
-        renderHistory(name);
-    }
-
-    function closePlayerModal() {
-        playerModal.style.display = "none";
-        activePlayerName = null;
-    }
-
-    // --- INFO MODAL LOGIC ---
-    function openInfoModal() {
-        infoModal.style.display = "flex";
-    }
-
-    function closeInfoModal() {
-        infoModal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == playerModal) {
-            closePlayerModal();
-        }
-        if (event.target == infoModal) {
-            closeInfoModal();
-        }
-    }
-
-    function getDiffHtml(delta, isDoubles) {
-        if (Math.abs(delta) < 0.01) return `<span class="diff-val diff-neu">-</span>`;
-        const isPos = delta > 0;
-        const arrow = isPos ? '▲' : '▼';
-        const colorClass = isPos ? 'diff-up' : 'diff-down';
-        return `<span class="diff-val ${colorClass}">${arrow}${Math.abs(delta).toFixed(2)}</span>`;
-    }
-
-    function renderHistory(name) {
-        const p = players[name];
-        const container = document.getElementById('historyContainer');
-        let html = `<div class='history-section'><div class='history-title'>História Zápasov: ${p.name}</div><div class='history-list'>`;
-
-        p.matchDetails.forEach(m => {
-            const isWin = m.score_own > m.score_opp;
-            const scoreColorClass = isWin ? 'win-text' : 'loss-text';
-            const badge = m.isDoubles ? `<span class="doubles-badge">ŠTVORHRA</span>` : ``;
-
-            let myInfoHtml, oppInfoHtml;
-
-            if (m.isDoubles) {
-                myInfoHtml = `<span class="player-name-span">${m.own_name_display}</span> <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>`;
-                oppInfoHtml = `<span class="player-name-span">${m.opponent}</span> <span>(${m.opponent_team})</span>`;
-            } else {
-                myInfoHtml = `<span class="player-name-span">${p.name}</span> <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>`;
-                oppInfoHtml = `<span class="player-name-span">${m.opponent}</span> <span>(${m.opponent_team}, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>)</span>`;
-            }
-
-            html += `
-                <div class="history-item">
-                    <div class="match-date">${m.date} ${badge}</div>
-                    <div class="match-content">
-                        <div class="player-row">
-                            ${myInfoHtml} ${getDiffHtml(m.delta_own, false)}
-                        </div>
-                        <div class="score-row ${scoreColorClass}">${m.score_own}:${m.score_opp}</div>
-                        <div class="player-row">
-                            ${oppInfoHtml} ${getDiffHtml(m.delta_opp, false)}
-                        </div>
-                    </div>
-                </div>`;
-        });
-        html += `</div></div>`;
-        container.innerHTML = html;
-    }
-
-    function renderPieCharts(name, matchCanvasId, setCanvasId, matches, wins, losses, setsWin, setsLose, prefix) {
-        const getPct = (part, total) => total > 0 ? ((part/total)*100).toFixed(1) : 0;
-        let mBase = (prefix === 'doubles') ? 'dMatches' : 'matches';
-        let sBase = (prefix === 'doubles') ? 'dSets' : 'sets';
-
-        document.getElementById(mBase + 'TotalVal').innerText = matches;
-        document.getElementById(mBase + 'WinsVal').innerText = wins;
-        document.getElementById(mBase + 'LossVal').innerText = losses;
-        document.getElementById(mBase + 'WinsPct').innerText = `(${getPct(wins, matches)}%)`;
-        document.getElementById(mBase + 'LossPct').innerText = `(${getPct(losses, matches)}%)`;
-
-        document.getElementById(sBase + 'TotalVal').innerText = (setsWin + setsLose);
-        document.getElementById(sBase + 'WinsVal').innerText = setsWin;
-        document.getElementById(sBase + 'LossVal').innerText = setsLose;
-        document.getElementById(sBase + 'WinsPct').innerText = `(${getPct(setsWin, setsWin + setsLose)}%)`;
-        document.getElementById(sBase + 'LossPct').innerText = `(${getPct(setsLose, setsWin + setsLose)}%)`;
-
-        const ctxM = document.getElementById(matchCanvasId).getContext('2d');
-        if (chartRefs[matchCanvasId]) chartRefs[matchCanvasId].destroy();
-        chartRefs[matchCanvasId] = new Chart(ctxM, {
-            type: 'doughnut',
-            data: { labels: ['Výhry','Prehry'], datasets: [{ data: [wins, losses], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-
-        const ctxS = document.getElementById(setCanvasId).getContext('2d');
-        if (chartRefs[setCanvasId]) chartRefs[setCanvasId].destroy();
-        chartRefs[setCanvasId] = new Chart(ctxS, {
-            type: 'doughnut',
-            data: { labels: ['Výhry','Prehry'], datasets: [{ data: [setsWin, setsLose], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-        });
-    }
-
-    function renderLineChart(name) {
-        const ctx = document.getElementById('ratingChart').getContext('2d');
-        const p = players[name];
-        const rawDates = Object.keys(p.history);
-        const sortedDates = rawDates.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
-        const dataPoints = sortedDates.map(date => p.history[date]);
-
-        if (chartRefs['line']) chartRefs['line'].destroy();
-        chartRefs['line'] = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: sortedDates,
-                datasets: [{
-                    label: p.name, data: dataPoints, borderColor: '#4A90E2',
-                    backgroundColor: 'rgba(74, 144, 226, 0.1)', borderWidth: 2, pointRadius: 4, tension: 0.1, fill: true
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                scales: { x: { title: { display: true, text: 'Zápas' }, ticks: { autoSkip: true, maxTicksLimit: 10 } }, y: { title: { display: true, text: 'Rating' } } },
-                plugins: { legend: { display: true } }
-            }
-        });
-    }
-
-    renderTable();
 </script>
+
 </body>
 </html>
