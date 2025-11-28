@@ -143,7 +143,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter ŠTEFANCO/Andrej KARLIK",
-        "player_b": "Jozef HUDÁK/Peter ŠEBEK st.",
+        "player_b": "Jozef HUDÁK/Peter ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST",
@@ -1036,7 +1036,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Juraj ANTOŠ",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1063,7 +1063,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Peter BARSA",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1126,7 +1126,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Milan KRASNAY",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1153,7 +1153,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Peter ŠTEFANCO",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST"
@@ -1344,7 +1344,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_a": "Peter ŠEBEK/Jozef HUDÁK",
         "player_b": "Milan SUCHÝ/Igor TKÁČ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -1472,7 +1472,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Milan SUCHÝ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -1508,7 +1508,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Igor TKÁČ",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -1544,7 +1544,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Miro. HARČÁRIK",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -1580,7 +1580,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Jaroslav WIENER",
         "date": "2. kolo",
         "player_a_team": "EUROCAST",
@@ -2583,7 +2583,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Andrej FELBER/Ľubomír BENDZÁK",
-        "player_b": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_b": "Peter ŠEBEK/Jozef HUDÁK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST",
@@ -3496,7 +3496,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Ľubomír BENDZÁK",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3523,7 +3523,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Andrej FELBER",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3586,7 +3586,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Peter RUŽIČKA",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3613,7 +3613,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Juraj POLYAK",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST"
@@ -3844,7 +3844,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_a": "Peter ŠEBEK/Jozef HUDÁK",
         "player_b": "Marek SKYBA/Michal NINITZ",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
@@ -4240,7 +4240,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "P. ŠEBEK",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Michal NINITZ",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
@@ -4276,7 +4276,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "P. ŠEBEK",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Marek SKYBA",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
@@ -4312,7 +4312,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "P. ŠEBEK",
+        "player_a": "Peter ŠEBEK",
         "player_b": "David LEŠUNDÁK",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
@@ -4348,7 +4348,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "P. ŠEBEK",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Martin ĎURIŠIN",
         "date": "4. kolo",
         "player_a_team": "EUROCAST",
@@ -5217,7 +5217,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Štefan PČOLA/Milan MICHLOVIČ",
-        "player_b": "P. ŠEBEK/Jozef ZAVACKÝ",
+        "player_b": "Peter ŠEBEK/Jozef ZAVACKÝ",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST",
@@ -6129,7 +6129,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 1,
         "player_a": "Štefan PČOLA",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6156,7 +6156,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "M. ZÁRIK",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6183,7 +6183,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Milan MICHLOVIČ",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6246,7 +6246,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Luboš MRÁZ",
-        "player_b": "P. ŠEBEK",
+        "player_b": "Peter ŠEBEK",
         "date": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST"
@@ -6429,7 +6429,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Marek KUNDRIK/Viktor ŠIDLÍK",
-        "player_b": "Peter ŠEBEK st./Jozef ZAVACKÝ",
+        "player_b": "Peter ŠEBEK/Jozef ZAVACKÝ",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST",
@@ -6559,7 +6559,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Matúš HRČKA",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -6622,7 +6622,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Marek KUNDRIK",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -6649,7 +6649,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Viktor ŠIDLÍK",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -6676,7 +6676,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 0,
         "player_a": "Martin MUCHA",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST"
@@ -9123,7 +9123,7 @@ const matchResults = [
         "score_a": 3,
         "score_b": 2,
         "player_a": "Ľubomír HOCHVART/Milan PAŽIČ",
-        "player_b": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_b": "Peter ŠEBEK/Jozef HUDÁK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST",
@@ -9912,7 +9912,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "Štefan VENDEL",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -9939,7 +9939,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ľubomír HOCHVART",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -10002,7 +10002,7 @@ const matchResults = [
         "score_a": 2,
         "score_b": 3,
         "player_a": "Milan PAŽIČ",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -10029,7 +10029,7 @@ const matchResults = [
         "score_a": 1,
         "score_b": 3,
         "player_a": "Ján PETRŽALA",
-        "player_b": "Peter ŠEBEK st.",
+        "player_b": "Peter ŠEBEK",
         "date": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST"
@@ -10374,7 +10374,7 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Julius PILLÁR/Peter ŠEBEK st.",
+        "player_a": "Julius PILLÁR/Peter ŠEBEK",
         "player_b": "Karol GERGELY/Tomáš BEKECS",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
@@ -10791,7 +10791,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Eduard KUDLA",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
@@ -10827,7 +10827,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 1,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Andrej MAKRANSKÝ",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
@@ -10863,7 +10863,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Tomáš BEKECS",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
@@ -10899,7 +10899,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Karol GERGELY",
         "date": "9. kolo",
         "player_a_team": "EUROCAST",
@@ -13088,7 +13088,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Peter ŠEBEK st./Jozef HUDÁK",
+        "player_a": "Peter ŠEBEK/Jozef HUDÁK",
         "player_b": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
@@ -13971,7 +13971,7 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Martin SOĽÁR",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
@@ -14007,7 +14007,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Miroslav KOSCELANSKÝ",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
@@ -14043,7 +14043,7 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Matej KOVAČIK",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
@@ -14079,7 +14079,7 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Peter ŠEBEK st.",
+        "player_a": "Peter ŠEBEK",
         "player_b": "Peter JAKUBEC",
         "date": "11. kolo",
         "player_a_team": "EUROCAST",
@@ -15250,5 +15250,169 @@ const matchResults = [
         "date": "12. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TT TEAM"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Ľubomír VARTÁS\/František CZINGELY",
+        "player_b": "Julius PILLÁR\/Patrík TIRPÁK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST",
+        "doubles": true
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Tamás BÓNI\/Csaba BECSE",
+        "player_b": "Peter ŠEBEK\/Jozef ZAVACKÝ",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST",
+        "doubles": true
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Csaba BECSE",
+        "player_b": "Peter ŠEBEK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Ľubomír VARTÁS",
+        "player_b": "Patrík TIRPÁK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Julius PILLÁR",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "František CZINGELY",
+        "player_b": "Jozef ZAVACKÝ",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Vladimír LÁSLOFI",
+        "player_b": "Patrík TIRPÁK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ľubomír VARTÁS",
+        "player_b": "Julius PILLÁR",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Jozef ZAVACKÝ",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "František CZINGELY",
+        "player_b": "Peter ŠEBEK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Csaba BECSE",
+        "player_b": "Julius PILLÁR",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ľubomír VARTÁS",
+        "player_b": "Jozef HUDÁK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Vladimír LÁSLOFI",
+        "player_b": "Peter ŠEBEK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "František CZINGELY",
+        "player_b": "Patrík TIRPÁK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Csaba BECSE",
+        "player_b": "Jozef HUDÁK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ľubomír VARTÁS",
+        "player_b": "Peter ŠEBEK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Jozef MOHŇANSKÝ",
+        "player_b": "Patrík TIRPÁK",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "František CZINGELY",
+        "player_b": "Julius PILLÁR",
+        "date": "kolo.12",
+        "player_a_team": "METALKOV",
+        "player_b_team": "EUROCAST"
     }
 ]
