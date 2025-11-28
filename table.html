@@ -95,7 +95,7 @@
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            min-width: 600px; /* Desktop Default */
+            min-width: 600px;
         }
 
         th, td {
@@ -161,33 +161,70 @@
         .col-pos { font-weight: bold; color: #888; width: 40px; }
         .col-pts { font-weight: 900; color: #4A90E2; font-size: 1.1em; background-color: #fbfbfb; }
         .col-score { font-family: monospace; font-size: 1.1em; letter-spacing: -1px; }
+        .col-avg { font-weight: bold; color: #555; background-color: #fdfdfd; }
 
         .expand-icon { display: inline-block; font-size: 0.7em; margin-left: 8px; color: #999; transition: transform 0.2s; }
         .main-row.active .expand-icon { transform: rotate(180deg); }
 
-        .nav-badge {
+        /* --- TOOLTIP STYLES (FIXED) --- */
+        .tooltip-icon {
+            cursor: pointer;
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.8);
+        }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip-text {
+            visibility: hidden;
+            width: 140px; /* Reduced width for mobile safety */
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+
+            /* Positioning Logic */
             position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #FFD700;
-            color: #000;
-            padding: 5px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 700;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            white-space: nowrap;
-            z-index: 5002;
+            z-index: 1000;
+            top: 130%; /* Push down */
+            right: 0;  /* Align to right edge of container */
+            left: auto; /* Override potential defaults */
+            margin-left: 0;
+
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: normal;
+            font-size: 11px;
+            line-height: 1.4;
+            text-transform: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
+        .tooltip-container:hover .tooltip-text,
+        .tooltip-container:focus-within .tooltip-text,
+        .tooltip-container:active .tooltip-text { /* Active added for tap */
+            visibility: visible;
+            opacity: 1;
+        }
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            right: 10px; /* Arrow matches right alignment */
+            margin-left: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent;
         }
 
         /* --- MOBILE FIXES --- */
         @media screen and (max-width: 600px) {
             h1 { font-size: 1.4em; }
-
-            /* Default padding for cells */
-            th, td { padding: 10px 2px; }
-
+            th, td { padding: 10px 2px; font-size: 11px; }
             .hr-date { width: 60px; font-size: 0.75em; }
             .hr-team { font-size: 0.95em; }
             .hr-score { width: 40px; font-size: 1.1em; margin: 0 5px; }
@@ -197,45 +234,33 @@
 
             table { min-width: auto; width: 100%; table-layout: fixed; }
 
-            /* --- COLUMN SIZING --- */
-
-            /* # (Rank) */
+            /* --- STRICT COLUMN SIZING --- */
             th:nth-child(1), td:nth-child(1) { width: 8%; }
 
-            /* Team (Tím) - Larger Text */
+            /* Team (Tím) */
             th:nth-child(2), td:nth-child(2) {
                 width: 30%;
                 white-space: normal;
                 word-wrap: break-word;
                 overflow-wrap: break-word;
                 line-height: 1.2;
-                font-size: 13px; /* Increased size */
-                font-weight: 600;
+                font-size: 13px; font-weight: 600;
             }
 
-            /* Stats (Z, V, R, P) - Larger & Bold */
+            /* Stats */
             th:nth-child(3), td:nth-child(3),
             th:nth-child(4), td:nth-child(4),
             th:nth-child(5), td:nth-child(5),
-            th:nth-child(6), td:nth-child(6) {
-                width: 8%;
-                font-size: 12px; /* Increased size */
-                font-weight: 700;
-            }
+            th:nth-child(6), td:nth-child(6) { width: 8%; font-size: 12px; font-weight: 700; }
 
             /* Score */
             th:nth-child(7), td:nth-child(7) { width: 20%; font-size: 11px; }
 
             /* Points (B) */
             th:nth-child(8), td:nth-child(8) { width: 10%; font-size: 12px; }
-            .nav-badge {
-                top: 5px;
-                right: 5px;
-                transform: none;
-                padding: 2px 6px;
-                font-size: 0.6em;
-                border-radius: 4px;
-            }
+
+            /* Avg Rating (Ø) */
+            th:nth-child(9), td:nth-child(9) { width: 10%; font-size: 11px; font-weight: bold; }
         }
     </style>
 </head>
@@ -243,7 +268,6 @@
 
 <nav class="top-nav" id="mainNav">
     <div class="nav-title">Košická Miniliga</div>
-    <div class="nav-badge">Aktualizované:<br>28.11.2025 15:30</div>
     <div class="nav-links">
         <a href="results.html">Výsledky</a>
         <a href="table.html" class="active">Tabuľka</a>
@@ -266,6 +290,12 @@
                 <th title="Prehry">P</th>
                 <th>Skóre</th>
                 <th title="Body">B</th>
+                <th title="Priemerný Rating">
+                    <div class="tooltip-container">
+                        Ø<span class="tooltip-icon">🛈</span>
+                        <span class="tooltip-text">Priemerný rating<br>4 najaktívnejších<br>hráčov tímu</span>
+                    </div>
+                </th>
             </tr>
             </thead>
             <tbody id="tableBody"></tbody>
@@ -284,20 +314,84 @@
     window.addEventListener('load', updateLayout);
     window.addEventListener('resize', updateLayout);
 
+    // --- RATING LOGIC COPIED FOR AVERAGE ---
+    const initialRating = 100;
+    const players = {};
+
+    function getKFactor(matches) {
+        if (matches === 1) return 30; if (matches === 2) return 26;
+        if (matches === 3) return 22; if (matches === 4) return 18;
+        if (matches === 5) return 14; return 10;
+    }
+
+    function initPlayer(nameRaw) {
+        const name = nameRaw.trim();
+        if (!players[name]) {
+            players[name] = { name: name, rating: initialRating, matches: 0, dMatches: 0, team: 'N/A' };
+        }
+    }
+
+    // 1. Calculate Player Ratings
+    matchResults.forEach(match => {
+        const scoreA = parseInt(match.score_a);
+        const scoreB = parseInt(match.score_b);
+        const isDoubles = match.doubles === true;
+
+        const playersA = match.player_a.split('/').map(n => n.trim());
+        const playersB = match.player_b.split('/').map(n => n.trim());
+
+        playersA.forEach(p => initPlayer(p));
+        playersB.forEach(p => initPlayer(p));
+        playersA.forEach(p => { players[p].team = match.player_a_team; });
+        playersB.forEach(p => { players[p].team = match.player_b_team; });
+
+        const getR = (p) => players[p].rating;
+        const getK = (p) => getKFactor(players[p].matches + players[p].dMatches + 1);
+
+        let Ra, Rb, Ka, Kb;
+
+        if (isDoubles) {
+            Ra = (getR(playersA[0]) + (playersA[1] ? getR(playersA[1]) : getR(playersA[0]))) / 2;
+            Rb = (getR(playersB[0]) + (playersB[1] ? getR(playersB[1]) : getR(playersB[0]))) / 2;
+            const ka1 = getK(playersA[0]); const ka2 = playersA[1] ? getK(playersA[1]) : ka1;
+            const kb1 = getK(playersB[0]); const kb2 = playersB[1] ? getK(playersB[1]) : kb1;
+            Ka = (ka1 + ka2) / 2;
+            Kb = (kb1 + kb2) / 2;
+            playersA.forEach(p => players[p].dMatches++);
+            playersB.forEach(p => players[p].dMatches++);
+        } else {
+            Ra = getR(playersA[0]);
+            Rb = getR(playersB[0]);
+            Ka = getK(playersA[0]);
+            Kb = getK(playersB[0]);
+            playersA.forEach(p => players[p].matches++);
+            playersB.forEach(p => players[p].matches++);
+        }
+
+        const N = scoreA + scoreB;
+        const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
+        const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
+
+        let deltaA = Ka * (scoreA - Ea);
+        let deltaB = Kb * (scoreB - Eb);
+
+        if (isDoubles) { deltaA /= 2; deltaB /= 2; }
+
+        playersA.forEach(p => players[p].rating += deltaA);
+        playersB.forEach(p => players[p].rating += deltaB);
+    });
+
+    // 2. Calculate Team Stats
     const teamMatchesArray = [];
     const tempMatches = {};
 
     matchResults.forEach(m => {
         const key = `${m.date}::${m.player_a_team}::${m.player_b_team}`;
         if (!tempMatches[key]) {
-            tempMatches[key] = {
-                date: m.date, teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0
-            };
+            tempMatches[key] = { date: m.date, teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0 };
         }
-        const sA = parseInt(m.score_a);
-        const sB = parseInt(m.score_b);
-        if (sA > sB) tempMatches[key].scoreA++;
-        if (sB > sA) tempMatches[key].scoreB++;
+        const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
+        if (sA > sB) tempMatches[key].scoreA++; if (sB > sA) tempMatches[key].scoreB++;
     });
 
     for (const key in tempMatches) { teamMatchesArray.push(tempMatches[key]); }
@@ -305,9 +399,7 @@
     const teams = {};
     function initTeam(name) {
         if (!teams[name]) {
-            teams[name] = {
-                name: name, matches: 0, wins: 0, draws: 0, losses: 0, scoreFor: 0, scoreAgainst: 0, points: 0
-            };
+            teams[name] = { name: name, matches: 0, wins: 0, draws: 0, losses: 0, scoreFor: 0, scoreAgainst: 0, points: 0 };
         }
     }
 
@@ -315,27 +407,32 @@
         const tA = match.teamA; const tB = match.teamB;
         const sA = match.scoreA; const sB = match.scoreB;
         initTeam(tA); initTeam(tB);
+
         teams[tA].matches++; teams[tB].matches++;
         teams[tA].scoreFor += sA; teams[tA].scoreAgainst += sB;
         teams[tB].scoreFor += sB; teams[tB].scoreAgainst += sA;
 
-        if (sA > sB) {
-            teams[tA].wins++; teams[tA].points += 3;
-            teams[tB].losses++; teams[tB].points += 1;
-        } else if (sB > sA) {
-            teams[tB].wins++; teams[tB].points += 3;
-            teams[tA].losses++; teams[tA].points += 1;
+        if (sA > sB) { teams[tA].wins++; teams[tA].points += 3; teams[tB].losses++; teams[tB].points += 1; }
+        else if (sB > sA) { teams[tB].wins++; teams[tB].points += 3; teams[tA].losses++; teams[tA].points += 1; }
+        else { teams[tA].draws++; teams[tA].points += 2; teams[tB].draws++; teams[tB].points += 2; }
+    });
+
+    // 3. Calculate Averages
+    Object.values(teams).forEach(team => {
+        const teamPlayers = Object.values(players).filter(p => p.team === team.name);
+        teamPlayers.sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches));
+        const top4 = teamPlayers.slice(0, 4);
+        if (top4.length > 0) {
+            const sumRating = top4.reduce((sum, p) => sum + p.rating, 0);
+            team.avgRating = sumRating / top4.length;
         } else {
-            teams[tA].draws++; teams[tA].points += 2;
-            teams[tB].draws++; teams[tB].points += 2;
+            team.avgRating = 0;
         }
     });
 
     const leagueTable = Object.values(teams).sort((a, b) => {
         if (b.points !== a.points) return b.points - a.points;
-        const diffA = a.scoreFor - a.scoreAgainst;
-        const diffB = b.scoreFor - b.scoreAgainst;
-        return diffB - diffA;
+        return (b.scoreFor - b.scoreAgainst) - (a.scoreFor - a.scoreAgainst);
     });
 
     const tbody = document.getElementById('tableBody');
@@ -365,11 +462,18 @@
     leagueTable.forEach((team, index) => {
         const tr = document.createElement('tr');
         tr.className = 'main-row';
-        tr.innerHTML = `<td class="col-pos">${index + 1}.</td><td>${team.name} <span class="expand-icon">▼</span></td><td>${team.matches}</td><td>${team.wins}</td><td>${team.draws}</td><td>${team.losses}</td><td class="col-score">${team.scoreFor}:${team.scoreAgainst}</td><td class="col-pts">${team.points}</td>`;
+        tr.innerHTML = `
+            <td class="col-pos">${index + 1}.</td>
+            <td>${team.name} <span class="expand-icon">▼</span></td>
+            <td>${team.matches}</td><td>${team.wins}</td><td>${team.draws}</td><td>${team.losses}</td>
+            <td class="col-score">${team.scoreFor}:${team.scoreAgainst}</td>
+            <td class="col-pts">${team.points}</td>
+            <td class="col-avg">${team.avgRating.toFixed(1)}</td>
+        `;
 
         const detailTr = document.createElement('tr');
         detailTr.className = 'detail-row';
-        detailTr.innerHTML = `<td colspan="8" class="detail-cell">${getTeamHistoryHtml(team.name)}</td>`;
+        detailTr.innerHTML = `<td colspan="9" class="detail-cell">${getTeamHistoryHtml(team.name)}</td>`;
 
         tr.onclick = () => {
             const isOpen = detailTr.classList.contains('open');
