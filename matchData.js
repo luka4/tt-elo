@@ -15256,7 +15256,7 @@ const matchResults = [
         "score_b": 2,
         "player_a": "Ľubomír VARTÁS\/František CZINGELY",
         "player_b": "Julius PILLÁR\/Patrík TIRPÁK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST",
         "doubles": true
@@ -15266,7 +15266,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "Tamás BÓNI\/Csaba BECSE",
         "player_b": "Peter ŠEBEK\/Jozef ZAVACKÝ",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST",
         "doubles": true
@@ -15276,7 +15276,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "Csaba BECSE",
         "player_b": "Peter ŠEBEK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15285,7 +15285,7 @@ const matchResults = [
         "score_b": 1,
         "player_a": "Ľubomír VARTÁS",
         "player_b": "Patrík TIRPÁK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15294,7 +15294,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Julius PILLÁR",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15303,7 +15303,7 @@ const matchResults = [
         "score_b": 1,
         "player_a": "František CZINGELY",
         "player_b": "Jozef ZAVACKÝ",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15312,7 +15312,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
         "player_b": "Patrík TIRPÁK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15321,7 +15321,7 @@ const matchResults = [
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
         "player_b": "Julius PILLÁR",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15330,7 +15330,7 @@ const matchResults = [
         "score_b": 0,
         "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Jozef ZAVACKÝ",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15339,7 +15339,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "František CZINGELY",
         "player_b": "Peter ŠEBEK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15348,7 +15348,7 @@ const matchResults = [
         "score_b": 1,
         "player_a": "Csaba BECSE",
         "player_b": "Julius PILLÁR",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15357,7 +15357,7 @@ const matchResults = [
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
         "player_b": "Jozef HUDÁK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15366,7 +15366,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "Vladimír LÁSLOFI",
         "player_b": "Peter ŠEBEK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15375,7 +15375,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "František CZINGELY",
         "player_b": "Patrík TIRPÁK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15384,7 +15384,7 @@ const matchResults = [
         "score_b": 1,
         "player_a": "Csaba BECSE",
         "player_b": "Jozef HUDÁK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15393,7 +15393,7 @@ const matchResults = [
         "score_b": 0,
         "player_a": "Ľubomír VARTÁS",
         "player_b": "Peter ŠEBEK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15402,7 +15402,7 @@ const matchResults = [
         "score_b": 3,
         "player_a": "Jozef MOHŇANSKÝ",
         "player_b": "Patrík TIRPÁK",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     },
@@ -15411,7 +15411,7 @@ const matchResults = [
         "score_b": 0,
         "player_a": "František CZINGELY",
         "player_b": "Julius PILLÁR",
-        "date": "kolo.12",
+        "date": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST"
     }
