@@ -101,7 +101,7 @@
         .stat-number { font-size: 2em; font-weight: 900; color: #333; display: block; }
         .stat-label { font-size: 0.9em; color: #666; text-transform: uppercase; font-weight: 600; margin-top: 5px; display: block;}
 
-        /* --- LATEST RESULTS STYLES (Copied from results.html) --- */
+        /* --- LATEST RESULTS STYLES --- */
         .round-group {
             margin-bottom: 20px;
             background: #fff;
@@ -121,10 +121,9 @@
         .match-row {
             border-bottom: 1px solid #eee;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background 0.2s;
         }
-        .match-row:last-child { border-bottom: none; }
-        .match-row:hover { background-color: #f9f9f9; }
+        .match-row:hover { background: #f9f9f9; }
 
         .match-summary {
             display: flex;
@@ -176,7 +175,7 @@
         }
         .match-row.active .expand-icon { transform: rotate(180deg); }
 
-        /* --- TOP 5 PLAYERS (Risers) --- */
+        /* --- TOP 5 PLAYERS --- */
         .top-players-list {
             list-style: none; padding: 0; margin: 0 auto; max-width: 600px;
             background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -199,8 +198,11 @@
         }
         .upset-label { color: #ff9800; font-weight: 800; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; margin-bottom: 15px;}
         .upset-match { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 10px; }
-        .upset-player { font-weight: 700; font-size: 1.1em; }
-        .upset-score { background: #333; color: white; padding: 5px 10px; border-radius: 4px; font-weight: 800; }
+
+        .upset-player { font-weight: 700; font-size: 1.1em; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .upset-team { font-size: 0.75em; font-weight: normal; color: #666; margin-top: 2px; }
+
+        .upset-score { background: #333; color: white; padding: 5px 10px; border-radius: 4px; font-weight: 800; align-self: flex-start; margin-top: 5px;}
         .upset-rating { display: block; font-size: 0.8em; color: #888; font-weight: normal; margin-top: 4px; }
         .upset-diff { color: #dc3545; font-weight: bold; font-size: 0.9em; margin-top: 10px; }
 
@@ -221,7 +223,7 @@
 
 <nav class="top-nav">
     <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
-    <div class="nav-badge">Aktualizované:<br>28.11.2025 15:30</div>
+    <div class="nav-badge">Aktualizované:<br>28.11.2025 17:30</div>
     <div class="nav-links">
         <a href="results.html">Výsledky</a>
         <a href="table.html">Tabuľka</a>
@@ -250,6 +252,9 @@
         </div>
     </div>
 
+    <div class="section-header">
+        <h2 id="latestRoundTitle">Posledné Kolo</h2>
+    </div>
     <div id="latestRoundContainer"></div>
 
     <div class="section-header">
@@ -282,17 +287,15 @@
         totalSets += (parseInt(m.score_a) + parseInt(m.score_b));
     });
 
-    // Identify Latest Round
     const latestRoundName = matchResults[matchResults.length - 1].date;
 
-    // DOM: Update Global Stats
     document.getElementById('totalRounds').innerText = roundsSet.size;
     document.getElementById('totalTeamMatches').innerText = teamMatchesSet.size;
     document.getElementById('totalMatches').innerText = matchResults.length;
     document.getElementById('totalSets').innerText = totalSets;
+    document.getElementById('latestRoundTitle').innerText = latestRoundName;
 
-
-    // --- RATING ENGINE (To calculate gains & upsets) ---
+    // --- RATING ENGINE ---
     const initialRating = 100;
     const players = {};
     let biggestUpsetDiff = -1;
@@ -363,14 +366,22 @@
                 const diff = Rb - Ra;
                 if (diff > biggestUpsetDiff) {
                     biggestUpsetDiff = diff;
-                    upsetMatchData = { winner: playersA[0], loser: playersB[0], wRate: Ra, lRate: Rb, score: `${scoreA}:${scoreB}` };
+                    upsetMatchData = {
+                        winner: playersA[0], wTeam: match.player_a_team, wRate: Ra,
+                        loser: playersB[0],  lTeam: match.player_b_team, lRate: Rb,
+                        score: `${scoreA}:${scoreB}`
+                    };
                 }
             }
             else if (scoreB > scoreA && Ra > Rb) {
                 const diff = Ra - Rb;
                 if (diff > biggestUpsetDiff) {
                     biggestUpsetDiff = diff;
-                    upsetMatchData = { winner: playersB[0], loser: playersA[0], wRate: Rb, lRate: Ra, score: `${scoreB}:${scoreA}` };
+                    upsetMatchData = {
+                        winner: playersB[0], wTeam: match.player_b_team, wRate: Rb,
+                        loser: playersA[0],  lTeam: match.player_a_team, lRate: Ra,
+                        score: `${scoreB}:${scoreA}`
+                    };
                 }
             }
         }
@@ -405,7 +416,7 @@
     });
 
     // ============================================================
-    // 3. RENDER UPSET
+    // 3. RENDER UPSET (With Teams)
     // ============================================================
     const upsetDiv = document.getElementById('upsetContainer');
     if (upsetMatchData) {
@@ -413,9 +424,17 @@
             <div class="upset-card">
                 <div class="upset-label">(Rating rozdiel ${Math.round(biggestUpsetDiff)})</div>
                 <div class="upset-match">
-                    <div class="upset-player">${upsetMatchData.winner}<span class="upset-rating">${upsetMatchData.wRate.toFixed(0)}</span></div>
+                    <div class="upset-player">
+                        ${upsetMatchData.winner}
+                        <div class="upset-team">${upsetMatchData.wTeam}</div>
+                        <span class="upset-rating">${upsetMatchData.wRate.toFixed(0)}</span>
+                    </div>
                     <div class="upset-score">${upsetMatchData.score}</div>
-                    <div class="upset-player">${upsetMatchData.loser}<span class="upset-rating">${upsetMatchData.lRate.toFixed(0)}</span></div>
+                    <div class="upset-player">
+                        ${upsetMatchData.loser}
+                        <div class="upset-team">${upsetMatchData.lTeam}</div>
+                        <span class="upset-rating">${upsetMatchData.lRate.toFixed(0)}</span>
+                    </div>
                 </div>
             </div>
         `;
@@ -424,7 +443,7 @@
     }
 
     // ============================================================
-    // 4. RENDER LATEST ROUND MATCHES (Reused Design)
+    // 4. RENDER LATEST ROUND MATCHES (Results Style)
     // ============================================================
     const teamMatches = {};
     matchResults.filter(m => m.date === latestRoundName).forEach(m => {
@@ -439,15 +458,13 @@
 
     const resultsContainer = document.getElementById('latestRoundContainer');
 
+    // Helper
     function createGameRow(game) {
         const isDouble = game.doubles === true || game.doubles === "true";
         const sA = parseInt(game.score_a);
         const sB = parseInt(game.score_b);
-
         let scoreClass = "";
-        if (sA > sB) scoreClass = "win-left";
-        else if (sB > sA) scoreClass = "win-right";
-
+        if (sA > sB) scoreClass = "win-left"; else if (sB > sA) scoreClass = "win-right";
         const doubleBadge = isDouble ? `<div class="doubles-badge">ŠTVORHRA</div>` : '';
 
         return `
@@ -462,10 +479,9 @@
         `;
     }
 
-    // Create the Round Group
+    // Round Group Wrapper
     const roundGroup = document.createElement('div');
     roundGroup.className = 'round-group';
-
     const header = document.createElement('div');
     header.className = 'round-header';
     header.innerText = latestRoundName;
@@ -482,7 +498,6 @@
         const matchRow = document.createElement('div');
         matchRow.className = 'match-row';
 
-        // Summary
         const summary = document.createElement('div');
         summary.className = 'match-summary';
         summary.innerHTML = `
@@ -492,17 +507,13 @@
             <div class="expand-icon">▼</div>
         `;
 
-        // Details
         const details = document.createElement('div');
         details.className = 'match-details';
 
         let gamesHtml = '';
-        games.forEach(g => {
-            gamesHtml += createGameRow(g);
-        });
+        games.forEach(g => { gamesHtml += createGameRow(g); });
         details.innerHTML = gamesHtml;
 
-        // Click Event
         summary.onclick = () => {
             const isExpanded = details.style.display === 'block';
             details.style.display = isExpanded ? 'none' : 'block';
