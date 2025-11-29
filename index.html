@@ -130,6 +130,7 @@
             cursor: pointer;
             transition: background 0.2s;
         }
+        .match-row:last-child { border-bottom: none; }
         .match-row:hover { background: #f9f9f9; }
 
         .match-summary {
@@ -198,20 +199,24 @@
         .tp-team { font-size: 0.85em; color: #888; margin-right: 10px; font-weight: normal; }
 
         /* --- UPSET CARD --- */
+        .upset-list {
+            display: flex; flex-direction: column; gap: 15px; align-items: center;
+        }
         .upset-card {
             background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            padding: 20px; max-width: 600px; margin: 0 auto; text-align: center;
+            padding: 15px 20px; width: 100%; max-width: 600px; text-align: center;
             border-left: 5px solid #ff9800;
+            box-sizing: border-box;
         }
-        .upset-label { color: #ff9800; font-weight: 800; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; margin-bottom: 15px;}
-        .upset-match { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 10px; }
+        .upset-label { color: #ff9800; font-weight: 800; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; margin-bottom: 10px;}
 
-        .upset-player { font-weight: 700; font-size: 1.1em; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .upset-match { display: flex; align-items: center; justify-content: center; gap: 15px; }
+
+        .upset-player { font-weight: 700; font-size: 1em; display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; }
         .upset-team { font-size: 0.75em; font-weight: normal; color: #666; margin-top: 2px; }
 
-        .upset-score { background: #333; color: white; padding: 5px 10px; border-radius: 4px; font-weight: 800; align-self: flex-start; margin-top: 5px;}
+        .upset-score { background: #333; color: white; padding: 4px 8px; border-radius: 4px; font-weight: 800; font-size: 1.1em; align-self: center; }
         .upset-rating { display: block; font-size: 0.8em; color: #888; font-weight: normal; margin-top: 4px; }
-        .upset-diff { color: #dc3545; font-weight: bold; font-size: 0.9em; margin-top: 10px; }
 
         /* Mobile */
         @media screen and (max-width: 600px) {
@@ -223,6 +228,8 @@
                 top: 5px; right: 5px; transform: none;
                 padding: 2px 6px; font-size: 0.6em; border-radius: 4px;
             }
+            .upset-match { gap: 5px; }
+            .upset-player { font-size: 0.95em; }
         }
     </style>
 </head>
@@ -230,7 +237,7 @@
 
 <nav class="top-nav">
     <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
-    <div class="nav-badge">Aktualizované:<br>28.11.2025 17:30</div>
+    <div class="nav-badge">Aktualizované:<br>29.11.2025</div>
     <div class="nav-links">
         <a href="results.html">Výsledky</a>
         <a href="table.html">Tabuľka</a>
@@ -271,9 +278,9 @@
     </ul>
 
     <div class="section-header">
-        <h2>Prekvapenie Kola</h2>
+        <h2>Top 5 Prekvapení Kola</h2>
     </div>
-    <div id="upsetContainer">
+    <div id="upsetContainer" class="upset-list">
     </div>
 
 </div>
@@ -288,7 +295,10 @@
     const teamMatchesSet = new Set();
     let totalSets = 0;
 
+    // 1. Global Loop to count basic stats (Excluding WO)
     matchResults.forEach(m => {
+        if (m.player_a === 'WO' || m.player_b === 'WO') return; // EXCLUDE WO GLOBAL
+
         roundsSet.add(m.date);
         teamMatchesSet.add(`${m.date}_${m.player_a_team}_${m.player_b_team}`);
         totalSets += (parseInt(m.score_a) + parseInt(m.score_b));
@@ -298,15 +308,16 @@
 
     document.getElementById('totalRounds').innerText = roundsSet.size;
     document.getElementById('totalTeamMatches').innerText = teamMatchesSet.size;
-    document.getElementById('totalMatches').innerText = matchResults.length;
+    // Recount total matches ignoring WO for the display
+    const validMatchesCount = matchResults.filter(m => m.player_a !== 'WO' && m.player_b !== 'WO').length;
+    document.getElementById('totalMatches').innerText = validMatchesCount;
     document.getElementById('totalSets').innerText = totalSets;
     document.getElementById('latestRoundTitle').innerText = latestRoundName;
 
     // --- RATING ENGINE ---
     const initialRating = 100;
     const players = {};
-    let biggestUpsetDiff = -1;
-    let upsetMatchData = null;
+    let upsetsList = [];
 
     function getKFactor(matches) {
         if (matches === 1) return 30; if (matches === 2) return 26;
@@ -321,7 +332,10 @@
         }
     }
 
+    // 2. Main Rating Loop
     matchResults.forEach(match => {
+        if (match.player_a === 'WO' || match.player_b === 'WO') return; // EXCLUDE WO FROM RATINGS & UPSETS
+
         const scoreA = parseInt(match.score_a);
         const scoreB = parseInt(match.score_b);
         const isDoubles = match.doubles === true;
@@ -369,27 +383,23 @@
 
         // UPSET DETECTION (Singles Only, Latest Round)
         if (isLatestRound && !isDoubles) {
+            // Player A Won (Underdog)
             if (scoreA > scoreB && Rb > Ra) {
-                const diff = Rb - Ra;
-                if (diff > biggestUpsetDiff) {
-                    biggestUpsetDiff = diff;
-                    upsetMatchData = {
-                        winner: playersA[0], wTeam: match.player_a_team, wRate: Ra,
-                        loser: playersB[0],  lTeam: match.player_b_team, lRate: Rb,
-                        score: `${scoreA}:${scoreB}`
-                    };
-                }
+                upsetsList.push({
+                    winner: playersA[0], wTeam: match.player_a_team, wRate: Ra,
+                    loser: playersB[0],  lTeam: match.player_b_team, lRate: Rb,
+                    score: `${scoreA}:${scoreB}`,
+                    diff: Rb - Ra
+                });
             }
+            // Player B Won (Underdog)
             else if (scoreB > scoreA && Ra > Rb) {
-                const diff = Ra - Rb;
-                if (diff > biggestUpsetDiff) {
-                    biggestUpsetDiff = diff;
-                    upsetMatchData = {
-                        winner: playersB[0], wTeam: match.player_b_team, wRate: Rb,
-                        loser: playersA[0],  lTeam: match.player_a_team, lRate: Ra,
-                        score: `${scoreB}:${scoreA}`
-                    };
-                }
+                upsetsList.push({
+                    winner: playersB[0], wTeam: match.player_b_team, wRate: Rb,
+                    loser: playersA[0],  lTeam: match.player_a_team, lRate: Ra,
+                    score: `${scoreB}:${scoreA}`,
+                    diff: Ra - Rb
+                });
             }
         }
 
@@ -423,34 +433,42 @@
     });
 
     // ============================================================
-    // 3. RENDER UPSET (With Teams)
+    // 3. RENDER TOP 5 UPSETS
     // ============================================================
     const upsetDiv = document.getElementById('upsetContainer');
-    if (upsetMatchData) {
-        upsetDiv.innerHTML = `
-            <div class="upset-card">
-                <div class="upset-label">(Rating rozdiel ${Math.round(biggestUpsetDiff)})</div>
-                <div class="upset-match">
-                    <div class="upset-player">
-                        ${upsetMatchData.winner}
-                        <div class="upset-team">${upsetMatchData.wTeam}</div>
-                        <span class="upset-rating">${upsetMatchData.wRate.toFixed(0)}</span>
-                    </div>
-                    <div class="upset-score">${upsetMatchData.score}</div>
-                    <div class="upset-player">
-                        ${upsetMatchData.loser}
-                        <div class="upset-team">${upsetMatchData.lTeam}</div>
-                        <span class="upset-rating">${upsetMatchData.lRate.toFixed(0)}</span>
+
+    upsetsList.sort((a, b) => b.diff - a.diff);
+    const top5Upsets = upsetsList.slice(0, 5);
+
+    if (top5Upsets.length > 0) {
+        let html = '';
+        top5Upsets.forEach(upset => {
+            html += `
+                <div class="upset-card">
+                    <div class="upset-label">(Rating rozdiel ${Math.round(upset.diff)})</div>
+                    <div class="upset-match">
+                        <div class="upset-player">
+                            ${upset.winner}
+                            <div class="upset-team">${upset.wTeam}</div>
+                            <span class="upset-rating">${upset.wRate.toFixed(0)}</span>
+                        </div>
+                        <div class="upset-score">${upset.score}</div>
+                        <div class="upset-player">
+                            ${upset.loser}
+                            <div class="upset-team">${upset.lTeam}</div>
+                            <span class="upset-rating">${upset.lRate.toFixed(0)}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
+        });
+        upsetDiv.innerHTML = html;
     } else {
         upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`;
     }
 
     // ============================================================
-    // 4. RENDER LATEST ROUND MATCHES (Results Style)
+    // 4. RENDER LATEST ROUND MATCHES
     // ============================================================
     const teamMatches = {};
     matchResults.filter(m => m.date === latestRoundName).forEach(m => {
@@ -465,7 +483,6 @@
 
     const resultsContainer = document.getElementById('latestRoundContainer');
 
-    // Helper
     function createGameRow(game) {
         const isDouble = game.doubles === true || game.doubles === "true";
         const sA = parseInt(game.score_a);
@@ -486,7 +503,6 @@
         `;
     }
 
-    // Round Group Wrapper
     const roundGroup = document.createElement('div');
     roundGroup.className = 'round-group';
     const header = document.createElement('div');
@@ -495,7 +511,6 @@
     roundGroup.appendChild(header);
 
     Object.values(teamMatches).forEach(match => {
-        // Sort games: Doubles first
         const games = match.games.sort((a, b) => {
             const isDoubleA = a.doubles ? 1 : 0;
             const isDoubleB = b.doubles ? 1 : 0;
