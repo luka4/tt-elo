@@ -4,24 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Košická Miniliga - Výsledky</title>
-
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
 
     <style>
-        /* --- Reset & Base --- */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f2f4f8;
-            color: #333;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; background-color: #f2f4f8; color: #333; }
 
-        /* --- NAVIGATION MENU --- */
+        /* UPDATED: Fixed positioning to match script.js logic */
         .top-nav {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 3000;
             background-color: #4A90E2;
             color: white;
@@ -30,216 +23,58 @@
             text-align: center;
         }
 
-        .nav-title {
-            font-size: 1.4em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
+        .nav-title { font-size: 1.4em; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .nav-links { display: flex; justify-content: center; gap: 20px; }
+        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 600; font-size: 1em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; transition: all 0.2s; }
+        .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
+        .nav-links a.active { background-color: white; color: #4A90E2; }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+        /* Container has padding-top, and JS adds body-padding-top, pushing this down correctly below the fixed nav */
+        .container { width: 96%; max-width: 900px; margin: 0 auto; padding-top: 20px; }
 
-        .nav-links a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            text-transform: uppercase;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: all 0.2s;
-        }
+        h1 { text-align: center; color: #333; margin: 0 0 25px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
 
-        .nav-links a:hover {
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-        }
+        .round-group { margin-bottom: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
 
-        .nav-links a.active {
-            background-color: white;
-            color: #4A90E2;
-        }
-
-        /* --- CONTAINER --- */
-        .container {
-            width: 96%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding-top: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin: 0 0 25px 0;
-            font-size: 1.8em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- Round Group Wrapper --- */
-        .round-group {
-            margin-bottom: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            /* Removed overflow:hidden to allow sticky header to interact better with viewport */
-            border: 1px solid #e1e4e8;
-        }
-
-        /* --- Round Header --- */
+        /* Sticky Logic for Sub-headers works with Fixed Nav because JS calculates --header-offset */
         .round-header {
-            background: #d3d3d3;
-            padding: 10px 15px;
-            font-weight: 800;
-            color: #444;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            border-bottom: 1px solid #ccc;
-
-            /* STICKY LOGIC */
-            position: sticky;
-            /* The variable --header-offset is set by JS. Default fallback is 80px */
-            top: var(--header-offset, 80px);
-            z-index: 10;
-            border-radius: 8px 8px 0 0;
+            background: #d3d3d3; padding: 10px 15px; font-weight: 800; color: #444; font-size: 1.1em;
+            text-transform: uppercase; border-bottom: 1px solid #ccc; position: sticky;
+            top: var(--header-offset, 80px); z-index: 10; border-radius: 8px 8px 0 0;
         }
 
-        /* --- Team Match Row --- */
-        .match-row {
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
+        .match-row { border-bottom: 1px solid #eee; cursor: pointer; transition: background-color 0.2s; }
         .match-row:last-child { border-bottom: none; }
         .match-row:hover { background-color: #f9f9f9; }
-
-        .match-summary {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            justify-content: space-between;
-        }
-
-        .team-name {
-            flex: 1;
-            font-size: 1.1em;
-            font-weight: 500;
-        }
+        .match-summary { display: flex; align-items: center; padding: 15px; justify-content: space-between; }
+        .team-name { flex: 1; font-size: 1.1em; font-weight: 500; }
         .team-left { text-align: right; padding-right: 15px; }
         .team-right { text-align: left; padding-left: 15px; }
-
-        .score-badge {
-            background: #4A90E2;
-            color: white;
-            font-weight: 800;
-            font-size: 1.2em;
-            padding: 5px 12px;
-            border-radius: 6px;
-            min-width: 60px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        /* --- Detailed Expansion --- */
-        .match-details {
-            display: none;
-            background-color: #fafafa;
-            border-top: 1px solid #eee;
-            padding: 10px 0;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
-        }
-
-        .game-row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 12px 15px;
-            border-bottom: 1px solid #e0e0e0;
-            position: relative;
-        }
+        .score-badge { background: #4A90E2; color: white; font-weight: 800; font-size: 1.2em; padding: 5px 12px; border-radius: 6px; min-width: 60px; text-align: center; letter-spacing: 1px; }
+        .match-details { display: none; background-color: #fafafa; border-top: 1px solid #eee; padding: 10px 0; box-shadow: inset 0 2px 5px rgba(0,0,0,0.03); }
+        .game-row { display: flex; flex-direction: column; align-items: center; padding: 12px 15px; border-bottom: 1px solid #e0e0e0; position: relative; }
         .game-row:last-child { border-bottom: none; }
-
-        .game-names {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            font-size: 0.95em;
-            margin-bottom: 5px;
-            align-items: center;
-        }
-
+        .game-names { display: flex; justify-content: space-between; width: 100%; font-size: 0.95em; margin-bottom: 5px; align-items: center; }
         .player-left { text-align: right; flex: 1; padding-right: 10px; font-weight: 500; }
         .player-right { text-align: left; flex: 1; padding-left: 10px; font-weight: 500; }
-
-        .game-score {
-            font-weight: 900;
-            font-size: 1.2em;
-            color: #333;
-        }
-
+        .game-score { font-weight: 900; font-size: 1.2em; color: #333; }
         .game-score.win-left { color: #28a745; }
         .game-score.win-right { color: #dc3545; }
-
-        .doubles-badge {
-            background-color: #FF9800;
-            color: white;
-            font-size: 0.7em;
-            padding: 2px 6px;
-            border-radius: 3px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .expand-icon {
-            color: #999;
-            font-size: 0.8em;
-            margin-left: 10px;
-            transition: transform 0.3s;
-        }
+        .doubles-badge { background-color: #FF9800; color: white; font-size: 0.7em; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; font-weight: bold; margin-bottom: 4px; }
+        .expand-icon { color: #999; font-size: 0.8em; margin-left: 10px; transition: transform 0.3s; }
         .match-row.active .expand-icon { transform: rotate(180deg); }
-
-        .nav-badge {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #FFD700;
-            color: #000;
-            padding: 5px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 700;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            white-space: nowrap;
-            z-index: 5002;
-        }
-
-        /* --- Mobile Tweaks --- */
+        .nav-badge { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background-color: #FFD700; color: #000; padding: 5px 10px; border-radius: 12px; font-size: 0.8em; font-weight: 700; box-shadow: 0 2px 4px rgba(0,0,0,0.2); white-space: nowrap; z-index: 5002; }
         @media screen and (max-width: 600px) {
             .team-name { font-size: 0.95em; }
             .score-badge { font-size: 1em; padding: 4px 8px; min-width: 50px; }
             .match-summary { padding: 12px 10px; }
             .player-left, .player-right { font-size: 0.85em; }
             .game-score { font-size: 1em; }
-            .nav-badge {
-                top: 5px;
-                right: 5px;
-                transform: none;
-                padding: 2px 6px;
-                font-size: 0.6em;
-                border-radius: 4px;
-            }
+            .nav-badge { top: 5px; right: 5px; transform: none; padding: 2px 6px; font-size: 0.6em; border-radius: 4px; }
         }
     </style>
 </head>
-<body>
+<body id="page-results">
 
 <nav class="top-nav" id="mainNav">
     <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
@@ -251,153 +86,12 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container" id="mainContainer">
     <h1>Výsledky Tímových Zápasov</h1>
-
     <div id="resultsContainer"></div>
 </div>
 
 <script src="matchData.js"></script>
-
-<script>
-    // --- DYNAMIC STICKY HEADER FIX ---
-    // This function measures the nav menu height and updates the CSS variable
-    function updateStickyHeader() {
-        const nav = document.getElementById('mainNav');
-        const height = nav.offsetHeight;
-        document.documentElement.style.setProperty('--header-offset', height + 'px');
-    }
-    window.addEventListener('load', updateStickyHeader);
-    window.addEventListener('resize', updateStickyHeader);
-    // ------------------------------------
-
-    // ============================================================
-    // 1. PROCESS DATA
-    // ============================================================
-    const teamMatches = {};
-
-    matchResults.forEach(m => {
-        const key = `${m.date}::${m.player_a_team}::${m.player_b_team}`;
-
-        if (!teamMatches[key]) {
-            teamMatches[key] = {
-                date: m.date,
-                teamA: m.player_a_team,
-                teamB: m.player_b_team,
-                games: [],
-                scoreA: 0,
-                scoreB: 0
-            };
-        }
-
-        const sA = parseInt(m.score_a);
-        const sB = parseInt(m.score_b);
-
-        if (sA > sB) teamMatches[key].scoreA++;
-        if (sB > sA) teamMatches[key].scoreB++;
-
-        teamMatches[key].games.push(m);
-    });
-
-    const matchesArray = Object.values(teamMatches);
-
-    // ============================================================
-    // 2. GROUP BY ROUND (Date)
-    // ============================================================
-    const rounds = {};
-
-    matchesArray.forEach(match => {
-        if (!rounds[match.date]) {
-            rounds[match.date] = [];
-        }
-        rounds[match.date].push(match);
-    });
-
-    // ============================================================
-    // 3. RENDER
-    // ============================================================
-    const container = document.getElementById('resultsContainer');
-
-    function createGameRow(game) {
-        const isDouble = game.doubles === true || game.doubles === "true";
-        const sA = parseInt(game.score_a);
-        const sB = parseInt(game.score_b);
-
-        let scoreClass = "";
-        if (sA > sB) scoreClass = "win-left";
-        else if (sB > sA) scoreClass = "win-right";
-
-        const doubleBadge = isDouble ? `<div class="doubles-badge">ŠTVORHRA</div>` : '';
-
-        return `
-            <div class="game-row">
-                ${doubleBadge}
-                <div class="game-names">
-                    <div class="player-left">${game.player_a}</div>
-                    <div class="game-score ${scoreClass}">${sA}:${sB}</div>
-                    <div class="player-right">${game.player_b}</div>
-                </div>
-            </div>
-        `;
-    }
-
-    for (const [roundName, matchList] of Object.entries(rounds)) {
-        const roundGroup = document.createElement('div');
-        roundGroup.className = 'round-group';
-
-        const header = document.createElement('div');
-        header.className = 'round-header';
-        header.innerText = roundName;
-        roundGroup.appendChild(header);
-
-        matchList.forEach(match => {
-            // Sort Doubles first
-            const games = match.games.sort((a, b) => {
-                const isDoubleA = a.doubles ? 1 : 0;
-                const isDoubleB = b.doubles ? 1 : 0;
-                return isDoubleB - isDoubleA;
-            });
-
-            const matchRow = document.createElement('div');
-            matchRow.className = 'match-row';
-
-            // Summary
-            const summary = document.createElement('div');
-            summary.className = 'match-summary';
-            summary.innerHTML = `
-                <div class="team-name team-left">${match.teamA}</div>
-                <div class="score-badge">${match.scoreA}-${match.scoreB}</div>
-                <div class="team-name team-right">${match.teamB}</div>
-                <div class="expand-icon">▼</div>
-            `;
-
-            // Details
-            const details = document.createElement('div');
-            details.className = 'match-details';
-
-            let gamesHtml = '';
-            games.forEach(g => {
-                gamesHtml += createGameRow(g);
-            });
-            details.innerHTML = gamesHtml;
-
-            // Click Event
-            summary.onclick = () => {
-                const isExpanded = details.style.display === 'block';
-                details.style.display = isExpanded ? 'none' : 'block';
-                if(isExpanded) matchRow.classList.remove('active');
-                else matchRow.classList.add('active');
-            };
-
-            matchRow.appendChild(summary);
-            matchRow.appendChild(details);
-            roundGroup.appendChild(matchRow);
-        });
-
-        container.appendChild(roundGroup);
-    }
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

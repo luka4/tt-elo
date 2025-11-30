@@ -4,238 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Košická Miniliga - Domov</title>
-    <meta name="description" content="Oficiálne výsledky, tabuľky a ratingy hráčov pre Košickú stolnotenisovú Miniligu. Sledujte výkony, štatistiky a predikcie zápasov.">
-    <meta name="keywords" content="stolný tenis, ping pong, Košice, miniliga, rating, rebríček, výsledky, šport">
-    <meta name="author" content="Košická Miniliga">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Košická Miniliga - Rating a Výsledky">
-    <meta property="og:description" content="Oficiálne štatistiky a ratingy hráčov Košickej stolnotenisovej Miniligy.">
-
+    <meta name="description" content="Oficiálne výsledky, tabuľky a ratingy hráčov pre Košickú stolnotenisovú Miniligu.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
-
     <style>
-        /* --- Reset & Base --- */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f2f4f8;
-            color: #333;
-        }
-
-        /* --- NAVIGATION MENU --- */
-        .top-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 3000;
-            background-color: #4A90E2;
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .nav-title {
-            font-size: 1.4em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; background-color: #f2f4f8; color: #333; }
+        .top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 3000; background-color: #4A90E2; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); padding: 10px 0; text-align: center; }
+        .nav-title { font-size: 1.4em; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
         .nav-title a { text-decoration: none; color: white; }
-
-        .nav-badge {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #FFD700;
-            color: #000;
-            padding: 5px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 700;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            white-space: nowrap;
-            z-index: 5002;
-            line-height: 1.2;
-            text-align: right;
-        }
-
+        .nav-badge { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background-color: #FFD700; color: #000; padding: 5px 10px; border-radius: 12px; font-size: 0.8em; font-weight: 700; box-shadow: 0 2px 4px rgba(0,0,0,0.2); white-space: nowrap; z-index: 5002; line-height: 1.2; text-align: right; }
         .nav-links { display: flex; justify-content: center; gap: 20px; }
-        .nav-links a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            text-transform: uppercase;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: all 0.2s;
-        }
+        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 600; font-size: 1em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; transition: all 0.2s; }
         .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
-
-        /* --- CONTAINER --- */
-        .container {
-            width: 96%;
-            max-width: 1000px;
-            margin: 90px auto 40px auto;
-        }
-
+        .container { width: 96%; max-width: 1000px; margin: 90px auto 40px auto; }
         h1, h2 { text-align: center; color: #333; margin: 20px 0; text-transform: uppercase; letter-spacing: 1px; }
         h2 { font-size: 1.4em; margin-top: 40px; border-bottom: 2px solid #4A90E2; display: inline-block; padding-bottom: 5px; }
         .section-header { text-align: center; margin-bottom: 20px; }
-
-        /* --- GLOBAL STATS CARDS --- */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .stat-box {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            text-align: center;
-            border-bottom: 4px solid #4A90E2;
-        }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .stat-box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid #4A90E2; }
         .stat-number { font-size: 2em; font-weight: 900; color: #333; display: block; }
         .stat-label { font-size: 0.9em; color: #666; text-transform: uppercase; font-weight: 600; margin-top: 5px; display: block;}
-
-        /* --- LATEST RESULTS STYLES --- */
-        .round-group {
-            margin-bottom: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border: 1px solid #e1e4e8;
-        }
-        .round-header {
-            background: #4A90E2;
-            padding: 10px 15px;
-            font-weight: 800;
-            color: white;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            border-bottom: 1px solid #ccc;
-        }
-        .match-row {
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
+        .round-group { margin-bottom: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
+        .round-header { background: #4A90E2; padding: 10px 15px; font-weight: 800; color: white; font-size: 1.1em; text-transform: uppercase; border-bottom: 1px solid #ccc; }
+        .match-row { border-bottom: 1px solid #eee; cursor: pointer; transition: background 0.2s; }
         .match-row:last-child { border-bottom: none; }
         .match-row:hover { background: #f9f9f9; }
-
-        .match-summary {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            justify-content: space-between;
-        }
+        .match-summary { display: flex; align-items: center; padding: 15px; justify-content: space-between; }
         .team-name { flex: 1; font-size: 1.1em; font-weight: 500; }
         .team-left { text-align: right; padding-right: 15px; }
         .team-right { text-align: left; padding-left: 15px; }
-
-        .score-badge {
-            background: #4A90E2; color: white; font-weight: 800;
-            font-size: 1.2em; padding: 5px 12px; border-radius: 6px;
-            min-width: 60px; text-align: center; letter-spacing: 1px;
-        }
-
-        .match-details {
-            display: none; background-color: #fafafa;
-            border-top: 1px solid #eee; padding: 10px 0;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
-        }
-
-        .game-row {
-            display: flex; flex-direction: column; align-items: center;
-            padding: 12px 15px; border-bottom: 1px solid #e0e0e0; position: relative;
-        }
+        .score-badge { background: #4A90E2; color: white; font-weight: 800; font-size: 1.2em; padding: 5px 12px; border-radius: 6px; min-width: 60px; text-align: center; letter-spacing: 1px; }
+        .match-details { display: none; background-color: #fafafa; border-top: 1px solid #eee; padding: 10px 0; box-shadow: inset 0 2px 5px rgba(0,0,0,0.03); }
+        .game-row { display: flex; flex-direction: column; align-items: center; padding: 12px 15px; border-bottom: 1px solid #e0e0e0; position: relative; }
         .game-row:last-child { border-bottom: none; }
-
-        .game-names {
-            display: flex; justify-content: space-between; width: 100%;
-            font-size: 0.95em; margin-bottom: 5px; align-items: center;
-        }
+        .game-names { display: flex; justify-content: space-between; width: 100%; font-size: 0.95em; margin-bottom: 5px; align-items: center; }
         .player-left { text-align: right; flex: 1; padding-right: 10px; font-weight: 500; }
         .player-right { text-align: left; flex: 1; padding-left: 10px; font-weight: 500; }
-
         .game-score { font-weight: 900; font-size: 1.2em; color: #333; }
         .game-score.win-left { color: #28a745; }
         .game-score.win-right { color: #dc3545; }
-
-        .doubles-badge {
-            background-color: #FF9800; color: white; font-size: 0.7em;
-            padding: 2px 6px; border-radius: 3px; text-transform: uppercase;
-            font-weight: bold; margin-bottom: 4px;
-        }
-
-        .expand-icon {
-            color: #999; font-size: 0.8em; margin-left: 10px; transition: transform 0.3s;
-        }
+        .doubles-badge { background-color: #FF9800; color: white; font-size: 0.7em; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; font-weight: bold; margin-bottom: 4px; }
+        .expand-icon { color: #999; font-size: 0.8em; margin-left: 10px; transition: transform 0.3s; }
         .match-row.active .expand-icon { transform: rotate(180deg); }
-
-        /* --- TOP 5 PLAYERS --- */
-        .top-players-list {
-            list-style: none; padding: 0; margin: 0 auto; max-width: 600px;
-            background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .top-player-row {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 20px; border-bottom: 1px solid #eee;
-        }
+        .top-players-list { list-style: none; padding: 0; margin: 0 auto; max-width: 600px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .top-player-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #eee; }
         .top-player-row:last-child { border-bottom: none; }
         .tp-rank { font-weight: 900; color: #ccc; width: 30px; font-size: 1.2em; }
         .tp-name { flex: 1; font-weight: 600; color: #333; }
         .tp-gain { font-weight: 800; color: #28a745; background: #e8f5e9; padding: 4px 8px; border-radius: 4px; }
         .tp-team { font-size: 0.85em; color: #888; margin-right: 10px; font-weight: normal; }
-
-        /* --- UPSET CARD --- */
-        .upset-list {
-            display: flex; flex-direction: column; gap: 15px; align-items: center;
-        }
-        .upset-card {
-            background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            padding: 15px 20px; width: 100%; max-width: 600px; text-align: center;
-            border-left: 5px solid #ff9800;
-            box-sizing: border-box;
-        }
+        .upset-list { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .upset-card { background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 20px; width: 100%; max-width: 600px; text-align: center; border-left: 5px solid #ff9800; box-sizing: border-box; }
         .upset-label { color: #ff9800; font-weight: 800; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; margin-bottom: 10px;}
-
         .upset-match { display: flex; align-items: center; justify-content: center; gap: 15px; }
-
         .upset-player { font-weight: 700; font-size: 1em; display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; }
         .upset-team { font-size: 0.75em; font-weight: normal; color: #666; margin-top: 2px; }
-
         .upset-score { background: #333; color: white; padding: 4px 8px; border-radius: 4px; font-weight: 800; font-size: 1.1em; align-self: center; }
         .upset-rating { display: block; font-size: 0.8em; color: #888; font-weight: normal; margin-top: 4px; }
-
-        /* Mobile */
         @media screen and (max-width: 600px) {
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .match-summary { padding: 12px 10px; }
             .team-name { font-size: 0.95em; }
             .score-badge { font-size: 1em; padding: 4px 8px; min-width: 50px; }
-            .nav-badge {
-                top: 5px; right: 5px; transform: none;
-                padding: 2px 6px; font-size: 0.6em; border-radius: 4px;
-            }
+            .nav-badge { top: 5px; right: 5px; transform: none; padding: 2px 6px; font-size: 0.6em; border-radius: 4px; }
             .upset-match { gap: 5px; }
             .upset-player { font-size: 0.95em; }
         }
     </style>
 </head>
-<body>
+<body id="page-home">
 
-<nav class="top-nav">
+<nav class="top-nav" id="mainNav">
     <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
     <div class="nav-badge">Aktualizované:<br>29.11.2025</div>
     <div class="nav-links">
@@ -245,312 +83,22 @@
     </div>
 </nav>
 
-<div class="container">
-
+<div class="container" id="mainContainer">
     <div class="stats-grid">
-        <div class="stat-box">
-            <span class="stat-number" id="totalRounds">0</span>
-            <span class="stat-label">Odohraných Kôl</span>
-        </div>
-        <div class="stat-box">
-            <span class="stat-number" id="totalTeamMatches">0</span>
-            <span class="stat-label">Tímových Zápasov</span>
-        </div>
-        <div class="stat-box">
-            <span class="stat-number" id="totalMatches">0</span>
-            <span class="stat-label">Všetkých Zápasov</span>
-        </div>
-        <div class="stat-box">
-            <span class="stat-number" id="totalSets">0</span>
-            <span class="stat-label">Odohraných Setov</span>
-        </div>
+        <div class="stat-box"><span class="stat-number" id="totalRounds">0</span><span class="stat-label">Odohraných Kôl</span></div>
+        <div class="stat-box"><span class="stat-number" id="totalTeamMatches">0</span><span class="stat-label">Tímových Zápasov</span></div>
+        <div class="stat-box"><span class="stat-number" id="totalMatches">0</span><span class="stat-label">Všetkých Zápasov</span></div>
+        <div class="stat-box"><span class="stat-number" id="totalSets">0</span><span class="stat-label">Odohraných Setov</span></div>
     </div>
-
-    <div class="section-header">
-        <h2 id="latestRoundTitle">Posledné Kolo</h2>
-    </div>
+    <div class="section-header"><h2 id="latestRoundTitle">Posledné Kolo</h2></div>
     <div id="latestRoundContainer"></div>
-
-    <div class="section-header">
-        <h2>Top 5 Skokanov Kola</h2>
-    </div>
-    <ul class="top-players-list" id="topGainersList">
-    </ul>
-
-    <div class="section-header">
-        <h2>Top 5 Prekvapení Kola</h2>
-    </div>
-    <div id="upsetContainer" class="upset-list">
-    </div>
-
+    <div class="section-header"><h2>Top 5 Skokanov Kola</h2></div>
+    <ul class="top-players-list" id="topGainersList"></ul>
+    <div class="section-header"><h2>Top 5 Prekvapení Kola</h2></div>
+    <div id="upsetContainer" class="upset-list"></div>
 </div>
 
 <script src="matchData.js"></script>
-<script>
-    // ============================================================
-    // 1. DATA PROCESSING & RATING CALCULATION ENGINE
-    // ============================================================
-
-    const roundsSet = new Set();
-    const teamMatchesSet = new Set();
-    let totalSets = 0;
-
-    // 1. Global Loop to count basic stats (Excluding WO)
-    matchResults.forEach(m => {
-        if (m.player_a === 'WO' || m.player_b === 'WO') return; // EXCLUDE WO GLOBAL
-
-        roundsSet.add(m.date);
-        teamMatchesSet.add(`${m.date}_${m.player_a_team}_${m.player_b_team}`);
-        totalSets += (parseInt(m.score_a) + parseInt(m.score_b));
-    });
-
-    const latestRoundName = matchResults[matchResults.length - 1].date;
-
-    document.getElementById('totalRounds').innerText = roundsSet.size;
-    document.getElementById('totalTeamMatches').innerText = teamMatchesSet.size;
-    // Recount total matches ignoring WO for the display
-    const validMatchesCount = matchResults.filter(m => m.player_a !== 'WO' && m.player_b !== 'WO').length;
-    document.getElementById('totalMatches').innerText = validMatchesCount;
-    document.getElementById('totalSets').innerText = totalSets;
-    document.getElementById('latestRoundTitle').innerText = latestRoundName;
-
-    // --- RATING ENGINE ---
-    const initialRating = 100;
-    const players = {};
-    let upsetsList = [];
-
-    function getKFactor(matches) {
-        if (matches === 1) return 30; if (matches === 2) return 26;
-        if (matches === 3) return 22; if (matches === 4) return 18;
-        if (matches === 5) return 14; return 10;
-    }
-
-    function initPlayer(nameRaw) {
-        const name = nameRaw.trim();
-        if (!players[name]) {
-            players[name] = { name: name, rating: initialRating, matches: 0, dMatches: 0, team: 'N/A', roundGain: 0 };
-        }
-    }
-
-    // 2. Main Rating Loop
-    matchResults.forEach(match => {
-        if (match.player_a === 'WO' || match.player_b === 'WO') return; // EXCLUDE WO FROM RATINGS & UPSETS
-
-        const scoreA = parseInt(match.score_a);
-        const scoreB = parseInt(match.score_b);
-        const isDoubles = match.doubles === true;
-        const isLatestRound = match.date === latestRoundName;
-
-        const playersA = match.player_a.split('/').map(n => n.trim());
-        const playersB = match.player_b.split('/').map(n => n.trim());
-
-        playersA.forEach(p => initPlayer(p));
-        playersB.forEach(p => initPlayer(p));
-
-        playersA.forEach(p => players[p].team = match.player_a_team);
-        playersB.forEach(p => players[p].team = match.player_b_team);
-
-        const getR = (p) => players[p].rating;
-        const getK = (p) => getKFactor(players[p].matches + players[p].dMatches + 1);
-
-        let Ra, Rb, Ka, Kb;
-
-        if (isDoubles) {
-            Ra = (getR(playersA[0]) + (playersA[1] ? getR(playersA[1]) : getR(playersA[0]))) / 2;
-            Rb = (getR(playersB[0]) + (playersB[1] ? getR(playersB[1]) : getR(playersB[0]))) / 2;
-
-            const ka1 = getK(playersA[0]); const ka2 = playersA[1] ? getK(playersA[1]) : ka1;
-            const kb1 = getK(playersB[0]); const kb2 = playersB[1] ? getK(playersB[1]) : kb1;
-            Ka = (ka1 + ka2) / 2; Kb = (kb1 + kb2) / 2;
-
-            playersA.forEach(p => players[p].dMatches++);
-            playersB.forEach(p => players[p].dMatches++);
-        } else {
-            Ra = getR(playersA[0]); Rb = getR(playersB[0]);
-            Ka = getK(playersA[0]); Kb = getK(playersB[0]);
-            playersA.forEach(p => players[p].matches++);
-            playersB.forEach(p => players[p].matches++);
-        }
-
-        const N = scoreA + scoreB;
-        const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
-        const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
-
-        let deltaA = Ka * (scoreA - Ea);
-        let deltaB = Kb * (scoreB - Eb);
-
-        if (isDoubles) { deltaA /= 2; deltaB /= 2; }
-
-        // UPSET DETECTION (Singles Only, Latest Round)
-        if (isLatestRound && !isDoubles) {
-            // Player A Won (Underdog)
-            if (scoreA > scoreB && Rb > Ra) {
-                upsetsList.push({
-                    winner: playersA[0], wTeam: match.player_a_team, wRate: Ra,
-                    loser: playersB[0],  lTeam: match.player_b_team, lRate: Rb,
-                    score: `${scoreA}:${scoreB}`,
-                    diff: Rb - Ra
-                });
-            }
-            // Player B Won (Underdog)
-            else if (scoreB > scoreA && Ra > Rb) {
-                upsetsList.push({
-                    winner: playersB[0], wTeam: match.player_b_team, wRate: Rb,
-                    loser: playersA[0],  lTeam: match.player_a_team, lRate: Ra,
-                    score: `${scoreB}:${scoreA}`,
-                    diff: Ra - Rb
-                });
-            }
-        }
-
-        playersA.forEach(p => {
-            players[p].rating += deltaA;
-            if(isLatestRound) players[p].roundGain += deltaA;
-        });
-        playersB.forEach(p => {
-            players[p].rating += deltaB;
-            if(isLatestRound) players[p].roundGain += deltaB;
-        });
-    });
-
-    // ============================================================
-    // 2. RENDER TOP 5 GAINERS
-    // ============================================================
-    const sortedByGain = Object.values(players).sort((a, b) => b.roundGain - a.roundGain);
-    const top5 = sortedByGain.slice(0, 5);
-    const gainList = document.getElementById('topGainersList');
-
-    top5.forEach((p, index) => {
-        if (p.roundGain <= 0) return;
-        const li = document.createElement('li');
-        li.className = 'top-player-row';
-        li.innerHTML = `
-            <div class="tp-rank">${index + 1}</div>
-            <div class="tp-name">${p.name} <span class="tp-team">(${p.team})</span></div>
-            <div class="tp-gain">+${p.roundGain.toFixed(1)}</div>
-        `;
-        gainList.appendChild(li);
-    });
-
-    // ============================================================
-    // 3. RENDER TOP 5 UPSETS
-    // ============================================================
-    const upsetDiv = document.getElementById('upsetContainer');
-
-    upsetsList.sort((a, b) => b.diff - a.diff);
-    const top5Upsets = upsetsList.slice(0, 5);
-
-    if (top5Upsets.length > 0) {
-        let html = '';
-        top5Upsets.forEach(upset => {
-            html += `
-                <div class="upset-card">
-                    <div class="upset-label">(Rating rozdiel ${Math.round(upset.diff)})</div>
-                    <div class="upset-match">
-                        <div class="upset-player">
-                            ${upset.winner}
-                            <div class="upset-team">${upset.wTeam}</div>
-                            <span class="upset-rating">${upset.wRate.toFixed(0)}</span>
-                        </div>
-                        <div class="upset-score">${upset.score}</div>
-                        <div class="upset-player">
-                            ${upset.loser}
-                            <div class="upset-team">${upset.lTeam}</div>
-                            <span class="upset-rating">${upset.lRate.toFixed(0)}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
-        upsetDiv.innerHTML = html;
-    } else {
-        upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`;
-    }
-
-    // ============================================================
-    // 4. RENDER LATEST ROUND MATCHES
-    // ============================================================
-    const teamMatches = {};
-    matchResults.filter(m => m.date === latestRoundName).forEach(m => {
-        const key = `${m.player_a_team}::${m.player_b_team}`;
-        if (!teamMatches[key]) {
-            teamMatches[key] = { teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0, games: [] };
-        }
-        const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
-        if (sA > sB) teamMatches[key].scoreA++; if (sB > sA) teamMatches[key].scoreB++;
-        teamMatches[key].games.push(m);
-    });
-
-    const resultsContainer = document.getElementById('latestRoundContainer');
-
-    function createGameRow(game) {
-        const isDouble = game.doubles === true || game.doubles === "true";
-        const sA = parseInt(game.score_a);
-        const sB = parseInt(game.score_b);
-        let scoreClass = "";
-        if (sA > sB) scoreClass = "win-left"; else if (sB > sA) scoreClass = "win-right";
-        const doubleBadge = isDouble ? `<div class="doubles-badge">ŠTVORHRA</div>` : '';
-
-        return `
-            <div class="game-row">
-                ${doubleBadge}
-                <div class="game-names">
-                    <div class="player-left">${game.player_a}</div>
-                    <div class="game-score ${scoreClass}">${sA}:${sB}</div>
-                    <div class="player-right">${game.player_b}</div>
-                </div>
-            </div>
-        `;
-    }
-
-    const roundGroup = document.createElement('div');
-    roundGroup.className = 'round-group';
-    const header = document.createElement('div');
-    header.className = 'round-header';
-    header.innerText = latestRoundName;
-    roundGroup.appendChild(header);
-
-    Object.values(teamMatches).forEach(match => {
-        const games = match.games.sort((a, b) => {
-            const isDoubleA = a.doubles ? 1 : 0;
-            const isDoubleB = b.doubles ? 1 : 0;
-            return isDoubleB - isDoubleA;
-        });
-
-        const matchRow = document.createElement('div');
-        matchRow.className = 'match-row';
-
-        const summary = document.createElement('div');
-        summary.className = 'match-summary';
-        summary.innerHTML = `
-            <div class="team-name team-left">${match.teamA}</div>
-            <div class="score-badge">${match.scoreA}-${match.scoreB}</div>
-            <div class="team-name team-right">${match.teamB}</div>
-            <div class="expand-icon">▼</div>
-        `;
-
-        const details = document.createElement('div');
-        details.className = 'match-details';
-
-        let gamesHtml = '';
-        games.forEach(g => { gamesHtml += createGameRow(g); });
-        details.innerHTML = gamesHtml;
-
-        summary.onclick = () => {
-            const isExpanded = details.style.display === 'block';
-            details.style.display = isExpanded ? 'none' : 'block';
-            if(isExpanded) matchRow.classList.remove('active');
-            else matchRow.classList.add('active');
-        };
-
-        matchRow.appendChild(summary);
-        matchRow.appendChild(details);
-        roundGroup.appendChild(matchRow);
-    });
-
-    resultsContainer.appendChild(roundGroup);
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
