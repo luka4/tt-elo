@@ -5,44 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Košická Miniliga - Výsledky</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
-
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; background-color: #f2f4f8; color: #333; }
-
-        /* UPDATED: Fixed positioning to match script.js logic */
-        .top-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 3000;
-            background-color: #4A90E2;
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            padding: 10px 0;
-            text-align: center;
-        }
-
+        .top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 3000; background-color: #4A90E2; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); padding: 10px 0; text-align: center; }
         .nav-title { font-size: 1.4em; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
         .nav-links { display: flex; justify-content: center; gap: 20px; }
         .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 600; font-size: 1em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; transition: all 0.2s; }
         .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
         .nav-links a.active { background-color: white; color: #4A90E2; }
-
-        /* Container has padding-top, and JS adds body-padding-top, pushing this down correctly below the fixed nav */
         .container { width: 96%; max-width: 900px; margin: 0 auto; padding-top: 20px; }
-
         h1 { text-align: center; color: #333; margin: 0 0 25px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
-
         .round-group { margin-bottom: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
-
-        /* Sticky Logic for Sub-headers works with Fixed Nav because JS calculates --header-offset */
-        .round-header {
-            background: #d3d3d3; padding: 10px 15px; font-weight: 800; color: #444; font-size: 1.1em;
-            text-transform: uppercase; border-bottom: 1px solid #ccc; position: sticky;
-            top: var(--header-offset, 80px); z-index: 10; border-radius: 8px 8px 0 0;
-        }
-
+        .round-header { background: #d3d3d3; padding: 10px 15px; font-weight: 800; color: #444; font-size: 1.1em; text-transform: uppercase; border-bottom: 1px solid #ccc; position: sticky; top: var(--header-offset, 80px); z-index: 10; border-radius: 8px 8px 0 0; }
         .match-row { border-bottom: 1px solid #eee; cursor: pointer; transition: background-color 0.2s; }
         .match-row:last-child { border-bottom: none; }
         .match-row:hover { background-color: #f9f9f9; }
@@ -78,7 +52,7 @@
 
 <nav class="top-nav" id="mainNav">
     <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
-    <div class="nav-badge">Aktualizované:<br>29.11.2025</div>
+    <div class="nav-badge">Aktualizované:<br>30.11.2025 18:00</div>
     <div class="nav-links">
         <a href="results.html" class="active">Výsledky</a>
         <a href="table.html">Tabuľka</a>

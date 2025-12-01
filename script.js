@@ -6,7 +6,6 @@
 const INITIAL_RATING = 100;
 const K_FACTOR_STAGES = { 1: 30, 2: 26, 3: 22, 4: 18, 5: 14, default: 10 };
 
-// Global chart references to prevent canvas reuse errors
 let chartRefs = {};
 
 // ============================================================
@@ -16,26 +15,18 @@ function getKFactor(matchesCount) {
     return K_FACTOR_STAGES[matchesCount] || K_FACTOR_STAGES.default;
 }
 
-// Layout Adjustments (Sticky Header & Padding)
 function updateLayout() {
     const nav = document.getElementById('mainNav');
     if (!nav) return;
-
     const height = nav.offsetHeight;
-
-    // Set CSS variable for sticky headers (used in Results & Table)
     document.documentElement.style.setProperty('--header-offset', height + 'px');
 
-    // Handle specific page layouts to prevent content hiding behind fixed nav
     const container = document.getElementById('mainContainer') || document.querySelector('.container');
-
     if (container) {
-        // Rating page uses a flex column layout, so we adjust margin/height instead of body padding
         if (document.body.id === 'page-rating') {
             container.style.marginTop = height + 'px';
             container.style.height = 'calc(100% - ' + height + 'px)';
         } else {
-            // For standard scrollable pages (Home, Results, Table), add padding to body
             document.body.style.paddingTop = height + 'px';
         }
     }
@@ -47,50 +38,66 @@ window.addEventListener('resize', updateLayout);
 // ============================================================
 // 3. CORE DATA ENGINE
 // ============================================================
+
+// Helper to determine if a match is played or future
+function isPlayedMatch(m) {
+    const scoreA = parseInt(m.score_a) || 0;
+    const scoreB = parseInt(m.score_b) || 0;
+    // Condition: Score is 0-0 and names indicate WO -> Future/Unplayed
+    if (scoreA === 0 && scoreB === 0 && m.player_a === 'WO' && m.player_b === 'WO') {
+        return false;
+    }
+    return true;
+}
+
 function processData() {
     const players = {};
     const roundsSet = new Set();
     const upsetsList = [];
     let totalSets = 0;
 
-    const latestRoundDate = matchResults.length > 0 ? matchResults[matchResults.length - 1].date : "";
+    // We only process PLAYED matches for ratings and stats
+    const playedMatches = matchResults.filter(isPlayedMatch);
+
+    // Find the latest played round name
+    const latestRoundName = playedMatches.length > 0 ? playedMatches[playedMatches.length - 1].round : "";
 
     const initPlayer = (nameRaw, teamName) => {
         const name = nameRaw.trim();
+        // Skip creating player for WO
+        if (name === 'WO') return null;
+
         if (!players[name]) {
             players[name] = {
-                name: name,
-                rating: INITIAL_RATING,
+                name: name, rating: INITIAL_RATING,
                 matches: 0, wins: 0, losses: 0,
                 setsWin: 0, setsLose: 0,
                 dMatches: 0, dWins: 0, dLosses: 0, dSetsWin: 0, dSetsLose: 0,
                 maxRating: INITIAL_RATING, minRating: INITIAL_RATING,
-                team: teamName || 'N/A',
-                lastPlayed: 'N/A',
-                roundGain: 0,
+                team: teamName || 'N/A', lastPlayed: 'N/A', roundGain: 0,
                 bestWinOpponent: null, bestWinRating: -Infinity,
                 worstLossOpponent: null, worstLossRating: Infinity,
-                history: {},
-                matchDetails: []
+                history: {}, matchDetails: []
             };
         }
         if (teamName) players[name].team = teamName;
         return players[name];
     };
 
-    matchResults.forEach(match => {
-        if (match.player_a === 'WO' || match.player_b === 'WO') return;
-
-        roundsSet.add(match.date);
+    playedMatches.forEach(match => {
+        roundsSet.add(match.round);
         const scoreA = parseInt(match.score_a);
         const scoreB = parseInt(match.score_b);
         totalSets += (scoreA + scoreB);
 
         const isDoubles = match.doubles === true || match.doubles === "true";
-        const isLatestRound = match.date === latestRoundDate;
+        const isLatestRound = match.round === latestRoundName;
 
         const pNamesA = match.player_a.split('/').map(n => n.trim());
         const pNamesB = match.player_b.split('/').map(n => n.trim());
+
+        // If any player is WO, do not process for ratings
+        if (pNamesA.includes('WO') || pNamesB.includes('WO')) return;
 
         pNamesA.forEach(n => initPlayer(n, match.player_a_team));
         pNamesB.forEach(n => initPlayer(n, match.player_b_team));
@@ -103,16 +110,15 @@ function processData() {
         if (isDoubles) {
             Ra = (getR(pNamesA[0]) + (pNamesA[1] ? getR(pNamesA[1]) : getR(pNamesA[0]))) / 2;
             Rb = (getR(pNamesB[0]) + (pNamesB[1] ? getR(pNamesB[1]) : getR(pNamesB[0]))) / 2;
-            const ka1 = getK(pNamesA[0]); const ka2 = pNamesA[1] ? getK(pNamesA[1]) : ka1;
-            const kb1 = getK(pNamesB[0]); const kb2 = pNamesB[1] ? getK(pNamesB[1]) : kb1;
-            Ka = (ka1 + ka2) / 2; Kb = (kb1 + kb2) / 2;
-            pNamesA.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.date; });
-            pNamesB.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.date; });
+            Ka = (getK(pNamesA[0]) + (pNamesA[1] ? getK(pNamesA[1]) : getK(pNamesA[0]))) / 2;
+            Kb = (getK(pNamesB[0]) + (pNamesB[1] ? getK(pNamesB[1]) : getK(pNamesB[0]))) / 2;
+            pNamesA.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.round; });
+            pNamesB.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.round; });
         } else {
             Ra = getR(pNamesA[0]); Rb = getR(pNamesB[0]);
             Ka = getK(pNamesA[0]); Kb = getK(pNamesB[0]);
-            pNamesA.forEach(n => { players[n].matches++; players[n].lastPlayed = match.date; });
-            pNamesB.forEach(n => { players[n].matches++; players[n].lastPlayed = match.date; });
+            pNamesA.forEach(n => { players[n].matches++; players[n].lastPlayed = match.round; });
+            pNamesB.forEach(n => { players[n].matches++; players[n].lastPlayed = match.round; });
         }
 
         const N = scoreA + scoreB;
@@ -125,14 +131,17 @@ function processData() {
         let deltaB = isDoubles ? pairDeltaB / 2 : pairDeltaB;
 
         if (isLatestRound && !isDoubles) {
-            if (scoreA > scoreB && Rb > Ra) {
-                upsetsList.push({ winner: pNamesA[0], wTeam: match.player_a_team, wRate: Ra, loser: pNamesB[0], lTeam: match.player_b_team, lRate: Rb, score: `${scoreA}:${scoreB}`, diff: Rb - Ra });
-            } else if (scoreB > scoreA && Ra > Rb) {
-                upsetsList.push({ winner: pNamesB[0], wTeam: match.player_b_team, wRate: Rb, loser: pNamesA[0], lTeam: match.player_a_team, lRate: Ra, score: `${scoreB}:${scoreA}`, diff: Ra - Rb });
+            // Filter out WO matches for upsets
+            if (match.player_a !== 'WO' && match.player_b !== 'WO') {
+                if (scoreA > scoreB && Rb > Ra) {
+                    upsetsList.push({ winner: pNamesA[0], wTeam: match.player_a_team, wRate: Ra, loser: pNamesB[0], lTeam: match.player_b_team, lRate: Rb, score: `${scoreA}:${scoreB}`, diff: Rb - Ra });
+                } else if (scoreB > scoreA && Ra > Rb) {
+                    upsetsList.push({ winner: pNamesB[0], wTeam: match.player_b_team, wRate: Rb, loser: pNamesA[0], lTeam: match.player_a_team, lRate: Ra, score: `${scoreB}:${scoreA}`, diff: Ra - Rb });
+                }
             }
         }
 
-        const updateSide = (pNames, scoreOwn, scoreOpp, deltaOwn, deltaOpp, oppNames, oppTeam, isWinner) => {
+        const updateSide = (pNames, scoreOwn, scoreOpp, deltaOwn, deltaOpp, oppNames, oppTeam) => {
             pNames.forEach(name => {
                 const p = players[name];
                 if (isDoubles) {
@@ -142,26 +151,28 @@ function processData() {
                     p.setsWin += scoreOwn; p.setsLose += scoreOpp;
                     if (scoreOwn > scoreOpp) p.wins++; else if (scoreOpp > scoreOwn) p.losses++;
                     const oppRating = isDoubles ? 0 : players[oppNames[0]].rating;
-                    if (scoreOwn > scoreOpp) {
-                        if (oppRating > p.bestWinRating) { p.bestWinOpponent = oppNames[0]; p.bestWinRating = oppRating; }
-                    } else if (scoreOpp > scoreOwn) {
-                        if (oppRating < p.worstLossRating) { p.worstLossOpponent = oppNames[0]; p.worstLossRating = oppRating; }
-                    }
+                    if (scoreOwn > scoreOpp && oppRating > p.bestWinRating) { p.bestWinOpponent = oppNames[0]; p.bestWinRating = oppRating; }
+                    else if (scoreOpp > scoreOwn && oppRating < p.worstLossRating) { p.worstLossOpponent = oppNames[0]; p.worstLossRating = oppRating; }
                 }
-                const newRating = p.rating + deltaOwn;
-                p.rating = newRating;
+                p.rating += deltaOwn;
                 if(isLatestRound) p.roundGain += deltaOwn;
-                p.history[match.date] = newRating;
-                p.maxRating = Math.max(newRating, p.maxRating);
-                p.minRating = Math.min(newRating, p.minRating);
+
+                // Use Date for history if available, else Round Name
+                const historyKey = match.round;
+                p.history[historyKey] = p.rating;
+
+                p.maxRating = Math.max(p.rating, p.maxRating);
+                p.minRating = Math.min(p.rating, p.minRating);
 
                 const opponentName = oppNames.join(' / ');
                 const oppRatingAfter = isDoubles ? 0 : (players[oppNames[0]].rating + deltaOpp);
 
                 p.matchDetails.push({
-                    date: match.date, opponent: opponentName, opponent_team: oppTeam,
+                    date: match.date || match.round, // Use real date if available
+                    round: match.round,
+                    opponent: opponentName, opponent_team: oppTeam,
                     score_own: scoreOwn, score_opp: scoreOpp,
-                    rating_after: newRating, opp_rating_after: oppRatingAfter,
+                    rating_after: p.rating, opp_rating_after: oppRatingAfter,
                     delta_own: deltaOwn, delta_opp: deltaOpp, isDoubles: isDoubles,
                     own_name_display: pNames.join(' / ')
                 });
@@ -172,12 +183,203 @@ function processData() {
         updateSide(pNamesB, scoreB, scoreA, deltaB, deltaA, pNamesA, match.player_a_team);
     });
 
-    return { players, roundsSet, totalSets, latestRoundDate, upsetsList };
+    return { players, roundsSet, totalSets, latestRoundName, upsetsList };
 }
 
 // ============================================================
-// 4. PAGE SPECIFIC RENDERERS
+// 4. PAGE RENDERERS
 // ============================================================
+
+// --- HOME PAGE ---
+function renderHomePage() {
+    const { players, roundsSet, totalSets, latestRoundName, upsetsList } = processData();
+    const playedMatches = matchResults.filter(isPlayedMatch);
+
+    // Stats
+    const uniqueTeamMatches = new Set(playedMatches.map(m => `${m.round}_${m.player_a_team}_${m.player_b_team}`));
+    document.getElementById('totalRounds').innerText = roundsSet.size;
+    document.getElementById('totalTeamMatches').innerText = uniqueTeamMatches.size;
+    document.getElementById('totalMatches').innerText = playedMatches.length;
+    document.getElementById('totalSets').innerText = totalSets;
+    document.getElementById('latestRoundTitle').innerText = latestRoundName || "Zatiaľ žiadne zápasy";
+
+    // Top Gainers
+    const top5 = Object.values(players).sort((a, b) => b.roundGain - a.roundGain).slice(0, 5);
+    const gainList = document.getElementById('topGainersList');
+    top5.forEach((p, index) => {
+        if (p.roundGain <= 0) return;
+        const li = document.createElement('li'); li.className = 'top-player-row';
+        li.innerHTML = `<div class="tp-rank">${index + 1}</div><div class="tp-name">${p.name} <span class="tp-team">(${p.team})</span></div><div class="tp-gain">+${p.roundGain.toFixed(1)}</div>`;
+        gainList.appendChild(li);
+    });
+
+    // Upsets
+    const upsetDiv = document.getElementById('upsetContainer');
+    upsetsList.sort((a, b) => b.diff - a.diff);
+    if (upsetsList.length > 0) {
+        let html = '';
+        upsetsList.slice(0, 5).forEach(u => {
+            html += `<div class="upset-card"><div class="upset-label">(Rating rozdiel ${Math.round(u.diff)})</div>
+                <div class="upset-match"><div class="upset-player">${u.winner}<div class="upset-team">${u.wTeam}</div><span class="upset-rating">${u.wRate.toFixed(0)}</span></div>
+                <div class="upset-score">${u.score}</div>
+                <div class="upset-player">${u.loser}<div class="upset-team">${u.lTeam}</div><span class="upset-rating">${u.lRate.toFixed(0)}</span></div></div></div>`;
+        });
+        upsetDiv.innerHTML = html;
+    } else { upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`; }
+
+    // Latest Results (Now "Current Round")
+    if (latestRoundName) {
+        const currentRoundMatches = matchResults.filter(m => m.round === latestRoundName);
+        renderMatchList(currentRoundMatches, document.getElementById('latestRoundContainer'), false);
+        
+        // Force update the title explicitly to "Aktuálne Kolo: [round]"
+        const currentTitle = document.getElementById('latestRoundTitle');
+        if (currentTitle) currentTitle.innerText = `Aktuálne Kolo: ${latestRoundName}`;
+
+        // Previous Round Logic
+        // Find unique rounds in order of appearance (assuming chronological in JSON)
+        const allRounds = [...new Set(matchResults.filter(isPlayedMatch).map(m => m.round))];
+        const currentIndex = allRounds.indexOf(latestRoundName);
+        
+        if (currentIndex > 0) {
+            const prevRoundName = allRounds[currentIndex - 1];
+            const prevRoundMatches = matchResults.filter(m => m.round === prevRoundName);
+            
+            document.getElementById('prevRoundTitle').innerText = prevRoundName;
+            renderMatchList(prevRoundMatches, document.getElementById('prevRoundContainer'), false);
+        } else {
+            // Hide previous round section if there is no previous round
+            const prevHeader = document.getElementById('prevRoundTitle').parentElement;
+            if(prevHeader) prevHeader.style.display = 'none';
+        }
+    }
+
+    // --- UPCOMING MATCHES LOGIC ---
+    const upcomingContainer = document.getElementById('upcomingMatchesContainer');
+    if (!upcomingContainer) return;
+
+    // Filter FUTURE matches - only from SUBSEQUENT rounds
+    const futureMatches = matchResults.filter(m => !isPlayedMatch(m) && m.round !== latestRoundName);
+
+    if (futureMatches.length > 0) {
+        // Find the "Next" round (first unique round name in future matches)
+        // Use Set to maintain order and find first unique round
+        const uniqueFutureRounds = [...new Set(futureMatches.map(m => m.round))];
+        // The first one in the list (chronologically) should be the next round
+        const nextRoundName = uniqueFutureRounds[0];
+        const nextRoundMatches = futureMatches.filter(m => m.round === nextRoundName);
+
+        // Update Title to be specific
+        const titleSpan = document.getElementById('nextRoundTitle');
+        if (titleSpan && titleSpan.parentElement) {
+             // Replace the entire H2 content to match user preference
+             titleSpan.parentElement.innerText = `Zápasy nasledujúceho kola: ${nextRoundName}`;
+        }
+
+        const listDiv = document.getElementById('upcomingList');
+        listDiv.innerHTML = ''; 
+        listDiv.removeAttribute('class'); // Remove grid layout class
+        
+        renderMatchList(nextRoundMatches, listDiv, false);
+        
+        upcomingContainer.style.display = 'block';
+    } else {
+        upcomingContainer.style.display = 'none';
+    }
+}
+
+// --- RESULTS PAGE ---
+function renderResultsPage() {
+    const rounds = {};
+    // Group by ROUND, only PLAYED matches
+    matchResults.filter(isPlayedMatch).forEach(m => {
+        if (!rounds[m.round]) rounds[m.round] = [];
+        rounds[m.round].push(m);
+    });
+
+    const container = document.getElementById('resultsContainer');
+    // Render in order of appearance
+    const uniqueRounds = [...new Set(matchResults.filter(isPlayedMatch).map(m => m.round))];
+
+    uniqueRounds.forEach(roundName => {
+        const roundWrapper = document.createElement('div');
+        roundWrapper.className = 'round-group';
+        const header = document.createElement('div'); header.className = 'round-header'; header.innerText = roundName;
+        roundWrapper.appendChild(header);
+        renderMatchList(rounds[roundName], roundWrapper, true);
+        container.appendChild(roundWrapper);
+    });
+}
+
+// Shared Helper for List
+function renderMatchList(matches, container, appendToProvided) {
+    const teamMatches = {};
+    matches.forEach(m => {
+        const key = `${m.player_a_team}::${m.player_b_team}`;
+        if (!teamMatches[key]) teamMatches[key] = { 
+            teamA: m.player_a_team, 
+            teamB: m.player_b_team, 
+            scoreA: 0, 
+            scoreB: 0, 
+            games: [],
+            date: m.date,
+            location: m.location
+        };
+        
+        if (isPlayedMatch(m)) {
+            const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
+            if (sA > sB) teamMatches[key].scoreA++; if (sB > sA) teamMatches[key].scoreB++;
+        }
+        teamMatches[key].games.push(m);
+    });
+
+    const wrapper = appendToProvided ? container : document.createElement('div');
+    if (!appendToProvided) wrapper.className = 'round-group';
+
+    Object.values(teamMatches).forEach(match => {
+        const matchRow = document.createElement('div'); matchRow.className = 'match-row';
+        
+        // Check if played (at least one game is played)
+        const isPlayed = match.games.some(isPlayedMatch);
+
+        if (isPlayed) {
+            const summary = document.createElement('div'); summary.className = 'match-summary';
+            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div><div class="score-badge">${match.scoreA}-${match.scoreB}</div><div class="team-name team-right">${match.teamB}</div><div class="expand-icon">▼</div>`;
+            const details = document.createElement('div'); details.className = 'match-details';
+    
+            let gamesHtml = '';
+            match.games.filter(isPlayedMatch).sort((a,b)=>(b.doubles?1:0)-(a.doubles?1:0)).forEach(g => {
+                const sA = parseInt(g.score_a); const sB = parseInt(g.score_b);
+                gamesHtml += `<div class="game-row">${(g.doubles===true||g.doubles==="true")?'<div class="doubles-badge">ŠTVORHRA</div>':''}
+                    <div class="game-names"><div class="player-left">${g.player_a}</div><div class="game-score ${sA>sB?'win-left':(sB>sA?'win-right':'')}">${sA}:${sB}</div><div class="player-right">${g.player_b}</div></div></div>`;
+            });
+            details.innerHTML = gamesHtml;
+    
+            summary.onclick = () => { const isEx = details.style.display === 'block'; details.style.display = isEx ? 'none' : 'block'; matchRow.classList.toggle('active', !isEx); };
+            matchRow.appendChild(summary); matchRow.appendChild(details); 
+        } else {
+            // Unplayed View
+            const summary = document.createElement('div'); summary.className = 'match-summary';
+            
+            const dateStr = match.date ? match.date : '';
+            const locStr = match.location ? match.location : '';
+            const metaHtml = (dateStr || locStr) ? `<div style="font-size:0.75em; color:#666; margin-top:6px;">${dateStr}${dateStr && locStr ? ' | ' : ''}${locStr}</div>` : '';
+
+            summary.innerHTML = `
+                <div style="width:100%; text-align:center;">
+                    <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+                        <div class="team-name team-left">${match.teamA}</div>
+                        <div class="score-badge" style="background:#e0e0e0; color:#555; font-size:0.9em; min-width:40px;">VS</div>
+                        <div class="team-name team-right">${match.teamB}</div>
+                    </div>
+                    ${metaHtml}
+                </div>`;
+            matchRow.appendChild(summary);
+        }
+        wrapper.appendChild(matchRow);
+    });
+    if (!appendToProvided) container.appendChild(wrapper);
+}
 
 // --- RATING PAGE ---
 function renderRatingPage() {
@@ -186,7 +388,6 @@ function renderRatingPage() {
     let selectedTeams = [];
 
     const tbody = document.getElementById('mainTableBody');
-
     const renderTable = () => {
         tbody.innerHTML = '';
         sortedPlayers.forEach((p, index) => {
@@ -314,24 +515,17 @@ function renderRatingPage() {
         let html = `<div class='history-section'><div class='history-title'>História Zápasov: ${p.name}</div>`;
         [...p.matchDetails].reverse().forEach(m => {
             const isWin = m.score_own > m.score_opp;
-
-            // Logic to show opponent rating only for Singles (Doubles has average rating which is often 0 or hidden in this view)
             const oppRatingHtml = m.isDoubles ? '' : `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
 
+            // Display Date if present (future/scheduled structure), else Round
+            const displayDate = m.round;
+
             html += `<div class="history-item">
-                <div class="match-date">${m.date} ${m.isDoubles ? '<span class="doubles-badge">ŠTVORHRA</span>' : ''}</div>
+                <div class="match-date">${displayDate} ${m.isDoubles ? '<span class="doubles-badge">ŠTVORHRA</span>' : ''}</div>
                 <div class="match-content">
-                    <div class="player-row">
-                        <span class="player-name-span">${m.own_name_display}</span>
-                        <span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>
-                        ${getDiffHtml(m.delta_own)}
-                    </div>
+                    <div class="player-row"><span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}</div>
                     <div class="score-row ${isWin ? 'win-text' : 'loss-text'}">${m.score_own}:${m.score_opp}</div>
-                    <div class="player-row">
-                        <span class="player-name-span">${m.opponent}</span>
-                        <span>(${m.opponent_team}${oppRatingHtml})</span>
-                        ${getDiffHtml(m.delta_opp)}
-                    </div>
+                    <div class="player-row"><span class="player-name-span">${m.opponent}</span><span>(${m.opponent_team}${oppRatingHtml})</span>${getDiffHtml(m.delta_opp)}</div>
                 </div>
             </div>`;
         });
@@ -344,98 +538,15 @@ function renderRatingPage() {
     renderTable(); initTeamFilter();
 }
 
-// --- HOME PAGE ---
-function renderHomePage() {
-    const { players, roundsSet, totalSets, latestRoundDate, upsetsList } = processData();
-    const validMatchesCount = matchResults.filter(m => m.player_a !== 'WO' && m.player_b !== 'WO').length;
-    const teamMatchesSet = new Set(matchResults.filter(m => m.player_a !== 'WO').map(m => `${m.date}_${m.player_a_team}_${m.player_b_team}`));
-
-    document.getElementById('totalRounds').innerText = roundsSet.size;
-    document.getElementById('totalTeamMatches').innerText = teamMatchesSet.size;
-    document.getElementById('totalMatches').innerText = validMatchesCount;
-    document.getElementById('totalSets').innerText = totalSets;
-    document.getElementById('latestRoundTitle').innerText = latestRoundDate;
-
-    const top5 = Object.values(players).sort((a, b) => b.roundGain - a.roundGain).slice(0, 5);
-    const gainList = document.getElementById('topGainersList');
-    top5.forEach((p, index) => {
-        if (p.roundGain <= 0) return;
-        const li = document.createElement('li'); li.className = 'top-player-row';
-        li.innerHTML = `<div class="tp-rank">${index + 1}</div><div class="tp-name">${p.name} <span class="tp-team">(${p.team})</span></div><div class="tp-gain">+${p.roundGain.toFixed(1)}</div>`;
-        gainList.appendChild(li);
-    });
-
-    const upsetDiv = document.getElementById('upsetContainer');
-    upsetsList.sort((a, b) => b.diff - a.diff);
-    if (upsetsList.length > 0) {
-        let html = '';
-        upsetsList.slice(0, 5).forEach(u => {
-            html += `<div class="upset-card"><div class="upset-label">(Rating rozdiel ${Math.round(u.diff)})</div>
-                <div class="upset-match"><div class="upset-player">${u.winner}<div class="upset-team">${u.wTeam}</div><span class="upset-rating">${u.wRate.toFixed(0)}</span></div>
-                <div class="upset-score">${u.score}</div>
-                <div class="upset-player">${u.loser}<div class="upset-team">${u.lTeam}</div><span class="upset-rating">${u.lRate.toFixed(0)}</span></div></div></div>`;
-        });
-        upsetDiv.innerHTML = html;
-    } else { upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`; }
-
-    renderMatchList(matchResults.filter(m => m.date === latestRoundDate), document.getElementById('latestRoundContainer'), false);
-}
-
-// --- RESULTS PAGE ---
-function renderResultsPage() {
-    const rounds = {};
-    matchResults.forEach(m => { if (!rounds[m.date]) rounds[m.date] = []; rounds[m.date].push(m); });
-    const container = document.getElementById('resultsContainer');
-    for (const roundName of Object.keys(rounds)) {
-        const roundWrapper = document.createElement('div');
-        roundWrapper.className = 'round-group';
-        const header = document.createElement('div'); header.className = 'round-header'; header.innerText = roundName;
-        roundWrapper.appendChild(header);
-        renderMatchList(rounds[roundName], roundWrapper, true);
-        container.appendChild(roundWrapper);
-    }
-}
-
-function renderMatchList(matches, container, appendToProvided) {
-    const teamMatches = {};
-    matches.forEach(m => {
-        const key = `${m.player_a_team}::${m.player_b_team}`;
-        if (!teamMatches[key]) teamMatches[key] = { teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0, games: [] };
-        const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
-        if (sA > sB) teamMatches[key].scoreA++; if (sB > sA) teamMatches[key].scoreB++;
-        teamMatches[key].games.push(m);
-    });
-
-    const wrapper = appendToProvided ? container : document.createElement('div');
-    if (!appendToProvided) wrapper.className = 'round-group';
-
-    Object.values(teamMatches).forEach(match => {
-        const matchRow = document.createElement('div'); matchRow.className = 'match-row';
-        const summary = document.createElement('div'); summary.className = 'match-summary';
-        summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div><div class="score-badge">${match.scoreA}-${match.scoreB}</div><div class="team-name team-right">${match.teamB}</div><div class="expand-icon">▼</div>`;
-        const details = document.createElement('div'); details.className = 'match-details';
-
-        let gamesHtml = '';
-        match.games.sort((a,b)=>(b.doubles?1:0)-(a.doubles?1:0)).forEach(g => {
-            const sA = parseInt(g.score_a); const sB = parseInt(g.score_b);
-            gamesHtml += `<div class="game-row">${(g.doubles===true||g.doubles==="true")?'<div class="doubles-badge">ŠTVORHRA</div>':''}
-                <div class="game-names"><div class="player-left">${g.player_a}</div><div class="game-score ${sA>sB?'win-left':(sB>sA?'win-right':'')}">${sA}:${sB}</div><div class="player-right">${g.player_b}</div></div></div>`;
-        });
-        details.innerHTML = gamesHtml;
-
-        summary.onclick = () => { const isEx = details.style.display === 'block'; details.style.display = isEx ? 'none' : 'block'; matchRow.classList.toggle('active', !isEx); };
-        matchRow.appendChild(summary); matchRow.appendChild(details); wrapper.appendChild(matchRow);
-    });
-    if (!appendToProvided) container.appendChild(wrapper);
-}
-
 // --- TABLE PAGE ---
 function renderTablePage() {
     const { players } = processData();
     const teams = {}; const teamMatchesArray = []; const tempMatches = {};
-    matchResults.forEach(m => {
-        const key = `${m.date}::${m.player_a_team}::${m.player_b_team}`;
-        if (!tempMatches[key]) tempMatches[key] = { date: m.date, teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0 };
+
+    // Only use PLAYED matches for table
+    matchResults.filter(isPlayedMatch).forEach(m => {
+        const key = `${m.round}::${m.player_a_team}::${m.player_b_team}`;
+        if (!tempMatches[key]) tempMatches[key] = { date: m.round, teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0 };
         const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
         if (sA > sB) tempMatches[key].scoreA++; if (sB > sA) tempMatches[key].scoreB++;
     });
