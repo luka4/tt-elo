@@ -66,7 +66,7 @@
         .team-filter-wrapper { position: relative; display: inline-block; cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
         .team-filter-btn { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; height: 100%; color: white; }
         .team-filter-btn:hover { text-decoration: underline; }
-        .team-filter-dropdown { display: none; position: absolute; top: 100%; left: 0; background-color: white; color: #333; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 3000; border: 1px solid #ddd; border-radius: 4px; padding: 5px 0; max-height: 300px; overflow-y: auto; text-align: left; }
+        .team-filter-dropdown { display: none; position: fixed; background-color: white; color: #333; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 5000; border: 1px solid #ddd; border-radius: 4px; padding: 5px 0; max-height: 300px; overflow-y: auto; text-align: left; }
         .team-filter-dropdown.show { display: block; }
         .team-option { padding: 8px 12px; display: flex; align-items: center; font-size: 13px; cursor: pointer; text-transform: none; border-bottom: 1px solid #f9f9f9; }
         .team-option:hover { background-color: #f1f1f1; }
@@ -75,8 +75,8 @@
         .filter-actions { padding: 8px 10px; border-top: 1px solid #eee; text-align: center; background: #f9f9f9; }
         .clear-filter { color: #d32f2f; font-size: 12px; text-decoration: underline; cursor: pointer; font-weight: bold; }
         .modal { display: none; position: fixed; z-index: 6000; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
-        .modal-content { background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888; width: 90%; max-width: 1000px; height: 90%; border-radius: 8px; overflow-y: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); position: relative; }
-        .close-btn { position: absolute; right: 20px; top: 15px; width: 40px; height: 40px; background-color: #f0f0f0; color: #333; border-radius: 50%; text-align: center; line-height: 40px; font-size: 24px; font-weight: bold; cursor: pointer; z-index: 4001; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .modal-content { background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888; width: 90%; max-width: 1000px; height: 90%; border-radius: 8px; overflow-y: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); position: relative; display: flex; flex-direction: column; }
+        .close-btn { position: sticky; top: 10px; width: 40px; height: 40px; background-color: #f0f0f0; color: #333; border-radius: 50%; text-align: center; line-height: 40px; font-size: 24px; font-weight: bold; cursor: pointer; z-index: 4001; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-left: auto; flex-shrink: 0; }
         .close-btn:hover { background-color: #e0e0e0; color: #000; transform: scale(1.05); }
         .info-content { padding: 20px; color: #333; line-height: 1.6; }
         .info-section { margin-bottom: 25px; }
@@ -132,7 +132,7 @@
 
         @media screen and (max-width: 768px) {
             .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
-            .close-btn { width: 45px; height: 45px; line-height: 45px; font-size: 28px; right: 15px; top: 15px; }
+            .close-btn { width: 45px; height: 45px; line-height: 45px; font-size: 28px; top: 12px; }
             .scroll-hint { display: block; }
             #chartContainerWrapper { height: 300px; }
             .pie-row-wrapper { flex-direction: column; }

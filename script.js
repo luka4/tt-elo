@@ -422,6 +422,14 @@ function renderRatingPage() {
         if (!dropdown) return;
         const isVisible = dropdown.classList.contains('show');
         document.querySelectorAll('.team-filter-dropdown').forEach(dd => dd.classList.remove('show'));
+        
+        if (!isVisible) {
+            // Calculate position for fixed dropdown
+            const rect = wrapper.getBoundingClientRect();
+            dropdown.style.top = rect.bottom + 'px';
+            dropdown.style.left = rect.left + 'px';
+        }
+        
         dropdown.classList.toggle('show', !isVisible);
     };
     window.addEventListener('click', (e) => {
