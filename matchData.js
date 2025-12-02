@@ -15424,7 +15424,7 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "doubles": true,
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15436,7 +15436,7 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "doubles": true,
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15447,7 +15447,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15458,7 +15458,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15469,7 +15469,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15480,7 +15480,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15491,7 +15491,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15502,7 +15502,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15513,7 +15513,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15524,7 +15524,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15535,7 +15535,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15546,7 +15546,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15557,7 +15557,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15568,7 +15568,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15579,7 +15579,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15590,7 +15590,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15601,7 +15601,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15612,7 +15612,7 @@ const matchResults = [
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
-        "date": "2025-12-02 17:00:00",
+        "date": "2025-12-02 17:00",
         "location": "Myslava"
     },
     {
@@ -15624,7 +15624,7 @@ const matchResults = [
         "player_a_team": "TT TEAM",
         "player_b_team": "KOMÉTA KE",
         "doubles": true,
-        "date": "2025-12-03 17:30:00",
+        "date": "2025-12-03 17:30",
         "location": "Kult park"
     },
     {
@@ -15636,7 +15636,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": true,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15648,7 +15648,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": true,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15660,7 +15660,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15672,7 +15672,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15684,7 +15684,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15696,7 +15696,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15708,7 +15708,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15720,7 +15720,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15732,7 +15732,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15744,7 +15744,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15756,7 +15756,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15768,7 +15768,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15780,7 +15780,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15792,7 +15792,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15804,7 +15804,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15816,7 +15816,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15828,7 +15828,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15840,7 +15840,7 @@ const matchResults = [
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BOMBERE",
         "doubles": false,
-        "date": "2025-12-01 17:30:00",
+        "date": "2025-12-01 17:30",
         "location": "Rampova"
     },
     {
@@ -15852,7 +15852,7 @@ const matchResults = [
         "player_a_team": "MONTREAL",
         "player_b_team": "SOŠ Ž",
         "doubles": true,
-        "date": "2025-12-04 17:30:00",
+        "date": "2025-12-04 17:30",
         "location": "Myslava"
     },
     {
@@ -15864,7 +15864,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": true,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15876,7 +15876,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": true,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15888,7 +15888,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15900,7 +15900,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15912,7 +15912,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15924,7 +15924,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15936,7 +15936,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15948,7 +15948,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15960,7 +15960,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15972,7 +15972,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15984,7 +15984,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -15996,7 +15996,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -16008,7 +16008,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -16020,7 +16020,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -16032,7 +16032,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -16044,7 +16044,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -16056,7 +16056,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -16068,7 +16068,7 @@ const matchResults = [
         "player_a_team": "EUROCAST",
         "player_b_team": "MYSLAVA",
         "doubles": false,
-        "date": "2025-12-01 18:00:00",
+        "date": "2025-12-01 18:00",
         "location": "Myslava"
     },
     {
@@ -16080,7 +16080,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": true,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16092,7 +16092,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": true,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16104,7 +16104,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16116,7 +16116,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16128,7 +16128,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16140,7 +16140,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16152,7 +16152,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16164,7 +16164,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16176,7 +16176,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16188,7 +16188,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16200,7 +16200,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16212,7 +16212,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16224,7 +16224,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16236,7 +16236,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16248,7 +16248,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16260,7 +16260,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16272,7 +16272,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16284,7 +16284,7 @@ const matchResults = [
         "player_a_team": "BERNARD Club",
         "player_b_team": "METALKOV",
         "doubles": false,
-        "date": "2025-12-01 17:00:00",
+        "date": "2025-12-01 17:00",
         "location": "SOŠ Ž"
     },
     {
@@ -16296,7 +16296,7 @@ const matchResults = [
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"A\"",
         "doubles": true,
-        "date": "2025-12-03 17:00:00",
+        "date": "2025-12-03 17:00",
         "location": "Myslava"
     },
     {
@@ -16308,33 +16308,104 @@ const matchResults = [
         "player_a_team": "TTC KVP",
         "player_b_team": "MYSLAVA \"Ž\"",
         "doubles": true,
-        "date": "2025-12-03 17:00:00",
+        "date": "2025-12-03 17:00",
         "location": "Jedlikova"
     },
     
-    // {
-    //     "score_a": 0,
-    //     "score_b": 0,
-    //     "player_a": "WO",
-    //     "player_b": "WO",
-    //     "round": "14. kolo",
-    //     "player_a_team": "TTC KVP",
-    //     "player_b_team": "MYSLAVA",
-    //     "doubles": true,
-    //     "date": "2025-12-10 17:00:00",
-    //     "location": "Jedlikova"
-    // },
-    
-    // {
-    //     "score_a": 0,
-    //     "score_b": 0,
-    //     "player_a": "WO",
-    //     "player_b": "WO",
-    //     "round": "14. kolo",
-    //     "player_a_team": "COKERY",
-    //     "player_b_team": "MYSLAVA",
-    //     "doubles": true,
-    //     "date": "2025-12-10 17:00:00",
-    //     "location": "Jedlikova"
-    // },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "ASTORIA FIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": true,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "SKP \"A\"",
+        "player_b_team": "TTC KVP",
+        "doubles": true,
+        "date": "2025-12-08 17:30",
+        "location": "Rampova"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "METALKOV",
+        "player_b_team": "REPREX",
+        "doubles": true,
+        "date": "2025-12-11 17:30",
+        "location": "Myslava"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": true,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "BERNARD Club",
+        "doubles": true,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "BOMBERE",
+        "player_b_team": "MONTREAL",
+        "doubles": true,
+        "date": "2025-12-10 17:00",
+        "location": "Myslava"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "KOMÉTA KE",
+        "player_b_team": "SKP \"B\"",
+        "doubles": true,
+        "date": "2025-12-10 17:00",
+        "location": "Jedlíkova"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "14. kolo",
+        "player_a_team": "COKERY",
+        "player_b_team": "TT TEAM",
+        "doubles": true,
+        "date": "2025-12-09 17:00",
+        "location": "Myslava"
+    },
 ]
