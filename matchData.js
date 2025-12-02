@@ -16367,7 +16367,7 @@ const matchResults = [
         "player_b": "WO",
         "round": "14. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BERNARD Club",
+        "player_b_team": "EUROCAST",
         "doubles": true,
         "date": "2025-12-08 17:00",
         "location": "SOŠ Ž"
