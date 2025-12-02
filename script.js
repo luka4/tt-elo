@@ -23,12 +23,7 @@ function updateLayout() {
 
     const container = document.getElementById('mainContainer') || document.querySelector('.container');
     if (container) {
-        if (document.body.id === 'page-rating') {
-            container.style.marginTop = height + 'px';
-            container.style.height = 'calc(100% - ' + height + 'px)';
-        } else {
-            document.body.style.paddingTop = height + 'px';
-        }
+        document.body.style.paddingTop = height + 'px';
     }
 }
 
@@ -419,31 +414,169 @@ function renderRatingPage() {
         });
     };
 
-    window.toggleTeamDropdown = (e) => { e.stopPropagation(); document.getElementById('teamDropdown').classList.toggle('show'); };
+    window.toggleTeamDropdown = (e) => {
+        e.stopPropagation();
+        const btn = e.currentTarget || e.target;
+        const wrapper = btn.closest('.team-filter-wrapper');
+        const dropdown = wrapper ? wrapper.querySelector('.team-filter-dropdown') : document.getElementById('teamDropdown');
+        if (!dropdown) return;
+        const isVisible = dropdown.classList.contains('show');
+        document.querySelectorAll('.team-filter-dropdown').forEach(dd => dd.classList.remove('show'));
+        dropdown.classList.toggle('show', !isVisible);
+    };
     window.addEventListener('click', (e) => {
         if (!e.target.matches('.team-filter-btn') && !e.target.closest('.team-filter-dropdown')) {
-            const dd = document.getElementById('teamDropdown'); if(dd) dd.classList.remove('show');
+            document.querySelectorAll('.team-filter-dropdown').forEach(dd => dd.classList.remove('show'));
         }
     });
 
+    // Init floating sticky header
+    const wrapper = document.getElementById('mainTableWrapper');
+    const table = document.getElementById('mainTable');
+    if (wrapper && table) {
+        const thead = table.querySelector('thead');
+        let stickyContainer = document.getElementById('stickyHeaderContainer');
+        
+        // Remove existing if any (to prevent duplicates on re-render)
+        if (stickyContainer) stickyContainer.remove();
+        
+        stickyContainer = document.createElement('div');
+        stickyContainer.id = 'stickyHeaderContainer';
+        const stickyTable = document.createElement('table');
+        stickyContainer.appendChild(stickyTable);
+        document.body.appendChild(stickyContainer);
+
+        // Clone header immediately
+        stickyTable.appendChild(thead.cloneNode(true));
+        stickyTable.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+
+        const updateWidths = () => {
+            const origThs = Array.from(thead.querySelectorAll('th'));
+            const cloneThs = Array.from(stickyTable.querySelectorAll('th'));
+            const tableRect = table.getBoundingClientRect();
+            
+            // 1. Update Table Width
+            stickyTable.style.width = tableRect.width + 'px';
+            stickyTable.style.minWidth = tableRect.width + 'px';
+            stickyTable.style.maxWidth = tableRect.width + 'px';
+
+            // 2. Calculate Column Widths from Tbody (most accurate)
+            const tbody = table.querySelector('tbody');
+            let colWidths = [];
+            const firstRow = tbody ? tbody.querySelector('tr') : null;
+            if (firstRow) {
+                colWidths = Array.from(firstRow.children).map(td => td.getBoundingClientRect().width);
+            } else {
+                // Fallback to header bottom row if body empty (unlikely)
+                // This fallback is complex due to colspan, skipping for now as body is populated
+            }
+
+            // 3. Update CSS Variable for Sticky Offsets (Col 1 width)
+            if (colWidths.length > 0) {
+                const col1W = colWidths[0];
+                document.documentElement.style.setProperty('--col-1-width', col1W + 'px');
+            }
+
+            // 4. Build/Update Colgroup for Sticky Table
+            let colgroup = stickyTable.querySelector('colgroup');
+            if (!colgroup) {
+                colgroup = document.createElement('colgroup');
+                stickyTable.insertBefore(colgroup, stickyTable.firstChild);
+            }
+            colgroup.innerHTML = ''; // Clear existing
+            colWidths.forEach(w => {
+                const col = document.createElement('col');
+                col.style.width = w + 'px';
+                col.style.minWidth = w + 'px'; // Strict enforce
+                colgroup.appendChild(col);
+            });
+
+            // 5. Height Sync (Header Rows)
+            // Still need to sync row heights because text wrapping might differ if fonts slightly off?
+            // Actually, with colgroup fixed, widths are exact. Heights *should* match content.
+            // But let's force height to be safe.
+            const origRows = Array.from(thead.querySelectorAll('tr'));
+            const cloneRows = Array.from(stickyTable.querySelectorAll('tr'));
+            origRows.forEach((row, i) => {
+                if (cloneRows[i]) {
+                    cloneRows[i].style.height = row.getBoundingClientRect().height + 'px';
+                }
+            });
+            
+            // 6. Copy computed styles for cells to ensure padding/border match
+            origThs.forEach((th, i) => {
+                if (cloneThs[i]) {
+                    const computed = window.getComputedStyle(th);
+                    cloneThs[i].style.padding = computed.padding;
+                    cloneThs[i].style.border = computed.border;
+                    cloneThs[i].style.boxSizing = 'border-box';
+                    // Clear manual width on TH to let Colgroup drive (except sticky lefts maybe?)
+                    // Actually, keeping width on TH doesn't hurt if it matches.
+                    // But removing it ensures Colgroup wins.
+                    cloneThs[i].style.width = ''; 
+                    cloneThs[i].style.minWidth = '';
+                    cloneThs[i].style.maxWidth = '';
+                }
+            });
+        };
+
+        const onScroll = () => {
+            const nav = document.getElementById('mainNav');
+            const navHeight = nav ? nav.offsetHeight : 0;
+            const rect = table.getBoundingClientRect();
+            const triggerPoint = navHeight;
+
+            // Show sticky header if table top is above trigger point, but table bottom is still visible
+            const shouldStick = rect.top < triggerPoint && rect.bottom > triggerPoint;
+            table.classList.toggle('sticky-active', shouldStick);
+
+            if (shouldStick) {
+                stickyContainer.style.display = 'block';
+                stickyContainer.style.top = navHeight + 'px';
+                stickyContainer.scrollLeft = wrapper.scrollLeft;
+
+                // Always force sync widths when visible to guarantee alignment
+                updateWidths();
+            } else {
+                stickyContainer.style.display = 'none';
+                table.classList.remove('sticky-active');
+            }
+        };
+
+        const syncHorizontal = () => {
+            stickyContainer.scrollLeft = wrapper.scrollLeft;
+        };
+
+        window.addEventListener('scroll', () => { onScroll(); syncHorizontal(); }, { passive: true });
+        window.addEventListener('resize', () => { updateWidths(); onScroll(); syncHorizontal(); });
+        wrapper.addEventListener('scroll', syncHorizontal, { passive: true });
+        
+        // Initial sync
+        setTimeout(updateWidths, 100); 
+        updateWidths();
+    }
+
     const initTeamFilter = () => {
-        const dd = document.getElementById('teamDropdown');
-        const uniqueTeams = [...new Set(sortedPlayers.map(p => p.team))].sort();
-        uniqueTeams.forEach(team => {
-            if(team === "N/A") return;
-            const div = document.createElement('div');
-            div.className = 'team-option';
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox'; checkbox.value = team;
-            const span = document.createElement('span'); span.innerText = team;
-            div.onclick = (e) => { if(e.target.tagName !== 'INPUT') { checkbox.checked = !checkbox.checked; handleTeamCheck(checkbox); } };
-            checkbox.onclick = (e) => { e.stopPropagation(); handleTeamCheck(checkbox); };
-            div.appendChild(checkbox); div.appendChild(span); dd.appendChild(div);
+        const dropdowns = document.querySelectorAll('.team-filter-dropdown');
+        dropdowns.forEach(dd => {
+            dd.innerHTML = '';
+            const uniqueTeams = [...new Set(sortedPlayers.map(p => p.team))].sort();
+            uniqueTeams.forEach(team => {
+                if(team === "N/A") return;
+                const div = document.createElement('div');
+                div.className = 'team-option';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox'; checkbox.value = team;
+                const span = document.createElement('span'); span.innerText = team;
+                div.onclick = (e) => { if(e.target.tagName !== 'INPUT') { checkbox.checked = !checkbox.checked; handleTeamCheck(checkbox); } };
+                checkbox.onclick = (e) => { e.stopPropagation(); handleTeamCheck(checkbox); };
+                div.appendChild(checkbox); div.appendChild(span); dd.appendChild(div);
+            });
+            const footer = document.createElement('div');
+            footer.className = 'filter-actions';
+            footer.innerHTML = '<span class="clear-filter" onclick="clearTeamFilter()">Zrušiť filter</span>';
+            dd.appendChild(footer);
         });
-        const footer = document.createElement('div');
-        footer.className = 'filter-actions';
-        footer.innerHTML = '<span class="clear-filter" onclick="clearTeamFilter()">Zrušiť filter</span>';
-        dd.appendChild(footer);
     };
 
     const handleTeamCheck = (checkbox) => {

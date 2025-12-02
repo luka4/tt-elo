@@ -6,35 +6,54 @@
     <title>Košická Miniliga - Rating</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; height: 100%; box-sizing: border-box; background-color: #f4f6f9; overflow: hidden; }
-        .top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 5000; background-color: #4A90E2; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); padding: 10px 0; text-align: center; }
+        html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; min-height: 100%; box-sizing: border-box; background-color: #f4f6f9; }
+        .top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 5000; background-color: #4A90E2; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); padding: 10px 0; text-align: center; transform: translateZ(0); }
         .nav-badge { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background-color: #FFD700; color: #000; padding: 5px 10px; border-radius: 12px; font-size: 0.8em; font-weight: 700; box-shadow: 0 2px 4px rgba(0,0,0,0.2); white-space: nowrap; z-index: 5002; }
         .nav-title { font-size: 1.4em; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
         .nav-links { display: flex; justify-content: center; gap: 20px; }
         .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 600; font-size: 1em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; transition: all 0.2s; }
         .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
         .nav-links a.active { background-color: white; color: #4A90E2; }
-        .container { height: 100%; width: 100%; display: flex; flex-direction: column; padding: 10px; box-sizing: border-box; }
+        .container { width: 100%; display: flex; flex-direction: column; padding: 10px; box-sizing: border-box; }
+
         h1 { text-align: center; color: #333; margin: 10px 0 5px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; }
         .info-trigger { text-align: center; color: #4A90E2; cursor: pointer; font-size: 0.9em; margin-bottom: 15px; text-decoration: underline; flex-shrink: 0; font-weight: 600; }
         .info-trigger:hover { color: #1565c0; }
         .scroll-hint { display: none; font-size: 12px; color: #666; margin-bottom: 5px; font-style: italic; text-align: center; flex-shrink: 0; }
-        .table-wrapper { flex-grow: 1; overflow: auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border: 1px solid #dfe3e8; position: relative; }
-        table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; min-width: 1500px; }
-        th, td { padding: 8px 10px; border-bottom: 1px solid #eee; border-right: 1px solid #eee; text-align: center; white-space: nowrap; }
-        thead { position: sticky; top: 0; z-index: 1000; }
-        thead tr:first-child th { background-color: #4A90E2; color: white; font-weight: 700; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; border-right: 1px solid rgba(255,255,255,0.2); height: 32px; padding: 2px 5px; vertical-align: middle; position: sticky; top: 0; z-index: 1000; }
-        thead tr:nth-child(2) th { color: #444; font-weight: 600; font-size: 0.75em; border-bottom: 2px solid #ddd; height: 24px; padding: 2px 5px; position: sticky; top: 33px; z-index: 900; }
+        .table-wrapper { overflow-x: auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border: 1px solid #dfe3e8; position: relative; }
+        table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; min-width: 1500px; table-layout: auto; }
+        th, td { padding: 8px 10px; border-bottom: 1px solid #eee; border-right: 1px solid #eee; text-align: center; white-space: nowrap; box-sizing: border-box; }
+        
+        /* Dynamic Sticky Offsets */
+        :root { --col-1-width: 40px; }
+
+        thead tr:first-child th { background-color: #4A90E2; color: white; font-weight: 700; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; border-right: 1px solid rgba(255,255,255,0.2); height: 32px; padding: 2px 5px; vertical-align: middle; }
+        thead tr:nth-child(2) th { color: #444; font-weight: 600; font-size: 0.75em; border-bottom: 2px solid #ddd; height: 24px; padding: 2px 5px; }
+        
+        /* Sticky header container */
+        #stickyHeaderContainer { position: fixed; top: 0; left: 0; width: 100%; z-index: 4000; overflow-x: hidden; overflow-y: visible; display: none; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); pointer-events: none; padding: 0 10px; box-sizing: border-box; }
+        #stickyHeaderContainer table { margin: 0; background: #fff; pointer-events: auto; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
+        
+        /* Correct colors for sticky header sub-headers */
+        #stickyHeaderContainer thead tr:nth-child(2) th.sub-singles { background-color: #e3f2fd !important; color: #1565c0; }
+        #stickyHeaderContainer thead tr:nth-child(2) th.sub-doubles { background-color: #fff3e0 !important; color: #ef6c00; }
+        
+        /* Ensure sticky left columns work in clone - Using Variables */
+        #stickyHeaderContainer th:nth-child(1) { left: 0; z-index: 4000 !important; border-right: none; background-color: #4A90E2; }
+        #stickyHeaderContainer th:nth-child(2) { left: var(--col-1-width); z-index: 4000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); background-color: #4A90E2; }
+
         thead tr:nth-child(2) th.sub-singles { background-color: #e3f2fd; color: #1565c0; }
         thead tr:nth-child(2) th.sub-doubles { background-color: #fff3e0; color: #ef6c00; }
         .border-left-thick { border-left: 2px solid #ccc !important; }
-        thead tr:first-child th:nth-child(1) { position: sticky; left: 0; z-index: 2000 !important; border-right: none; width: 40px; min-width: 40px; }
-        thead tr:first-child th:nth-child(2) { position: sticky; left: 40px; z-index: 2000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
-        tbody td:nth-child(1) { position: sticky; left: 0; background-color: #fff; z-index: 500; font-weight: bold; color: #666; border-right: none; width: 40px; min-width: 40px; }
-        tbody td:nth-child(2) { position: sticky; left: 40px; background-color: #fff; z-index: 500; font-weight: 600; color: #333; text-align: left; box-shadow: 2px 0 5px rgba(0,0,0,0.05); border-right: 2px solid #e0e0e0; }
+        
+        /* Main Table Sticky Cols */
+        thead tr:first-child th:nth-child(1) { position: sticky; left: 0; z-index: 2000 !important; border-right: none; width: var(--col-1-width); min-width: var(--col-1-width); max-width: var(--col-1-width); }
+        thead tr:first-child th:nth-child(2) { position: sticky; left: var(--col-1-width); z-index: 2000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+        tbody td:nth-child(1) { position: sticky; left: 0; background-color: #fff; z-index: 500; font-weight: bold; color: #666; border-right: none; width: var(--col-1-width); min-width: var(--col-1-width); max-width: var(--col-1-width); }
+        tbody td:nth-child(2) { position: sticky; left: var(--col-1-width); background-color: #fff; z-index: 500; font-weight: 600; color: #333; text-align: left; box-shadow: 2px 0 5px rgba(0,0,0,0.05); border-right: 2px solid #e0e0e0; }
+        #mainTable.sticky-active thead { visibility: hidden; }
         .team-cokery td:nth-child(1), .team-cokery td:nth-child(2) { background-color: #e0f0f3 !important; }
         .team-astoria td:nth-child(1), .team-astoria td:nth-child(2) { background-color: #f2f5d8 !important; }
         #mainTableBody tr:hover td:nth-child(1), #mainTableBody tr:hover td:nth-child(2) { background-color: #f0f0f0 !important; }
@@ -120,12 +139,9 @@
             #statsHighlightsWrapper, #generalStatsWrapper { flex-direction: column; gap: 10px; }
             table { font-size: 12px; }
             th, td { padding: 8px 4px; }
-            thead tr:nth-child(2) th { top: 33px; }
             thead tr:first-child th:nth-child(1), thead tr:first-child th:nth-child(2) { z-index: 5000 !important; }
-            tbody td:nth-child(1) { left: 0; z-index: 500; }
-            tbody td:nth-child(2) { left: 28px; z-index: 500; border-right: 2px solid #ccc; }
-            thead tr:first-child th:nth-child(1) { width: 28px; min-width: 28px; }
-            thead tr:first-child th:nth-child(2) { left: 28px; }
+            tbody td:nth-child(1), tbody td:nth-child(2) { z-index: 500; }
+            tbody td:nth-child(2) { border-right: 2px solid #ccc; }
             thead tr:first-child th:nth-child(2),
             tbody td:nth-child(2) { min-width: 0 !important; width: 35vw !important; max-width: 130px !important; white-space: normal !important; word-wrap: break-word; line-height: 1.2; font-size: 11px; }
             .nav-badge { top: 5px; right: 5px; transform: none; padding: 2px 6px; font-size: 0.6em; border-radius: 4px; }
@@ -148,7 +164,7 @@
     <h1>Aktuálny Rating Hráčov</h1>
     <div class="info-trigger" onclick="openInfoModal()">ⓘ Ako funguje Rating?</div>
     <div class="scroll-hint">↔ Posuňte tabuľku pre viac štatistík</div>
-    <div class="table-wrapper">
+    <div class="table-wrapper" id="mainTableWrapper">
         <table id="mainTable">
             <thead>
             <tr>
