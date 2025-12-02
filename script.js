@@ -160,15 +160,20 @@ function processData() {
                 p.minRating = Math.min(p.rating, p.minRating);
 
                 const opponentName = oppNames.join(' / ');
-                const oppRatingAfter = isDoubles ? 0 : (players[oppNames[0]].rating + deltaOpp);
+                const oppRatingAfter = isDoubles ? 0 : (players[oppNames[0]].rating);
 
                 p.matchDetails.push({
                     date: match.date || match.round, // Use real date if available
                     round: match.round,
-                    opponent: opponentName, opponent_team: oppTeam,
-                    score_own: scoreOwn, score_opp: scoreOpp,
-                    rating_after: p.rating, opp_rating_after: oppRatingAfter,
-                    delta_own: deltaOwn, delta_opp: deltaOpp, isDoubles: isDoubles,
+                    opponent: opponentName,
+                    opponent_team: oppTeam,
+                    score_own: scoreOwn,
+                    score_opp: scoreOpp,
+                    rating_after: p.rating,
+                    opp_rating_after: oppRatingAfter,
+                    delta_own: deltaOwn,
+                    delta_opp: deltaOpp,
+                    isDoubles: isDoubles,
                     own_name_display: pNames.join(' / ')
                 });
             });
