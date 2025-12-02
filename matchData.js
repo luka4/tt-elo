@@ -15416,10 +15416,10 @@ const matchResults = [
         "player_b_team": "EUROCAST"
     },
     {
-        "score_a": 0,
-        "score_b": 3,
-        "player_a": "Peter SZCZECZINA/Dmytro LUKACHUK",
-        "player_b": "Matúš HRČKA/Martin MUCHA",
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Jaroslav WIENER/Miro. HARČÁRIK",
+        "player_b": "Andrej KAČKOŠ/Julus WÉBER",
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
@@ -15428,10 +15428,10 @@ const matchResults = [
         "location": "Myslava"
     },
     {
-        "score_a": 3,
-        "score_b": 1,
-        "player_a": "Jaroslav WIENER/Miro. HARČÁRIK",
-        "player_b": "Andrej KAČKOŠ/Julus WÉBER",
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Peter SZCZECZINA/Dmytro LUKACHUK",
+        "player_b": "Matúš HRČKA/Martin MUCHA",
         "round": "13. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
