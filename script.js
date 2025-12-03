@@ -4,7 +4,7 @@
 // 1. GLOBAL CONSTANTS & CONFIG
 // ============================================================
 const INITIAL_RATING = 100;
-const K_FACTOR_STAGES = { 1: 30, 2: 26, 3: 22, 4: 18, 5: 14, default: 10 };
+const K_FACTOR_STAGES = {1: 30, 2: 26, 3: 22, 4: 18, 5: 14, default: 10};
 
 let chartRefs = {};
 
@@ -107,13 +107,27 @@ function processData() {
             Rb = (getR(pNamesB[0]) + (pNamesB[1] ? getR(pNamesB[1]) : getR(pNamesB[0]))) / 2;
             Ka = (getK(pNamesA[0]) + (pNamesA[1] ? getK(pNamesA[1]) : getK(pNamesA[0]))) / 2;
             Kb = (getK(pNamesB[0]) + (pNamesB[1] ? getK(pNamesB[1]) : getK(pNamesB[0]))) / 2;
-            pNamesA.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.round; });
-            pNamesB.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.round; });
+            pNamesA.forEach(n => {
+                players[n].dMatches++;
+                players[n].lastPlayed = match.round;
+            });
+            pNamesB.forEach(n => {
+                players[n].dMatches++;
+                players[n].lastPlayed = match.round;
+            });
         } else {
-            Ra = getR(pNamesA[0]); Rb = getR(pNamesB[0]);
-            Ka = getK(pNamesA[0]); Kb = getK(pNamesB[0]);
-            pNamesA.forEach(n => { players[n].matches++; players[n].lastPlayed = match.round; });
-            pNamesB.forEach(n => { players[n].matches++; players[n].lastPlayed = match.round; });
+            Ra = getR(pNamesA[0]);
+            Rb = getR(pNamesB[0]);
+            Ka = getK(pNamesA[0]);
+            Kb = getK(pNamesB[0]);
+            pNamesA.forEach(n => {
+                players[n].matches++;
+                players[n].lastPlayed = match.round;
+            });
+            pNamesB.forEach(n => {
+                players[n].matches++;
+                players[n].lastPlayed = match.round;
+            });
         }
 
         const N = scoreA + scoreB;
@@ -129,9 +143,27 @@ function processData() {
             // Filter out WO matches for upsets
             if (match.player_a !== 'WO' && match.player_b !== 'WO') {
                 if (scoreA > scoreB && Rb > Ra) {
-                    upsetsList.push({ winner: pNamesA[0], wTeam: match.player_a_team, wRate: Ra, loser: pNamesB[0], lTeam: match.player_b_team, lRate: Rb, score: `${scoreA}:${scoreB}`, diff: Rb - Ra });
+                    upsetsList.push({
+                        winner: pNamesA[0],
+                        wTeam: match.player_a_team,
+                        wRate: Ra,
+                        loser: pNamesB[0],
+                        lTeam: match.player_b_team,
+                        lRate: Rb,
+                        score: `${scoreA}:${scoreB}`,
+                        diff: Rb - Ra
+                    });
                 } else if (scoreB > scoreA && Ra > Rb) {
-                    upsetsList.push({ winner: pNamesB[0], wTeam: match.player_b_team, wRate: Rb, loser: pNamesA[0], lTeam: match.player_a_team, lRate: Ra, score: `${scoreB}:${scoreA}`, diff: Ra - Rb });
+                    upsetsList.push({
+                        winner: pNamesB[0],
+                        wTeam: match.player_b_team,
+                        wRate: Rb,
+                        loser: pNamesA[0],
+                        lTeam: match.player_a_team,
+                        lRate: Ra,
+                        score: `${scoreB}:${scoreA}`,
+                        diff: Ra - Rb
+                    });
                 }
             }
         }
@@ -140,17 +172,24 @@ function processData() {
             pNames.forEach(name => {
                 const p = players[name];
                 if (isDoubles) {
-                    p.dSetsWin += scoreOwn; p.dSetsLose += scoreOpp;
+                    p.dSetsWin += scoreOwn;
+                    p.dSetsLose += scoreOpp;
                     if (scoreOwn > scoreOpp) p.dWins++; else if (scoreOpp > scoreOwn) p.dLosses++;
                 } else {
-                    p.setsWin += scoreOwn; p.setsLose += scoreOpp;
+                    p.setsWin += scoreOwn;
+                    p.setsLose += scoreOpp;
                     if (scoreOwn > scoreOpp) p.wins++; else if (scoreOpp > scoreOwn) p.losses++;
                     const oppRating = isDoubles ? 0 : players[oppNames[0]].rating;
-                    if (scoreOwn > scoreOpp && oppRating > p.bestWinRating) { p.bestWinOpponent = oppNames[0]; p.bestWinRating = oppRating; }
-                    else if (scoreOpp > scoreOwn && oppRating < p.worstLossRating) { p.worstLossOpponent = oppNames[0]; p.worstLossRating = oppRating; }
+                    if (scoreOwn > scoreOpp && oppRating > p.bestWinRating) {
+                        p.bestWinOpponent = oppNames[0];
+                        p.bestWinRating = oppRating;
+                    } else if (scoreOpp > scoreOwn && oppRating < p.worstLossRating) {
+                        p.worstLossOpponent = oppNames[0];
+                        p.worstLossRating = oppRating;
+                    }
                 }
                 p.rating += deltaOwn;
-                if(isLatestRound) p.roundGain += deltaOwn;
+                if (isLatestRound) p.roundGain += deltaOwn;
 
                 // Use Date for history if available, else Round Name
                 const historyKey = match.round;
@@ -183,7 +222,7 @@ function processData() {
         updateSide(pNamesB, scoreB, scoreA, deltaB, deltaA, pNamesA, match.player_a_team);
     });
 
-    return { players, roundsSet, totalSets, latestRoundName, upsetsList };
+    return {players, roundsSet, totalSets, latestRoundName, upsetsList};
 }
 
 // ============================================================
@@ -192,7 +231,7 @@ function processData() {
 
 // --- HOME PAGE ---
 function renderHomePage() {
-    const { players, roundsSet, totalSets, latestRoundName, upsetsList } = processData();
+    const {players, roundsSet, totalSets, latestRoundName, upsetsList} = processData();
     const playedMatches = matchResults.filter(isPlayedMatch);
 
     // Stats
@@ -208,7 +247,8 @@ function renderHomePage() {
     const gainList = document.getElementById('topGainersList');
     top5.forEach((p, index) => {
         if (p.roundGain <= 0) return;
-        const li = document.createElement('li'); li.className = 'top-player-row';
+        const li = document.createElement('li');
+        li.className = 'top-player-row';
         li.innerHTML = `<div class="tp-rank">${index + 1}</div><div class="tp-name">${p.name} <span class="tp-team">(${p.team})</span></div><div class="tp-gain">+${p.roundGain.toFixed(1)}</div>`;
         gainList.appendChild(li);
     });
@@ -225,13 +265,15 @@ function renderHomePage() {
                 <div class="upset-player">${u.loser}<div class="upset-team">${u.lTeam}</div><span class="upset-rating">${u.lRate.toFixed(0)}</span></div></div></div>`;
         });
         upsetDiv.innerHTML = html;
-    } else { upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`; }
+    } else {
+        upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`;
+    }
 
     // Latest Results (Now "Current Round")
     if (latestRoundName) {
         const currentRoundMatches = matchResults.filter(m => m.round === latestRoundName);
         renderMatchList(currentRoundMatches, document.getElementById('latestRoundContainer'), false);
-        
+
         // Force update the title explicitly to "Aktuálne Kolo: [round]"
         const currentTitle = document.getElementById('latestRoundTitle');
         if (currentTitle) currentTitle.innerText = `Aktuálne Kolo: ${latestRoundName}`;
@@ -240,17 +282,17 @@ function renderHomePage() {
         // Find unique rounds in order of appearance (assuming chronological in JSON)
         const allRounds = [...new Set(matchResults.filter(isPlayedMatch).map(m => m.round))];
         const currentIndex = allRounds.indexOf(latestRoundName);
-        
+
         if (currentIndex > 0) {
             const prevRoundName = allRounds[currentIndex - 1];
             const prevRoundMatches = matchResults.filter(m => m.round === prevRoundName);
-            
+
             document.getElementById('prevRoundTitle').innerText = prevRoundName;
             renderMatchList(prevRoundMatches, document.getElementById('prevRoundContainer'), false);
         } else {
             // Hide previous round section if there is no previous round
             const prevHeader = document.getElementById('prevRoundTitle').parentElement;
-            if(prevHeader) prevHeader.style.display = 'none';
+            if (prevHeader) prevHeader.style.display = 'none';
         }
     }
 
@@ -272,16 +314,16 @@ function renderHomePage() {
         // Update Title to be specific
         const titleSpan = document.getElementById('nextRoundTitle');
         if (titleSpan && titleSpan.parentElement) {
-             // Replace the entire H2 content to match user preference
-             titleSpan.parentElement.innerText = `Zápasy nasledujúceho kola: ${nextRoundName}`;
+            // Replace the entire H2 content to match user preference
+            titleSpan.parentElement.innerText = `Zápasy nasledujúceho kola: ${nextRoundName}`;
         }
 
         const listDiv = document.getElementById('upcomingList');
-        listDiv.innerHTML = ''; 
+        listDiv.innerHTML = '';
         listDiv.removeAttribute('class'); // Remove grid layout class
-        
+
         renderMatchList(nextRoundMatches, listDiv, false);
-        
+
         upcomingContainer.style.display = 'block';
     } else {
         upcomingContainer.style.display = 'none';
@@ -304,7 +346,9 @@ function renderResultsPage() {
     uniqueRounds.reverse().forEach(roundName => {
         const roundWrapper = document.createElement('div');
         roundWrapper.className = 'round-group';
-        const header = document.createElement('div'); header.className = 'round-header'; header.innerText = roundName;
+        const header = document.createElement('div');
+        header.className = 'round-header';
+        header.innerText = roundName;
         roundWrapper.appendChild(header);
         renderMatchList(rounds[roundName], roundWrapper, true);
         container.appendChild(roundWrapper);
@@ -316,19 +360,21 @@ function renderMatchList(matches, container, appendToProvided) {
     const teamMatches = {};
     matches.forEach(m => {
         const key = `${m.player_a_team}::${m.player_b_team}`;
-        if (!teamMatches[key]) teamMatches[key] = { 
-            teamA: m.player_a_team, 
-            teamB: m.player_b_team, 
-            scoreA: 0, 
-            scoreB: 0, 
+        if (!teamMatches[key]) teamMatches[key] = {
+            teamA: m.player_a_team,
+            teamB: m.player_b_team,
+            scoreA: 0,
+            scoreB: 0,
             games: [],
             date: m.date,
             location: m.location
         };
-        
+
         if (isPlayedMatch(m)) {
-            const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
-            if (sA > sB) teamMatches[key].scoreA++; if (sB > sA) teamMatches[key].scoreB++;
+            const sA = parseInt(m.score_a);
+            const sB = parseInt(m.score_b);
+            if (sA > sB) teamMatches[key].scoreA++;
+            if (sB > sA) teamMatches[key].scoreB++;
         }
         teamMatches[key].games.push(m);
     });
@@ -337,29 +383,39 @@ function renderMatchList(matches, container, appendToProvided) {
     if (!appendToProvided) wrapper.className = 'round-group';
 
     Object.values(teamMatches).forEach(match => {
-        const matchRow = document.createElement('div'); matchRow.className = 'match-row';
-        
+        const matchRow = document.createElement('div');
+        matchRow.className = 'match-row';
+
         // Check if played (at least one game is played)
         const isPlayed = match.games.some(isPlayedMatch);
 
         if (isPlayed) {
-            const summary = document.createElement('div'); summary.className = 'match-summary';
+            const summary = document.createElement('div');
+            summary.className = 'match-summary';
             summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div><div class="score-badge">${match.scoreA}-${match.scoreB}</div><div class="team-name team-right">${match.teamB}</div><div class="expand-icon">▼</div>`;
-            const details = document.createElement('div'); details.className = 'match-details';
-    
+            const details = document.createElement('div');
+            details.className = 'match-details';
+
             let gamesHtml = '';
-            match.games.filter(isPlayedMatch).sort((a,b)=>(b.doubles?1:0)-(a.doubles?1:0)).forEach(g => {
-                const sA = parseInt(g.score_a); const sB = parseInt(g.score_b);
-                gamesHtml += `<div class="game-row">${(g.doubles===true||g.doubles==="true")?'<div class="doubles-badge">ŠTVORHRA</div>':''}
-                    <div class="game-names"><div class="player-left">${g.player_a}</div><div class="game-score ${sA>sB?'win-left':(sB>sA?'win-right':'')}">${sA}:${sB}</div><div class="player-right">${g.player_b}</div></div></div>`;
+            match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
+                const sA = parseInt(g.score_a);
+                const sB = parseInt(g.score_b);
+                gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                    <div class="game-names"><div class="player-left">${g.player_a}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${g.player_b}</div></div></div>`;
             });
             details.innerHTML = gamesHtml;
-    
-            summary.onclick = () => { const isEx = details.style.display === 'block'; details.style.display = isEx ? 'none' : 'block'; matchRow.classList.toggle('active', !isEx); };
-            matchRow.appendChild(summary); matchRow.appendChild(details); 
+
+            summary.onclick = () => {
+                const isEx = details.style.display === 'block';
+                details.style.display = isEx ? 'none' : 'block';
+                matchRow.classList.toggle('active', !isEx);
+            };
+            matchRow.appendChild(summary);
+            matchRow.appendChild(details);
         } else {
             // Unplayed View
-            const summary = document.createElement('div'); summary.className = 'match-summary';
+            const summary = document.createElement('div');
+            summary.className = 'match-summary';
             // Same structure as played matches for perfect alignment
             summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div><div class="score-badge" style="background:#e0e0e0; color:#555;">VS</div><div class="team-name team-right">${match.teamB}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
             matchRow.appendChild(summary);
@@ -380,7 +436,7 @@ function renderMatchList(matches, container, appendToProvided) {
 
 // --- RATING PAGE ---
 function renderRatingPage() {
-    const { players } = processData();
+    const {players} = processData();
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
     let selectedTeams = [];
 
@@ -392,7 +448,9 @@ function renderRatingPage() {
             const tr = document.createElement('tr');
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
             if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
-            tr.onclick = () => { if (window.getSelection().toString().length === 0) openPlayerModal(p); };
+            tr.onclick = () => {
+                if (window.getSelection().toString().length === 0) openPlayerModal(p);
+            };
 
             const successMatches = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(2) : 0;
             const totalSets = p.setsWin + p.setsLose;
@@ -424,14 +482,14 @@ function renderRatingPage() {
         if (!dropdown) return;
         const isVisible = dropdown.classList.contains('show');
         document.querySelectorAll('.team-filter-dropdown').forEach(dd => dd.classList.remove('show'));
-        
+
         if (!isVisible) {
             // Calculate position for fixed dropdown
             const rect = wrapper.getBoundingClientRect();
             dropdown.style.top = rect.bottom + 'px';
             dropdown.style.left = rect.left + 'px';
         }
-        
+
         dropdown.classList.toggle('show', !isVisible);
     };
     window.addEventListener('click', (e) => {
@@ -446,10 +504,10 @@ function renderRatingPage() {
     if (wrapper && table) {
         const thead = table.querySelector('thead');
         let stickyContainer = document.getElementById('stickyHeaderContainer');
-        
+
         // Remove existing if any (to prevent duplicates on re-render)
         if (stickyContainer) stickyContainer.remove();
-        
+
         stickyContainer = document.createElement('div');
         stickyContainer.id = 'stickyHeaderContainer';
         const stickyTable = document.createElement('table');
@@ -464,7 +522,7 @@ function renderRatingPage() {
             const origThs = Array.from(thead.querySelectorAll('th'));
             const cloneThs = Array.from(stickyTable.querySelectorAll('th'));
             const tableRect = table.getBoundingClientRect();
-            
+
             // 1. Update Table Width
             stickyTable.style.width = tableRect.width + 'px';
             stickyTable.style.minWidth = tableRect.width + 'px';
@@ -512,7 +570,7 @@ function renderRatingPage() {
                     cloneRows[i].style.height = row.getBoundingClientRect().height + 'px';
                 }
             });
-            
+
             // 6. Copy computed styles for cells to ensure padding/border match
             origThs.forEach((th, i) => {
                 if (cloneThs[i]) {
@@ -523,7 +581,7 @@ function renderRatingPage() {
                     // Clear manual width on TH to let Colgroup drive (except sticky lefts maybe?)
                     // Actually, keeping width on TH doesn't hurt if it matches.
                     // But removing it ensures Colgroup wins.
-                    cloneThs[i].style.width = ''; 
+                    cloneThs[i].style.width = '';
                     cloneThs[i].style.minWidth = '';
                     cloneThs[i].style.maxWidth = '';
                 }
@@ -557,12 +615,19 @@ function renderRatingPage() {
             stickyContainer.scrollLeft = wrapper.scrollLeft;
         };
 
-        window.addEventListener('scroll', () => { onScroll(); syncHorizontal(); }, { passive: true });
-        window.addEventListener('resize', () => { updateWidths(); onScroll(); syncHorizontal(); });
-        wrapper.addEventListener('scroll', syncHorizontal, { passive: true });
-        
+        window.addEventListener('scroll', () => {
+            onScroll();
+            syncHorizontal();
+        }, {passive: true});
+        window.addEventListener('resize', () => {
+            updateWidths();
+            onScroll();
+            syncHorizontal();
+        });
+        wrapper.addEventListener('scroll', syncHorizontal, {passive: true});
+
         // Initial sync
-        setTimeout(updateWidths, 100); 
+        setTimeout(updateWidths, 100);
         updateWidths();
     }
 
@@ -572,15 +637,27 @@ function renderRatingPage() {
             dd.innerHTML = '';
             const uniqueTeams = [...new Set(sortedPlayers.map(p => p.team))].sort();
             uniqueTeams.forEach(team => {
-                if(team === "N/A") return;
+                if (team === "N/A") return;
                 const div = document.createElement('div');
                 div.className = 'team-option';
                 const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox'; checkbox.value = team;
-                const span = document.createElement('span'); span.innerText = team;
-                div.onclick = (e) => { if(e.target.tagName !== 'INPUT') { checkbox.checked = !checkbox.checked; handleTeamCheck(checkbox); } };
-                checkbox.onclick = (e) => { e.stopPropagation(); handleTeamCheck(checkbox); };
-                div.appendChild(checkbox); div.appendChild(span); dd.appendChild(div);
+                checkbox.type = 'checkbox';
+                checkbox.value = team;
+                const span = document.createElement('span');
+                span.innerText = team;
+                div.onclick = (e) => {
+                    if (e.target.tagName !== 'INPUT') {
+                        checkbox.checked = !checkbox.checked;
+                        handleTeamCheck(checkbox);
+                    }
+                };
+                checkbox.onclick = (e) => {
+                    e.stopPropagation();
+                    handleTeamCheck(checkbox);
+                };
+                div.appendChild(checkbox);
+                div.appendChild(span);
+                dd.appendChild(div);
             });
             const footer = document.createElement('div');
             footer.className = 'filter-actions';
@@ -595,24 +672,43 @@ function renderRatingPage() {
         renderTable();
     };
 
-    window.clearTeamFilter = () => { selectedTeams = []; document.querySelectorAll('.team-option input').forEach(i => i.checked = false); renderTable(); };
+    window.clearTeamFilter = () => {
+        selectedTeams = [];
+        document.querySelectorAll('.team-option input').forEach(i => i.checked = false);
+        renderTable();
+    };
 
     const playerModal = document.getElementById("playerModal");
-    window.closePlayerModal = () => { playerModal.style.display = "none"; };
+    window.closePlayerModal = () => {
+        playerModal.style.display = "none";
+    };
 
     const openPlayerModal = (p) => {
         document.getElementById('headerName').innerText = p.name;
         document.getElementById('headerTeam').innerText = p.team || "";
         document.getElementById('currentRatingVal').innerText = p.rating.toFixed(2);
         const setStat = (idName, idRate, oppName, oppRate) => {
-            const elName = document.getElementById(idName); const elRate = document.getElementById(idRate);
-            if (oppName) { elName.innerText = oppName; elName.className = "stat-value"; elRate.innerText = `Rating: ${oppRate.toFixed(2)}`; }
-            else { elName.innerText = "-"; elName.className = "stat-value stat-none"; elRate.innerText = ""; }
+            const elName = document.getElementById(idName);
+            const elRate = document.getElementById(idRate);
+            if (oppName) {
+                elName.innerText = oppName;
+                elName.className = "stat-value";
+                elRate.innerText = `Rating: ${oppRate.toFixed(2)}`;
+            } else {
+                elName.innerText = "-";
+                elName.className = "stat-value stat-none";
+                elRate.innerText = "";
+            }
         };
         setStat('bestWinName', 'bestWinRating', p.bestWinOpponent, p.bestWinRating);
         setStat('worstLossName', 'worstLossRating', p.worstLossOpponent, p.worstLossRating);
         let totalOpp = 0, countOpp = 0;
-        p.matchDetails.forEach(m => { if (!m.isDoubles && m.opp_rating_after > 0) { totalOpp += m.opp_rating_after; countOpp++; } });
+        p.matchDetails.forEach(m => {
+            if (!m.isDoubles && m.opp_rating_after > 0) {
+                totalOpp += m.opp_rating_after;
+                countOpp++;
+            }
+        });
         document.getElementById('avgOpponentVal').innerText = countOpp > 0 ? (totalOpp / countOpp).toFixed(2) : "-";
         playerModal.style.display = "flex";
         renderLineChart(p);
@@ -623,30 +719,61 @@ function renderRatingPage() {
 
     const renderLineChart = (p) => {
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const sortedDates = Object.keys(p.history).sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+        const sortedDates = Object.keys(p.history).sort((a, b) => a.localeCompare(b, undefined, {
+            numeric: true,
+            sensitivity: 'base'
+        }));
         const dataPoints = sortedDates.map(date => p.history[date]);
         if (chartRefs['line']) chartRefs['line'].destroy();
         chartRefs['line'] = new Chart(ctx, {
             type: 'line',
-            data: { labels: sortedDates, datasets: [{ label: p.name, data: dataPoints, borderColor: '#4A90E2', backgroundColor: 'rgba(74, 144, 226, 0.1)', borderWidth: 2, pointRadius: 4, tension: 0.1, fill: true }] },
-            options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { autoSkip: true, maxTicksLimit: 10 } } } }
+            data: {
+                labels: sortedDates,
+                datasets: [{
+                    label: p.name,
+                    data: dataPoints,
+                    borderColor: '#4A90E2',
+                    backgroundColor: 'rgba(74, 144, 226, 0.1)',
+                    borderWidth: 2,
+                    pointRadius: 4,
+                    tension: 0.1,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {x: {ticks: {autoSkip: true, maxTicksLimit: 10}}}
+            }
         });
     };
 
     const renderPieCharts = (mId, sId, matches, wins, losses, sWin, sLose, mPre, sPre) => {
-        const getPct = (part, total) => total > 0 ? ((part/total)*100).toFixed(1) : 0;
+        const getPct = (part, total) => total > 0 ? ((part / total) * 100).toFixed(1) : 0;
         document.getElementById(mPre + 'TotalVal').innerText = matches;
-        document.getElementById(mPre + 'WinsVal').innerText = wins; document.getElementById(mPre + 'WinsPct').innerText = `(${getPct(wins, matches)}%)`;
-        document.getElementById(mPre + 'LossVal').innerText = losses; document.getElementById(mPre + 'LossPct').innerText = `(${getPct(losses, matches)}%)`;
+        document.getElementById(mPre + 'WinsVal').innerText = wins;
+        document.getElementById(mPre + 'WinsPct').innerText = `(${getPct(wins, matches)}%)`;
+        document.getElementById(mPre + 'LossVal').innerText = losses;
+        document.getElementById(mPre + 'LossPct').innerText = `(${getPct(losses, matches)}%)`;
         document.getElementById(sPre + 'TotalVal').innerText = (sWin + sLose);
-        document.getElementById(sPre + 'WinsVal').innerText = sWin; document.getElementById(sPre + 'WinsPct').innerText = `(${getPct(sWin, sWin + sLose)}%)`;
-        document.getElementById(sPre + 'LossVal').innerText = sLose; document.getElementById(sPre + 'LossPct').innerText = `(${getPct(sLose, sWin + sLose)}%)`;
+        document.getElementById(sPre + 'WinsVal').innerText = sWin;
+        document.getElementById(sPre + 'WinsPct').innerText = `(${getPct(sWin, sWin + sLose)}%)`;
+        document.getElementById(sPre + 'LossVal').innerText = sLose;
+        document.getElementById(sPre + 'LossPct').innerText = `(${getPct(sLose, sWin + sLose)}%)`;
         const createPie = (id, w, l) => {
             const ctx = document.getElementById(id).getContext('2d');
             if (chartRefs[id]) chartRefs[id].destroy();
-            chartRefs[id] = new Chart(ctx, { type: 'doughnut', data: { labels: ['Výhry','Prehry'], datasets: [{ data: [w, l], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } } });
+            chartRefs[id] = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Výhry', 'Prehry'],
+                    datasets: [{data: [w, l], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0}]
+                },
+                options: {responsive: true, maintainAspectRatio: false, plugins: {legend: {display: false}}}
+            });
         };
-        createPie(mId, wins, losses); createPie(sId, sWin, sLose);
+        createPie(mId, wins, losses);
+        createPie(sId, sWin, sLose);
     };
 
     const renderHistory = (p) => {
@@ -672,37 +799,46 @@ function renderRatingPage() {
                 </div>
             </div>`;
         });
-        html += `</div>`; container.innerHTML = html;
+        html += `</div>`;
+        container.innerHTML = html;
     };
 
-    window.onclick = (e) => { if (e.target == playerModal) closePlayerModal(); const im = document.getElementById("infoModal"); if (im && e.target == im) im.style.display = "none"; };
+    window.onclick = (e) => {
+        if (e.target == playerModal) closePlayerModal();
+        const im = document.getElementById("infoModal");
+        if (im && e.target == im) im.style.display = "none";
+    };
     window.openInfoModal = () => document.getElementById("infoModal").style.display = "flex";
     window.closeInfoModal = () => document.getElementById("infoModal").style.display = "none";
-    renderTable(); initTeamFilter();
+    renderTable();
+    initTeamFilter();
 }
 
 // --- TABLE PAGE ---
 function renderTablePage() {
-    const { players } = processData();
-    const teams = {}; const teamMatchesArray = []; const tempMatches = {};
+    const {players} = processData();
+    const teams = {};
+    const teamMatchesArray = [];
+    const tempMatches = {};
 
     // Iterate ALL matches to gather schedule + results
     matchResults.forEach(m => {
         const key = `${m.round}::${m.player_a_team}::${m.player_b_team}`;
-        if (!tempMatches[key]) tempMatches[key] = { 
-            roundName: m.round, 
-            teamA: m.player_a_team, 
-            teamB: m.player_b_team, 
-            scoreA: 0, 
+        if (!tempMatches[key]) tempMatches[key] = {
+            roundName: m.round,
+            teamA: m.player_a_team,
+            teamB: m.player_b_team,
+            scoreA: 0,
             scoreB: 0,
             isPlayed: false,
-            realDate: null 
+            realDate: null
         };
-        
+
         // Check if this specific entry is a played game
         if (isPlayedMatch(m)) {
-            const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
-            if (sA > sB) tempMatches[key].scoreA++; 
+            const sA = parseInt(m.score_a);
+            const sB = parseInt(m.score_b);
+            if (sA > sB) tempMatches[key].scoreA++;
             if (sB > sA) tempMatches[key].scoreB++;
             tempMatches[key].isPlayed = true;
         } else {
@@ -711,38 +847,60 @@ function renderTablePage() {
             if (m.date) tempMatches[key].realDate = m.date;
         }
     });
-    
+
     for (const key in tempMatches) teamMatchesArray.push(tempMatches[key]);
 
-    const initTeam = (n) => { if (!teams[n]) teams[n] = { name: n, matches: 0, wins: 0, draws: 0, losses: 0, scoreFor: 0, scoreAgainst: 0, points: 0, avgRating: 0 }; };
-    
+    const initTeam = (n) => {
+        if (!teams[n]) teams[n] = {
+            name: n,
+            matches: 0,
+            wins: 0,
+            draws: 0,
+            losses: 0,
+            scoreFor: 0,
+            scoreAgainst: 0,
+            points: 0,
+            avgRating: 0
+        };
+    };
+
     // Initialize teams
     teamMatchesArray.forEach(m => {
-        initTeam(m.teamA); initTeam(m.teamB);
+        initTeam(m.teamA);
+        initTeam(m.teamB);
     });
-    
+
     // Calculate Stats - ONLY for played matches
     teamMatchesArray.forEach(m => {
         if (!m.isPlayed) return;
 
-        teams[m.teamA].matches++; teams[m.teamB].matches++;
-        teams[m.teamA].scoreFor += m.scoreA; teams[m.teamA].scoreAgainst += m.scoreB;
-        teams[m.teamB].scoreFor += m.scoreB; teams[m.teamB].scoreAgainst += m.scoreA;
-        
-        if (m.scoreA > m.scoreB) { 
-            teams[m.teamA].wins++; teams[m.teamA].points += 3; 
-            teams[m.teamB].losses++; teams[m.teamB].points += 1; 
-        } else if (m.scoreB > m.scoreA) { 
-            teams[m.teamB].wins++; teams[m.teamB].points += 3; 
-            teams[m.teamA].losses++; teams[m.teamA].points += 1; 
-        } else { 
-            teams[m.teamA].draws++; teams[m.teamA].points += 2; 
-            teams[m.teamB].draws++; teams[m.teamB].points += 2; 
+        teams[m.teamA].matches++;
+        teams[m.teamB].matches++;
+        teams[m.teamA].scoreFor += m.scoreA;
+        teams[m.teamA].scoreAgainst += m.scoreB;
+        teams[m.teamB].scoreFor += m.scoreB;
+        teams[m.teamB].scoreAgainst += m.scoreA;
+
+        if (m.scoreA > m.scoreB) {
+            teams[m.teamA].wins++;
+            teams[m.teamA].points += 3;
+            teams[m.teamB].losses++;
+            teams[m.teamB].points += 1;
+        } else if (m.scoreB > m.scoreA) {
+            teams[m.teamB].wins++;
+            teams[m.teamB].points += 3;
+            teams[m.teamA].losses++;
+            teams[m.teamA].points += 1;
+        } else {
+            teams[m.teamA].draws++;
+            teams[m.teamA].points += 2;
+            teams[m.teamB].draws++;
+            teams[m.teamB].points += 2;
         }
     });
 
     Object.values(teams).forEach(t => {
-        const tp = Object.values(players).filter(p => p.team === t.name).sort((a,b)=>(b.matches+b.dMatches)-(a.matches+a.dMatches)).slice(0, 4);
+        const tp = Object.values(players).filter(p => p.team === t.name).sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
         if (tp.length > 0) t.avgRating = tp.reduce((acc, p) => acc + p.rating, 0) / tp.length;
     });
 
@@ -752,50 +910,69 @@ function renderTablePage() {
     if (selectA) {
         selectA.innerHTML = '<option value="">Vyber Domácich</option>';
         selectB.innerHTML = '<option value="">Vyber Hostí</option>';
-        Object.keys(teams).sort().forEach(t => { selectA.add(new Option(t, t)); selectB.add(new Option(t, t)); });
+        Object.keys(teams).sort().forEach(t => {
+            selectA.add(new Option(t, t));
+            selectB.add(new Option(t, t));
+        });
     }
 
     const getHist = (tn) => {
         const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
         if (mm.length === 0) return `<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
-        
+
         let h = `<div class="history-list">`;
         mm.forEach(m => {
             const isHome = m.teamA === tn;
             let scHtml = '';
             let scClass = '';
             if (m.isPlayed) {
-                scClass = isHome ? (m.scoreA>m.scoreB?"score-win":(m.scoreA<m.scoreB?"score-loss":"score-draw")) : (m.scoreB>m.scoreA?"score-win":(m.scoreB<m.scoreA?"score-loss":"score-draw"));
+                scClass = isHome ? (m.scoreA > m.scoreB ? "score-win" : (m.scoreA < m.scoreB ? "score-loss" : "score-draw")) : (m.scoreB > m.scoreA ? "score-win" : (m.scoreB < m.scoreA ? "score-loss" : "score-draw"));
                 scHtml = `${m.scoreA}:${m.scoreB}`;
             } else {
-                scClass = "score-draw"; 
+                scClass = "score-draw";
                 scHtml = "VS";
             }
-            
+
             const vsStyle = !m.isPlayed ? 'style="color:#aaa;"' : '';
 
             h += `<div class="history-row"><div class="hr-date">${m.roundName}</div><div class="hr-match">
-                <span class="hr-team hr-home ${m.teamA===tn?"current-team":"other-team"}">${m.teamA}</span><span class="hr-score ${scClass}" ${vsStyle}>${scHtml}</span><span class="hr-team hr-guest ${m.teamB===tn?"current-team":"other-team"}">${m.teamB}</span></div></div>`;
+                <span class="hr-team hr-home ${m.teamA === tn ? "current-team" : "other-team"}">${m.teamA}</span><span class="hr-score ${scClass}" ${vsStyle}>${scHtml}</span><span class="hr-team hr-guest ${m.teamB === tn ? "current-team" : "other-team"}">${m.teamB}</span></div></div>`;
         });
         return h + `</div>`;
     };
 
-    Object.values(teams).sort((a,b)=> (b.points!==a.points) ? b.points-a.points : (b.scoreFor-b.scoreAgainst)-(a.scoreFor-a.scoreAgainst)).forEach((t, i) => {
-        const tr = document.createElement('tr'); tr.className = 'main-row';
+    Object.values(teams).sort((a, b) => (b.points !== a.points) ? b.points - a.points : (b.scoreFor - b.scoreAgainst) - (a.scoreFor - a.scoreAgainst)).forEach((t, i) => {
+        const tr = document.createElement('tr');
+        tr.className = 'main-row';
         tr.innerHTML = `<td class="col-pos">${i + 1}.</td><td>${t.name} <span class="expand-icon">▼</span></td><td>${t.matches}</td><td>${t.wins}</td><td>${t.draws}</td><td>${t.losses}</td><td class="col-score">${t.scoreFor}:${t.scoreAgainst}</td><td class="col-pts">${t.points}</td><td class="col-avg">${t.avgRating.toFixed(1)}</td>`;
-        const dTr = document.createElement('tr'); dTr.className = 'detail-row'; dTr.innerHTML = `<td colspan="9" class="detail-cell">${getHist(t.name)}</td>`;
-        tr.onclick = () => { const o = dTr.classList.contains('open'); dTr.classList.toggle('open', !o); tr.classList.toggle('active', !o); };
-        tbody.appendChild(tr); tbody.appendChild(dTr);
+        const dTr = document.createElement('tr');
+        dTr.className = 'detail-row';
+        dTr.innerHTML = `<td colspan="9" class="detail-cell">${getHist(t.name)}</td>`;
+        tr.onclick = () => {
+            const o = dTr.classList.contains('open');
+            dTr.classList.toggle('open', !o);
+            tr.classList.toggle('active', !o);
+        };
+        tbody.appendChild(tr);
+        tbody.appendChild(dTr);
     });
 
     window.calculatePrediction = () => {
-        const tA = document.getElementById('teamSelectA').value; const tB = document.getElementById('teamSelectB').value;
-        if (!tA || !tB || tA === tB) { alert("Vyberte prosím dva rozdielne tímy."); return; }
-        const rA = teams[tA].avgRating; const rB = teams[tB].avgRating;
+        const tA = document.getElementById('teamSelectA').value;
+        const tB = document.getElementById('teamSelectB').value;
+        if (!tA || !tB || tA === tB) {
+            alert("Vyberte prosím dva rozdielne tímy.");
+            return;
+        }
+        const rA = teams[tA].avgRating;
+        const rB = teams[tB].avgRating;
         const sA = Math.round(18 * (1 / (1 + Math.pow(10, (rB - rA) / 300))));
         document.getElementById('predScore').innerText = `${sA} : ${18 - sA}`;
-        document.getElementById('rateA').innerText = rA.toFixed(1); document.getElementById('rateB').innerText = rB.toFixed(1);
-        const rb = document.getElementById('predictionResult'); rb.style.display = 'block'; setTimeout(() => rb.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+        document.getElementById('rateA').innerText = rA.toFixed(1);
+        document.getElementById('rateB').innerText = rB.toFixed(1);
+        const rb = document.getElementById('predictionResult');
+        rb.style.display = 'block';
+        setTimeout(() => rb.scrollIntoView({behavior: 'smooth', block: 'center'}), 100);
     };
 }
 
