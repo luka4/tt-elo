@@ -464,6 +464,45 @@ function renderMatchList(matches, container, appendToProvided) {
             const details = document.createElement('div');
             details.className = 'match-details';
 
+            // --- STATS GENERATION START ---
+            const stats = {}; 
+            match.games.forEach(g => {
+                if (!isPlayedMatch(g)) return;
+                const isD = g.doubles === true || g.doubles === "true";
+                const pVal = isD ? 0.5 : 1;
+                const sA = parseInt(g.score_a);
+                const sB = parseInt(g.score_b);
+                
+                const updateP = (namesStr, team, won) => {
+                    namesStr.split('/').map(n => n.trim()).forEach(n => {
+                        if (!stats[n]) stats[n] = { name: n, team: team, points: 0, possible: 0 };
+                        stats[n].possible += pVal;
+                        if (won) stats[n].points += pVal;
+                    });
+                };
+                updateP(g.player_a, match.teamA, sA > sB);
+                updateP(g.player_b, match.teamB, sB > sA);
+            });
+
+            const getTeamStatsHtml = (teamName, align) => {
+                const list = Object.values(stats).filter(p => p.team === teamName).sort((a, b) => {
+                    if (b.points !== a.points) {
+                        return b.points - a.points; // Higher points first
+                    }
+                    return a.possible - b.possible; // Lower possible first (if points equal)
+                });
+                if (list.length === 0) return '';
+                let h = `<div class="team-stats ${align}">`;
+                list.forEach(p => {
+                    h += `<div class="player-stat-row"><span class="player-stat-name">${p.name}</span><span class="player-stat-score">${p.points}/${p.possible}</span></div>`;
+                });
+                h += `</div>`;
+                return h;
+            };
+            
+            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left')}${getTeamStatsHtml(match.teamB, 'right')}</div>`;
+            // --- STATS GENERATION END ---
+
             let gamesHtml = '';
             match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
                 const sA = parseInt(g.score_a);
@@ -471,7 +510,7 @@ function renderMatchList(matches, container, appendToProvided) {
                 gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
                     <div class="game-names"><div class="player-left">${g.player_a}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${g.player_b}</div></div></div>`;
             });
-            details.innerHTML = gamesHtml;
+            details.innerHTML = statsHtml + gamesHtml;
 
             summary.onclick = () => {
                 const isEx = details.style.display === 'block';
@@ -1127,3 +1166,51 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (id === 'page-results') renderResultsPage();
     else if (id === 'page-table') renderTablePage();
 });
+
+// ============================================================
+// 5. STYLE INJECTOR FOR STATS
+// ============================================================
+function injectStatsStyles() {
+    const css = `
+        .match-stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        .team-stats {
+            display: flex;
+            flex-direction: column;
+        }
+        .team-stats.right {
+            align-items: flex-end;
+            text-align: right;
+        }
+        .team-stats.left {
+            align-items: flex-start;
+            text-align: left;
+        }
+        .player-stat-row {
+            margin-bottom: 2px;
+            color: #444;
+            display: flex;
+            gap: 5px;
+        }
+        .team-stats.right .player-stat-row {
+            flex-direction: row-reverse;
+        }
+        .player-stat-name {
+            font-weight: 500;
+        }
+        .player-stat-score {
+            font-weight: 700;
+            color: #4A90E2;
+        }
+    `;
+    const style = document.createElement('style');
+    style.appendChild(document.createTextNode(css));
+    document.head.appendChild(style);
+}
+injectStatsStyles();
