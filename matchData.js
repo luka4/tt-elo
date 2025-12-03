@@ -18079,7 +18079,6 @@ const matchResults = [
         "location": "Jedlikova",
         "season": "JESEŇ 2025"
     },
-    
     {
         "score_a": 0,
         "score_b": 0,
