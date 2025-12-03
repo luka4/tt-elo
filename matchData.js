@@ -7,7 +7,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -17,7 +18,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -27,7 +29,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -37,7 +40,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -47,7 +51,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -57,7 +62,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -67,7 +73,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -77,7 +84,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -87,7 +95,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -97,7 +106,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -107,7 +117,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -117,7 +128,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -127,7 +139,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -137,7 +150,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -147,7 +161,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -157,7 +172,8 @@ const matchResults = [
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -166,7 +182,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -175,7 +192,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -184,7 +202,8 @@ const matchResults = [
         "player_b": "Daniel VAŇO",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -193,7 +212,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -202,7 +222,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -211,7 +232,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -220,7 +242,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -229,7 +252,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -238,7 +262,8 @@ const matchResults = [
         "player_b": "Štefan VENDEL",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -247,7 +272,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -256,7 +282,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -265,7 +292,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -274,7 +302,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -283,7 +312,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -292,7 +322,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -301,7 +332,8 @@ const matchResults = [
         "player_b": "Daniel VAŇO",
         "round": "1. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -310,7 +342,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -319,7 +352,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -328,7 +362,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -337,7 +372,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -346,7 +382,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -355,7 +392,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -364,7 +402,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -373,7 +412,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -382,7 +422,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -391,7 +432,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -400,7 +442,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -409,7 +452,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -418,7 +462,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -427,7 +472,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -436,7 +482,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -445,7 +492,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "1. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -454,7 +502,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -463,7 +512,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -472,7 +522,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -481,7 +532,8 @@ const matchResults = [
         "player_b": "Viliam MAYER",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -490,7 +542,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -499,7 +552,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -508,7 +562,8 @@ const matchResults = [
         "player_b": "Viliam MAYER",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -517,7 +572,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -526,7 +582,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -535,7 +592,8 @@ const matchResults = [
         "player_b": "Viliam MAYER",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -544,7 +602,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -553,7 +612,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -562,7 +622,8 @@ const matchResults = [
         "player_b": "Viliam MAYER",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -571,7 +632,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -580,7 +642,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -589,7 +652,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "1. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -598,7 +662,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -607,7 +672,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -616,7 +682,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -625,7 +692,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -634,7 +702,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -643,7 +712,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -652,7 +722,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -661,7 +732,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -670,7 +742,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -679,7 +752,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -688,7 +762,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -697,7 +772,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -706,7 +782,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -715,7 +792,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -724,7 +802,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -733,7 +812,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "1. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -742,7 +822,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -751,7 +832,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -760,7 +842,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -769,7 +852,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -778,7 +862,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -787,7 +872,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -796,7 +882,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -805,7 +892,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -814,7 +902,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -823,7 +912,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -832,7 +922,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -841,7 +932,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -850,7 +942,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -859,7 +952,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -868,7 +962,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -877,7 +972,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "1. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -886,7 +982,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -895,7 +992,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -904,7 +1002,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -913,7 +1012,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -922,7 +1022,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -931,7 +1032,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -940,7 +1042,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -949,7 +1052,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -958,7 +1062,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -967,7 +1072,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -976,7 +1082,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -985,7 +1092,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -994,7 +1102,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1003,7 +1112,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1012,7 +1122,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1021,7 +1132,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "1. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1030,7 +1142,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1039,7 +1152,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1048,7 +1162,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1057,7 +1172,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1066,7 +1182,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1075,7 +1192,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1084,7 +1202,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1093,7 +1212,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1102,7 +1222,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1111,7 +1232,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1120,7 +1242,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1129,7 +1252,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1138,7 +1262,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1147,7 +1272,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1156,7 +1282,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1165,7 +1292,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "1. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1174,7 +1302,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1183,7 +1312,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1192,7 +1322,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1201,7 +1332,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1210,7 +1342,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1219,7 +1352,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1228,7 +1362,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1237,7 +1372,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1246,7 +1382,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1255,7 +1392,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1264,7 +1402,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1273,7 +1412,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1282,7 +1422,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1291,7 +1432,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1300,7 +1442,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1309,7 +1452,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "1. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1319,7 +1463,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1329,7 +1474,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1339,7 +1485,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1349,7 +1496,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1359,7 +1507,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1369,7 +1518,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1379,7 +1529,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1389,7 +1540,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1399,7 +1551,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1409,7 +1562,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1419,7 +1573,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1429,7 +1584,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1439,7 +1595,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1449,7 +1606,8 @@ const matchResults = [
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1458,7 +1616,8 @@ const matchResults = [
         "player_b": "Miro. HARČÁRIK",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1467,7 +1626,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1476,7 +1636,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1485,7 +1646,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1494,7 +1656,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1503,7 +1666,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1512,7 +1676,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1521,7 +1686,8 @@ const matchResults = [
         "player_b": "Miro. HARČÁRIK",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1530,7 +1696,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1539,7 +1706,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1548,7 +1716,8 @@ const matchResults = [
         "player_b": "Miro. HARČÁRIK",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1557,7 +1726,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1566,7 +1736,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1575,7 +1746,8 @@ const matchResults = [
         "player_b": "Miro. HARČÁRIK",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1584,7 +1756,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1593,7 +1766,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "2. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1602,7 +1776,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1611,7 +1786,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1620,7 +1796,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1629,7 +1806,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1638,7 +1816,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1647,7 +1826,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1656,7 +1836,8 @@ const matchResults = [
         "player_b": "Tamás BÓNI",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1665,7 +1846,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1674,7 +1856,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1683,7 +1866,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1692,7 +1876,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1701,7 +1886,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1710,7 +1896,8 @@ const matchResults = [
         "player_b": "Tamás BÓNI",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1719,7 +1906,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1728,7 +1916,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1737,7 +1926,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "2. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1746,7 +1936,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1755,7 +1946,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1764,7 +1956,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1773,7 +1966,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1782,7 +1976,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1791,7 +1986,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1800,7 +1996,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1809,7 +2006,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1818,7 +2016,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1827,7 +2026,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1836,7 +2036,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1845,7 +2046,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1854,7 +2056,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1863,7 +2066,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1872,7 +2076,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1881,7 +2086,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "2. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1890,7 +2096,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1899,7 +2106,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1908,7 +2116,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1917,7 +2126,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1926,7 +2136,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1935,7 +2146,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1944,7 +2156,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -1953,7 +2166,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -1962,7 +2176,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1971,7 +2186,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -1980,7 +2196,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1989,7 +2206,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -1998,7 +2216,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2007,7 +2226,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2016,7 +2236,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2025,7 +2246,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "2. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2034,7 +2256,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2043,7 +2266,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2052,7 +2276,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2061,7 +2286,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2070,7 +2296,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2079,7 +2306,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2088,7 +2316,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2097,7 +2326,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2106,7 +2336,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2115,7 +2346,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2124,7 +2356,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2133,7 +2366,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2142,7 +2376,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2151,7 +2386,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2160,7 +2396,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2169,7 +2406,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "2. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2178,7 +2416,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2187,7 +2426,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2196,7 +2436,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2205,7 +2446,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2214,7 +2456,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2223,7 +2466,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2232,7 +2476,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2241,7 +2486,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2250,7 +2496,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2259,7 +2506,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2268,7 +2516,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2277,7 +2526,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2286,7 +2536,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2295,7 +2546,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2304,7 +2556,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2313,7 +2566,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "2. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2322,7 +2576,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2331,7 +2586,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2340,7 +2596,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2349,7 +2606,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2358,7 +2616,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2367,7 +2626,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2376,7 +2636,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2385,7 +2646,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2394,7 +2656,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2403,7 +2666,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2412,7 +2676,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2421,7 +2686,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2430,7 +2696,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2439,7 +2706,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2448,7 +2716,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2457,7 +2726,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "2. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2467,7 +2737,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2477,7 +2748,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2487,7 +2759,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2497,7 +2770,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2507,7 +2781,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2517,7 +2792,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2527,7 +2803,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2537,7 +2814,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2547,7 +2825,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2557,7 +2836,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2567,7 +2847,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2577,7 +2858,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2587,7 +2869,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2597,7 +2880,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2607,7 +2891,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2617,7 +2902,8 @@ const matchResults = [
         "round": "3. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2626,7 +2912,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2635,7 +2922,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2644,7 +2932,8 @@ const matchResults = [
         "player_b": "Ľubomír FRANČÁK",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2653,7 +2942,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2662,7 +2952,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2671,7 +2962,8 @@ const matchResults = [
         "player_b": "Ľubomír FRANČÁK",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2680,7 +2972,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2689,7 +2982,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2698,7 +2992,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2707,7 +3002,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2716,7 +3012,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2725,7 +3022,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2734,7 +3032,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2743,7 +3042,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2752,7 +3052,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2761,7 +3062,8 @@ const matchResults = [
         "player_b": "Ľubomír FRANČÁK",
         "round": "3. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2770,7 +3072,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2779,7 +3082,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2788,7 +3092,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2797,7 +3102,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2806,7 +3112,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2815,7 +3122,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2824,7 +3132,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2833,7 +3142,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2842,7 +3152,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -2851,7 +3162,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2860,7 +3172,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2869,7 +3182,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2878,7 +3192,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2887,7 +3202,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2896,7 +3212,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2905,7 +3222,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "3. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -2914,7 +3232,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2923,7 +3242,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2932,7 +3252,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2941,7 +3262,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2950,7 +3272,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2959,7 +3282,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2968,7 +3292,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2977,7 +3302,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -2986,7 +3312,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -2995,7 +3322,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3004,7 +3332,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3013,7 +3342,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3022,7 +3352,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3031,7 +3362,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3040,7 +3372,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3049,7 +3382,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "3. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3058,7 +3392,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3067,7 +3402,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3076,7 +3412,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3085,7 +3422,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3094,7 +3432,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3103,7 +3442,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3112,7 +3452,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3121,7 +3462,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3130,7 +3472,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3139,7 +3482,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3148,7 +3492,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3157,7 +3502,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3166,7 +3512,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3175,7 +3522,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3184,7 +3532,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3193,7 +3542,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "3. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3202,7 +3552,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3211,7 +3562,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3220,7 +3572,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3229,7 +3582,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3238,7 +3592,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3247,7 +3602,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3256,7 +3612,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3265,7 +3622,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3274,7 +3632,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3283,7 +3642,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3292,7 +3652,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3301,7 +3662,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3310,7 +3672,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3319,7 +3682,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3328,7 +3692,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3337,7 +3702,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "3. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3346,7 +3712,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3355,7 +3722,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3364,7 +3732,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3373,7 +3742,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3382,7 +3752,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3391,7 +3762,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3400,7 +3772,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3409,7 +3782,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3418,7 +3792,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3427,7 +3802,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3436,7 +3812,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3445,7 +3822,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3454,7 +3832,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3463,7 +3842,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3472,7 +3852,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3481,7 +3862,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "3. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3490,7 +3872,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3499,7 +3882,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3508,7 +3892,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3517,7 +3902,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3526,7 +3912,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3535,7 +3922,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3544,7 +3932,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3553,7 +3942,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3562,7 +3952,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3571,7 +3962,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3580,7 +3972,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3589,7 +3982,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3598,7 +3992,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3607,7 +4002,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3616,7 +4012,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3625,7 +4022,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "3. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3634,7 +4032,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3643,7 +4042,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3652,7 +4052,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3661,7 +4062,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3670,7 +4072,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3679,7 +4082,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3688,7 +4092,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3697,7 +4102,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3706,7 +4112,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3715,7 +4122,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3724,7 +4132,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3733,7 +4142,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3742,7 +4152,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3751,7 +4162,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3760,7 +4172,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3769,7 +4182,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "3. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3779,7 +4193,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3789,7 +4204,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3799,7 +4215,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3809,7 +4226,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3819,7 +4237,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3829,7 +4248,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3839,7 +4259,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3849,7 +4270,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3859,7 +4281,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3869,7 +4292,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3879,7 +4303,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3889,7 +4314,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3899,7 +4325,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3909,7 +4336,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3919,7 +4347,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3929,7 +4358,8 @@ const matchResults = [
         "round": "4. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3938,7 +4368,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3947,7 +4378,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3956,7 +4388,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -3965,7 +4398,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -3974,7 +4408,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -3983,7 +4418,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -3992,7 +4428,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -4001,7 +4438,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4010,7 +4448,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4019,7 +4458,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4028,7 +4468,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4037,7 +4478,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4046,7 +4488,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4055,7 +4498,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4064,7 +4508,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4073,7 +4518,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "4. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4082,7 +4528,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4091,7 +4538,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4100,7 +4548,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4109,7 +4558,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4118,7 +4568,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4127,7 +4578,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4136,7 +4588,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4145,7 +4598,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4154,7 +4608,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4163,7 +4618,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4172,7 +4628,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4181,7 +4638,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4190,7 +4648,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4199,7 +4658,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4208,7 +4668,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4217,7 +4678,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "4. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -4226,7 +4688,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4235,7 +4698,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4244,7 +4708,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4253,7 +4718,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4262,7 +4728,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4271,7 +4738,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4280,7 +4748,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4289,7 +4758,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -4298,7 +4768,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4307,7 +4778,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4316,7 +4788,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4325,7 +4798,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -4334,7 +4808,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4343,7 +4818,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4352,7 +4828,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4361,7 +4838,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "4. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4370,7 +4848,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4379,7 +4858,8 @@ const matchResults = [
         "player_b": "Matuš MATEJ",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4388,7 +4868,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4397,7 +4878,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4406,7 +4888,8 @@ const matchResults = [
         "player_b": "Matuš MATEJ",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -4415,7 +4898,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4424,7 +4908,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4433,7 +4918,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4442,7 +4928,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4451,7 +4938,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4460,7 +4948,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4469,7 +4958,8 @@ const matchResults = [
         "player_b": "Matuš MATEJ",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4478,7 +4968,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4487,7 +4978,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4496,7 +4988,8 @@ const matchResults = [
         "player_b": "Matuš MATEJ",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4505,7 +4998,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "4. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4514,7 +5008,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4523,7 +5018,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4532,7 +5028,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4541,7 +5038,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4550,7 +5048,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4559,7 +5058,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4568,7 +5068,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4577,7 +5078,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -4586,7 +5088,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4595,7 +5098,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4604,7 +5108,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4613,7 +5118,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4622,7 +5128,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4631,7 +5138,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4640,7 +5148,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4649,7 +5158,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "4. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4658,7 +5168,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4667,7 +5178,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4676,7 +5188,8 @@ const matchResults = [
         "player_b": "Miro. HARČÁRIK",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4685,7 +5198,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4694,7 +5208,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4703,7 +5218,8 @@ const matchResults = [
         "player_b": "Miro. HARČÁRIK",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4712,7 +5228,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4721,7 +5238,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4730,7 +5248,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4739,7 +5258,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4748,7 +5268,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4757,7 +5278,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4766,7 +5288,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4775,7 +5298,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4784,7 +5308,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4793,7 +5318,8 @@ const matchResults = [
         "player_b": "Miro. HARČÁRIK",
         "round": "4. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4802,7 +5328,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4811,7 +5338,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4820,7 +5348,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4829,7 +5358,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4838,7 +5368,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -4847,7 +5378,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4856,7 +5388,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4865,7 +5398,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4874,7 +5408,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4883,7 +5418,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4892,7 +5428,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4901,7 +5438,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4910,7 +5448,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4919,7 +5458,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4928,7 +5468,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4937,7 +5478,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "4. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -4946,7 +5488,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4955,7 +5498,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4964,7 +5508,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4973,7 +5518,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4982,7 +5528,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -4991,7 +5538,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5000,7 +5548,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5009,7 +5558,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5018,7 +5568,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5027,7 +5578,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5036,7 +5588,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5045,7 +5598,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5054,7 +5608,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5063,7 +5618,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5072,7 +5628,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5081,7 +5638,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "4. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5091,7 +5649,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5101,7 +5660,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5111,7 +5671,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5121,7 +5682,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5131,7 +5693,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -5141,7 +5704,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5151,7 +5715,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5161,7 +5726,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5171,7 +5737,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5181,7 +5748,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5191,7 +5759,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5201,7 +5770,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5211,7 +5781,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5221,7 +5792,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5231,7 +5803,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5241,7 +5814,8 @@ const matchResults = [
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -5250,7 +5824,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5259,7 +5834,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5268,7 +5844,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5277,7 +5854,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5286,7 +5864,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5295,7 +5874,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5304,7 +5884,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5313,7 +5894,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5322,7 +5904,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5331,7 +5914,8 @@ const matchResults = [
         "player_b": "Tamás BÓNI",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -5340,7 +5924,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5349,7 +5934,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5358,7 +5944,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5367,7 +5954,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5376,7 +5964,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5385,7 +5974,8 @@ const matchResults = [
         "player_b": "Tamás BÓNI",
         "round": "5. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5394,7 +5984,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5403,7 +5994,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5412,7 +6004,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5421,7 +6014,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5430,7 +6024,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5439,7 +6034,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5448,7 +6044,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5457,7 +6054,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5466,7 +6064,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5475,7 +6074,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5484,7 +6084,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5493,7 +6094,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5502,7 +6104,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5511,7 +6114,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5520,7 +6124,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5529,7 +6134,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "5. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5538,7 +6144,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5547,7 +6154,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5556,7 +6164,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5565,7 +6174,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5574,7 +6184,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -5583,7 +6194,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5592,7 +6204,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5601,7 +6214,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5610,7 +6224,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5619,7 +6234,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5628,7 +6244,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5637,7 +6254,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5646,7 +6264,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5655,7 +6274,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5664,7 +6284,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5673,7 +6294,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "5. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -5682,7 +6304,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5691,7 +6314,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5700,7 +6324,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5709,7 +6334,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5718,7 +6344,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5727,7 +6354,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5736,7 +6364,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5745,7 +6374,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5754,7 +6384,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5763,7 +6394,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5772,7 +6404,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5781,7 +6414,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5790,7 +6424,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5799,7 +6434,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5808,7 +6444,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5817,7 +6454,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "5. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5826,7 +6464,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5835,7 +6474,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5844,7 +6484,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5853,7 +6494,8 @@ const matchResults = [
         "player_b": "Ľubomír FRANČÁK",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5862,7 +6504,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5871,7 +6514,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5880,7 +6524,8 @@ const matchResults = [
         "player_b": "Ľubomír FRANČÁK",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5889,7 +6534,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5898,7 +6544,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5907,7 +6554,8 @@ const matchResults = [
         "player_b": "Ľubomír FRANČÁK",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5916,7 +6564,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5925,7 +6574,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5934,7 +6584,8 @@ const matchResults = [
         "player_b": "Ľubomír FRANČÁK",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5943,7 +6594,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -5952,7 +6604,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5961,7 +6614,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "5. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5970,7 +6624,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -5979,7 +6634,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -5988,7 +6644,8 @@ const matchResults = [
         "player_b": "Daniel VAŇO",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -5997,7 +6654,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6006,7 +6664,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6015,7 +6674,8 @@ const matchResults = [
         "player_b": "Štefan VENDEL",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6024,7 +6684,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6033,7 +6694,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6042,7 +6704,8 @@ const matchResults = [
         "player_b": "Daniel VAŇO",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6051,7 +6714,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6060,7 +6724,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6069,7 +6734,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6078,7 +6744,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6087,7 +6754,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6096,7 +6764,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6105,7 +6774,8 @@ const matchResults = [
         "player_b": "Štefan VENDEL",
         "round": "5. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6114,7 +6784,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6123,7 +6794,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6132,7 +6804,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6141,7 +6814,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6150,7 +6824,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6159,7 +6834,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6168,7 +6844,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6177,7 +6854,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6186,7 +6864,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6195,7 +6874,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6204,7 +6884,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6213,7 +6894,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6222,7 +6904,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6231,7 +6914,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6240,7 +6924,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6249,7 +6934,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "5. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6258,7 +6944,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6267,7 +6954,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6276,7 +6964,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6285,7 +6974,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6294,7 +6984,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6303,7 +6994,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6312,7 +7004,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6321,7 +7014,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6330,7 +7024,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6339,7 +7034,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6348,7 +7044,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6357,7 +7054,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6366,7 +7064,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6375,7 +7074,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6384,7 +7084,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6393,7 +7094,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "5. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6403,7 +7105,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6413,7 +7116,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6423,7 +7127,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6433,7 +7138,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6443,7 +7149,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6453,7 +7160,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6463,7 +7171,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6473,7 +7182,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6483,7 +7193,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6493,7 +7204,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6503,7 +7215,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6513,7 +7226,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6523,7 +7237,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6533,7 +7248,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6543,7 +7259,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6553,7 +7270,8 @@ const matchResults = [
         "round": "6. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6562,7 +7280,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6571,7 +7290,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6580,7 +7300,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6589,7 +7310,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6598,7 +7320,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6607,7 +7330,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6616,7 +7340,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6625,7 +7350,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6634,7 +7360,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6643,7 +7370,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6652,7 +7380,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6661,7 +7390,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6670,7 +7400,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6679,7 +7410,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6688,7 +7420,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6697,7 +7430,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "6. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -6706,7 +7440,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6715,7 +7450,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6724,7 +7460,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6733,7 +7470,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6742,7 +7480,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6751,7 +7490,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6760,7 +7500,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6769,7 +7510,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6778,7 +7520,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6787,7 +7530,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6796,7 +7540,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6805,7 +7550,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6814,7 +7560,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6823,7 +7570,8 @@ const matchResults = [
         "player_b": "Igor BAŠTI",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6832,7 +7580,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6841,7 +7590,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6850,7 +7600,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6859,7 +7610,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6868,7 +7620,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6877,7 +7630,8 @@ const matchResults = [
         "player_b": "Milan KRASNAY",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6886,7 +7640,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6895,7 +7650,8 @@ const matchResults = [
         "player_b": "Andrej KARLIK",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6904,7 +7660,8 @@ const matchResults = [
         "player_b": "Ján GAJDOŠ",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6913,7 +7670,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6922,7 +7680,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6931,7 +7690,8 @@ const matchResults = [
         "player_b": "Milan KRASNAY",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6940,7 +7700,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -6949,7 +7710,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6958,7 +7720,8 @@ const matchResults = [
         "player_b": "Milan KRASNAY",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6967,7 +7730,8 @@ const matchResults = [
         "player_b": "Ján GAJDOŠ",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6976,7 +7740,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -6985,7 +7750,8 @@ const matchResults = [
         "player_b": "Andrej KARLIK",
         "round": "6. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -6994,7 +7760,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7003,7 +7770,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7012,7 +7780,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7021,7 +7790,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7030,7 +7800,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -7039,7 +7810,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7048,7 +7820,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7057,7 +7830,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7066,7 +7840,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7075,7 +7850,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7084,7 +7860,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7093,7 +7870,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7102,7 +7880,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -7111,7 +7890,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7120,7 +7900,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7129,7 +7910,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "6. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7138,7 +7920,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7147,7 +7930,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7156,7 +7940,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7165,7 +7950,8 @@ const matchResults = [
         "player_b": "Jaroslav JANOVSKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7174,7 +7960,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7183,7 +7970,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7192,7 +7980,8 @@ const matchResults = [
         "player_b": "Jaroslav JANOVSKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7201,7 +7990,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7210,7 +8000,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7219,7 +8010,8 @@ const matchResults = [
         "player_b": "Jaroslav JANOVSKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7228,7 +8020,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7237,7 +8030,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7246,7 +8040,8 @@ const matchResults = [
         "player_b": "Jaroslav JANOVSKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7255,7 +8050,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7264,7 +8060,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7273,7 +8070,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "6. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7282,7 +8080,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7291,7 +8090,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7300,7 +8100,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7309,7 +8110,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7318,7 +8120,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7327,7 +8130,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7336,7 +8140,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7345,7 +8150,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7354,7 +8160,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7363,7 +8170,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -7372,7 +8180,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7381,7 +8190,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7390,7 +8200,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7399,7 +8210,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7408,7 +8220,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7417,7 +8230,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "6. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7426,7 +8240,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7435,7 +8250,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7444,7 +8260,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7453,7 +8270,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7462,7 +8280,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7471,7 +8290,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7480,7 +8300,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7489,7 +8310,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7498,7 +8320,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7507,7 +8330,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7516,7 +8340,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7525,7 +8350,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7534,7 +8360,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7543,7 +8370,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7552,7 +8380,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7561,7 +8390,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "6. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7570,7 +8400,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7579,7 +8410,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7588,7 +8420,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7597,7 +8430,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7606,7 +8440,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7615,7 +8450,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7624,7 +8460,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7633,7 +8470,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7642,7 +8480,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7651,7 +8490,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7660,7 +8500,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7669,7 +8510,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7678,7 +8520,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7687,7 +8530,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7696,7 +8540,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7705,7 +8550,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "6. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7715,7 +8561,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7725,7 +8572,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7735,7 +8583,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7745,7 +8594,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7755,7 +8605,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7765,7 +8616,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7775,7 +8627,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7785,7 +8638,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7795,7 +8649,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7805,7 +8660,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7815,7 +8671,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7825,7 +8682,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7835,7 +8693,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7845,7 +8704,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7855,7 +8715,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7865,7 +8726,8 @@ const matchResults = [
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7874,7 +8736,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7883,7 +8746,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7892,7 +8756,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7901,7 +8766,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -7910,7 +8776,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7919,7 +8786,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7928,7 +8796,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7937,7 +8806,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7946,7 +8816,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7955,7 +8826,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -7964,7 +8836,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7973,7 +8846,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -7982,7 +8856,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -7991,7 +8866,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8000,7 +8876,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8009,7 +8886,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "7. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8018,7 +8896,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8027,7 +8906,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8036,7 +8916,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8045,7 +8926,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8054,7 +8936,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8063,7 +8946,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8072,7 +8956,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8081,7 +8966,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8090,7 +8976,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8099,7 +8986,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8108,7 +8996,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8117,7 +9006,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8126,7 +9016,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ ml.",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8135,7 +9026,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8144,7 +9036,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8153,7 +9046,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "7. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8162,7 +9056,8 @@ const matchResults = [
         "player_b": "Ladislav RADVÁNI",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8171,7 +9066,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8180,7 +9076,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8189,7 +9086,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8198,7 +9096,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8207,7 +9106,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8216,7 +9116,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8225,7 +9126,8 @@ const matchResults = [
         "player_b": "Ladislav RADVÁNI",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8234,7 +9136,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8243,7 +9146,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8252,7 +9156,8 @@ const matchResults = [
         "player_b": "Ladislav RADVÁNI",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8261,7 +9166,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8270,7 +9176,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8279,7 +9186,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8288,7 +9196,8 @@ const matchResults = [
         "player_b": "Martin MUCHA",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8297,7 +9206,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "7. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8306,7 +9216,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8315,7 +9226,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8324,7 +9236,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8333,7 +9246,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8342,7 +9256,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8351,7 +9266,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8360,7 +9276,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8369,7 +9286,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8378,7 +9296,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8387,7 +9306,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8396,7 +9316,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8405,7 +9326,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8414,7 +9336,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8423,7 +9346,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8432,7 +9356,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8441,7 +9366,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "7. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8450,7 +9376,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8459,7 +9386,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8468,7 +9396,8 @@ const matchResults = [
         "player_b": "Juraj BUCHNER",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8477,7 +9406,8 @@ const matchResults = [
         "player_b": "Jozef MOHŇANSKÝ",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8486,7 +9416,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8495,7 +9426,8 @@ const matchResults = [
         "player_b": "Vladimír LÁSLOFI",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8504,7 +9436,8 @@ const matchResults = [
         "player_b": "Jozef MOHŇANSKÝ",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8513,7 +9446,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8522,7 +9456,8 @@ const matchResults = [
         "player_b": "Juraj BUCHNER",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8531,7 +9466,8 @@ const matchResults = [
         "player_b": "Jozef MOHŇANSKÝ",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8540,7 +9476,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8549,7 +9486,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8558,7 +9496,8 @@ const matchResults = [
         "player_b": "Jozef MOHŇANSKÝ",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8567,7 +9506,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8576,7 +9516,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8585,7 +9526,8 @@ const matchResults = [
         "player_b": "Juraj BUCHNER",
         "round": "7. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8594,7 +9536,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8603,7 +9546,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8612,7 +9556,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8621,7 +9566,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8630,7 +9576,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8639,7 +9586,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8648,7 +9596,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8657,7 +9606,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8666,7 +9616,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8675,7 +9626,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8684,7 +9636,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8693,7 +9646,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8702,7 +9656,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8711,7 +9666,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8720,7 +9676,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8729,7 +9686,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "7. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8738,7 +9696,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8747,7 +9706,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8756,7 +9716,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8765,7 +9726,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -8774,7 +9736,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8783,7 +9746,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8792,7 +9756,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8801,7 +9766,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8810,7 +9776,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8819,7 +9786,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8828,7 +9796,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8837,7 +9806,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8846,7 +9816,8 @@ const matchResults = [
         "player_b": "Jarmila SOMOŠOVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8855,7 +9826,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8864,7 +9836,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8873,7 +9846,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "7. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8882,7 +9856,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8891,7 +9866,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8900,7 +9876,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8909,7 +9886,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8918,7 +9896,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8927,7 +9906,8 @@ const matchResults = [
         "player_b": "WO",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8936,7 +9916,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8945,7 +9926,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8954,7 +9936,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -8963,7 +9946,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8972,7 +9956,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8981,7 +9966,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -8990,7 +9976,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -8999,7 +9986,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9008,7 +9996,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9017,7 +10006,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "7. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9027,7 +10017,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9037,7 +10028,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9047,7 +10039,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9057,7 +10050,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9067,7 +10061,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9077,7 +10072,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9087,7 +10083,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9097,7 +10094,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9107,7 +10105,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9117,7 +10116,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9127,7 +10127,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9137,7 +10138,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9147,7 +10149,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9157,7 +10160,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9167,7 +10171,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9177,7 +10182,8 @@ const matchResults = [
         "round": "8. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9186,7 +10192,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9195,7 +10202,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9204,7 +10212,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9213,7 +10222,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9222,7 +10232,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9231,7 +10242,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9240,7 +10252,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9249,7 +10262,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9258,7 +10272,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9267,7 +10282,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9276,7 +10292,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9285,7 +10302,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9294,7 +10312,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9303,7 +10322,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9312,7 +10332,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9321,7 +10342,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "8. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9330,7 +10352,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9339,7 +10362,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9348,7 +10372,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9357,7 +10382,8 @@ const matchResults = [
         "player_b": "Peter MACH",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9366,7 +10392,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9375,7 +10402,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9384,7 +10412,8 @@ const matchResults = [
         "player_b": "Milan KRASNAY",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9393,7 +10422,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9402,7 +10432,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9411,7 +10442,8 @@ const matchResults = [
         "player_b": "Peter MACH",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9420,7 +10452,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9429,7 +10462,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9438,7 +10472,8 @@ const matchResults = [
         "player_b": "Milan KRASNAY",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9447,7 +10482,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9456,7 +10492,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9465,7 +10502,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9474,7 +10512,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9483,7 +10522,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9492,7 +10532,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9501,7 +10542,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9510,7 +10552,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9519,7 +10562,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9528,7 +10572,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9537,7 +10582,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9546,7 +10592,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9555,7 +10602,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9564,7 +10612,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9573,7 +10622,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9582,7 +10632,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9591,7 +10642,8 @@ const matchResults = [
         "player_b": "Marek PATAKY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9600,7 +10652,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9609,7 +10662,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "8. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9618,7 +10672,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9627,7 +10682,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9636,7 +10692,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9645,7 +10702,8 @@ const matchResults = [
         "player_b": "Jarosl ANDRAŠČIK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9654,7 +10712,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9663,7 +10722,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9672,7 +10732,8 @@ const matchResults = [
         "player_b": "Jarosl ANDRAŠČIK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9681,7 +10742,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9690,7 +10752,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9699,7 +10762,8 @@ const matchResults = [
         "player_b": "Jarosl ANDRAŠČIK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9708,7 +10772,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9717,7 +10782,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9726,7 +10792,8 @@ const matchResults = [
         "player_b": "Jarosl ANDRAŠČIK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9735,7 +10802,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9744,7 +10812,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9753,7 +10822,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "8. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9762,7 +10832,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9771,7 +10842,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9780,7 +10852,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9789,7 +10862,8 @@ const matchResults = [
         "player_b": "Tomáš KUNDRÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9798,7 +10872,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9807,7 +10882,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9816,7 +10892,8 @@ const matchResults = [
         "player_b": "Tomáš KUNDRÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9825,7 +10902,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9834,7 +10912,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9843,7 +10922,8 @@ const matchResults = [
         "player_b": "Tomáš KUNDRÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9852,7 +10932,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9861,7 +10942,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9870,7 +10952,8 @@ const matchResults = [
         "player_b": "Tomáš KUNDRÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9879,7 +10962,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9888,7 +10972,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9897,7 +10982,8 @@ const matchResults = [
         "player_b": "Peter GABOŠ",
         "round": "8. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9906,7 +10992,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9915,7 +11002,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9924,7 +11012,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9933,7 +11022,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9942,7 +11032,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9951,7 +11042,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -9960,7 +11052,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -9969,7 +11062,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9978,7 +11072,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -9987,7 +11082,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -9996,7 +11092,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10005,7 +11102,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10014,7 +11112,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10023,7 +11122,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10032,7 +11132,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10041,7 +11142,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "8. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10050,7 +11152,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10059,7 +11162,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10068,7 +11172,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10077,7 +11182,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10086,7 +11192,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10095,7 +11202,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10104,7 +11212,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10113,7 +11222,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10122,7 +11232,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10131,7 +11242,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10140,7 +11252,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10149,7 +11262,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10158,7 +11272,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10167,7 +11282,8 @@ const matchResults = [
         "player_b": "Milan GAJTKO",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10176,7 +11292,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10185,7 +11302,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "8. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10194,7 +11312,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10203,7 +11322,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10212,7 +11332,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10221,7 +11342,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10230,7 +11352,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10239,7 +11362,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10248,7 +11372,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10257,7 +11382,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10266,7 +11392,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10275,7 +11402,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10284,7 +11412,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10293,7 +11422,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10302,7 +11432,8 @@ const matchResults = [
         "player_b": "Igor TKÁČ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10311,7 +11442,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10320,7 +11452,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10329,7 +11462,8 @@ const matchResults = [
         "player_b": "Anton STANICKÝ",
         "round": "8. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10339,7 +11473,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10349,7 +11484,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10359,7 +11495,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10369,7 +11506,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10379,7 +11517,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10389,7 +11528,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10399,7 +11539,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10409,7 +11550,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10419,7 +11561,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10429,7 +11572,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10439,7 +11583,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10449,7 +11594,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10459,7 +11605,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10469,7 +11616,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "METALKOV",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10479,7 +11627,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10489,7 +11638,8 @@ const matchResults = [
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "MYSLAVA \"Ž\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10498,7 +11648,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10507,7 +11658,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10516,7 +11668,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10525,7 +11678,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10534,7 +11688,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10543,7 +11698,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10552,7 +11708,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10561,7 +11718,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10570,7 +11728,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10579,7 +11738,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10588,7 +11748,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10597,7 +11758,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10606,7 +11768,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10615,7 +11778,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10624,7 +11788,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10633,7 +11798,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "9. kolo",
         "player_a_team": "BERNARD Club",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10642,7 +11808,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10651,7 +11818,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10660,7 +11828,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10669,7 +11838,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10678,7 +11848,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10687,7 +11858,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10696,7 +11868,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10705,7 +11878,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10714,7 +11888,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10723,7 +11898,8 @@ const matchResults = [
         "player_b": "Štefan LISSÝ",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10732,7 +11908,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10741,7 +11918,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10750,7 +11928,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10759,7 +11938,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10768,7 +11948,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10777,7 +11958,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "9. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10786,7 +11968,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10795,7 +11978,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10804,7 +11988,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10813,7 +11998,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10822,7 +12008,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10831,7 +12018,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10840,7 +12028,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10849,7 +12038,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10858,7 +12048,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10867,7 +12058,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10876,7 +12068,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -10885,7 +12078,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10894,7 +12088,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10903,7 +12098,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10912,7 +12108,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -10921,7 +12118,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "9. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10930,7 +12128,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10939,7 +12138,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10948,7 +12148,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10957,7 +12158,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10966,7 +12168,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10975,7 +12178,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -10984,7 +12188,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -10993,7 +12198,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11002,7 +12208,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11011,7 +12218,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11020,7 +12228,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11029,7 +12238,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11038,7 +12248,8 @@ const matchResults = [
         "player_b": "Milan ŠOLC",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11047,7 +12258,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11056,7 +12268,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11065,7 +12278,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "9. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11074,7 +12288,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11083,7 +12298,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11092,7 +12308,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11101,7 +12318,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11110,7 +12328,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11119,7 +12338,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11128,7 +12348,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11137,7 +12358,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11146,7 +12368,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11155,7 +12378,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11164,7 +12388,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11173,7 +12398,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11182,7 +12408,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11191,7 +12418,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11200,7 +12428,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11209,7 +12438,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "9. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11218,7 +12448,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11227,7 +12458,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11236,7 +12468,8 @@ const matchResults = [
         "player_b": "Vilo POLÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11245,7 +12478,8 @@ const matchResults = [
         "player_b": "Miro. HANIČÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11254,7 +12488,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11263,7 +12498,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11272,7 +12508,8 @@ const matchResults = [
         "player_b": "Miro. HANIČÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11281,7 +12518,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11290,7 +12528,8 @@ const matchResults = [
         "player_b": "Vilo POLÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11299,7 +12538,8 @@ const matchResults = [
         "player_b": "Miro. HANIČÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11308,7 +12548,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11317,7 +12558,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11326,7 +12568,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11335,7 +12578,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11344,7 +12588,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11353,7 +12598,8 @@ const matchResults = [
         "player_b": "Vilo POLÁK",
         "round": "9. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11362,7 +12608,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11371,7 +12618,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11380,7 +12628,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11389,7 +12638,8 @@ const matchResults = [
         "player_b": "Tamás BÓNI",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11398,7 +12648,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11407,7 +12658,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11416,7 +12668,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11425,7 +12678,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11434,7 +12688,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11443,7 +12698,8 @@ const matchResults = [
         "player_b": "Nándor BORTNYÁK",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11452,7 +12708,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11461,7 +12718,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11470,7 +12728,8 @@ const matchResults = [
         "player_b": "Tamás BÓNI",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11479,7 +12738,8 @@ const matchResults = [
         "player_b": "Ľubomír VARTÁS",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11488,7 +12748,8 @@ const matchResults = [
         "player_b": "František CZINGELY",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11497,7 +12758,8 @@ const matchResults = [
         "player_b": "Csaba BECSE",
         "round": "9. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "METALKOV"
+        "player_b_team": "METALKOV",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11506,7 +12768,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11515,7 +12778,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11524,7 +12788,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11533,7 +12798,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11542,7 +12808,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11551,7 +12818,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11560,7 +12828,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11569,7 +12838,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11578,7 +12848,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11587,7 +12858,8 @@ const matchResults = [
         "player_b": "Pavol CINKANIČ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11596,7 +12868,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11605,7 +12878,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11614,7 +12888,8 @@ const matchResults = [
         "player_b": "Zuzana GAŽI",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11623,7 +12898,8 @@ const matchResults = [
         "player_b": "Izabela VARGOVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11632,7 +12908,8 @@ const matchResults = [
         "player_b": "Martina KOLIBÁROVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11641,7 +12918,8 @@ const matchResults = [
         "player_b": "Iveta SOLČANIOVÁ",
         "round": "9. kolo",
         "player_a_team": "MONTREAL",
-        "player_b_team": "MYSLAVA \"Ž\""
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11651,7 +12929,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11661,7 +12940,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11671,7 +12951,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11681,7 +12962,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11691,7 +12973,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11701,7 +12984,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11711,7 +12995,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11721,7 +13006,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11731,7 +13017,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11741,7 +13028,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11751,7 +13039,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11761,7 +13050,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "KOMÉTA KE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11771,7 +13061,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11781,7 +13072,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11791,7 +13083,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11801,7 +13094,8 @@ const matchResults = [
         "round": "10. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11810,7 +13104,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11819,7 +13114,8 @@ const matchResults = [
         "player_b": "Dmytro LUKACHUK",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11828,7 +13124,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11837,7 +13134,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11846,7 +13144,8 @@ const matchResults = [
         "player_b": "Dmytro LUKACHUK",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11855,7 +13154,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11864,7 +13164,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11873,7 +13174,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11882,7 +13184,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11891,7 +13194,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11900,7 +13204,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11909,7 +13214,8 @@ const matchResults = [
         "player_b": "Dmytro LUKACHUK",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11918,7 +13224,8 @@ const matchResults = [
         "player_b": "Jaroslav WIENER",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11927,7 +13234,8 @@ const matchResults = [
         "player_b": "Peter SZCZECZINA",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -11936,7 +13244,8 @@ const matchResults = [
         "player_b": "Dmytro LUKACHUK",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -11945,7 +13254,8 @@ const matchResults = [
         "player_b": "Milan SUCHÝ",
         "round": "10. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "COKERY"
+        "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11954,7 +13264,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11963,7 +13274,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11972,7 +13284,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -11981,7 +13294,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11990,7 +13304,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -11999,7 +13314,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12008,7 +13324,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12017,7 +13334,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12026,7 +13344,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12035,7 +13354,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12044,7 +13364,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -12053,7 +13374,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12062,7 +13384,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12071,7 +13394,8 @@ const matchResults = [
         "player_b": "Ľubomír BENDZÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12080,7 +13404,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12089,7 +13414,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12098,7 +13424,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12107,7 +13434,8 @@ const matchResults = [
         "player_b": "Julius BACSÓ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12116,7 +13444,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12125,7 +13454,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12134,7 +13464,8 @@ const matchResults = [
         "player_b": "Julius BACSÓ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12143,7 +13474,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12152,7 +13484,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12161,7 +13494,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12170,7 +13504,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12179,7 +13514,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12188,7 +13524,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12197,7 +13534,8 @@ const matchResults = [
         "player_b": "Julius BACSÓ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12206,7 +13544,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12215,7 +13554,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12224,7 +13564,8 @@ const matchResults = [
         "player_b": "Julius BACSÓ",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12233,7 +13574,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "10. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12242,7 +13584,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12251,7 +13594,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12260,7 +13604,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12269,7 +13614,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12278,7 +13624,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12287,7 +13634,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12296,7 +13644,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12305,7 +13654,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12314,7 +13664,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12323,7 +13674,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12332,7 +13684,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12341,7 +13694,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12350,7 +13704,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12359,7 +13714,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12368,7 +13724,8 @@ const matchResults = [
         "player_b": "Milan PAŽIČ",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12377,7 +13734,8 @@ const matchResults = [
         "player_b": "Ján PETRŽALA",
         "round": "10. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12386,7 +13744,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12395,7 +13754,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12404,7 +13764,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12413,7 +13774,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12422,7 +13784,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12431,7 +13794,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12440,7 +13804,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12449,7 +13814,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12458,7 +13824,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12467,7 +13834,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12476,7 +13844,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12485,7 +13854,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12494,7 +13864,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12503,7 +13874,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12512,7 +13884,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12521,7 +13894,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "10. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12530,7 +13904,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -12539,7 +13914,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12548,7 +13924,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12557,7 +13934,8 @@ const matchResults = [
         "player_b": "Peter MACH",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12566,7 +13944,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12575,7 +13954,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12584,7 +13964,8 @@ const matchResults = [
         "player_b": "Ján GAJDOŠ",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -12593,7 +13974,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12602,7 +13984,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12611,7 +13994,8 @@ const matchResults = [
         "player_b": "Peter MACH",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12620,7 +14004,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -12629,7 +14014,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12638,7 +14024,8 @@ const matchResults = [
         "player_b": "Ján GAJDOŠ",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12647,7 +14034,8 @@ const matchResults = [
         "player_b": "Juraj ANTOŠ",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12656,7 +14044,8 @@ const matchResults = [
         "player_b": "Peter BARSA",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12665,7 +14054,8 @@ const matchResults = [
         "player_b": "Peter ŠTEFANCO",
         "round": "10. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "KOMÉTA KE"
+        "player_b_team": "KOMÉTA KE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -12674,7 +14064,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12683,7 +14074,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12692,7 +14084,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12701,7 +14094,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12710,7 +14104,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12719,7 +14114,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12728,7 +14124,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12737,7 +14134,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12746,7 +14144,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12755,7 +14154,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12764,7 +14164,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12773,7 +14174,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12782,7 +14184,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -12791,7 +14194,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12800,7 +14204,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12809,7 +14214,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "10. kolo",
         "player_a_team": "TTC KVP",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12818,7 +14224,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12827,7 +14234,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12836,7 +14244,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12845,7 +14254,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12854,7 +14264,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12863,7 +14274,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12872,7 +14284,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12881,7 +14294,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12890,7 +14304,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12899,7 +14314,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12908,7 +14324,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12917,7 +14334,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -12926,7 +14344,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12935,7 +14354,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12944,7 +14364,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12953,7 +14374,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "10. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12963,7 +14385,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12973,7 +14396,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
         "player_b_team": "MYSLAVA",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -12983,7 +14407,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -12993,7 +14418,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "COKERY",
         "player_b_team": "BOMBERE",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13003,7 +14429,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13013,7 +14440,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13023,7 +14451,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13033,7 +14462,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "REPREX",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13043,7 +14473,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13053,7 +14484,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "ASTORIA FIT",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13063,7 +14495,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13073,7 +14506,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "SOŠ Ž",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13083,7 +14517,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13093,7 +14528,8 @@ const matchResults = [
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
         "player_b_team": "SKP \"A\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13102,7 +14538,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13111,7 +14548,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13120,7 +14558,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13129,7 +14568,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13138,7 +14578,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13147,7 +14588,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13156,7 +14598,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13165,7 +14608,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13174,7 +14618,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13183,7 +14628,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13192,7 +14638,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13201,7 +14648,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13210,7 +14658,8 @@ const matchResults = [
         "player_b": "Marián HOVAN",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13219,7 +14668,8 @@ const matchResults = [
         "player_b": "Ján FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13228,7 +14678,8 @@ const matchResults = [
         "player_b": "Vladimír VARGOVČÁK",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13237,7 +14688,8 @@ const matchResults = [
         "player_b": "Jozef FOTTA",
         "round": "11. kolo",
         "player_a_team": "SKP \"B\"",
-        "player_b_team": "MYSLAVA"
+        "player_b_team": "MYSLAVA",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13246,7 +14698,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13255,7 +14708,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13264,7 +14718,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13273,7 +14728,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13282,7 +14738,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13291,7 +14748,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13300,7 +14758,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13309,7 +14768,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13318,7 +14778,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13327,7 +14788,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13336,7 +14798,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13345,7 +14808,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13354,7 +14818,8 @@ const matchResults = [
         "player_b": "Ondrej KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13363,7 +14828,8 @@ const matchResults = [
         "player_b": "Slavomír KRÁLIK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13372,7 +14838,8 @@ const matchResults = [
         "player_b": "Ján ŘIHAK",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13381,7 +14848,8 @@ const matchResults = [
         "player_b": "Ján GUZY",
         "round": "11. kolo",
         "player_a_team": "COKERY",
-        "player_b_team": "BOMBERE"
+        "player_b_team": "BOMBERE",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13390,7 +14858,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13399,7 +14868,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13408,7 +14878,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13417,7 +14888,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13426,7 +14898,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13435,7 +14908,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13444,7 +14918,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13453,7 +14928,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13462,7 +14938,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13471,7 +14948,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13480,7 +14958,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13489,7 +14968,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13498,7 +14978,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13507,7 +14988,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13516,7 +14998,8 @@ const matchResults = [
         "player_b": "Slav. FEČKE",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13525,7 +15008,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "11. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13534,7 +15018,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13543,7 +15028,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13552,7 +15038,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13561,7 +15048,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13570,7 +15058,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13579,7 +15068,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13588,7 +15078,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13597,7 +15088,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13606,7 +15098,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13615,7 +15108,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13624,7 +15118,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13633,7 +15128,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13642,7 +15138,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13651,7 +15148,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13660,7 +15158,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13669,7 +15168,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "11. kolo",
         "player_a_team": "REPREX",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13678,7 +15178,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13687,7 +15188,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13696,7 +15198,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13705,7 +15208,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13714,7 +15218,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13723,7 +15228,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13732,7 +15238,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13741,7 +15248,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13750,7 +15258,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13759,7 +15268,8 @@ const matchResults = [
         "player_b": "Viktor ŠIDLÍK",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13768,7 +15278,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13777,7 +15288,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13786,7 +15298,8 @@ const matchResults = [
         "player_b": "Matúš HRČKA",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13795,7 +15308,8 @@ const matchResults = [
         "player_b": "Julus WÉBER",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -13804,7 +15318,8 @@ const matchResults = [
         "player_b": "Marek KUNDRIK",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13813,7 +15328,8 @@ const matchResults = [
         "player_b": "Andrej KAČKOŠ",
         "round": "11. kolo",
         "player_a_team": "KOMÉTA KE",
-        "player_b_team": "ASTORIA FIT"
+        "player_b_team": "ASTORIA FIT",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13822,7 +15338,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13831,7 +15348,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13840,7 +15358,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13849,7 +15368,8 @@ const matchResults = [
         "player_b": "Vilo POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13858,7 +15378,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13867,7 +15388,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13876,7 +15398,8 @@ const matchResults = [
         "player_b": "Vilo POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13885,7 +15408,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13894,7 +15418,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13903,7 +15428,8 @@ const matchResults = [
         "player_b": "Vilo POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -13912,7 +15438,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13921,7 +15448,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13930,7 +15458,8 @@ const matchResults = [
         "player_b": "Vilo POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13939,7 +15468,8 @@ const matchResults = [
         "player_b": "Peter POLÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13948,7 +15478,8 @@ const matchResults = [
         "player_b": "Slavomír KEŠELÁK",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13957,7 +15488,8 @@ const matchResults = [
         "player_b": "Jozef MOLNÁR",
         "round": "11. kolo",
         "player_a_team": "TT TEAM",
-        "player_b_team": "SOŠ Ž"
+        "player_b_team": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13966,7 +15498,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13975,7 +15508,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -13984,7 +15518,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -13993,7 +15528,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14002,7 +15538,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14011,7 +15548,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14020,7 +15558,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14029,7 +15568,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14038,7 +15578,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14047,7 +15588,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14056,7 +15598,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14065,7 +15608,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14074,7 +15618,8 @@ const matchResults = [
         "player_b": "Matej KOVAČIK",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14083,7 +15628,8 @@ const matchResults = [
         "player_b": "Peter JAKUBEC",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14092,7 +15638,8 @@ const matchResults = [
         "player_b": "Martin SOĽÁR",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14101,7 +15648,8 @@ const matchResults = [
         "player_b": "Miroslav KOSCELANSKÝ",
         "round": "11. kolo",
         "player_a_team": "EUROCAST",
-        "player_b_team": "SKP \"A\""
+        "player_b_team": "SKP \"A\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14111,7 +15659,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14121,7 +15670,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
         "player_b_team": "TTC KVP",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14130,7 +15680,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14139,7 +15690,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14148,7 +15700,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14157,7 +15710,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14166,7 +15720,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14175,7 +15730,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14184,7 +15740,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14193,7 +15750,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14202,7 +15760,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14211,7 +15770,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14220,7 +15780,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14229,7 +15790,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14238,7 +15800,8 @@ const matchResults = [
         "player_b": "Eduard KUDLA",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14247,7 +15810,8 @@ const matchResults = [
         "player_b": "Karol GERGELY",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14256,7 +15820,8 @@ const matchResults = [
         "player_b": "Tomáš BEKECS",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14265,7 +15830,8 @@ const matchResults = [
         "player_b": "Andrej MAKRANSKÝ",
         "round": "12. kolo",
         "player_a_team": "ASTORIA FIT",
-        "player_b_team": "TTC KVP"
+        "player_b_team": "TTC KVP",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14275,7 +15841,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14285,7 +15852,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
         "player_b_team": "SKP \"B\"",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14294,7 +15862,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14303,7 +15872,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14312,7 +15882,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14321,7 +15892,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14330,7 +15902,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14339,7 +15912,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14348,7 +15922,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14357,7 +15932,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14366,7 +15942,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14375,7 +15952,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14384,7 +15962,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14393,7 +15972,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14402,7 +15982,8 @@ const matchResults = [
         "player_b": "Marek SKYBA",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14411,7 +15992,8 @@ const matchResults = [
         "player_b": "David LEŠUNDÁK",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14420,7 +16002,8 @@ const matchResults = [
         "player_b": "Martin ĎURIŠIN",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14429,7 +16012,8 @@ const matchResults = [
         "player_b": "Michal NINITZ",
         "round": "12. kolo",
         "player_a_team": "SOŠ Ž",
-        "player_b_team": "SKP \"B\""
+        "player_b_team": "SKP \"B\"",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14439,7 +16023,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14449,7 +16034,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
         "player_b_team": "MONTREAL",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14458,7 +16044,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14467,7 +16054,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14476,7 +16064,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14485,7 +16074,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14494,7 +16084,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14503,7 +16094,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14512,7 +16104,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14521,7 +16114,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14530,7 +16124,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14539,7 +16134,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14548,7 +16144,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14557,7 +16154,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14566,7 +16164,8 @@ const matchResults = [
         "player_b": "Luboš MRÁZ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14575,7 +16174,8 @@ const matchResults = [
         "player_b": "M. ZÁRIK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14584,7 +16184,8 @@ const matchResults = [
         "player_b": "Milan MICHLOVIČ",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14593,7 +16194,8 @@ const matchResults = [
         "player_b": "Štefan PČOLA",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA",
-        "player_b_team": "MONTREAL"
+        "player_b_team": "MONTREAL",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14603,7 +16205,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14613,7 +16216,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
         "player_b_team": "BERNARD Club",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14622,7 +16226,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14631,7 +16236,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14640,7 +16246,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14649,7 +16256,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14658,7 +16266,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14667,7 +16276,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14676,7 +16286,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14685,7 +16296,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14694,7 +16306,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14703,7 +16316,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14712,7 +16326,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14721,7 +16336,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14730,7 +16346,8 @@ const matchResults = [
         "player_b": "Radoslav POĽA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14739,7 +16356,8 @@ const matchResults = [
         "player_b": "Stanislav PČOLA",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14748,7 +16366,8 @@ const matchResults = [
         "player_b": "Tibor FIĽAK",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14757,7 +16376,8 @@ const matchResults = [
         "player_b": "Roman ČIŽMÁR",
         "round": "12. kolo",
         "player_a_team": "SKP \"A\"",
-        "player_b_team": "BERNARD Club"
+        "player_b_team": "BERNARD Club",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14767,7 +16387,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14777,7 +16398,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
         "player_b_team": "REPREX",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14786,7 +16408,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14795,7 +16418,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14804,7 +16428,8 @@ const matchResults = [
         "player_b": "Štefan VENDEL",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14813,7 +16438,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -14822,7 +16448,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14831,7 +16458,8 @@ const matchResults = [
         "player_b": "Štefan VENDEL",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14840,7 +16468,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14849,7 +16478,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14858,7 +16488,8 @@ const matchResults = [
         "player_b": "Štefan VENDEL",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14867,7 +16498,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -14876,7 +16508,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14885,7 +16518,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14894,7 +16528,8 @@ const matchResults = [
         "player_b": "Peter RUSNÁK",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14903,7 +16538,8 @@ const matchResults = [
         "player_b": "Ľubomír HOCHVART",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14912,7 +16548,8 @@ const matchResults = [
         "player_b": "Miloslav KOCÚR",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14921,7 +16558,8 @@ const matchResults = [
         "player_b": "Štefan VENDEL",
         "round": "12. kolo",
         "player_a_team": "MYSLAVA \"Ž\"",
-        "player_b_team": "REPREX"
+        "player_b_team": "REPREX",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14931,7 +16569,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14941,7 +16580,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14951,6 +16591,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14960,6 +16601,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -14969,6 +16611,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14978,6 +16621,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14987,6 +16631,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -14996,6 +16641,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15005,6 +16651,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15014,6 +16661,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15023,6 +16671,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15032,6 +16681,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15041,6 +16691,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15050,6 +16701,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15059,6 +16711,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15068,6 +16721,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15077,6 +16731,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15086,6 +16741,7 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "KOMÉTA KE",
         "player_b_team": "COKERY",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15095,7 +16751,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15105,7 +16762,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
         "player_b_team": "TT TEAM",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15114,7 +16772,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15123,7 +16782,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15132,7 +16792,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15141,7 +16802,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15150,7 +16812,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15159,7 +16822,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15168,7 +16832,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15177,7 +16842,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15186,7 +16852,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -15195,7 +16862,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15204,7 +16872,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15213,7 +16882,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15222,7 +16892,8 @@ const matchResults = [
         "player_b": "Marek SIMKO",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15231,7 +16902,8 @@ const matchResults = [
         "player_b": "Peter RUŽIČKA",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15240,7 +16912,8 @@ const matchResults = [
         "player_b": "Andrej FELBER",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15249,7 +16922,8 @@ const matchResults = [
         "player_b": "Juraj POLYAK",
         "round": "12. kolo",
         "player_a_team": "BOMBERE",
-        "player_b_team": "TT TEAM"
+        "player_b_team": "TT TEAM",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15259,7 +16933,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15269,7 +16944,8 @@ const matchResults = [
         "round": "12. kolo",
         "player_a_team": "METALKOV",
         "player_b_team": "EUROCAST",
-        "doubles": true
+        "doubles": true,
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15278,7 +16954,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15287,7 +16964,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15296,7 +16974,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15305,7 +16984,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15314,7 +16994,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15323,7 +17004,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15332,7 +17014,8 @@ const matchResults = [
         "player_b": "Jozef ZAVACKÝ",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -15341,7 +17024,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15350,7 +17034,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15359,7 +17044,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15368,7 +17054,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15377,7 +17064,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15386,7 +17074,8 @@ const matchResults = [
         "player_b": "Jozef HUDÁK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15395,7 +17084,8 @@ const matchResults = [
         "player_b": "Peter ŠEBEK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15404,7 +17094,8 @@ const matchResults = [
         "player_b": "Patrík TIRPÁK",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15413,7 +17104,8 @@ const matchResults = [
         "player_b": "Julius PILLÁR",
         "round": "12. kolo",
         "player_a_team": "METALKOV",
-        "player_b_team": "EUROCAST"
+        "player_b_team": "EUROCAST",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15425,7 +17117,8 @@ const matchResults = [
         "player_b_team": "ASTORIA FIT",
         "doubles": true,
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15437,7 +17130,8 @@ const matchResults = [
         "player_b_team": "ASTORIA FIT",
         "doubles": true,
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15448,7 +17142,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15459,7 +17154,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15470,7 +17166,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15481,7 +17178,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15492,7 +17190,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15503,7 +17202,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15514,7 +17214,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15525,7 +17226,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15536,7 +17238,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15547,7 +17250,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15558,7 +17262,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15569,7 +17274,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15580,7 +17286,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -15591,7 +17298,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15602,7 +17310,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15613,7 +17322,8 @@ const matchResults = [
         "player_a_team": "COKERY",
         "player_b_team": "ASTORIA FIT",
         "date": "2025-12-02 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15625,7 +17335,8 @@ const matchResults = [
         "player_b_team": "KOMÉTA KE",
         "doubles": true,
         "date": "2025-12-03 17:30",
-        "location": "Kult park"
+        "location": "Kult park",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15637,7 +17348,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": true,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15649,7 +17361,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": true,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -15661,7 +17374,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15673,7 +17387,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15685,7 +17400,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15697,7 +17413,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15709,7 +17426,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15721,7 +17439,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15733,7 +17452,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15745,7 +17465,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15757,7 +17478,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15769,7 +17491,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15781,7 +17504,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15793,7 +17517,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15805,7 +17530,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15817,7 +17543,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -15829,7 +17556,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15841,7 +17569,8 @@ const matchResults = [
         "player_b_team": "BOMBERE",
         "doubles": false,
         "date": "2025-12-01 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15853,7 +17582,8 @@ const matchResults = [
         "player_b_team": "SOŠ Ž",
         "doubles": true,
         "date": "2025-12-04 17:30",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15865,7 +17595,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": true,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15877,7 +17608,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": true,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15889,7 +17621,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -15901,7 +17634,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15913,7 +17647,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15925,7 +17660,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -15937,7 +17673,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15949,7 +17686,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15961,7 +17699,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15973,7 +17712,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -15985,7 +17725,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -15997,7 +17738,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -16009,7 +17751,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -16021,7 +17764,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16033,7 +17777,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16045,7 +17790,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16057,7 +17803,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -16069,7 +17816,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA",
         "doubles": false,
         "date": "2025-12-01 18:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -16081,7 +17829,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": true,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -16093,7 +17842,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": true,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16105,7 +17855,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16117,7 +17868,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16129,7 +17881,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16141,7 +17894,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16153,7 +17907,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16165,7 +17920,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16177,7 +17933,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -16189,7 +17946,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -16201,7 +17959,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16213,7 +17972,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16225,7 +17985,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16237,7 +17998,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 1,
@@ -16249,7 +18011,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -16261,7 +18024,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 3,
@@ -16273,7 +18037,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 2,
@@ -16285,7 +18050,8 @@ const matchResults = [
         "player_b_team": "METALKOV",
         "doubles": false,
         "date": "2025-12-01 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16297,7 +18063,8 @@ const matchResults = [
         "player_b_team": "SKP \"A\"",
         "doubles": true,
         "date": "2025-12-03 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16309,7 +18076,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA \"Ž\"",
         "doubles": true,
         "date": "2025-12-03 17:00",
-        "location": "Jedlikova"
+        "location": "Jedlikova",
+        "season": "JESEŇ 2025"
     },
     
     {
@@ -16322,7 +18090,8 @@ const matchResults = [
         "player_b_team": "MYSLAVA \"Ž\"",
         "doubles": true,
         "date": "2025-12-08 17:00",
-        "location": "Cinova"
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16334,7 +18103,8 @@ const matchResults = [
         "player_b_team": "TTC KVP",
         "doubles": true,
         "date": "2025-12-08 17:30",
-        "location": "Rampova"
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16346,7 +18116,8 @@ const matchResults = [
         "player_b_team": "REPREX",
         "doubles": true,
         "date": "2025-12-11 17:30",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16358,7 +18129,8 @@ const matchResults = [
         "player_b_team": "BERNARD Club",
         "doubles": true,
         "date": "2025-12-08 17:30",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16370,7 +18142,8 @@ const matchResults = [
         "player_b_team": "EUROCAST",
         "doubles": true,
         "date": "2025-12-08 17:00",
-        "location": "SOŠ Ž"
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16382,7 +18155,8 @@ const matchResults = [
         "player_b_team": "MONTREAL",
         "doubles": true,
         "date": "2025-12-10 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16394,7 +18168,8 @@ const matchResults = [
         "player_b_team": "SKP \"B\"",
         "doubles": true,
         "date": "2025-12-10 17:00",
-        "location": "Jedlíkova"
+        "location": "Jedlíkova",
+        "season": "JESEŇ 2025"
     },
     {
         "score_a": 0,
@@ -16406,6 +18181,137 @@ const matchResults = [
         "player_b_team": "TT TEAM",
         "doubles": true,
         "date": "2025-12-09 17:00",
-        "location": "Myslava"
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "TT TEAM",
+        "player_b_team": "ASTORIA FIT",
+        "doubles": true,
+        "date": "2025-12-17 17:30",
+        "location": "Kult.park",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "SKP \"B\"",
+        "player_b_team": "COKERY",
+        "doubles": true,
+        "date": "2025-12-15 17:30",
+        "location": "Rampova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "MONTREAL",
+        "player_b_team": "KOMÉTA KE",
+        "doubles": true,
+        "date": "2025-12-18 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "EUROCAST",
+        "player_b_team": "BOMBERE",
+        "doubles": true,
+        "date": "2025-12-15 18:00",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "BERNARD Club",
+        "player_b_team": "SOŠ Ž",
+        "doubles": true,
+        "date": "2025-12-15 17:30",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "REPREX",
+        "player_b_team": "MYSLAVA",
+        "doubles": true,
+        "date": "2025-12-17 17:00",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "TTC KVP",
+        "player_b_team": "METALKOV",
+        "doubles": true,
+        "date": "2025-12-17 17:00",
+        "location": "Jedlikova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "15. kolo",
+        "player_a_team": "MYSLAVA \"Ž\"",
+        "player_b_team": "SKP \"A\"",
+        "doubles": true,
+        "date": "2025-12-16 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "16. kolo (Dohrávky)",
+        "player_a_team": "MONTREAL",
+        "player_b_team": "METALKOV",
+        "doubles": true,
+        "date": "2025-12-22 18:00",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 0,
+        "player_a": "WO",
+        "player_b": "WO",
+        "round": "16. kolo (Dohrávky)",
+        "player_a_team": "BERNARD Club",
+        "player_b_team": "KOMÉTA KE",
+        "doubles": true,
+        "date": "2025-12-22 17:30",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
     },
 ]

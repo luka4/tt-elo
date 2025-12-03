@@ -301,7 +301,7 @@ function renderResultsPage() {
     // Render in order of appearance
     const uniqueRounds = [...new Set(matchResults.filter(isPlayedMatch).map(m => m.round))];
 
-    uniqueRounds.forEach(roundName => {
+    uniqueRounds.reverse().forEach(roundName => {
         const roundWrapper = document.createElement('div');
         roundWrapper.className = 'round-group';
         const header = document.createElement('div'); header.className = 'round-header'; header.innerText = roundName;
@@ -686,24 +686,59 @@ function renderTablePage() {
     const { players } = processData();
     const teams = {}; const teamMatchesArray = []; const tempMatches = {};
 
-    // Only use PLAYED matches for table
-    matchResults.filter(isPlayedMatch).forEach(m => {
+    // Iterate ALL matches to gather schedule + results
+    matchResults.forEach(m => {
         const key = `${m.round}::${m.player_a_team}::${m.player_b_team}`;
-        if (!tempMatches[key]) tempMatches[key] = { date: m.round, teamA: m.player_a_team, teamB: m.player_b_team, scoreA: 0, scoreB: 0 };
-        const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
-        if (sA > sB) tempMatches[key].scoreA++; if (sB > sA) tempMatches[key].scoreB++;
+        if (!tempMatches[key]) tempMatches[key] = { 
+            roundName: m.round, 
+            teamA: m.player_a_team, 
+            teamB: m.player_b_team, 
+            scoreA: 0, 
+            scoreB: 0,
+            isPlayed: false,
+            realDate: null 
+        };
+        
+        // Check if this specific entry is a played game
+        if (isPlayedMatch(m)) {
+            const sA = parseInt(m.score_a); const sB = parseInt(m.score_b);
+            if (sA > sB) tempMatches[key].scoreA++; 
+            if (sB > sA) tempMatches[key].scoreB++;
+            tempMatches[key].isPlayed = true;
+        } else {
+            // It's a scheduled/WO entry
+            // We capture the date if available (often in the WO entry)
+            if (m.date) tempMatches[key].realDate = m.date;
+        }
     });
+    
     for (const key in tempMatches) teamMatchesArray.push(tempMatches[key]);
 
     const initTeam = (n) => { if (!teams[n]) teams[n] = { name: n, matches: 0, wins: 0, draws: 0, losses: 0, scoreFor: 0, scoreAgainst: 0, points: 0, avgRating: 0 }; };
+    
+    // Initialize teams
     teamMatchesArray.forEach(m => {
         initTeam(m.teamA); initTeam(m.teamB);
+    });
+    
+    // Calculate Stats - ONLY for played matches
+    teamMatchesArray.forEach(m => {
+        if (!m.isPlayed) return;
+
         teams[m.teamA].matches++; teams[m.teamB].matches++;
         teams[m.teamA].scoreFor += m.scoreA; teams[m.teamA].scoreAgainst += m.scoreB;
         teams[m.teamB].scoreFor += m.scoreB; teams[m.teamB].scoreAgainst += m.scoreA;
-        if (m.scoreA > m.scoreB) { teams[m.teamA].wins++; teams[m.teamA].points += 3; teams[m.teamB].losses++; teams[m.teamB].points += 1; }
-        else if (m.scoreB > m.scoreA) { teams[m.teamB].wins++; teams[m.teamB].points += 3; teams[m.teamA].losses++; teams[m.teamA].points += 1; }
-        else { teams[m.teamA].draws++; teams[m.teamA].points += 2; teams[m.teamB].draws++; teams[m.teamB].points += 2; }
+        
+        if (m.scoreA > m.scoreB) { 
+            teams[m.teamA].wins++; teams[m.teamA].points += 3; 
+            teams[m.teamB].losses++; teams[m.teamB].points += 1; 
+        } else if (m.scoreB > m.scoreA) { 
+            teams[m.teamB].wins++; teams[m.teamB].points += 3; 
+            teams[m.teamA].losses++; teams[m.teamA].points += 1; 
+        } else { 
+            teams[m.teamA].draws++; teams[m.teamA].points += 2; 
+            teams[m.teamB].draws++; teams[m.teamB].points += 2; 
+        }
     });
 
     Object.values(teams).forEach(t => {
@@ -714,17 +749,33 @@ function renderTablePage() {
     const tbody = document.getElementById('tableBody');
     const selectA = document.getElementById('teamSelectA');
     const selectB = document.getElementById('teamSelectB');
-    if (selectA) Object.keys(teams).sort().forEach(t => { selectA.add(new Option(t, t)); selectB.add(new Option(t, t)); });
+    if (selectA) {
+        selectA.innerHTML = '<option value="">Vyber Domácich</option>';
+        selectB.innerHTML = '<option value="">Vyber Hostí</option>';
+        Object.keys(teams).sort().forEach(t => { selectA.add(new Option(t, t)); selectB.add(new Option(t, t)); });
+    }
 
     const getHist = (tn) => {
         const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
         if (mm.length === 0) return `<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
+        
         let h = `<div class="history-list">`;
         mm.forEach(m => {
             const isHome = m.teamA === tn;
-            const sc = isHome ? (m.scoreA>m.scoreB?"score-win":(m.scoreA<m.scoreB?"score-loss":"score-draw")) : (m.scoreB>m.scoreA?"score-win":(m.scoreB<m.scoreA?"score-loss":"score-draw"));
-            h += `<div class="history-row"><div class="hr-date">${m.date}</div><div class="hr-match">
-                <span class="hr-team hr-home ${m.teamA===tn?"current-team":"other-team"}">${m.teamA}</span><span class="hr-score ${sc}">${m.scoreA}:${m.scoreB}</span><span class="hr-team hr-guest ${m.teamB===tn?"current-team":"other-team"}">${m.teamB}</span></div></div>`;
+            let scHtml = '';
+            let scClass = '';
+            if (m.isPlayed) {
+                scClass = isHome ? (m.scoreA>m.scoreB?"score-win":(m.scoreA<m.scoreB?"score-loss":"score-draw")) : (m.scoreB>m.scoreA?"score-win":(m.scoreB<m.scoreA?"score-loss":"score-draw"));
+                scHtml = `${m.scoreA}:${m.scoreB}`;
+            } else {
+                scClass = "score-draw"; 
+                scHtml = "VS";
+            }
+            
+            const vsStyle = !m.isPlayed ? 'style="color:#aaa;"' : '';
+
+            h += `<div class="history-row"><div class="hr-date">${m.roundName}</div><div class="hr-match">
+                <span class="hr-team hr-home ${m.teamA===tn?"current-team":"other-team"}">${m.teamA}</span><span class="hr-score ${scClass}" ${vsStyle}>${scHtml}</span><span class="hr-team hr-guest ${m.teamB===tn?"current-team":"other-team"}">${m.teamB}</span></div></div>`;
         });
         return h + `</div>`;
     };
