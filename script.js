@@ -360,21 +360,18 @@ function renderMatchList(matches, container, appendToProvided) {
         } else {
             // Unplayed View
             const summary = document.createElement('div'); summary.className = 'match-summary';
-            
+            // Same structure as played matches for perfect alignment
+            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div><div class="score-badge" style="background:#e0e0e0; color:#555;">VS</div><div class="team-name team-right">${match.teamB}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
+            matchRow.appendChild(summary);
+
             const dateStr = match.date ? match.date : '';
             const locStr = match.location ? match.location : '';
-            const metaHtml = (dateStr || locStr) ? `<div style="font-size:0.75em; color:#666; margin-top:6px;">${dateStr}${dateStr && locStr ? ' | ' : ''}${locStr}</div>` : '';
-
-            summary.innerHTML = `
-                <div style="width:100%; text-align:center;">
-                    <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-                        <div class="team-name team-left">${match.teamA}</div>
-                        <div class="score-badge" style="background:#e0e0e0; color:#555; font-size:0.9em; min-width:40px;">VS</div>
-                        <div class="team-name team-right">${match.teamB}</div>
-                    </div>
-                    ${metaHtml}
-                </div>`;
-            matchRow.appendChild(summary);
+            if (dateStr || locStr) {
+                const metaDiv = document.createElement('div');
+                metaDiv.style.cssText = "text-align:center; font-size:0.75em; color:#666; padding-bottom:8px; margin-top:-8px;";
+                metaDiv.innerHTML = `${dateStr}${dateStr && locStr ? ' | ' : ''}${locStr}`;
+                matchRow.appendChild(metaDiv);
+            }
         }
         wrapper.appendChild(matchRow);
     });
