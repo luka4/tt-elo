@@ -25,21 +25,21 @@
         .table-wrapper { overflow-x: auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border: 1px solid #dfe3e8; position: relative; }
         table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; min-width: 1500px; table-layout: auto; }
         th, td { padding: 8px 10px; border-bottom: 1px solid #eee; border-right: 1px solid #eee; text-align: center; white-space: nowrap; box-sizing: border-box; }
-        
+
         /* Dynamic Sticky Offsets */
         :root { --col-1-width: 40px; }
 
         thead tr:first-child th { background-color: #4A90E2; color: white; font-weight: 700; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; border-right: 1px solid rgba(255,255,255,0.2); height: 32px; padding: 2px 5px; vertical-align: middle; }
         thead tr:nth-child(2) th { color: #444; font-weight: 600; font-size: 0.75em; border-bottom: 2px solid #ddd; height: 24px; padding: 2px 5px; }
-        
+
         /* Sticky header container */
         #stickyHeaderContainer { position: fixed; top: 0; left: 0; width: 100%; z-index: 4000; overflow-x: hidden; overflow-y: visible; display: none; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); pointer-events: none; padding: 0 10px; box-sizing: border-box; }
         #stickyHeaderContainer table { margin: 0; background: #fff; pointer-events: auto; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
-        
+
         /* Correct colors for sticky header sub-headers */
         #stickyHeaderContainer thead tr:nth-child(2) th.sub-singles { background-color: #e3f2fd !important; color: #1565c0; }
         #stickyHeaderContainer thead tr:nth-child(2) th.sub-doubles { background-color: #fff3e0 !important; color: #ef6c00; }
-        
+
         /* Ensure sticky left columns work in clone - Using Variables */
         #stickyHeaderContainer th:nth-child(1) { left: 0; z-index: 4000 !important; border-right: none; background-color: #4A90E2; }
         #stickyHeaderContainer th:nth-child(2) { left: var(--col-1-width); z-index: 4000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); background-color: #4A90E2; }
@@ -47,7 +47,7 @@
         thead tr:nth-child(2) th.sub-singles { background-color: #e3f2fd; color: #1565c0; }
         thead tr:nth-child(2) th.sub-doubles { background-color: #fff3e0; color: #ef6c00; }
         .border-left-thick { border-left: 2px solid #ccc !important; }
-        
+
         /* Main Table Sticky Cols */
         thead tr:first-child th:nth-child(1) { position: sticky; left: 0; z-index: 2000 !important; border-right: none; width: var(--col-1-width); min-width: var(--col-1-width); max-width: var(--col-1-width); }
         thead tr:first-child th:nth-child(2) { position: sticky; left: var(--col-1-width); z-index: 2000 !important; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
@@ -153,7 +153,7 @@
 
 <nav class="top-nav" id="mainNav">
     <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
-    <div class="nav-badge">Aktualizované:<br>02.12.2025 21:00</div>
+    <div class="nav-badge">Aktualizované:<br>03.12.2025 14:00</div>
     <div class="nav-links">
         <a href="results.html">Výsledky</a>
         <a href="table.html">Tabuľka</a>

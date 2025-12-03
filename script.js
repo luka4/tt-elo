@@ -15,6 +15,28 @@ function getKFactor(matchesCount) {
     return K_FACTOR_STAGES[matchesCount] || K_FACTOR_STAGES.default;
 }
 
+// Helper: Parse Season for Sorting (Year * 10 + Term)
+function getSeasonOrder(seasonStr) {
+    if (!seasonStr) return 0; // Old data
+    const parts = seasonStr.trim().split(' ');
+    if (parts.length < 2) return 0;
+    
+    const term = parts[0].toUpperCase(); // JAR, JESEN
+    // Remove any non-numeric chars from year just in case
+    const year = parseInt(parts[1].replace(/[^\d]/g, '')); 
+    if (isNaN(year)) return 0;
+
+    // JAR = 1, JESEŇ/JESEN = 2
+    // If there are other terms, handle them? For now assume these two.
+    const termVal = (term.includes('JAR')) ? 1 : 2; 
+    
+    return year * 10 + termVal;
+}
+
+function getMatchRoundId(m) {
+    return `${m.season || 'N/A'}__${m.round}`;
+}
+
 function updateLayout() {
     const nav = document.getElementById('mainNav');
     if (!nav) return;
@@ -55,7 +77,10 @@ function processData() {
     const playedMatches = matchResults.filter(isPlayedMatch);
 
     // Find the latest played round name
-    const latestRoundName = playedMatches.length > 0 ? playedMatches[playedMatches.length - 1].round : "";
+    const lastMatch = playedMatches.length > 0 ? playedMatches[playedMatches.length - 1] : null;
+    const latestRoundId = lastMatch ? getMatchRoundId(lastMatch) : null;
+    // We keep latestRoundName for legacy display strings, but logic should use ID
+    const latestRoundName = lastMatch ? lastMatch.round : "";
 
     const initPlayer = (nameRaw, teamName) => {
         const name = nameRaw.trim();
@@ -80,13 +105,13 @@ function processData() {
     };
 
     playedMatches.forEach(match => {
-        roundsSet.add(match.round);
+        roundsSet.add(getMatchRoundId(match));
         const scoreA = parseInt(match.score_a);
         const scoreB = parseInt(match.score_b);
         totalSets += (scoreA + scoreB);
 
         const isDoubles = match.doubles === true || match.doubles === "true";
-        const isLatestRound = match.round === latestRoundName;
+        const isLatestRound = getMatchRoundId(match) === latestRoundId;
 
         const pNamesA = match.player_a.split('/').map(n => n.trim());
         const pNamesB = match.player_b.split('/').map(n => n.trim());
@@ -191,8 +216,15 @@ function processData() {
                 p.rating += deltaOwn;
                 if (isLatestRound) p.roundGain += deltaOwn;
 
-                // Use Date for history if available, else Round Name
-                const historyKey = match.round;
+                // Use composite key for history to allow proper sorting
+                // Format: seasonOrder-roundNum|DisplayString
+                // We need round number for sorting within season. 
+                // Assume format "X. kolo"
+                const rNum = parseInt((match.round.match(/\d+/) || [0])[0]);
+                const sOrder = getSeasonOrder(match.season);
+                const sDisp = match.season ? ` (${match.season})` : '';
+                const historyKey = `${sOrder}-${String(rNum).padStart(2, '0')}|${match.round}${sDisp}`;
+                
                 p.history[historyKey] = p.rating;
 
                 p.maxRating = Math.max(p.rating, p.maxRating);
@@ -222,7 +254,7 @@ function processData() {
         updateSide(pNamesB, scoreB, scoreA, deltaB, deltaA, pNamesA, match.player_a_team);
     });
 
-    return {players, roundsSet, totalSets, latestRoundName, upsetsList};
+    return {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList};
 }
 
 // ============================================================
@@ -231,20 +263,30 @@ function processData() {
 
 // --- HOME PAGE ---
 function renderHomePage() {
-    const {players, roundsSet, totalSets, latestRoundName, upsetsList} = processData();
+    const {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList} = processData();
     const playedMatches = matchResults.filter(isPlayedMatch);
 
     // Stats
-    const uniqueTeamMatches = new Set(playedMatches.map(m => `${m.round}_${m.player_a_team}_${m.player_b_team}`));
+    const uniqueTeamMatches = new Set(playedMatches.map(m => `${getMatchRoundId(m)}_${m.player_a_team}_${m.player_b_team}`));
     document.getElementById('totalRounds').innerText = roundsSet.size;
     document.getElementById('totalTeamMatches').innerText = uniqueTeamMatches.size;
     document.getElementById('totalMatches').innerText = playedMatches.length;
     document.getElementById('totalSets').innerText = totalSets;
-    document.getElementById('latestRoundTitle').innerText = latestRoundName || "Zatiaľ žiadne zápasy";
+
+    const latestTitleText = latestRoundId ? (
+        (() => {
+             const m = playedMatches.find(pm => getMatchRoundId(pm) === latestRoundId);
+             const s = m && m.season ? ` (${m.season})` : '';
+             return m ? `${m.round}${s}` : latestRoundName;
+        })()
+    ) : "Zatiaľ žiadne zápasy";
+
+    document.getElementById('latestRoundTitle').innerText = latestTitleText;
 
     // Top Gainers
     const top5 = Object.values(players).sort((a, b) => b.roundGain - a.roundGain).slice(0, 5);
     const gainList = document.getElementById('topGainersList');
+    gainList.innerHTML = '';
     top5.forEach((p, index) => {
         if (p.roundGain <= 0) return;
         const li = document.createElement('li');
@@ -270,27 +312,29 @@ function renderHomePage() {
     }
 
     // Latest Results (Now "Current Round")
-    if (latestRoundName) {
-        const currentRoundMatches = matchResults.filter(m => m.round === latestRoundName);
+    if (latestRoundId) {
+        const currentRoundMatches = matchResults.filter(m => getMatchRoundId(m) === latestRoundId);
         renderMatchList(currentRoundMatches, document.getElementById('latestRoundContainer'), false);
 
-        // Force update the title explicitly to "Aktuálne Kolo: [round]"
+        // Force update the title explicitly
         const currentTitle = document.getElementById('latestRoundTitle');
-        if (currentTitle) currentTitle.innerText = `Aktuálne Kolo: ${latestRoundName}`;
+        if (currentTitle) currentTitle.innerText = `Aktuálne Kolo: ${latestTitleText}`;
 
         // Previous Round Logic
-        // Find unique rounds in order of appearance (assuming chronological in JSON)
-        const allRounds = [...new Set(matchResults.filter(isPlayedMatch).map(m => m.round))];
-        const currentIndex = allRounds.indexOf(latestRoundName);
+        const allRoundIds = [...new Set(matchResults.filter(isPlayedMatch).map(m => getMatchRoundId(m)))];
+        const currentIndex = allRoundIds.indexOf(latestRoundId);
 
         if (currentIndex > 0) {
-            const prevRoundName = allRounds[currentIndex - 1];
-            const prevRoundMatches = matchResults.filter(m => m.round === prevRoundName);
+            const prevRoundId = allRoundIds[currentIndex - 1];
+            const prevRoundMatches = matchResults.filter(m => getMatchRoundId(m) === prevRoundId);
 
-            document.getElementById('prevRoundTitle').innerText = prevRoundName;
+            const pm = prevRoundMatches[0];
+            const s = pm && pm.season ? ` (${pm.season})` : '';
+            const prevName = pm ? `${pm.round}${s}` : prevRoundId;
+
+            document.getElementById('prevRoundTitle').innerText = prevName;
             renderMatchList(prevRoundMatches, document.getElementById('prevRoundContainer'), false);
         } else {
-            // Hide previous round section if there is no previous round
             const prevHeader = document.getElementById('prevRoundTitle').parentElement;
             if (prevHeader) prevHeader.style.display = 'none';
         }
@@ -300,22 +344,21 @@ function renderHomePage() {
     const upcomingContainer = document.getElementById('upcomingMatchesContainer');
     if (!upcomingContainer) return;
 
-    // Filter FUTURE matches - only from SUBSEQUENT rounds
-    const futureMatches = matchResults.filter(m => !isPlayedMatch(m) && m.round !== latestRoundName);
+    // Filter FUTURE matches - only from SUBSEQUENT rounds (not in latest ID)
+    const futureMatches = matchResults.filter(m => !isPlayedMatch(m) && getMatchRoundId(m) !== latestRoundId);
 
     if (futureMatches.length > 0) {
-        // Find the "Next" round (first unique round name in future matches)
-        // Use Set to maintain order and find first unique round
-        const uniqueFutureRounds = [...new Set(futureMatches.map(m => m.round))];
-        // The first one in the list (chronologically) should be the next round
-        const nextRoundName = uniqueFutureRounds[0];
-        const nextRoundMatches = futureMatches.filter(m => m.round === nextRoundName);
+        const uniqueFutureIds = [...new Set(futureMatches.map(m => getMatchRoundId(m)))];
+        const nextRoundId = uniqueFutureIds[0];
+        const nextRoundMatches = futureMatches.filter(m => getMatchRoundId(m) === nextRoundId);
 
-        // Update Title to be specific
+        const nm = nextRoundMatches[0];
+        const s = nm && nm.season ? ` (${nm.season})` : '';
+        const nextName = nm ? `${nm.round}${s}` : "Nasledujúce kolo";
+
         const titleSpan = document.getElementById('nextRoundTitle');
         if (titleSpan && titleSpan.parentElement) {
-            // Replace the entire H2 content to match user preference
-            titleSpan.parentElement.innerText = `Zápasy nasledujúceho kola: ${nextRoundName}`;
+            titleSpan.parentElement.innerText = `Zápasy nasledujúceho kola: ${nextName}`;
         }
 
         const listDiv = document.getElementById('upcomingList');
@@ -333,24 +376,49 @@ function renderHomePage() {
 // --- RESULTS PAGE ---
 function renderResultsPage() {
     const rounds = {};
-    // Group by ROUND, only PLAYED matches
+    // Group by ROUND ID (Season + Round), only PLAYED matches
     matchResults.filter(isPlayedMatch).forEach(m => {
-        if (!rounds[m.round]) rounds[m.round] = [];
-        rounds[m.round].push(m);
+        const id = getMatchRoundId(m);
+        if (!rounds[id]) {
+            const rNum = parseInt((m.round.match(/\d+/) || [0])[0]);
+            rounds[id] = {
+                id: id,
+                name: m.round,
+                season: m.season,
+                matches: [],
+                seasonOrder: getSeasonOrder(m.season),
+                roundNum: rNum
+            };
+        }
+        rounds[id].matches.push(m);
     });
 
     const container = document.getElementById('resultsContainer');
-    // Render in order of appearance
-    const uniqueRounds = [...new Set(matchResults.filter(isPlayedMatch).map(m => m.round))];
+    
+    // Sort Rounds: Latest Season first, then Latest Round first
+    const sortedRoundIds = Object.keys(rounds).sort((a, b) => {
+        const rA = rounds[a];
+        const rB = rounds[b];
+        
+        if (rA.seasonOrder !== rB.seasonOrder) {
+            return rB.seasonOrder - rA.seasonOrder;
+        }
+        return rB.roundNum - rA.roundNum;
+    });
 
-    uniqueRounds.reverse().forEach(roundName => {
+    sortedRoundIds.forEach(id => {
+        const r = rounds[id];
         const roundWrapper = document.createElement('div');
         roundWrapper.className = 'round-group';
         const header = document.createElement('div');
         header.className = 'round-header';
-        header.innerText = roundName;
+        
+        // Header format: "13. kolo. JESEŇ 2025"
+        const seasonPart = r.season ? `. ${r.season}` : '';
+        header.innerText = `${r.name}${seasonPart}`;
+        
         roundWrapper.appendChild(header);
-        renderMatchList(rounds[roundName], roundWrapper, true);
+        renderMatchList(r.matches, roundWrapper, true);
         container.appendChild(roundWrapper);
     });
 }
@@ -447,7 +515,7 @@ function renderRatingPage() {
             if (selectedTeams.length > 0 && !selectedTeams.includes(p.team)) return;
             const tr = document.createElement('tr');
             if (p.team === 'COKERY') tr.classList.add('team-cokery');
-            if (p.team === 'ASTORIA FIT') tr.classList.add('team-astoria');
+            if (p.team === 'ASTORIAFIT') tr.classList.add('team-astoria');
             tr.onclick = () => {
                 if (window.getSelection().toString().length === 0) openPlayerModal(p);
             };
@@ -719,16 +787,21 @@ function renderRatingPage() {
 
     const renderLineChart = (p) => {
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const sortedDates = Object.keys(p.history).sort((a, b) => a.localeCompare(b, undefined, {
-            numeric: true,
-            sensitivity: 'base'
-        }));
-        const dataPoints = sortedDates.map(date => p.history[date]);
+        
+        // Keys are now "seasonOrder-roundNum|DisplayString"
+        // We sort them alphanumerically, which works because seasonOrder and roundNum are numbers.
+        // Wait, "20252-01" vs "20261-01" -> 20252 < 20261. Correct.
+        const sortedKeys = Object.keys(p.history).sort();
+        
+        // Extract display labels from keys
+        const labels = sortedKeys.map(k => k.split('|')[1]);
+        const dataPoints = sortedKeys.map(k => p.history[k]);
+
         if (chartRefs['line']) chartRefs['line'].destroy();
         chartRefs['line'] = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: sortedDates,
+                labels: labels,
                 datasets: [{
                     label: p.name,
                     data: dataPoints,
@@ -817,145 +890,210 @@ function renderRatingPage() {
 // --- TABLE PAGE ---
 function renderTablePage() {
     const {players} = processData();
-    const teams = {};
-    const teamMatchesArray = [];
-    const tempMatches = {};
+    const tables = {};
+    const allTeamsSet = new Set();
 
-    // Iterate ALL matches to gather schedule + results
+    // 1. Group Matches
     matchResults.forEach(m => {
-        const key = `${m.round}::${m.player_a_team}::${m.player_b_team}`;
-        if (!tempMatches[key]) tempMatches[key] = {
-            roundName: m.round,
-            teamA: m.player_a_team,
-            teamB: m.player_b_team,
-            scoreA: 0,
-            scoreB: 0,
-            isPlayed: false,
-            realDate: null
+        const season = m.season || "JESEŇ 2025";
+        const group = m.group || "";
+        const tableKey = `${season}__${group}`;
+        
+        if (!tables[tableKey]) {
+            tables[tableKey] = {
+                season: season,
+                group: group,
+                seasonOrder: getSeasonOrder(season),
+                matches: []
+            };
+        }
+        tables[tableKey].matches.push(m);
+
+        if (m.player_a_team) allTeamsSet.add(m.player_a_team);
+        if (m.player_b_team) allTeamsSet.add(m.player_b_team);
+    });
+
+    // 2. Prepare Container
+    const container = document.getElementById('tablesContainer');
+    if (container) container.innerHTML = '';
+
+    // 3. Sort Tables (Season DESC, Group ASC)
+    const sortedKeys = Object.keys(tables).sort((a, b) => {
+        const tA = tables[a];
+        const tB = tables[b];
+        if (tA.seasonOrder !== tB.seasonOrder) return tB.seasonOrder - tA.seasonOrder;
+        return tA.group.localeCompare(tB.group);
+    });
+
+    // 4. Process and Render Each Table
+    sortedKeys.forEach(key => {
+        const {season, group, matches} = tables[key];
+        const teams = {};
+        const teamMatchesArray = [];
+        const tempMatches = {};
+
+        // Process matches for this table
+        matches.forEach(m => {
+             const key = `${getMatchRoundId(m)}::${m.player_a_team}::${m.player_b_team}`;
+             if (!tempMatches[key]) {
+                 // Since we are inside a season table, we don't need to append season to round name usually, 
+                 // but let's keep it clean.
+                 tempMatches[key] = {
+                     roundName: m.round, 
+                     teamA: m.player_a_team,
+                     teamB: m.player_b_team,
+                     scoreA: 0,
+                     scoreB: 0,
+                     isPlayed: false,
+                     realDate: null
+                 };
+             }
+             if (isPlayedMatch(m)) {
+                 const sA = parseInt(m.score_a);
+                 const sB = parseInt(m.score_b);
+                 if (sA > sB) tempMatches[key].scoreA++;
+                 if (sB > sA) tempMatches[key].scoreB++;
+                 tempMatches[key].isPlayed = true;
+             } else {
+                 if (m.date) tempMatches[key].realDate = m.date;
+             }
+        });
+
+        for (const k in tempMatches) teamMatchesArray.push(tempMatches[k]);
+
+        const initTeam = (n) => {
+            if (!teams[n]) teams[n] = {
+                name: n, matches: 0, wins: 0, draws: 0, losses: 0,
+                scoreFor: 0, scoreAgainst: 0, points: 0, avgRating: 0
+            };
+        };
+        teamMatchesArray.forEach(m => { initTeam(m.teamA); initTeam(m.teamB); });
+
+        teamMatchesArray.forEach(m => {
+            if (!m.isPlayed) return;
+            teams[m.teamA].matches++;
+            teams[m.teamB].matches++;
+            teams[m.teamA].scoreFor += m.scoreA;
+            teams[m.teamA].scoreAgainst += m.scoreB;
+            teams[m.teamB].scoreFor += m.scoreB;
+            teams[m.teamB].scoreAgainst += m.scoreA;
+            if (m.scoreA > m.scoreB) {
+                teams[m.teamA].wins++; teams[m.teamA].points += 3;
+                teams[m.teamB].losses++; teams[m.teamB].points += 1;
+            } else if (m.scoreB > m.scoreA) {
+                teams[m.teamB].wins++; teams[m.teamB].points += 3;
+                teams[m.teamA].losses++; teams[m.teamA].points += 1;
+            } else {
+                teams[m.teamA].draws++; teams[m.teamA].points += 2;
+                teams[m.teamB].draws++; teams[m.teamB].points += 2;
+            }
+        });
+
+        // Calc Avg Rating (using global players data)
+        Object.values(teams).forEach(t => {
+            const tp = Object.values(players).filter(p => p.team === t.name).sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
+            if (tp.length > 0) t.avgRating = tp.reduce((acc, p) => acc + p.rating, 0) / tp.length;
+        });
+
+        // Build HTML
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-section';
+        
+        const titleText = `${season}${group ? ' - Skupina ' + group : ''}`;
+        const title = document.createElement('h2');
+        title.style.cssText = "color: #4A90E2; margin: 25px 0 10px 0; padding-left: 5px; border-left: 4px solid #4A90E2;";
+        title.innerText = titleText;
+        wrapper.appendChild(title);
+
+        const tableWrapper = document.createElement('div');
+        tableWrapper.className = 'table-wrapper';
+        const table = document.createElement('table');
+        table.innerHTML = `
+            <thead>
+            <tr>
+                <th class="col-pos">#</th><th>Tím</th><th title="Zápasy">Z</th><th title="Výhry">V</th><th title="Remízy">R</th><th title="Prehry">P</th><th>Skóre</th><th title="Body">B</th><th title="Priemerný Rating"><div class="tooltip-container">Ø<span class="tooltip-icon">🛈</span><span class="tooltip-text">Priemerný rating<br>4 najaktívnejších<br>hráčov tímu</span></div></th>
+            </tr>
+            </thead>
+            <tbody></tbody>`;
+        
+        const tbody = table.querySelector('tbody');
+        
+        // Helper for History (scoped to this table's matches)
+        const getHist = (tn) => {
+            const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
+            if (mm.length === 0) return `<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
+            let h = `<div class="history-list">`;
+            mm.forEach(m => {
+                const isHome = m.teamA === tn;
+                let scHtml = '', scClass = '';
+                if (m.isPlayed) {
+                    scClass = isHome ? (m.scoreA > m.scoreB ? "score-win" : (m.scoreA < m.scoreB ? "score-loss" : "score-draw")) : (m.scoreB > m.scoreA ? "score-win" : (m.scoreB < m.scoreA ? "score-loss" : "score-draw"));
+                    scHtml = `${m.scoreA}:${m.scoreB}`;
+                } else {
+                    scClass = "score-draw";
+                    scHtml = "VS";
+                }
+                const vsStyle = !m.isPlayed ? 'style="color:#aaa;"' : '';
+                h += `<div class="history-row"><div class="hr-date">${m.roundName}</div><div class="hr-match">
+                    <span class="hr-team hr-home ${m.teamA === tn ? "current-team" : "other-team"}">${m.teamA}</span><span class="hr-score ${scClass}" ${vsStyle}>${scHtml}</span><span class="hr-team hr-guest ${m.teamB === tn ? "current-team" : "other-team"}">${m.teamB}</span></div></div>`;
+            });
+            return h + `</div>`;
         };
 
-        // Check if this specific entry is a played game
-        if (isPlayedMatch(m)) {
-            const sA = parseInt(m.score_a);
-            const sB = parseInt(m.score_b);
-            if (sA > sB) tempMatches[key].scoreA++;
-            if (sB > sA) tempMatches[key].scoreB++;
-            tempMatches[key].isPlayed = true;
-        } else {
-            // It's a scheduled/WO entry
-            // We capture the date if available (often in the WO entry)
-            if (m.date) tempMatches[key].realDate = m.date;
-        }
+        Object.values(teams).sort((a, b) => (b.points !== a.points) ? b.points - a.points : (b.scoreFor - b.scoreAgainst) - (a.scoreFor - a.scoreAgainst)).forEach((t, i) => {
+            const tr = document.createElement('tr');
+            tr.className = 'main-row';
+            tr.innerHTML = `<td class="col-pos">${i + 1}.</td><td>${t.name} <span class="expand-icon">▼</span></td><td>${t.matches}</td><td>${t.wins}</td><td>${t.draws}</td><td>${t.losses}</td><td class="col-score">${t.scoreFor}:${t.scoreAgainst}</td><td class="col-pts">${t.points}</td><td class="col-avg">${t.avgRating.toFixed(1)}</td>`;
+            const dTr = document.createElement('tr');
+            dTr.className = 'detail-row';
+            dTr.innerHTML = `<td colspan="9" class="detail-cell">${getHist(t.name)}</td>`;
+            tr.onclick = () => {
+                const o = dTr.classList.contains('open');
+                dTr.classList.toggle('open', !o);
+                tr.classList.toggle('active', !o);
+            };
+            tbody.appendChild(tr);
+            tbody.appendChild(dTr);
+        });
+
+        tableWrapper.appendChild(table);
+        wrapper.appendChild(tableWrapper);
+        if(container) container.appendChild(wrapper);
     });
 
-    for (const key in tempMatches) teamMatchesArray.push(tempMatches[key]);
-
-    const initTeam = (n) => {
-        if (!teams[n]) teams[n] = {
-            name: n,
-            matches: 0,
-            wins: 0,
-            draws: 0,
-            losses: 0,
-            scoreFor: 0,
-            scoreAgainst: 0,
-            points: 0,
-            avgRating: 0
-        };
-    };
-
-    // Initialize teams
-    teamMatchesArray.forEach(m => {
-        initTeam(m.teamA);
-        initTeam(m.teamB);
+    // 5. Setup Prediction (Global)
+    // We need a global map of teams for the calculator. 
+    // We can reconstruct it from all matches or just use the players object to find teams.
+    // Let's gather all unique teams from all matches for the dropdown.
+    
+    // Note: The original code also attached calculatePrediction to window.
+    // We need to ensure `teams` used in calculatePrediction is available.
+    // But wait, `calculatePrediction` used the local `teams` variable which was in scope.
+    // Now we have multiple tables.
+    // We need a GLOBAL teams object that contains avgRating for ALL teams (or latest).
+    // Let's rebuild a global stats object just for the prediction calculator.
+    
+    const globalTeams = {};
+    const globalPlayers = players; // alias
+    
+    allTeamsSet.forEach(teamName => {
+        // Calculate avg rating for this team based on players
+        const tp = Object.values(globalPlayers).filter(p => p.team === teamName).sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
+        const avg = tp.length > 0 ? tp.reduce((acc, p) => acc + p.rating, 0) / tp.length : 0;
+        globalTeams[teamName] = { avgRating: avg };
     });
 
-    // Calculate Stats - ONLY for played matches
-    teamMatchesArray.forEach(m => {
-        if (!m.isPlayed) return;
-
-        teams[m.teamA].matches++;
-        teams[m.teamB].matches++;
-        teams[m.teamA].scoreFor += m.scoreA;
-        teams[m.teamA].scoreAgainst += m.scoreB;
-        teams[m.teamB].scoreFor += m.scoreB;
-        teams[m.teamB].scoreAgainst += m.scoreA;
-
-        if (m.scoreA > m.scoreB) {
-            teams[m.teamA].wins++;
-            teams[m.teamA].points += 3;
-            teams[m.teamB].losses++;
-            teams[m.teamB].points += 1;
-        } else if (m.scoreB > m.scoreA) {
-            teams[m.teamB].wins++;
-            teams[m.teamB].points += 3;
-            teams[m.teamA].losses++;
-            teams[m.teamA].points += 1;
-        } else {
-            teams[m.teamA].draws++;
-            teams[m.teamA].points += 2;
-            teams[m.teamB].draws++;
-            teams[m.teamB].points += 2;
-        }
-    });
-
-    Object.values(teams).forEach(t => {
-        const tp = Object.values(players).filter(p => p.team === t.name).sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
-        if (tp.length > 0) t.avgRating = tp.reduce((acc, p) => acc + p.rating, 0) / tp.length;
-    });
-
-    const tbody = document.getElementById('tableBody');
     const selectA = document.getElementById('teamSelectA');
     const selectB = document.getElementById('teamSelectB');
-    if (selectA) {
+    if (selectA && selectB) {
         selectA.innerHTML = '<option value="">Vyber Domácich</option>';
         selectB.innerHTML = '<option value="">Vyber Hostí</option>';
-        Object.keys(teams).sort().forEach(t => {
+        [...allTeamsSet].sort().forEach(t => {
+            if(t === "N/A") return;
             selectA.add(new Option(t, t));
             selectB.add(new Option(t, t));
         });
     }
-
-    const getHist = (tn) => {
-        const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
-        if (mm.length === 0) return `<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
-
-        let h = `<div class="history-list">`;
-        mm.forEach(m => {
-            const isHome = m.teamA === tn;
-            let scHtml = '';
-            let scClass = '';
-            if (m.isPlayed) {
-                scClass = isHome ? (m.scoreA > m.scoreB ? "score-win" : (m.scoreA < m.scoreB ? "score-loss" : "score-draw")) : (m.scoreB > m.scoreA ? "score-win" : (m.scoreB < m.scoreA ? "score-loss" : "score-draw"));
-                scHtml = `${m.scoreA}:${m.scoreB}`;
-            } else {
-                scClass = "score-draw";
-                scHtml = "VS";
-            }
-
-            const vsStyle = !m.isPlayed ? 'style="color:#aaa;"' : '';
-
-            h += `<div class="history-row"><div class="hr-date">${m.roundName}</div><div class="hr-match">
-                <span class="hr-team hr-home ${m.teamA === tn ? "current-team" : "other-team"}">${m.teamA}</span><span class="hr-score ${scClass}" ${vsStyle}>${scHtml}</span><span class="hr-team hr-guest ${m.teamB === tn ? "current-team" : "other-team"}">${m.teamB}</span></div></div>`;
-        });
-        return h + `</div>`;
-    };
-
-    Object.values(teams).sort((a, b) => (b.points !== a.points) ? b.points - a.points : (b.scoreFor - b.scoreAgainst) - (a.scoreFor - a.scoreAgainst)).forEach((t, i) => {
-        const tr = document.createElement('tr');
-        tr.className = 'main-row';
-        tr.innerHTML = `<td class="col-pos">${i + 1}.</td><td>${t.name} <span class="expand-icon">▼</span></td><td>${t.matches}</td><td>${t.wins}</td><td>${t.draws}</td><td>${t.losses}</td><td class="col-score">${t.scoreFor}:${t.scoreAgainst}</td><td class="col-pts">${t.points}</td><td class="col-avg">${t.avgRating.toFixed(1)}</td>`;
-        const dTr = document.createElement('tr');
-        dTr.className = 'detail-row';
-        dTr.innerHTML = `<td colspan="9" class="detail-cell">${getHist(t.name)}</td>`;
-        tr.onclick = () => {
-            const o = dTr.classList.contains('open');
-            dTr.classList.toggle('open', !o);
-            tr.classList.toggle('active', !o);
-        };
-        tbody.appendChild(tr);
-        tbody.appendChild(dTr);
-    });
 
     window.calculatePrediction = () => {
         const tA = document.getElementById('teamSelectA').value;
@@ -964,8 +1102,14 @@ function renderTablePage() {
             alert("Vyberte prosím dva rozdielne tímy.");
             return;
         }
-        const rA = teams[tA].avgRating;
-        const rB = teams[tB].avgRating;
+        const rA = globalTeams[tA] ? globalTeams[tA].avgRating : 0;
+        const rB = globalTeams[tB] ? globalTeams[tB].avgRating : 0;
+        
+        // Elo win probability formula: 1 / (1 + 10^((Rb-Ra)/400))
+        // The code uses 300 divisor and 18 total points (matches in a round? 4 singles * 4 players + 2 doubles = 18 matches/sets? 
+        // Actually typical league match is 18 points? 
+        // In the code: const sA = Math.round(18 * (1 / (1 + Math.pow(10, (rB - rA) / 300))));
+        
         const sA = Math.round(18 * (1 / (1 + Math.pow(10, (rB - rA) / 300))));
         document.getElementById('predScore').innerText = `${sA} : ${18 - sA}`;
         document.getElementById('rateA').innerText = rA.toFixed(1);
