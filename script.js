@@ -493,8 +493,11 @@ function renderMatchList(matches, container, appendToProvided) {
                 });
                 if (list.length === 0) return '';
                 let h = `<div class="team-stats ${align}">`;
-                list.forEach(p => {
-                    h += `<div class="player-stat-row"><span class="player-stat-name">${p.name}</span><span class="player-stat-score">${p.points}/${p.possible}</span></div>`;
+                list.forEach((p, index) => {
+                    h += `<div class="player-stat-row">
+                        <div class="player-stat-name">${p.name}</div>
+                        <span class="player-stat-score">${p.points}/${p.possible}</span>
+                    </div>`;
                 });
                 h += `</div>`;
                 return h;
@@ -1173,9 +1176,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function injectStatsStyles() {
     const css = `
         .match-stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             padding: 10px 15px;
             background-color: #f8f9fa;
             border-bottom: 1px solid #e1e4e8;
@@ -1183,30 +1186,56 @@ function injectStatsStyles() {
         .team-stats {
             display: flex;
             flex-direction: column;
-        }
-        .team-stats.right {
-            align-items: flex-end;
-            text-align: right;
+            align-items: center;
+            text-align: center;
         }
         .team-stats.left {
-            align-items: flex-start;
-            text-align: left;
+            padding-left: 200px;
+        }
+        .team-stats.right {
+            padding-right: 200px;
         }
         .player-stat-row {
-            margin-bottom: 2px;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
             color: #444;
             display: flex;
-            gap: 5px;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            width: 100%;
+            border-bottom: 1px solid #e1e4e8;
         }
-        .team-stats.right .player-stat-row {
-            flex-direction: row-reverse;
+        .player-stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         .player-stat-name {
             font-weight: 500;
+            text-align: center;
+            line-height: 1.3;
+            word-wrap: break-word;
         }
         .player-stat-score {
             font-weight: 700;
             color: #4A90E2;
+            white-space: nowrap;
+        }
+        @media (max-width: 768px) {
+            .team-stats.left {
+                padding-left: 0;
+            }
+            .team-stats.right {
+                padding-right: 0;
+            }
+            .player-stat-name {
+                display: block;
+                line-height: 1.2;
+            }
+            .player-stat-row {
+                flex-direction: column;
+            }
         }
     `;
     const style = document.createElement('style');
