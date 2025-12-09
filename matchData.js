@@ -1,4 +1,4 @@
-const matchResults = [
+const staticMatches = [
     {
         "score_a": 1,
         "score_b": 3,
@@ -17328,8 +17328,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Miloslav KOCÚR / Ľubomír HOCHVART",
-        "player_b": "Martin SOĽÁR / Štefan LISSÝ",
+        "player_a": "Miloslav KOCÚR/Ľubomír HOCHVART",
+        "player_b": "Martin SOĽÁR/Štefan LISSÝ",
         "round": "13 kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"A\"",
@@ -17341,8 +17341,8 @@ const matchResults = [
     {
         "score_a": 0,
         "score_b": 3,
-        "player_a": "Štefan VENDEL / Milan PAŽIČ",
-        "player_b": "Miroslav KOSCELANSKÝ / Peter JAKUBEC",
+        "player_a": "Štefan VENDEL/Milan PAŽIČ",
+        "player_b": "Miroslav KOSCELANSKÝ/Peter JAKUBEC",
         "round": "13 kolo",
         "player_a_team": "REPREX",
         "player_b_team": "SKP \"A\"",
@@ -17562,8 +17562,8 @@ const matchResults = [
     {
         "score_a": 1,
         "score_b": 3,
-        "player_a": "Tomáš BEKECS / Karol GERGELY",
-        "player_b": "Martina KOLIBÁROVÁ / Izabela VARGOVÁ",
+        "player_a": "Tomáš BEKECS/Karol GERGELY",
+        "player_b": "Martina KOLIBÁROVÁ/Izabela VARGOVÁ",
         "round": "13 kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -17576,7 +17576,7 @@ const matchResults = [
         "score_a": 0,
         "score_b": 3,
         "player_a": "WO",
-        "player_b": "Zuzana GAŽI / Jarmila SOMOŠOVÁ",
+        "player_b": "Zuzana GAŽI/Jarmila SOMOŠOVÁ",
         "round": "13 kolo",
         "player_a_team": "TTC KVP",
         "player_b_team": "MYSLAVA \"Ž\"",
@@ -17796,8 +17796,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 2,
-        "player_a": "Ján SIMKO / Marek SIMKO",
-        "player_b": "Ján GAJDOŠ / Andrej KARLIK",
+        "player_a": "Ján SIMKO/Marek SIMKO",
+        "player_b": "Ján GAJDOŠ/Andrej KARLIK",
         "round": "13 kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "KOMÉTA KE",
@@ -17809,8 +17809,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "Andrej FELBER / Ľubomír BENDZÁK",
-        "player_b": "Peter BARSA / Juraj ANTOŠ",
+        "player_a": "Andrej FELBER/Ľubomír BENDZÁK",
+        "player_b": "Peter BARSA/Juraj ANTOŠ",
         "round": "13 kolo",
         "player_a_team": "TT TEAM",
         "player_b_team": "KOMÉTA KE",
@@ -18264,8 +18264,8 @@ const matchResults = [
     {
         "score_a": 2,
         "score_b": 3,
-        "player_a": "M. ZÁRIK / Karol TILL",
-        "player_b": "Igor BAŠTI / Slavomír KEŠELÁK",
+        "player_a": "M. ZÁRIK/Karol TILL",
+        "player_b": "Igor BAŠTI/Slavomír KEŠELÁK",
         "round": "13 kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "SOŠ Ž",
@@ -18277,8 +18277,8 @@ const matchResults = [
     {
         "score_a": 3,
         "score_b": 0,
-        "player_a": "Štefan PČOLA / Milan MICHLOVIČ",
-        "player_b": "Peter POLÁK / Miro. HANIČÁK",
+        "player_a": "Štefan PČOLA/Milan MICHLOVIČ",
+        "player_b": "Peter POLÁK/Miro. HANIČÁK",
         "round": "13 kolo",
         "player_a_team": "MONTREAL",
         "player_b_team": "SOŠ Ž",
@@ -18964,16 +18964,705 @@ const matchResults = [
         "season": "JESEŇ 2025"
     },
     {
-        "score_a": 0,
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Marián HOVAN/Milan ŠOLC",
+        "player_b": "Roman ČIŽMÁR/Jozef SURGENT",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": true,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
         "score_b": 0,
-        "player_a": "WO",
-        "player_b": "WO",
+        "player_a": "Jozef FOTTA/Ján FOTTA",
+        "player_b": "Tibor FIĽAK/Stanislav PČOLA",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": true,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Marián HOVAN",
+        "player_b": "Tibor FIĽAK",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Jozef FOTTA",
+        "player_b": "Roman ČIŽMÁR",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Ján FOTTA",
+        "player_b": "Jozef SURGENT",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Milan ŠOLC",
+        "player_b": "Stanislav PČOLA",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Marián HOVAN",
+        "player_b": "Roman ČIŽMÁR",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Jozef FOTTA",
+        "player_b": "Jozef SURGENT",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Ján FOTTA",
+        "player_b": "Stanislav PČOLA",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Milan ŠOLC",
+        "player_b": "Tibor FIĽAK",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Marián HOVAN",
+        "player_b": "Jozef SURGENT",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Jozef FOTTA",
+        "player_b": "Stanislav PČOLA",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Ján FOTTA",
+        "player_b": "Radoslav POĽA",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Milan ŠOLC",
+        "player_b": "Roman ČIŽMÁR",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Marián HOVAN",
+        "player_b": "Jozef SURGENT",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Jozef FOTTA",
+        "player_b": "Radoslav POĽA",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Ján FOTTA",
+        "player_b": "Roman ČIŽMÁR",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Milan ŠOLC",
+        "player_b": "Stanislav PČOLA",
+        "round": "14 kolo",
+        "player_a_team": "MYSLAVA",
+        "player_b_team": "BERNARD Club",
+        "doubles": false,
+        "date": "2025-12-08 17:30",
+        "location": "Myslava",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Matúš HRČKA/Marek KUNDRIK",
+        "player_b": "Pavol CINKANIČ/Zuzana GAŽI",
         "round": "14 kolo",
         "player_a_team": "ASTORIAFIT",
         "player_b_team": "MYSLAVA \"Ž\"",
         "doubles": true,
         "date": "2025-12-08 17:00",
         "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Martin MUCHA/Andrej KAČKOŠ",
+        "player_b": "Izabela VARGOVÁ/Martina KOLIBÁROVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": true,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA",
+        "player_b": "Martina KOLIBÁROVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Matúš HRČKA",
+        "player_b": "Pavol CINKANIČ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Marek KUNDRIK",
+        "player_b": "Izabela VARGOVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Zuzana GAŽI",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA",
+        "player_b": "Pavol CINKANIČ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Matúš HRČKA",
+        "player_b": "Izabela VARGOVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Marek KUNDRIK",
+        "player_b": "Zuzana GAŽI",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Martina KOLIBÁROVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA",
+        "player_b": "Izabela VARGOVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Matúš HRČKA",
+        "player_b": "Zuzana GAŽI",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Andrej KAČKOŠ",
+        "player_b": "Martina KOLIBÁROVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Viktor ŠIDLÍK",
+        "player_b": "Pavol CINKANIČ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Martin MUCHA",
+        "player_b": "Zuzana GAŽI",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Matúš HRČKA",
+        "player_b": "Martina KOLIBÁROVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Marek KUNDRIK",
+        "player_b": "Pavol CINKANIČ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Andrej KAČKOŠ",
+        "player_b": "Izabela VARGOVÁ",
+        "round": "14 kolo",
+        "player_a_team": "ASTORIAFIT",
+        "player_b_team": "MYSLAVA \"Ž\"",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "Cinova",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Peter POLÁK/Jozef MOLNÁR",
+        "player_b": "Jozef HUDÁK/Peter ŠEBEK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": true,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Slavomír KEŠELÁK/Igor BAŠTI",
+        "player_b": "Julius PILLÁR/Patrík TIRPÁK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": true,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 1,
+        "player_a": "Peter POLÁK",
+        "player_b": "Julius PILLÁR",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Igor BAŠTI",
+        "player_b": "Patrík TIRPÁK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 2,
+        "player_a": "Jozef MOLNÁR",
+        "player_b": "Jozef HUDÁK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Peter ŠEBEK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Vilo POLÁK",
+        "player_b": "Patrík TIRPÁK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Igor BAŠTI",
+        "player_b": "Jozef ZAVACKÝ",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Jozef MOLNÁR",
+        "player_b": "Peter ŠEBEK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Julius PILLÁR",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Peter POLÁK",
+        "player_b": "Jozef HUDÁK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Igor BAŠTI",
+        "player_b": "Peter ŠEBEK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Vilo POLÁK",
+        "player_b": "Julius PILLÁR",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 1,
+        "score_b": 3,
+        "player_a": "Slavomír KEŠELÁK",
+        "player_b": "Patrík TIRPÁK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 0,
+        "score_b": 3,
+        "player_a": "Peter POLÁK",
+        "player_b": "Peter ŠEBEK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 2,
+        "score_b": 3,
+        "player_a": "Igor BAŠTI",
+        "player_b": "Julius PILLÁR",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Jozef MOLNÁR",
+        "player_b": "Patrík TIRPÁK",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
+        "season": "JESEŇ 2025"
+    },
+    {
+        "score_a": 3,
+        "score_b": 0,
+        "player_a": "Vilo POLÁK",
+        "player_b": "Jozef ZAVACKÝ",
+        "round": "14 kolo",
+        "player_a_team": "SOŠ Ž",
+        "player_b_team": "EUROCAST",
+        "doubles": false,
+        "date": "2025-12-08 17:00",
+        "location": "SOŠ Ž",
         "season": "JESEŇ 2025"
     },
     {
@@ -19000,32 +19689,6 @@ const matchResults = [
         "doubles": true,
         "date": "2025-12-11 17:30",
         "location": "Myslava",
-        "season": "JESEŇ 2025"
-    },
-    {
-        "score_a": 0,
-        "score_b": 0,
-        "player_a": "WO",
-        "player_b": "WO",
-        "round": "14 kolo",
-        "player_a_team": "MYSLAVA",
-        "player_b_team": "BERNARD Club",
-        "doubles": true,
-        "date": "2025-12-08 17:30",
-        "location": "Myslava",
-        "season": "JESEŇ 2025"
-    },
-    {
-        "score_a": 0,
-        "score_b": 0,
-        "player_a": "WO",
-        "player_b": "WO",
-        "round": "14 kolo",
-        "player_a_team": "SOŠ Ž",
-        "player_b_team": "EUROCAST",
-        "doubles": true,
-        "date": "2025-12-08 17:00",
-        "location": "SOŠ Ž",
         "season": "JESEŇ 2025"
     },
     {
@@ -19220,4 +19883,65 @@ const matchResults = [
     //     "season": "JAR 2026",
     //     "group": "B"
     // },
-]
+];
+
+// 2. Configuration for Google Sheets
+const SPREADSHEET_ID = '1JES8EiYKtrNuALCtXMk_kFIU_hHWm9s9tGyD6HIU0tk';
+const SHEET_NAME = 'Results';
+const QUERY = 'SELECT P'; // Fetch only column P
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&tq=${encodeURIComponent(QUERY)}`;
+
+// 3. Synchronous Fetch Function
+function getGoogleSheetDataSync(url) {
+    try {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, false); // false = Synchronous (waits for data)
+        xhr.send(null);
+
+        if (xhr.status === 200) {
+            const text = xhr.responseText;
+
+            // 1. Clean the Google API wrapper
+            // Google returns: /*O_o*/ google.visualization.Query.setResponse({...});
+            // We extract just the JSON part inside the curly braces.
+            const jsonString = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
+            const apiResponse = JSON.parse(jsonString);
+
+            // 2. Extract and Parse each row
+            const rows = apiResponse.table.rows.map(row => {
+                // Get the raw text string from the cell
+                let cellText = row.c[0] ? row.c[0].v : null;
+
+                if (!cellText) return null;
+
+                // CLEANUP: Remove trailing commas if they exist (e.g., "},")
+                cellText = cellText.trim().replace(/,\s*$/, "");
+
+                // 3. CONVERT TEXT TO OBJECT
+                try {
+                    return JSON.parse(cellText);
+                } catch (parseError) {
+                    console.warn("Skipping invalid JSON in sheet:", cellText);
+                    return null;
+                }
+            }).filter(item => item !== null); // Remove empty rows
+
+            return rows;
+        } else {
+            console.error("Failed to load Google Sheet data. Status:", xhr.status);
+            return [];
+        }
+    } catch (e) {
+        console.error("Error connecting to Google Sheets:", e);
+        return [];
+    }
+}
+
+// 4. Run the fetch
+const dynamicMatches = getGoogleSheetDataSync(SHEET_URL);
+
+// 5. Merge and Export
+// matchResults is now a list of Objects, safe for script.js to use
+const matchResults = [...staticMatches, ...dynamicMatches];
+
+console.log("Total Matches Loaded:", matchResults.length);
