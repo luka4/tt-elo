@@ -20824,6 +20824,8 @@ function getGoogleSheetDataSync(url) {
 // 4. Run the fetch
 const dynamicMatches = getGoogleSheetDataSync(SHEET_URL);
 
+console.log("Following matches loaded from the spreadsheet:");
+console.log(dynamicMatches);
 // 5. Merge and Export
 // matchResults is now a list of Objects, safe for script.js to use
 const matchResults = [...staticMatches, ...dynamicMatches];
