@@ -123,46 +123,58 @@ function processData() {
         pNamesB.forEach(n => initPlayer(n, match.player_b_team));
 
         const getR = (name) => players[name].rating;
-        const getK = (name) => getKFactor(players[name].matches + players[name].dMatches + 1);
 
-        let Ra, Rb, Ka, Kb;
+        // --- FIXED LOGIC START ---
+        // 1. Increment Counters & Set Last Played FIRST
+        // This ensures we can calculate the K-factor for the *current* match index correctly later.
+        if (isDoubles) {
+            pNamesA.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.round; });
+            pNamesB.forEach(n => { players[n].dMatches++; players[n].lastPlayed = match.round; });
+        } else {
+            pNamesA.forEach(n => { players[n].matches++; players[n].lastPlayed = match.round; });
+            pNamesB.forEach(n => { players[n].matches++; players[n].lastPlayed = match.round; });
+        }
 
+        // 2. Calculate Team Ratings (Average for Doubles, Single for Singles)
+        let Ra, Rb;
         if (isDoubles) {
             Ra = (getR(pNamesA[0]) + (pNamesA[1] ? getR(pNamesA[1]) : getR(pNamesA[0]))) / 2;
             Rb = (getR(pNamesB[0]) + (pNamesB[1] ? getR(pNamesB[1]) : getR(pNamesB[0]))) / 2;
-            Ka = (getK(pNamesA[0]) + (pNamesA[1] ? getK(pNamesA[1]) : getK(pNamesA[0]))) / 2;
-            Kb = (getK(pNamesB[0]) + (pNamesB[1] ? getK(pNamesB[1]) : getK(pNamesB[0]))) / 2;
-            pNamesA.forEach(n => {
-                players[n].dMatches++;
-                players[n].lastPlayed = match.round;
-            });
-            pNamesB.forEach(n => {
-                players[n].dMatches++;
-                players[n].lastPlayed = match.round;
-            });
         } else {
             Ra = getR(pNamesA[0]);
             Rb = getR(pNamesB[0]);
-            Ka = getK(pNamesA[0]);
-            Kb = getK(pNamesB[0]);
-            pNamesA.forEach(n => {
-                players[n].matches++;
-                players[n].lastPlayed = match.round;
-            });
-            pNamesB.forEach(n => {
-                players[n].matches++;
-                players[n].lastPlayed = match.round;
-            });
         }
 
+        // 3. Calculate Expected Scores
         const N = scoreA + scoreB;
         const Ea = N / (1 + Math.pow(10, (Rb - Ra) / 300));
         const Eb = N / (1 + Math.pow(10, (Ra - Rb) / 300));
 
-        let pairDeltaA = Ka * (scoreA - Ea);
-        let pairDeltaB = Kb * (scoreB - Eb);
-        let deltaA = isDoubles ? pairDeltaA / 2 : pairDeltaA;
-        let deltaB = isDoubles ? pairDeltaB / 2 : pairDeltaB;
+        // 4. Calculate Raw Performance Difference (Actual - Expected)
+        // We do NOT multiply by K here. We pass this 'diff' to the individual player update.
+        const diffA = scoreA - Ea;
+        const diffB = scoreB - Eb;
+
+        // 5. Calculate "Average Display Delta" for opponents
+        // This is purely for the history log to show a general "opponent change" value.
+        // It does not affect the actual math for the player being updated.
+        const getCurrentK = (n) => getKFactor(players[n].matches + players[n].dMatches); // Current total count
+        const getAvgK = (names) => {
+            let sumK = 0;
+            names.forEach(n => sumK += getCurrentK(n));
+            return sumK / names.length;
+        };
+        const avgKa = getAvgK(pNamesA);
+        const avgKb = getAvgK(pNamesB);
+
+        // Calculate the hypothetical average delta for the TEAM (for display purposes only)
+        let displayDeltaA = avgKa * diffA;
+        let displayDeltaB = avgKb * diffB;
+        if (isDoubles) {
+            displayDeltaA = displayDeltaA / 2;
+            displayDeltaB = displayDeltaB / 2;
+        }
+        // --- FIXED LOGIC END ---
 
         if (isLatestRound && !isDoubles) {
             // Filter out WO matches for upsets
@@ -193,9 +205,21 @@ function processData() {
             }
         }
 
-        const updateSide = (pNames, scoreOwn, scoreOpp, deltaOwn, deltaOpp, oppNames, oppTeam) => {
+        // Updated updateSide to accept raw DIFF and displayDelta for opponent
+        const updateSide = (pNames, scoreOwn, scoreOpp, diffOwn, displayDeltaOpp, oppNames, oppTeam) => {
             pNames.forEach(name => {
                 const p = players[name];
+
+                // --- FIXED: Individual K Calculation ---
+                const currentK = getKFactor(p.matches + p.dMatches);
+
+                // Calculate Individual Delta
+                // Formula: K * (Actual - Expected).
+                // If doubles, we divide by 2 to maintain the league's scaling (points shared/split).
+                let deltaOwn = currentK * diffOwn;
+                if (isDoubles) deltaOwn = deltaOwn / 2;
+                // ---------------------------------------
+
                 if (isDoubles) {
                     p.dSetsWin += scoreOwn;
                     p.dSetsLose += scoreOpp;
@@ -216,15 +240,11 @@ function processData() {
                 p.rating += deltaOwn;
                 if (isLatestRound) p.roundGain += deltaOwn;
 
-                // Use composite key for history to allow proper sorting
-                // Format: seasonOrder-roundNum|DisplayString
-                // We need round number for sorting within season. 
-                // Assume format "X. kolo"
                 const rNum = parseInt((match.round.match(/\d+/) || [0])[0]);
                 const sOrder = getSeasonOrder(match.season);
                 const sDisp = match.season ? ` (${match.season})` : '';
                 const historyKey = `${sOrder}-${String(rNum).padStart(2, '0')}|${match.round}${sDisp}`;
-                
+
                 p.history[historyKey] = p.rating;
 
                 p.maxRating = Math.max(p.rating, p.maxRating);
@@ -234,7 +254,7 @@ function processData() {
                 const oppRatingAfter = isDoubles ? 0 : (players[oppNames[0]].rating);
 
                 p.matchDetails.push({
-                    date: match.date || match.round, // Use real date if available
+                    date: match.date || match.round,
                     round: match.round,
                     opponent: opponentName,
                     opponent_team: oppTeam,
@@ -243,15 +263,16 @@ function processData() {
                     rating_after: p.rating,
                     opp_rating_after: oppRatingAfter,
                     delta_own: deltaOwn,
-                    delta_opp: deltaOpp,
+                    delta_opp: displayDeltaOpp, // Use the average opp delta for display
                     isDoubles: isDoubles,
                     own_name_display: pNames.join(' / ')
                 });
             });
         };
 
-        updateSide(pNamesA, scoreA, scoreB, deltaA, deltaB, pNamesB, match.player_b_team);
-        updateSide(pNamesB, scoreB, scoreA, deltaB, deltaA, pNamesA, match.player_a_team);
+        // Pass diffA/B for calculation, and displayDeltaB/A for opponent history logs
+        updateSide(pNamesA, scoreA, scoreB, diffA, displayDeltaB, pNamesB, match.player_b_team);
+        updateSide(pNamesB, scoreB, scoreA, diffB, displayDeltaA, pNamesA, match.player_a_team);
     });
 
     return {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList};
@@ -275,9 +296,9 @@ function renderHomePage() {
 
     const latestTitleText = latestRoundId ? (
         (() => {
-             const m = playedMatches.find(pm => getMatchRoundId(pm) === latestRoundId);
-             const s = m && m.season ? ` (${m.season})` : '';
-             return m ? `${m.round}${s}` : latestRoundName;
+            const m = playedMatches.find(pm => getMatchRoundId(pm) === latestRoundId);
+            const s = m && m.season ? ` (${m.season})` : '';
+            return m ? `${m.round}${s}` : latestRoundName;
         })()
     ) : "Zatiaľ žiadne zápasy";
 
@@ -394,12 +415,12 @@ function renderResultsPage() {
     });
 
     const container = document.getElementById('resultsContainer');
-    
+
     // Sort Rounds: Latest Season first, then Latest Round first
     const sortedRoundIds = Object.keys(rounds).sort((a, b) => {
         const rA = rounds[a];
         const rB = rounds[b];
-        
+
         if (rA.seasonOrder !== rB.seasonOrder) {
             return rB.seasonOrder - rA.seasonOrder;
         }
@@ -412,11 +433,11 @@ function renderResultsPage() {
         roundWrapper.className = 'round-group';
         const header = document.createElement('div');
         header.className = 'round-header';
-        
+
         // Header format: "13. kolo. JESEŇ 2025"
         const seasonPart = r.season ? `. ${r.season}` : '';
         header.innerText = `${r.name}${seasonPart}`;
-        
+
         roundWrapper.appendChild(header);
         renderMatchList(r.matches, roundWrapper, true);
         container.appendChild(roundWrapper);
@@ -644,9 +665,6 @@ function renderRatingPage() {
             const firstRow = tbody ? tbody.querySelector('tr') : null;
             if (firstRow) {
                 colWidths = Array.from(firstRow.children).map(td => td.getBoundingClientRect().width);
-            } else {
-                // Fallback to header bottom row if body empty (unlikely)
-                // This fallback is complex due to colspan, skipping for now as body is populated
             }
 
             // 3. Update CSS Variable for Sticky Offsets (Col 1 width)
@@ -670,9 +688,6 @@ function renderRatingPage() {
             });
 
             // 5. Height Sync (Header Rows)
-            // Still need to sync row heights because text wrapping might differ if fonts slightly off?
-            // Actually, with colgroup fixed, widths are exact. Heights *should* match content.
-            // But let's force height to be safe.
             const origRows = Array.from(thead.querySelectorAll('tr'));
             const cloneRows = Array.from(stickyTable.querySelectorAll('tr'));
             origRows.forEach((row, i) => {
@@ -681,16 +696,13 @@ function renderRatingPage() {
                 }
             });
 
-            // 6. Copy computed styles for cells to ensure padding/border match
+            // 6. Copy computed styles for cells
             origThs.forEach((th, i) => {
                 if (cloneThs[i]) {
                     const computed = window.getComputedStyle(th);
                     cloneThs[i].style.padding = computed.padding;
                     cloneThs[i].style.border = computed.border;
                     cloneThs[i].style.boxSizing = 'border-box';
-                    // Clear manual width on TH to let Colgroup drive (except sticky lefts maybe?)
-                    // Actually, keeping width on TH doesn't hurt if it matches.
-                    // But removing it ensures Colgroup wins.
                     cloneThs[i].style.width = '';
                     cloneThs[i].style.minWidth = '';
                     cloneThs[i].style.maxWidth = '';
@@ -712,8 +724,6 @@ function renderRatingPage() {
                 stickyContainer.style.display = 'block';
                 stickyContainer.style.top = navHeight + 'px';
                 stickyContainer.scrollLeft = wrapper.scrollLeft;
-
-                // Always force sync widths when visible to guarantee alignment
                 updateWidths();
             } else {
                 stickyContainer.style.display = 'none';
@@ -829,13 +839,7 @@ function renderRatingPage() {
 
     const renderLineChart = (p) => {
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        
-        // Keys are now "seasonOrder-roundNum|DisplayString"
-        // We sort them alphanumerically, which works because seasonOrder and roundNum are numbers.
-        // Wait, "20252-01" vs "20261-01" -> 20252 < 20261. Correct.
         const sortedKeys = Object.keys(p.history).sort();
-        
-        // Extract display labels from keys
         const labels = sortedKeys.map(k => k.split('|')[1]);
         const dataPoints = sortedKeys.map(k => p.history[k]);
 
@@ -940,7 +944,7 @@ function renderTablePage() {
         const season = m.season || "JESEŇ 2025";
         const group = m.group || "";
         const tableKey = `${season}__${group}`;
-        
+
         if (!tables[tableKey]) {
             tables[tableKey] = {
                 season: season,
@@ -976,29 +980,27 @@ function renderTablePage() {
 
         // Process matches for this table
         matches.forEach(m => {
-             const key = `${getMatchRoundId(m)}::${m.player_a_team}::${m.player_b_team}`;
-             if (!tempMatches[key]) {
-                 // Since we are inside a season table, we don't need to append season to round name usually, 
-                 // but let's keep it clean.
-                 tempMatches[key] = {
-                     roundName: m.round, 
-                     teamA: m.player_a_team,
-                     teamB: m.player_b_team,
-                     scoreA: 0,
-                     scoreB: 0,
-                     isPlayed: false,
-                     realDate: null
-                 };
-             }
-             if (isPlayedMatch(m)) {
-                 const sA = parseInt(m.score_a);
-                 const sB = parseInt(m.score_b);
-                 if (sA > sB) tempMatches[key].scoreA++;
-                 if (sB > sA) tempMatches[key].scoreB++;
-                 tempMatches[key].isPlayed = true;
-             } else {
-                 if (m.date) tempMatches[key].realDate = m.date;
-             }
+            const key = `${getMatchRoundId(m)}::${m.player_a_team}::${m.player_b_team}`;
+            if (!tempMatches[key]) {
+                tempMatches[key] = {
+                    roundName: m.round,
+                    teamA: m.player_a_team,
+                    teamB: m.player_b_team,
+                    scoreA: 0,
+                    scoreB: 0,
+                    isPlayed: false,
+                    realDate: null
+                };
+            }
+            if (isPlayedMatch(m)) {
+                const sA = parseInt(m.score_a);
+                const sB = parseInt(m.score_b);
+                if (sA > sB) tempMatches[key].scoreA++;
+                if (sB > sA) tempMatches[key].scoreB++;
+                tempMatches[key].isPlayed = true;
+            } else {
+                if (m.date) tempMatches[key].realDate = m.date;
+            }
         });
 
         for (const k in tempMatches) teamMatchesArray.push(tempMatches[k]);
@@ -1040,7 +1042,7 @@ function renderTablePage() {
         // Build HTML
         const wrapper = document.createElement('div');
         wrapper.className = 'table-section';
-        
+
         const titleText = `${season}${group ? ' - Skupina ' + group : ''}`;
         const title = document.createElement('h2');
         title.style.cssText = "color: #4A90E2; margin: 25px 0 10px 0; padding-left: 5px; border-left: 4px solid #4A90E2;";
@@ -1057,9 +1059,9 @@ function renderTablePage() {
             </tr>
             </thead>
             <tbody></tbody>`;
-        
+
         const tbody = table.querySelector('tbody');
-        
+
         // Helper for History (scoped to this table's matches)
         const getHist = (tn) => {
             const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
@@ -1104,22 +1106,10 @@ function renderTablePage() {
     });
 
     // 5. Setup Prediction (Global)
-    // We need a global map of teams for the calculator. 
-    // We can reconstruct it from all matches or just use the players object to find teams.
-    // Let's gather all unique teams from all matches for the dropdown.
-    
-    // Note: The original code also attached calculatePrediction to window.
-    // We need to ensure `teams` used in calculatePrediction is available.
-    // But wait, `calculatePrediction` used the local `teams` variable which was in scope.
-    // Now we have multiple tables.
-    // We need a GLOBAL teams object that contains avgRating for ALL teams (or latest).
-    // Let's rebuild a global stats object just for the prediction calculator.
-    
     const globalTeams = {};
-    const globalPlayers = players; // alias
-    
+    const globalPlayers = players;
+
     allTeamsSet.forEach(teamName => {
-        // Calculate avg rating for this team based on players
         const tp = Object.values(globalPlayers).filter(p => p.team === teamName).sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
         const avg = tp.length > 0 ? tp.reduce((acc, p) => acc + p.rating, 0) / tp.length : 0;
         globalTeams[teamName] = { avgRating: avg };
@@ -1146,12 +1136,7 @@ function renderTablePage() {
         }
         const rA = globalTeams[tA] ? globalTeams[tA].avgRating : 0;
         const rB = globalTeams[tB] ? globalTeams[tB].avgRating : 0;
-        
-        // Elo win probability formula: 1 / (1 + 10^((Rb-Ra)/400))
-        // The code uses 300 divisor and 18 total points (matches in a round? 4 singles * 4 players + 2 doubles = 18 matches/sets? 
-        // Actually typical league match is 18 points? 
-        // In the code: const sA = Math.round(18 * (1 / (1 + Math.pow(10, (rB - rA) / 300))));
-        
+
         const sA = Math.round(18 * (1 / (1 + Math.pow(10, (rB - rA) / 300))));
         document.getElementById('predScore').innerText = `${sA} : ${18 - sA}`;
         document.getElementById('rateA').innerText = rA.toFixed(1);
