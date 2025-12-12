@@ -1162,7 +1162,7 @@ function renderNavigation() {
     const links = [
         { url: 'results.html', text: 'Výsledky' },
         { url: 'table.html', text: 'Tabuľka' },
-        { url: 'rating.html', text: 'Rating' }
+        { url: 'rating.html', text: 'Rating' },
     ];
 
     // Build the "Active" class string logic
