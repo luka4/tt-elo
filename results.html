@@ -14,7 +14,7 @@
         .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
         .nav-links a.active { background-color: white; color: #4A90E2; }
         .container { width: 96%; max-width: 900px; margin: 0 auto; padding-top: 20px; }
-        h1 { text-align: center; color: #333; margin: 0 0 25px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { text-align: center; color: #333; margin: 0 0 25px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
         .round-group { margin-bottom: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
         .round-header { background: #d3d3d3; padding: 10px 15px; font-weight: 800; color: #444; font-size: 1.1em; text-transform: uppercase; border-bottom: 1px solid #ccc; position: sticky; top: var(--header-offset, 80px); z-index: 10; border-radius: 8px 8px 0 0; }
         .match-row { border-bottom: 1px solid #eee; cursor: pointer; transition: background-color 0.2s; }
@@ -50,18 +50,10 @@
 </head>
 <body id="page-results">
 
-<nav class="top-nav" id="mainNav">
-    <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
-    <div class="nav-badge">Aktualizované:<br>12.12.2025 17:00</div>
-    <div class="nav-links">
-        <a href="results.html" class="active">Výsledky</a>
-        <a href="table.html">Tabuľka</a>
-        <a href="rating.html">Rating</a>
-    </div>
-</nav>
+<div id="mainNavContainer"></div>
 
 <div class="container" id="mainContainer">
-    <h1>Výsledky Tímových Zápasov</h1>
+    <h2>Výsledky Tímových Zápasov</h2>
     <div id="resultsContainer"></div>
 </div>
 

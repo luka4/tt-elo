@@ -15,7 +15,7 @@
         .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
         .nav-links a.active { background-color: white; color: #4A90E2; }
         .container { width: 96%; max-width: 1000px; margin: 0 auto; }
-        h1 { text-align: center; color: #333; margin: 20px 0 20px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { text-align: center; color: #333; margin: 20px 0 20px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
         .table-wrapper { background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
         table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 600px; }
         th, td { padding: 15px 10px; text-align: center; border-bottom: 1px solid #eee; white-space: nowrap; }
@@ -66,7 +66,7 @@
         .rating-val { font-weight: bold; color: #4A90E2; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @media screen and (max-width: 600px) {
-            h1 { font-size: 1.4em; }
+            h2 { font-size: 1.4em; }
             th, td { padding: 10px 2px; font-size: 11px; }
             .hr-date { width: 60px; font-size: 0.75em; }
             .hr-team { font-size: 0.95em; }
@@ -91,18 +91,10 @@
 </head>
 <body id="page-table">
 
-<nav class="top-nav" id="mainNav">
-    <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
-    <div class="nav-badge">Aktualizované:<br>12.12.2025 17:00</div>
-    <div class="nav-links">
-        <a href="results.html">Výsledky</a>
-        <a href="table.html" class="active">Tabuľka</a>
-        <a href="rating.html">Rating</a>
-    </div>
-</nav>
+<div id="mainNavContainer"></div>
 
 <div class="container" id="mainContainer">
-    <h1>Tabuľka Ligy</h1>
+    <h2>Tabuľka Ligy</h2>
     <div id="tablesContainer"></div>
     <div class="prediction-wrapper">
         <div class="pred-title">Predikcia Zápasu</div>

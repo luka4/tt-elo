@@ -1147,6 +1147,47 @@ function renderTablePage() {
     };
 }
 
+// ============================================================
+// NAVIGATION RENDERER
+// ============================================================
+function renderNavigation() {
+    const navContainer = document.getElementById('mainNavContainer');
+    if (!navContainer) return;
+
+    // Get current page filename (e.g., "rating.html")
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || "index.html";
+
+    // Define links
+    const links = [
+        { url: 'results.html', text: 'Výsledky' },
+        { url: 'table.html', text: 'Tabuľka' },
+        { url: 'rating.html', text: 'Rating' }
+    ];
+
+    // Build the "Active" class string logic
+    const getLinkHtml = (link) => {
+        const isActive = page === link.url;
+        return `<a href="${link.url}" ${isActive ? 'class="active"' : ''}>${link.text}</a>`;
+    };
+
+    // Note: The H1 tag is used for SEO (as discussed previously)
+    navContainer.innerHTML = `
+    <nav class="top-nav" id="mainNav">
+        <h1 class="nav-title" style="margin-top:0;">
+            <a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a>
+        </h1>
+        <div class="nav-badge">Aktualizované:<br>12.12.2025 17:00</div>
+        <div class="nav-links">
+            ${links.map(getLinkHtml).join('')}
+        </div>
+    </nav>`;
+    if (typeof updateLayout === 'function') updateLayout();
+}
+
+// Add this to your existing window load event
+window.addEventListener('load', renderNavigation);
+
 document.addEventListener('DOMContentLoaded', () => {
     const id = document.body.id;
     if (id === 'page-rating') renderRatingPage();

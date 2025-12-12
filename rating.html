@@ -18,7 +18,7 @@
         .nav-links a.active { background-color: white; color: #4A90E2; }
         .container { width: 100%; display: flex; flex-direction: column; padding: 10px; box-sizing: border-box; }
 
-        h1 { text-align: center; color: #333; margin: 10px 0 5px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; }
+        h2 { text-align: center; color: #333; margin: 10px 0 5px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; }
         .info-trigger { text-align: center; color: #4A90E2; cursor: pointer; font-size: 0.9em; margin-bottom: 15px; text-decoration: underline; flex-shrink: 0; font-weight: 600; }
         .info-trigger:hover { color: #1565c0; }
         .scroll-hint { display: none; font-size: 12px; color: #666; margin-bottom: 5px; font-style: italic; text-align: center; flex-shrink: 0; }
@@ -151,18 +151,10 @@
 </head>
 <body id="page-rating">
 
-<nav class="top-nav" id="mainNav">
-    <div class="nav-title"><a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a></div>
-    <div class="nav-badge">Aktualizované:<br>12.12.2025 17:00</div>
-    <div class="nav-links">
-        <a href="results.html">Výsledky</a>
-        <a href="table.html">Tabuľka</a>
-        <a href="rating.html" class="active">Rating</a>
-    </div>
-</nav>
+<div id="mainNavContainer"></div>
 
 <div class="container" id="mainContainer">
-    <h1>Aktuálny Rating Hráčov</h1>
+    <h2>Aktuálny Rating Hráčov</h2>
     <div class="info-trigger" onclick="openInfoModal()">ⓘ Ako funguje Rating?</div>
     <div class="scroll-hint">↔ Posuňte tabuľku pre viac štatistík</div>
     <div class="table-wrapper" id="mainTableWrapper">
