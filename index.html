@@ -10,6 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://luka4.github.io/tt-elo/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234A90E2'/><path d='M65,35 Q80,20 90,30 T70,50 L60,60 L40,40 L50,30 T35,65' fill='%23D32F2F' stroke='white' stroke-width='2'/><circle cx='35' cy='35' r='8' fill='white'/><rect x='45' y='55' width='10' height='30' rx='5' fill='%235D4037'/></svg>">
+    <link rel="stylesheet" href="loader.css">
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; background-color: #f2f4f8; color: #333; }
         .top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 3000; background-color: #4A90E2; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); padding: 10px 0; text-align: center; }
@@ -84,33 +85,47 @@
         }
     </style>
 </head>
-<body id="page-home">
+<body id="page-home" class="loading">
 
-<div id="mainNavContainer"></div>
-
-<div class="container" id="mainContainer">
-    <div class="stats-grid">
-        <div class="stat-box"><span class="stat-number" id="totalRounds">0</span><span class="stat-label">Odohraných Kôl</span></div>
-        <div class="stat-box"><span class="stat-number" id="totalTeamMatches">0</span><span class="stat-label">Tímových Zápasov</span></div>
-        <div class="stat-box"><span class="stat-number" id="totalMatches">0</span><span class="stat-label">Všetkých Zápasov</span></div>
-        <div class="stat-box"><span class="stat-number" id="totalSets">0</span><span class="stat-label">Odohraných Setov</span></div>
+<div id="pageLoader">
+    <div class="loader">
+        <div class="scene">
+            <div class="ball"></div>
+            <div class="racket">
+                <div class="blade"></div>
+                <div class="handle"></div>
+            </div>
+        </div>
+        <div class="loading-text">Načítava sa</div>
     </div>
-    <div class="section-header"><h2 id="latestRoundTitle">Aktuálne Kolo</h2></div>
-    <div id="latestRoundContainer"></div>
+</div>
+<div id="pageContent">
+    <div id="mainNavContainer"></div>
 
-    <div class="section-header"><h2>Predchádzajúce Kolo: <span id="prevRoundTitle"></span></h2></div>
-    <div id="prevRoundContainer"></div>
+    <div class="container" id="mainContainer">
+        <div class="stats-grid">
+            <div class="stat-box"><span class="stat-number" id="totalRounds">0</span><span class="stat-label">Odohraných Kôl</span></div>
+            <div class="stat-box"><span class="stat-number" id="totalTeamMatches">0</span><span class="stat-label">Tímových Zápasov</span></div>
+            <div class="stat-box"><span class="stat-number" id="totalMatches">0</span><span class="stat-label">Všetkých Zápasov</span></div>
+            <div class="stat-box"><span class="stat-number" id="totalSets">0</span><span class="stat-label">Odohraných Setov</span></div>
+        </div>
+        <div class="section-header"><h2 id="latestRoundTitle">Aktuálne Kolo</h2></div>
+        <div id="latestRoundContainer"></div>
 
-    <div id="upcomingMatchesContainer">
-        <div class="section-header"><h2>Nadchádzajúce Zápasy: <span id="nextRoundTitle"></span></h2></div>
-        <div id="upcomingList" class="upcoming-list"></div>
+        <div class="section-header"><h2>Predchádzajúce Kolo: <span id="prevRoundTitle"></span></h2></div>
+        <div id="prevRoundContainer"></div>
+
+        <div id="upcomingMatchesContainer">
+            <div class="section-header"><h2>Nadchádzajúce Zápasy: <span id="nextRoundTitle"></span></h2></div>
+            <div id="upcomingList" class="upcoming-list"></div>
+        </div>
+
+        <div class="section-header"><h2>Top 5 Skokanov Kola</h2></div>
+        <ul class="top-players-list" id="topGainersList"></ul>
+
+        <div class="section-header"><h2>Top 5 Prekvapení Kola</h2></div>
+        <div id="upsetContainer" class="upset-list"></div>
     </div>
-
-    <div class="section-header"><h2>Top 5 Skokanov Kola</h2></div>
-    <ul class="top-players-list" id="topGainersList"></ul>
-
-    <div class="section-header"><h2>Top 5 Prekvapení Kola</h2></div>
-    <div id="upsetContainer" class="upset-list"></div>
 </div>
 
 <script src="matchData.js?v=1"></script>

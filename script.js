@@ -1177,7 +1177,7 @@ function renderNavigation() {
         <h1 class="nav-title" style="margin-top:0;">
             <a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a>
         </h1>
-        <div class="nav-badge">Aktualizované:<br>12.12.2025 21:00</div>
+        <div class="nav-badge">Aktualizované:<br>13.12.2025</div>
         <div class="nav-links">
             ${links.map(getLinkHtml).join('')}
         </div>
@@ -1190,11 +1190,19 @@ window.addEventListener('load', renderNavigation);
 
 document.addEventListener('DOMContentLoaded', () => {
     const id = document.body.id;
-    if (id === 'page-rating') renderRatingPage();
-    else if (id === 'page-home') renderHomePage();
-    else if (id === 'page-results') renderResultsPage();
-    else if (id === 'page-table') renderTablePage();
+    requestAnimationFrame(() => {
+        if (id === 'page-rating') renderRatingPage();
+        else if (id === 'page-home') renderHomePage();
+        else if (id === 'page-results') renderResultsPage();
+        else if (id === 'page-table') renderTablePage();
+        hideLoader();
+    });
 });
+
+function hideLoader() {
+    document.body.classList.remove('loading');
+    document.getElementById('pageLoader')?.classList.add('hidden');
+}
 
 // ============================================================
 // 5. STYLE INJECTOR FOR STATS
