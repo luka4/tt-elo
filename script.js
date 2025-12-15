@@ -1086,7 +1086,13 @@ function renderTablePage() {
 
         Object.values(teams).sort((a, b) => (b.points !== a.points) ? b.points - a.points : (b.scoreFor - b.scoreAgainst) - (a.scoreFor - a.scoreAgainst)).forEach((t, i) => {
             const tr = document.createElement('tr');
-            tr.className = 'main-row';
+
+            let podiumClass = '';
+            if (i === 0) podiumClass = 'gold';
+            else if (i === 1) podiumClass = 'silver';
+            else if (i === 2) podiumClass = 'bronze';
+
+            tr.className = `main-row ${podiumClass}`;
             tr.innerHTML = `<td class="col-pos">${i + 1}.</td><td>${t.name} <span class="expand-icon">▼</span></td><td>${t.matches}</td><td>${t.wins}</td><td>${t.draws}</td><td>${t.losses}</td><td class="col-score">${t.scoreFor}:${t.scoreAgainst}</td><td class="col-pts">${t.points}</td><td class="col-avg">${t.avgRating.toFixed(1)}</td>`;
             const dTr = document.createElement('tr');
             dTr.className = 'detail-row';

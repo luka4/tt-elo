@@ -207,6 +207,11 @@
                 <div class="stat-card border-blue"><div class="stat-label">Aktuálny Rating</div><div id="currentRatingVal" class="stat-value"></div></div>
                 <div class="stat-card border-blue"><div class="stat-label">Priemerný Rating Súpera</div><div id="avgOpponentVal" class="stat-value"></div><div class="stat-rating" style="font-size:0.75em">(Iba dvojhry)</div></div>
             </div>
+            <div class="pie-row-title"><span>Highlighty</span></div>
+            <div id="statsHighlightsWrapper">
+                <div class="stat-card border-green"><div class="stat-label">Najlepšia Výhra</div><div id="bestWinContainer"><div class="stat-value" id="bestWinName"></div><div class="stat-rating" id="bestWinRating"></div></div></div>
+                <div class="stat-card border-red"><div class="stat-label">Najhoršia Prehra</div><div id="worstLossContainer"><div class="stat-value" id="worstLossName"></div><div class="stat-rating" id="worstLossRating"></div></div></div>
+            </div>
             <div class="pie-row-title"><span>Štatistiky Dvojhry</span></div>
             <div class="pie-row-wrapper">
                 <div class="pie-card"><div class="pie-header"><div class="pie-title">Zápasy (Dvojhra)</div><div class="pie-total-val" id="matchesTotalVal">0</div></div><div class="pie-canvas-holder"><canvas id="matchesChart"></canvas></div><div class="custom-legend"><div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="matchesWinsVal">0</span><span class="pct-text" id="matchesWinsPct">(0%)</span></div></div><div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="matchesLossVal">0</span><span class="pct-text" id="matchesLossPct">(0%)</span></div></div></div></div>
@@ -216,11 +221,6 @@
             <div class="pie-row-wrapper">
                 <div class="pie-card"><div class="pie-header"><div class="pie-title">Zápasy (Štvorhra)</div><div class="pie-total-val" id="dMatchesTotalVal">0</div></div><div class="pie-canvas-holder"><canvas id="dMatchesChart"></canvas></div><div class="custom-legend"><div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dMatchesWinsVal">0</span><span class="pct-text" id="dMatchesWinsPct">(0%)</span></div></div><div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dMatchesLossVal">0</span><span class="pct-text" id="dMatchesLossPct">(0%)</span></div></div></div></div>
                 <div class="pie-card"><div class="pie-header"><div class="pie-title">Sety (Štvorhra)</div><div class="pie-total-val" id="dSetsTotalVal">0</div></div><div class="pie-canvas-holder"><canvas id="dSetsChart"></canvas></div><div class="custom-legend"><div class="legend-row"><span class="legend-label">Výhry</span><div><span class="legend-val val-green" id="dSetsWinsVal">0</span><span class="pct-text" id="dSetsWinsPct">(0%)</span></div></div><div class="legend-row"><span class="legend-label">Prehry</span><div><span class="legend-val val-red" id="dSetsLossVal">0</span><span class="pct-text" id="dSetsLossPct">(0%)</span></div></div></div></div>
-            </div>
-            <div class="pie-row-title"><span>Highlighty</span></div>
-            <div id="statsHighlightsWrapper">
-                <div class="stat-card border-green"><div class="stat-label">Najlepšia Výhra</div><div id="bestWinContainer"><div class="stat-value" id="bestWinName"></div><div class="stat-rating" id="bestWinRating"></div></div></div>
-                <div class="stat-card border-red"><div class="stat-label">Najhoršia Prehra</div><div id="worstLossContainer"><div class="stat-value" id="worstLossName"></div><div class="stat-rating" id="worstLossRating"></div></div></div>
             </div>
             <div id="historyContainer"></div>
         </div>
