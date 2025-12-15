@@ -577,8 +577,8 @@ function renderRatingPage() {
         sortedPlayers.forEach((p, index) => {
             if (selectedTeams.length > 0 && !selectedTeams.includes(p.team)) return;
             const tr = document.createElement('tr');
-            if (p.team === 'COKERY') tr.classList.add('team-cokery');
-            if (p.team === 'ASTORIAFIT') tr.classList.add('team-astoria');
+            // if (p.team === 'COKERY') tr.classList.add('team-cokery');
+            // if (p.team === 'ASTORIAFIT') tr.classList.add('team-astoria');
             tr.onclick = () => {
                 if (window.getSelection().toString().length === 0) openPlayerModal(p);
             };
