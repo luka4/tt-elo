@@ -111,7 +111,9 @@
         #generalStatsWrapper, #statsHighlightsWrapper { display: flex; justify-content: center; gap: 20px; width: 100%; margin: 0 auto 20px auto; }
         .stat-card { flex: 1; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 15px; text-align: center; }
         .stat-label { text-transform: uppercase; font-size: 0.85em; color: #666; font-weight: 700; margin-bottom: 8px; }
+        .stat-card .stat-label { text-align: center; display: block; width: 100%; }
         .stat-value { font-size: 1.1em; font-weight: bold; color: #333; }
+        .stat-card .stat-value { color: #333; }
         .stat-rating { color: #888; font-size: 0.9em; font-weight: normal; }
         .stat-none { font-style: italic; color: #aaa; }
         .border-green { border-top: 4px solid #28a745; } .border-red { border-top: 4px solid #dc3545; } .border-blue { border-top: 4px solid #4A90E2; }
@@ -132,6 +134,21 @@
         .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
         .doubles-badge { background-color: #ef6c00; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6em; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
 
+        /* Derived Stats */
+        #derivedStatsSection { margin: 10px 0 25px 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .derived-stats-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; align-items: stretch; }
+        .stats-list { display: flex; flex-direction: column; gap: 10px; }
+        .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 6px; background: #f8fafc; box-shadow: inset 0 1px 0 rgba(255,255,255,0.6); }
+        .stat-label-der { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+        .stat-label-der .stat-label-main { font-weight: 700; color: #333; }
+        .stat-label-der .stat-tip { font-size: 0.82em; color: #6b7280; line-height: 1.3; }
+        .stat-row .stat-value { font-weight: 800; color: #4A90E2; font-size: 1.05em; }
+        .info-icon { cursor: help; color: #6b7280; font-size: 0.95em; }
+        .stats-radar { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; min-height: 260px; }
+        #statsRadarChart { width: 100%; max-width: 360px; height: 260px; }
+        .stats-description { margin-top: 12px; padding: 12px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; color: #374151; line-height: 1.5; }
+        .stats-disclaimer { margin-top: 8px; padding: 10px 12px; border-left: 4px solid #f59e0b; background: #fffbeb; color: #92400e; font-size: 0.9em; border-radius: 4px; }
+
         @media screen and (max-width: 768px) {
             .modal-content { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
             .close-btn { width: 45px; height: 45px; line-height: 45px; font-size: 28px; top: 12px; }
@@ -147,6 +164,11 @@
             thead tr:first-child th:nth-child(2),
             tbody td:nth-child(2) { min-width: 0 !important; width: 35vw !important; max-width: 130px !important; white-space: normal !important; word-wrap: break-word; line-height: 1.2; font-size: 11px; }
             .nav-badge { top: 5px; right: 5px; transform: none; padding: 2px 6px; font-size: 0.6em; border-radius: 4px; }
+            #derivedStatsSection { padding: 12px; }
+            .derived-stats-grid { grid-template-columns: 1fr; }
+            #statsRadarChart { max-width: 100%; height: 240px; }
+            .stat-label-der { align-items: flex-start; }
+            .stat-label-der .stat-tip { margin-top: 2px; }
         }
     </style>
 </head>
@@ -202,6 +224,16 @@
             <span class="close-btn" onclick="closePlayerModal()">&times;</span>
             <div id="selectedPlayerHeader"><div class="player-header-name" id="headerName"></div><div class="player-header-team" id="headerTeam"></div></div>
             <div id="chartContainerWrapper"><canvas id="ratingChart"></canvas></div>
+            <div id="derivedStatsSection">
+                <div class="derived-stats-grid">
+                    <div class="stats-list" id="derivedStatsList"></div>
+                    <div class="stats-radar">
+                        <canvas id="statsRadarChart"></canvas>
+                    </div>
+                </div>
+                <div id="statsDescription" class="stats-description"></div>
+                <div id="statsDisclaimer" class="stats-disclaimer"></div>
+            </div>
             <div class="pie-row-title"><span>Prehľad</span></div>
             <div id="generalStatsWrapper">
                 <div class="stat-card border-blue"><div class="stat-label">Aktuálny Rating</div><div id="currentRatingVal" class="stat-value"></div></div>
@@ -288,7 +320,7 @@
     </div>
 </div>
 
-<script src="matchData.js?v=3"></script>
-<script src="script.js?v=3"></script>
+<script src="matchData.js?v=3.1"></script>
+<script src="script.js?v=3.1"></script>
 </body>
 </html>

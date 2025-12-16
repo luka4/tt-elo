@@ -15,6 +15,25 @@ function getKFactor(matchesCount) {
     return K_FACTOR_STAGES[matchesCount] || K_FACTOR_STAGES.default;
 }
 
+function clamp(val, min = 0, max = 100) {
+    return Math.min(max, Math.max(min, val));
+}
+
+// Blend score toward neutral 50 for low sample counts
+function confidenceBlend(base, count, threshold = 8) {
+    const confidence = Math.min(count / threshold, 1);
+    return clamp(50 + (base - 50) * confidence);
+}
+
+const STAT_META = {
+    attack: { label: 'Ofenzíva', tip: 'Ako presvedčivo hráč vyhráva sety (3:0 / 3:1 majú väčšiu váhu).' },
+    defense: { label: 'Defenzíva', tip: 'Ako dobre hráč obmedzí straty pri prehre, najmä proti silnejším.' },
+    consistency: { label: 'Stabilita výkonu', tip: 'Stabilita zmien ratingu v nedávnych zápasoch.' },
+    momentum: { label: 'Momentum', tip: 'Aktuálny trend ziskov/strát ratingu.' },
+    teamImpact: { label: 'Tímový vplyv', tip: 'Úspešnosť a prínos v štvorhrách.' },
+    clutch: { label: 'Výkon pod tlakom', tip: 'Výkony v tesných päťsetových zápasoch (3:2 / 2:3).' }
+};
+
 // Helper: Parse Season for Sorting (Year * 10 + Term)
 function getSeasonOrder(seasonStr) {
     if (!seasonStr) return 0; // Old data
@@ -276,6 +295,176 @@ function processData() {
     });
 
     return {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList};
+}
+
+// ============================================================
+// 3A. DERIVED STATS ENGINE (FRONTEND ONLY)
+// ============================================================
+function getBandLabel(val) {
+    if (val < 30) return 'slabé';
+    if (val < 60) return 'priemerné';
+    if (val < 90) return 'silné';
+    return 'mimoriadne silné';
+}
+
+function computeDerivedStats(p) {
+    const avg = (arr) => arr.length ? arr.reduce((a, b) => a + b, 0) / arr.length : 0;
+    const singles = p.matchDetails.filter(m => !m.isDoubles);
+    const doubles = p.matchDetails.filter(m => m.isDoubles);
+    const closeMatches = p.matchDetails.filter(m => (m.score_own + m.score_opp) === 5);
+    const recentMatches = p.matchDetails.slice(-12);
+    const recentShort = p.matchDetails.slice(-5);
+
+    // Attack: set margin dominance (singles only)
+    const attackMargins = singles.map(m => {
+        const own = m.score_own || 0;
+        const opp = m.score_opp || 0;
+        const total = Math.max(1, own + opp);
+        return (own - opp) / Math.max(3, total); // normalize to roughly [-1, 1]
+    });
+    const attackBase = attackMargins.length ? clamp(50 + avg(attackMargins) * 50) : 50;
+    const attack = confidenceBlend(attackBase, singles.length, 10);
+
+    // Defense: performance in losses vs stronger opponents (fallback to all losses)
+    const ratingBefore = (m) => (m.rating_after || 0) - (m.delta_own || 0);
+    const oppRatingBefore = (m) => (m.opp_rating_after || 0) - (m.delta_opp || 0);
+    const losses = singles.filter(m => m.score_own < m.score_opp);
+    const strongLosses = losses.filter(m => oppRatingBefore(m) > ratingBefore(m) + 5);
+    const defensePool = strongLosses.length ? strongLosses : losses;
+    const defenseShares = defensePool.map(m => {
+        const own = m.score_own || 0;
+        const opp = m.score_opp || 0;
+        const total = Math.max(1, own + opp);
+        return own / total; // share of sets the player still took
+    });
+    const defenseBase = defenseShares.length ? clamp(avg(defenseShares) * 100) : 50;
+    const defense = (confidenceBlend(defenseBase, defensePool.length, 8)) * 2;
+
+    // Consistency: volatility of rating deltas (all recent matches)
+    const volDeltas = recentMatches.map(m => Math.abs(m.delta_own || 0));
+    const meanDelta = avg(volDeltas);
+    const variance = volDeltas.length ? avg(volDeltas.map(d => Math.pow(d - meanDelta, 2))) : 0;
+    const std = Math.sqrt(variance);
+    const normVol = Math.min(std / 12, 1.5); // std of 12+ means low consistency
+    const consistencyBase = clamp(100 - normVol * 100);
+    const consistency = confidenceBlend(consistencyBase, recentMatches.length, 10);
+
+    // Momentum: recent rating trend (last 5)
+    const momentumDelta = avg(recentShort.map(m => m.delta_own || 0));
+    const momentumBase = clamp(50 + momentumDelta * 3); // 5 pts avg delta ~ +15/-15
+    const momentum = confidenceBlend(momentumBase, recentShort.length, 5);
+
+    // Team Impact: doubles win rate
+    const dWins = doubles.filter(m => m.score_own > m.score_opp).length;
+    const teamImpactBase = doubles.length ? clamp((dWins / doubles.length) * 100) : 50;
+    const teamImpact = confidenceBlend(teamImpactBase, doubles.length, 8);
+
+    // Clutch: close 3:2 matches
+    const closeWins = closeMatches.filter(m => m.score_own > m.score_opp).length;
+    const clutchBase = closeMatches.length ? clamp(50 + ((closeWins / closeMatches.length) - 0.5) * 100) : 50;
+    const clutch = confidenceBlend(clutchBase, closeMatches.length, 4);
+
+    return {
+        values: {attack, defense, consistency, momentum, teamImpact, clutch},
+        counts: {
+            total: p.matchDetails.length,
+            singles: singles.length,
+            doubles: doubles.length,
+            close: closeMatches.length
+        }
+    };
+}
+
+function buildStatsDescription(stats) {
+    const v = stats.values;
+
+    const band = (key) => getBandLabel(v[key]);
+    const parts = [
+        `Ofenzíva je ${band('attack')} (${v.attack.toFixed(0)}) a naznačuje, ako presvedčivo hráč získava sety.`,
+        `Defenzíva je ${band('defense')} (${v.defense.toFixed(0)}) – vyjadruje schopnosť držať krok aj proti silnejším súperom.`,
+        `Stabilita výkonu je ${band('consistency')} (${v.consistency.toFixed(0)}), čo poukazuje na vyrovnanosť výsledkov v čase.`,
+        `Momentum je ${band('momentum')} (${v.momentum.toFixed(0)}) a odráža aktuálnu formu na základe posledných zápasov.`,
+        `Tímový vplyv dosahuje úroveň ${band('teamImpact')} (${v.teamImpact.toFixed(0)}) najmä v štvorhrách.`,
+        `Výkon pod tlakom je ${band('clutch')} (${v.clutch.toFixed(0)}) a ukazuje, ako sa hráč presadzuje v tesných a rozhodujúcich dueloch.`
+    ];
+
+    return parts.join(' ');
+}
+
+function renderStatsRadar(stats) {
+    const ctx = document.getElementById('statsRadarChart');
+    if (!ctx || typeof Chart === 'undefined') return;
+    if (chartRefs['radar']) chartRefs['radar'].destroy();
+
+    const labels = ['Ofenzíva', 'Defenzíva', 'Stabilita výkonu', 'Momentum', 'Tímový vplyv', 'Výkon pod tlakom'];
+    const dataPoints = [
+        stats.values.attack,
+        stats.values.defense,
+        stats.values.consistency,
+        stats.values.momentum,
+        stats.values.teamImpact,
+        stats.values.clutch
+    ];
+
+    chartRefs['radar'] = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels,
+            datasets: [{
+                data: dataPoints,
+                backgroundColor: 'rgba(74, 144, 226, 0.15)',
+                borderColor: '#4A90E2',
+                borderWidth: 2,
+                pointBackgroundColor: '#4A90E2',
+                pointRadius: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                r: {
+                    min: 0,
+                    max: 100,
+                    ticks: { display: false },
+                    grid: { color: 'rgba(0,0,0,0.08)' },
+                    angleLines: { color: 'rgba(0,0,0,0.1)' }
+                }
+            }
+        }
+    });
+}
+
+function renderDerivedStats(stats) {
+    const list = document.getElementById('derivedStatsList');
+    if (list) {
+        list.innerHTML = '';
+        ['attack', 'defense', 'consistency', 'momentum', 'teamImpact', 'clutch'].forEach(key => {
+            const meta = STAT_META[key];
+            const row = document.createElement('div');
+            row.className = 'stat-row';
+            row.innerHTML = `
+                <div class="stat-label-der">
+                    <span class="stat-label-main">${meta.label}</span>
+                    <span class="stat-tip">${meta.tip}</span>
+                </div>
+                <div class="stat-value">${stats.values[key].toFixed(0)}</div>
+            `;
+            list.appendChild(row);
+        });
+    }
+
+    const desc = document.getElementById('statsDescription');
+    if (desc) desc.innerText = buildStatsDescription(stats);
+
+    const disclaimer = document.getElementById('statsDisclaimer');
+    if (disclaimer) {
+        const lowSample = stats.counts.total < 5 ? ' Dáta sú veľmi obmedzené, berte hodnoty s rezervou.' : '';
+        disclaimer.innerText = 'Štatistiky sú odhady na základe dostupných zápasov; nízky počet zápasov tlmí extrémy.' + lowSample;
+    }
+
+    renderStatsRadar(stats);
 }
 
 // ============================================================
@@ -830,6 +1019,10 @@ function renderRatingPage() {
             }
         });
         document.getElementById('avgOpponentVal').innerText = countOpp > 0 ? (totalOpp / countOpp).toFixed(2) : "-";
+
+        const derivedStats = computeDerivedStats(p);
+        renderDerivedStats(derivedStats);
+
         playerModal.style.display = "flex";
         renderLineChart(p);
         renderPieCharts('matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'matches', 'sets');
