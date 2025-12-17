@@ -8,6 +8,33 @@ const K_FACTOR_STAGES = {1: 30, 2: 26, 3: 22, 4: 18, 5: 14, default: 10};
 
 let chartRefs = {};
 
+// Team logos (used on standings + detail)
+const LOGO_BASE_PATH = 'media/team_logos';
+const TEAM_LOGOS = {
+    'ASTORIAFIT': 'astoria.png',
+    'BERNARD CLUB': 'bernard.png',
+    'BOMBERE': 'bombere.png',
+    'COKERY': 'cokery.png',
+    'EUROCAST': 'euro.png',
+    'KOMÉTA KE': 'kometa.png',
+    'METALKOV': 'metalkov.png',
+    'MONTREAL': 'montreal.png',
+    'MYSLAVA': 'myslava.png',
+    'MYSLAVA "Ž"': 'myslavaz.png',
+    'REPREX': 'reprex.png',
+    'SKP "A"': 'skpa.png',
+    'SKP "B"': 'skpb.png',
+    'SOŠ Ž': 'sosz.png',
+    'TT TEAM': 'tt.png',
+    'TTC KVP': 'ttc.png'
+};
+
+function getTeamLogoSrc(teamName) {
+    const key = (teamName || '').trim().toUpperCase();
+    const file = TEAM_LOGOS[key];
+    return file ? `${LOGO_BASE_PATH}/${file}` : null;
+}
+
 // ============================================================
 // 2. HELPER FUNCTIONS
 // ============================================================
@@ -667,10 +694,15 @@ function renderMatchList(matches, container, appendToProvided) {
         // Check if played (at least one game is played)
         const isPlayed = match.games.some(isPlayedMatch);
 
+        const logoA = getTeamLogoSrc(match.teamA);
+        const logoB = getTeamLogoSrc(match.teamB);
+        const logoAHtml = logoA ? `<img class="team-logo-small" src="${logoA}" alt="${match.teamA} logo" loading="lazy">` : '';
+        const logoBHtml = logoB ? `<img class="team-logo-small" src="${logoB}" alt="${match.teamB} logo" loading="lazy">` : '';
+
         if (isPlayed) {
             const summary = document.createElement('div');
             summary.className = 'match-summary';
-            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div><div class="score-badge">${match.scoreA}-${match.scoreB}</div><div class="team-name team-right">${match.teamB}</div><div class="expand-icon">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div>${logoAHtml}<div class="score-badge">${match.scoreA}-${match.scoreB}</div>${logoBHtml}<div class="team-name team-right">${match.teamB}</div><div class="expand-icon">▼</div>`;
             const details = document.createElement('div');
             details.className = 'match-details';
 
@@ -702,7 +734,9 @@ function renderMatchList(matches, container, appendToProvided) {
                     return a.possible - b.possible; // Lower possible first (if points equal)
                 });
                 if (list.length === 0) return '';
+                const tLogo = getTeamLogoSrc(teamName);
                 let h = `<div class="team-stats ${align}">`;
+                if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${teamName} logo" loading="lazy"></div>`;
                 list.forEach((p, index) => {
                     h += `<div class="player-stat-row">
                         <div class="player-stat-name">${p.name}</div>
@@ -737,7 +771,7 @@ function renderMatchList(matches, container, appendToProvided) {
             const summary = document.createElement('div');
             summary.className = 'match-summary';
             // Same structure as played matches for perfect alignment
-            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div><div class="score-badge" style="background:#e0e0e0; color:#555;">VS</div><div class="team-name team-right">${match.teamB}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div>${logoAHtml}<div class="score-badge" style="background:#e0e0e0; color:#555;">VS</div>${logoBHtml}<div class="team-name team-right">${match.teamB}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
             matchRow.appendChild(summary);
 
             const dateStr = match.date ? match.date : '';
@@ -995,6 +1029,20 @@ function renderRatingPage() {
     const openPlayerModal = (p) => {
         document.getElementById('headerName').innerText = p.name;
         document.getElementById('headerTeam').innerText = p.team || "";
+        const logoEl = document.getElementById('headerTeamLogo');
+        const logoWrap = document.getElementById('headerTeamLogoWrapper');
+        const teamLogoSrc = getTeamLogoSrc(p.team);
+        if (logoEl && logoWrap) {
+            if (teamLogoSrc) {
+                logoEl.src = teamLogoSrc;
+                logoEl.style.display = 'block';
+                logoWrap.style.display = 'flex';
+            } else {
+                logoEl.src = '';
+                logoEl.style.display = 'none';
+                logoWrap.style.display = 'none';
+            }
+        }
         document.getElementById('currentRatingVal').innerText = p.rating.toFixed(2);
         const setStat = (idName, idRate, oppName, oppRate) => {
             const elName = document.getElementById(idName);
@@ -1258,8 +1306,10 @@ function renderTablePage() {
         // Helper for History (scoped to this table's matches)
         const getHist = (tn) => {
             const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
-            if (mm.length === 0) return `<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
-            let h = `<div class="history-list">`;
+            const logoSrc = getTeamLogoSrc(tn);
+            const logoBlock = logoSrc ? `<div class="team-logo-banner"><img src="${logoSrc}" alt="${tn} logo" class="team-logo-large" loading="lazy"></div>` : '';
+            if (mm.length === 0) return `${logoBlock}<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
+            let h = `${logoBlock}<div class="history-list">`;
             mm.forEach(m => {
                 const isHome = m.teamA === tn;
                 let scHtml = '', scClass = '';
@@ -1376,7 +1426,7 @@ function renderNavigation() {
         <h1 class="nav-title" style="margin-top:0;">
             <a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a>
         </h1>
-        <div class="nav-badge">Aktualizované:<br>16.12.2025 12:00</div>
+        <div class="nav-badge">Aktualizované:<br>17.12.2025</div>
         <div class="nav-links">
             ${links.map(getLinkHtml).join('')}
         </div>

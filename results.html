@@ -21,10 +21,13 @@
         .match-row { border-bottom: 1px solid #eee; cursor: pointer; transition: background-color 0.2s; }
         .match-row:last-child { border-bottom: none; }
         .match-row:hover { background-color: #f9f9f9; }
-        .match-summary { display: flex; align-items: center; padding: 15px; justify-content: space-between; }
+        .match-summary { display: flex; align-items: center; padding: 15px; justify-content: space-between; gap: 10px; }
         .team-name { flex: 1; font-size: 1.1em; font-weight: 500; }
         .team-left { text-align: right; padding-right: 15px; }
         .team-right { text-align: left; padding-left: 15px; }
+        .team-logo-small { width: 58px; height: 58px; object-fit: contain; flex-shrink: 0; }
+        .team-logo-large { max-width: 140px; width: 100%; height: auto; object-fit: contain; }
+        .team-logo-stats { display: flex; justify-content: center; margin-bottom: 8px; }
         .score-badge { background: #4A90E2; color: white; font-weight: 800; font-size: 1.2em; padding: 5px 12px; border-radius: 6px; min-width: 60px; text-align: center; letter-spacing: 1px; }
         .match-details { display: none; background-color: #fafafa; border-top: 1px solid #eee; padding: 10px 0; box-shadow: inset 0 2px 5px rgba(0,0,0,0.03); }
         .game-row { display: flex; flex-direction: column; align-items: center; padding: 12px 15px; border-bottom: 1px solid #e0e0e0; position: relative; }
@@ -42,9 +45,11 @@
         @media screen and (max-width: 600px) {
             .team-name { font-size: 0.95em; }
             .score-badge { font-size: 1em; padding: 4px 8px; min-width: 50px; }
-            .match-summary { padding: 12px 10px; }
+            .match-summary { padding: 12px 10px; gap: 6px; }
             .player-left, .player-right { font-size: 0.85em; }
             .game-score { font-size: 1em; }
+            .team-logo-small { width: 46px; height: 46px; }
+            .team-logo-large { max-width: 120px; }
             .nav-badge { top: 5px; right: 5px; transform: none; padding: 2px 6px; font-size: 0.6em; border-radius: 4px; }
         }
     </style>
