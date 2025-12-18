@@ -1,5 +1,8 @@
 {
   "appId": "com.luka.ttelo",
   "appName": "Kosicka Miniliga",
-  "webDir": "docs"
+  "webDir": "docs",
+  "server": {
+    "androidScheme": "https"
+  }
 }
