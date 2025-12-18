@@ -73,57 +73,6 @@
         .main-row.bronze:hover td {
             filter: brightness(1.02);
         }
-        /*DIVISION START*/
-        .division-summary {
-            margin-top: 30px;
-            font-family: Arial, sans-serif;
-        }
-
-        .block {
-            background: #f9f9f9;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-            border-left: 6px solid #ccc;
-        }
-
-        .block h2 {
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-        .block h2 span {
-            font-weight: normal;
-            color: #666;
-        }
-
-        .description {
-            margin-bottom: 12px;
-            color: #444;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin: 6px 0;
-        }
-
-        .note {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        .reason {
-            margin-top: 12px;
-            font-size: 0.95em;
-            color: #333;
-        }
-        .guaranteed { border-color: #2ecc71; }
-        .possible   { border-color: #f39c12; }
-        .relegated  { border-color: #e74c3c; }
-        /*DIVISION END*/
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @media screen and (max-width: 600px) {
             h2 { font-size: 1.4em; }
@@ -182,73 +131,6 @@
     <div id="mainNavContainer"></div>
     <div class="container" id="mainContainer">
         <h2>Tabuľka Ligy</h2>
-
-        <div class="division-summary">
-
-            <!-- GUARANTEED A DIVISION -->
-            <section class="block guaranteed">
-                <h2>1. Tímy, ktoré majú istý postup do A divízie (Top 8)</h2>
-                <p class="description">
-                    Tieto tímy už nemôžu klesnúť pod 8. miesto – buď majú sezónu
-                    ukončenú, alebo majú dostatočný bodový náskok.
-                </p>
-
-                <ul>
-                    <li><strong>SKP "A"</strong> – 41 bodov (sezóna ukončená)</li>
-                    <li><strong>MONTREAL</strong> – 39 bodov</li>
-                    <li><strong>MYSLAVA</strong> – 37 bodov (sezóna ukončená)</li>
-                    <li><strong>BOMBERE</strong> – 37 bodov (sezóna ukončená)</li>
-                    <li><strong>ASTORIAFIT</strong> – 33 bodov (sezóna ukončená)</li>
-                </ul>
-
-                <p class="reason">
-                    <strong>Dôvod:</strong> Deväty tím (<strong>Bernard Club</strong>)
-                    môže získať maximálne <strong>33 bodov</strong>, čo nestačí na
-                    predbehnutie týchto tímov.
-                </p>
-            </section>
-
-            <!-- BATTLE -->
-            <section class="block possible">
-                <h2>2. Boj o posledné 3 miesta v A divízii</h2>
-                <p class="description">
-                    O pozície <strong>6 – 8</strong> bojujú ešte <strong>4 tímy</strong>.
-                    Jeden z nich skončí mimo A divízie.
-                </p>
-
-                <ul>
-                    <li><strong>SKP "B"</strong> – 32 bodov (sezóna ukončená)</li>
-                    <li><strong>METALKOV</strong> – 31 bodov (1 zápas zostáva)</li>
-                    <li><strong>KOMÉTA KE</strong> – 30 bodov (2 zápasy zostávajú)</li>
-                    <li><strong>BERNARD Club</strong> – 30 bodov (1 zápas zostáva)</li>
-                </ul>
-
-                <p class="reason">
-                    <strong>Scenár:</strong> Rozhodne posledné kolo. Rozdiely sú
-                    minimálne a rozhodovať budú aj pomocné kritériá.
-                </p>
-            </section>
-
-            <!-- RELEGATED -->
-            <section class="block relegated">
-                <h2>3. Tímy, ktoré na 100 % spadnú do B divízie</h2>
-                <p class="description">
-                    Tieto tímy už nemajú matematickú šancu dostať sa do Top 8.
-                </p>
-
-                <ul>
-                    <li><strong>MYSLAVA "Ž"</strong> – 27 bodov</li>
-                    <li><strong>TT TEAM</strong> – 26 bodov</li>
-                    <li><strong>EUROCAST</strong> – 23 bodov</li>
-                    <li><strong>REPREX</strong> – 23 bodov</li>
-                    <li><strong>TTC KVP</strong> – 22 bodov</li>
-                    <li><strong>SOŠ Ž</strong> – 19 bodov</li>
-                    <li><strong>COKERY</strong> – 18 bodov</li>
-                </ul>
-            </section>
-
-        </div>
-
         <div id="tablesContainer"></div>
         <div class="prediction-wrapper">
             <div class="pred-title">Predikcia Zápasu</div>
