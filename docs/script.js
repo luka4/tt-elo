@@ -418,9 +418,18 @@ function buildStatsDescription(stats) {
     return parts.join(' ');
 }
 
-function renderStatsRadar(stats) {
-    const ctx = document.getElementById('statsRadarChart');
-    if (!ctx || typeof Chart === 'undefined') return;
+function renderStatsRadar(stats, attempt = 0, maxAttempts = 20) {
+    const canvas = document.getElementById('statsRadarChart');
+    if (!canvas || typeof Chart === 'undefined') {
+        if (attempt < maxAttempts) setTimeout(() => renderStatsRadar(stats, attempt + 1, maxAttempts), 150);
+        return;
+    }
+    const rect = canvas.getBoundingClientRect();
+    if ((rect.width < 2 || rect.height < 2) && attempt < maxAttempts) {
+        setTimeout(() => renderStatsRadar(stats, attempt + 1, maxAttempts), 150);
+        return;
+    }
+    const ctx = canvas.getContext('2d');
     if (chartRefs['radar']) chartRefs['radar'].destroy();
 
     const labels = ['Ofenzíva', 'Defenzíva', 'Stabilita výkonu', 'Momentum', 'Tímový vplyv', 'Výkon pod tlakom'];
@@ -794,6 +803,12 @@ function renderRatingPage() {
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
     let selectedTeams = [];
 
+    const normalizePlayerKey = (name) => (name || '').trim().toLowerCase();
+    const playerLookup = {};
+    sortedPlayers.forEach(p => {
+        playerLookup[normalizePlayerKey(p.name)] = p;
+    });
+
     const tbody = document.getElementById('mainTableBody');
     const renderTable = () => {
         tbody.innerHTML = '';
@@ -1021,12 +1036,22 @@ function renderRatingPage() {
         renderTable();
     };
 
+    const updatePlayerInUrl = (playerName) => {
+        const url = new URL(window.location.href);
+        if (playerName) url.searchParams.set('player', playerName);
+        else url.searchParams.delete('player');
+        window.history.replaceState({}, '', url);
+    };
+
     const playerModal = document.getElementById("playerModal");
     window.closePlayerModal = () => {
         playerModal.style.display = "none";
+        updatePlayerInUrl(null);
     };
 
-    const openPlayerModal = (p) => {
+    const openPlayerModal = (p, opts = {}) => {
+        const {skipUrlUpdate = false} = opts;
+        if (!skipUrlUpdate) updatePlayerInUrl(p.name);
         document.getElementById('headerName').innerText = p.name;
         document.getElementById('headerTeam').innerText = p.team || "";
         const logoEl = document.getElementById('headerTeamLogo');
@@ -1072,14 +1097,28 @@ function renderRatingPage() {
         renderDerivedStats(derivedStats);
 
         playerModal.style.display = "flex";
-        renderLineChart(p);
+        // Defer chart renders slightly to allow modal layout to settle (fixes zero-size canvas on reload with ?player=)
+        setTimeout(() => {
+            renderLineChart(p);
+            renderStatsRadar(derivedStats);
+        }, 80);
         renderPieCharts('matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'matches', 'sets');
         renderPieCharts('dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'dMatches', 'dSets');
         renderHistory(p);
     };
 
-    const renderLineChart = (p) => {
-        const ctx = document.getElementById('ratingChart').getContext('2d');
+    const renderLineChart = (p, attempt = 0) => {
+        const canvas = document.getElementById('ratingChart');
+        if (!canvas || typeof Chart === 'undefined') {
+            if (attempt < 8) setTimeout(() => renderLineChart(p, attempt + 1), 120);
+            return;
+        }
+        const rect = canvas.getBoundingClientRect();
+        if ((rect.width < 2 || rect.height < 2) && attempt < 8) {
+            setTimeout(() => renderLineChart(p, attempt + 1), 120);
+            return;
+        }
+        const ctx = canvas.getContext('2d');
         const sortedKeys = Object.keys(p.history).sort();
         const labels = sortedKeys.map(k => k.split('|')[1]);
         const dataPoints = sortedKeys.map(k => p.history[k]);
@@ -1163,6 +1202,13 @@ function renderRatingPage() {
         container.innerHTML = html;
     };
 
+    const openPlayerFromUrl = () => {
+        const urlPlayer = new URL(window.location.href).searchParams.get('player');
+        if (!urlPlayer) return;
+        const target = playerLookup[normalizePlayerKey(urlPlayer)];
+        if (target) openPlayerModal(target, {skipUrlUpdate: true});
+    };
+
     window.onclick = (e) => {
         if (e.target == playerModal) closePlayerModal();
         const im = document.getElementById("infoModal");
@@ -1172,6 +1218,7 @@ function renderRatingPage() {
     window.closeInfoModal = () => document.getElementById("infoModal").style.display = "none";
     renderTable();
     initTeamFilter();
+    openPlayerFromUrl();
 }
 
 // --- TABLE PAGE ---
