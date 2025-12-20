@@ -1377,7 +1377,26 @@ function renderRatingPage() {
         const keysB = compareP ? Object.keys(compareP.history).sort() : [];
         const allKeys = [...new Set([...keysA, ...keysB])].sort();
         const labels = allKeys.map(k => k.split('|')[1]);
-        const dataPoints = allKeys.map(k => p.history[k] ?? null);
+        const buildFilledSeries = (history, keys) => {
+            // We want to show "missing rounds" only after the player started playing.
+            // So we forward-fill between the first and last existing points, but keep
+            // null before the first match and after the last match (so the line doesn't extend).
+            const raw = keys.map(k => (Object.prototype.hasOwnProperty.call(history, k) ? history[k] : null));
+            const firstIdx = raw.findIndex(v => v !== null && v !== undefined);
+            if (firstIdx === -1) return raw.map(() => null);
+            let lastIdx = -1;
+            for (let i = raw.length - 1; i >= 0; i--) {
+                if (raw[i] !== null && raw[i] !== undefined) { lastIdx = i; break; }
+            }
+            let lastVal = null;
+            return raw.map((v, i) => {
+                if (i < firstIdx || i > lastIdx) return null;
+                if (v !== null && v !== undefined) { lastVal = v; return v; }
+                return lastVal;
+            });
+        };
+
+        const dataPoints = compareP ? buildFilledSeries(p.history, allKeys) : allKeys.map(k => p.history[k] ?? null);
         const datasets = [{
             label: p.name,
             data: dataPoints,
@@ -1390,7 +1409,7 @@ function renderRatingPage() {
         }];
 
         if (compareP) {
-            const compareData = allKeys.map(k => compareP.history[k] ?? null);
+            const compareData = buildFilledSeries(compareP.history, allKeys);
             datasets.push({
                 label: compareP.name,
                 data: compareData,
