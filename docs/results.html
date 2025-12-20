@@ -6,55 +6,8 @@
     <title>Košická Miniliga - Výsledky</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="loader.css">
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; background-color: #f2f4f8; color: #333; }
-        .top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 3000; background-color: #4A90E2; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); padding: 10px 0; text-align: center; }
-        .nav-title { font-size: 1.4em; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        .nav-links { display: flex; justify-content: center; gap: 20px; }
-        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 600; font-size: 1em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; transition: all 0.2s; }
-        .nav-links a:hover { background-color: rgba(255,255,255,0.2); color: white; }
-        .nav-links a.active { background-color: white; color: #4A90E2; }
-        .container { width: 96%; max-width: 900px; margin: 0 auto; padding-top: 20px; }
-        h2 { text-align: center; color: #333; margin: 0 0 25px 0; font-size: 1.8em; text-transform: uppercase; letter-spacing: 1px; }
-        .round-group { margin-bottom: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
-        .round-header { background: #d3d3d3; padding: 10px 15px; font-weight: 800; color: #444; font-size: 1.1em; text-transform: uppercase; border-bottom: 1px solid #ccc; position: sticky; top: var(--header-offset, 80px); z-index: 10; border-radius: 8px 8px 0 0; }
-        .match-row { border-bottom: 1px solid #eee; cursor: pointer; transition: background-color 0.2s; }
-        .match-row:last-child { border-bottom: none; }
-        .match-row:hover { background-color: #f9f9f9; }
-        .match-summary { display: flex; align-items: center; padding: 15px; justify-content: space-between; gap: 10px; flex-wrap: nowrap; }
-        .team-name { flex: 1; font-size: 1.1em; font-weight: 500; min-width: 0; }
-        .team-left { text-align: right; padding-right: 15px; }
-        .team-right { text-align: left; padding-left: 15px; }
-        .team-logo-small { width: 58px; height: 58px; object-fit: contain; flex-shrink: 0; }
-        .team-logo-large { max-width: 140px; width: 100%; height: auto; object-fit: contain; }
-        .team-logo-stats { display: flex; justify-content: center; margin-bottom: 8px; }
-        .score-badge { background: #4A90E2; color: white; font-weight: 800; font-size: 1.2em; padding: 5px 12px; border-radius: 6px; min-width: 60px; text-align: center; letter-spacing: 1px; }
-        .match-details { display: none; background-color: #fafafa; border-top: 1px solid #eee; padding: 10px 0; box-shadow: inset 0 2px 5px rgba(0,0,0,0.03); }
-        .game-row { display: flex; flex-direction: column; align-items: center; padding: 12px 15px; border-bottom: 1px solid #e0e0e0; position: relative; }
-        .game-row:last-child { border-bottom: none; }
-        .game-names { display: flex; justify-content: space-between; width: 100%; font-size: 0.95em; margin-bottom: 5px; align-items: center; }
-        .player-left { text-align: right; flex: 1; padding-right: 10px; font-weight: 500; }
-        .player-right { text-align: left; flex: 1; padding-left: 10px; font-weight: 500; }
-        .game-score { font-weight: 900; font-size: 1.2em; color: #333; }
-        .game-score.win-left { color: #28a745; }
-        .game-score.win-right { color: #dc3545; }
-        .doubles-badge { background-color: #FF9800; color: white; font-size: 0.7em; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; font-weight: bold; margin-bottom: 4px; }
-        .expand-icon { color: #999; font-size: 0.8em; margin-left: 10px; transition: transform 0.3s; }
-        .match-row.active .expand-icon { transform: rotate(180deg); }
-        .nav-badge { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background-color: #FFD700; color: #000; padding: 5px 10px; border-radius: 12px; font-size: 0.8em; font-weight: 700; box-shadow: 0 2px 4px rgba(0,0,0,0.2); white-space: nowrap; z-index: 5002; }
-        @media screen and (max-width: 600px) {
-            .team-name { font-size: 0.95em; min-width: 0; }
-            .score-badge { font-size: 1em; padding: 4px 8px; min-width: 54px; flex-shrink: 0; }
-            .match-summary { padding: 12px 8px; gap: 4px; }
-            .player-left, .player-right { font-size: 0.85em; }
-            .game-score { font-size: 1em; }
-            .team-logo-small { width: 38px; height: 38px; flex-shrink: 0; }
-            .team-logo-large { max-width: 110px; max-width: 40vw; }
-            .team-logo-stats { margin-bottom: 6px; padding: 0 4px; }
-            .match-row { overflow-x: hidden; }
-            .nav-badge { top: 5px; right: 5px; transform: none; padding: 2px 6px; font-size: 0.6em; border-radius: 4px; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/results.css">
 </head>
 <body id="page-results" class="loading">
 

@@ -1822,8 +1822,8 @@ function renderNavigation() {
     // Note: The H1 tag is used for SEO (as discussed previously)
     navContainer.innerHTML = `
     <nav class="top-nav" id="mainNav">
-        <h1 class="nav-title" style="margin-top:0;">
-            <a href="index.html" style="color:white;text-decoration:none;">Košická Miniliga</a>
+        <h1 class="nav-title">
+            <a href="index.html">Košická Miniliga</a>
         </h1>
         <div class="nav-badge">Aktualizované:<br>18.12.2025 21:00</div>
         <div class="nav-links">
@@ -1851,77 +1851,3 @@ function hideLoader() {
     document.body.classList.remove('loading');
     document.getElementById('pageLoader')?.classList.add('hidden');
 }
-
-// ============================================================
-// 5. STYLE INJECTOR FOR STATS
-// ============================================================
-function injectStatsStyles() {
-    const css = `
-        .match-stats-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 10px 15px;
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #e1e4e8;
-        }
-        .team-stats {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .team-stats.left {
-            padding-left: 200px;
-        }
-        .team-stats.right {
-            padding-right: 200px;
-        }
-        .player-stat-row {
-            padding-bottom: 8px;
-            margin-bottom: 8px;
-            color: #444;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            width: 100%;
-            border-bottom: 1px solid #e1e4e8;
-        }
-        .player-stat-row:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .player-stat-name {
-            font-weight: 500;
-            text-align: center;
-            line-height: 1.3;
-            word-wrap: break-word;
-        }
-        .player-stat-score {
-            font-weight: 700;
-            color: #4A90E2;
-            white-space: nowrap;
-        }
-        @media (max-width: 768px) {
-            .team-stats.left {
-                padding-left: 0;
-            }
-            .team-stats.right {
-                padding-right: 0;
-            }
-            .player-stat-name {
-                display: block;
-                line-height: 1.2;
-            }
-            .player-stat-row {
-                flex-direction: column;
-            }
-        }
-    `;
-    const style = document.createElement('style');
-    style.appendChild(document.createTextNode(css));
-    document.head.appendChild(style);
-}
-injectStatsStyles();
