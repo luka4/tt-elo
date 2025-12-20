@@ -66,16 +66,16 @@ function getSeasonOrder(seasonStr) {
     if (!seasonStr) return 0; // Old data
     const parts = seasonStr.trim().split(' ');
     if (parts.length < 2) return 0;
-    
+
     const term = parts[0].toUpperCase(); // JAR, JESEN
     // Remove any non-numeric chars from year just in case
-    const year = parseInt(parts[1].replace(/[^\d]/g, '')); 
+    const year = parseInt(parts[1].replace(/[^\d]/g, ''));
     if (isNaN(year)) return 0;
 
     // JAR = 1, JESEŇ/JESEN = 2
     // If there are other terms, handle them? For now assume these two.
-    const termVal = (term.includes('JAR')) ? 1 : 2; 
-    
+    const termVal = (term.includes('JAR')) ? 1 : 2;
+
     return year * 10 + termVal;
 }
 
@@ -302,6 +302,7 @@ function processData() {
                 p.matchDetails.push({
                     date: match.date || match.round,
                     round: match.round,
+                    season: match.season || null,
                     opponent: opponentName,
                     opponent_team: oppTeam,
                     score_own: scoreOwn,
@@ -418,15 +419,15 @@ function buildStatsDescription(stats) {
     return parts.join(' ');
 }
 
-function renderStatsRadar(stats, attempt = 0, maxAttempts = 20) {
+function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts = 20) {
     const canvas = document.getElementById('statsRadarChart');
     if (!canvas || typeof Chart === 'undefined') {
-        if (attempt < maxAttempts) setTimeout(() => renderStatsRadar(stats, attempt + 1, maxAttempts), 150);
+        if (attempt < maxAttempts) setTimeout(() => renderStatsRadar(stats, compareStats, attempt + 1, maxAttempts), 150);
         return;
     }
     const rect = canvas.getBoundingClientRect();
     if ((rect.width < 2 || rect.height < 2) && attempt < maxAttempts) {
-        setTimeout(() => renderStatsRadar(stats, attempt + 1, maxAttempts), 150);
+        setTimeout(() => renderStatsRadar(stats, compareStats, attempt + 1, maxAttempts), 150);
         return;
     }
     const ctx = canvas.getContext('2d');
@@ -442,23 +443,45 @@ function renderStatsRadar(stats, attempt = 0, maxAttempts = 20) {
         stats.values.clutch
     ];
 
+    const datasets = [{
+        label: stats?.label || 'Hráč',
+        data: dataPoints,
+        backgroundColor: 'rgba(74, 144, 226, 0.15)',
+        borderColor: '#4A90E2',
+        borderWidth: 2,
+        pointBackgroundColor: '#4A90E2',
+        pointRadius: 3
+    }];
+
+    if (compareStats) {
+        datasets.push({
+            label: compareStats.label || 'Porovnanie',
+            data: [
+                compareStats.values.attack,
+                compareStats.values.defense,
+                compareStats.values.consistency,
+                compareStats.values.momentum,
+                compareStats.values.teamImpact,
+                compareStats.values.clutch
+            ],
+            backgroundColor: 'rgba(220, 53, 69, 0.12)',
+            borderColor: '#dc3545',
+            borderWidth: 2,
+            pointBackgroundColor: '#dc3545',
+            pointRadius: 3
+        });
+    }
+
     chartRefs['radar'] = new Chart(ctx, {
         type: 'radar',
         data: {
             labels,
-            datasets: [{
-                data: dataPoints,
-                backgroundColor: 'rgba(74, 144, 226, 0.15)',
-                borderColor: '#4A90E2',
-                borderWidth: 2,
-                pointBackgroundColor: '#4A90E2',
-                pointRadius: 3
-            }]
+            datasets
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
+            plugins: { legend: { display: datasets.length > 1 } },
             scales: {
                 r: {
                     min: 0,
@@ -472,7 +495,7 @@ function renderStatsRadar(stats, attempt = 0, maxAttempts = 20) {
     });
 }
 
-function renderDerivedStats(stats) {
+function renderDerivedStats(stats, compareStats = null) {
     const list = document.getElementById('derivedStatsList');
     if (list) {
         list.innerHTML = '';
@@ -480,12 +503,16 @@ function renderDerivedStats(stats) {
             const meta = STAT_META[key];
             const row = document.createElement('div');
             row.className = 'stat-row';
+            const compareVal = compareStats ? compareStats.values[key].toFixed(0) : null;
             row.innerHTML = `
                 <div class="stat-label-der">
                     <span class="stat-label-main">${meta.label}</span>
                     <span class="stat-tip">${meta.tip}</span>
                 </div>
-                <div class="stat-value">${stats.values[key].toFixed(0)}</div>
+                <div class="stat-value-pair">
+                    <span class="stat-value stat-value-primary">${stats.values[key].toFixed(0)}</span>
+                    <span class="stat-value ${compareVal ? 'stat-value-compare' : 'stat-value-dash'}">${compareVal ?? ''}</span>
+                </div>
             `;
             list.appendChild(row);
         });
@@ -500,7 +527,7 @@ function renderDerivedStats(stats) {
         disclaimer.innerText = 'Štatistiky sú odhady na základe dostupných zápasov; nízky počet zápasov tlmí extrémy.' + lowSample;
     }
 
-    renderStatsRadar(stats);
+    renderStatsRadar(stats, compareStats);
 }
 
 // ============================================================
@@ -716,14 +743,14 @@ function renderMatchList(matches, container, appendToProvided) {
             details.className = 'match-details';
 
             // --- STATS GENERATION START ---
-            const stats = {}; 
+            const stats = {};
             match.games.forEach(g => {
                 if (!isPlayedMatch(g)) return;
                 const isD = g.doubles === true || g.doubles === "true";
                 const pVal = isD ? 0.5 : 1;
                 const sA = parseInt(g.score_a);
                 const sB = parseInt(g.score_b);
-                
+
                 const updateP = (namesStr, team, won) => {
                     namesStr.split('/').map(n => n.trim()).forEach(n => {
                         if (!stats[n]) stats[n] = { name: n, team: team, points: 0, possible: 0 };
@@ -755,7 +782,7 @@ function renderMatchList(matches, container, appendToProvided) {
                 h += `</div>`;
                 return h;
             };
-            
+
             const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left')}${getTeamStatsHtml(match.teamB, 'right')}</div>`;
             // --- STATS GENERATION END ---
 
@@ -802,12 +829,73 @@ function renderRatingPage() {
     const {players} = processData();
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
     let selectedTeams = [];
+    let activePlayer = null;
+    let activeDerived = null;
+    let comparePlayer = null;
+    let compareDerived = null;
 
     const normalizePlayerKey = (name) => (name || '').trim().toLowerCase();
     const playerLookup = {};
     sortedPlayers.forEach(p => {
         playerLookup[normalizePlayerKey(p.name)] = p;
     });
+
+    const compareInput = document.getElementById('compareInput');
+    const compareForm = document.getElementById('compareForm');
+    const compareStatusEl = document.getElementById('compareStatus');
+    const compareList = document.getElementById('comparePlayerList');
+    const compareMatchesList = document.getElementById('compareMatchesList');
+    const clearCompareBtn = document.getElementById('clearCompareBtn');
+
+    const setCompareStatus = (msg, ok = false) => {
+        if (!compareStatusEl) return;
+        compareStatusEl.innerText = msg || '';
+        compareStatusEl.classList.toggle('ok', !!msg && ok);
+        if (!msg) compareStatusEl.classList.remove('ok');
+    };
+
+    const renderHeadToHead = (p, other) => {
+        if (!compareMatchesList) return;
+        if (!p || !other) {
+            compareMatchesList.innerHTML = `<div class="compare-match-item">Vyberte hráča na porovnanie.</div>`;
+            return;
+        }
+        const otherName = other.name.toLowerCase();
+        const matches = p.matchDetails.filter(m => (m.opponent || '').toLowerCase().includes(otherName));
+        if (matches.length === 0) {
+            compareMatchesList.innerHTML = `<div class="compare-match-item">Zatiaľ žiadne vzájomné zápasy.</div>`;
+            return;
+        }
+        const latest = [...matches].slice(-6).reverse();
+        const items = latest.map(m => {
+            const isWin = m.score_own > m.score_opp;
+            const scoreClass = isWin ? 'compare-match-score' : 'compare-match-score loss';
+            const doublesBadge = m.isDoubles ? '<span class="doubles-badge">ŠTVORHRA</span>' : '';
+            const seasonLabel = m.season ? ` (${m.season})` : '';
+            const badgePart = doublesBadge ? ` ${doublesBadge}` : '';
+            return `<div class="compare-match-item">
+                <div class="compare-match-head">
+                    <span>${m.round}${seasonLabel}${badgePart}</span>
+                    <span class="${scoreClass}">${m.score_own}:${m.score_opp}</span>
+                </div>
+                <div class="compare-match-meta">
+                    <span>${m.own_name_display} (${p.team || 'N/A'})</span>
+                    <span>${m.opponent} (${m.opponent_team || 'N/A'})</span>
+                </div>
+            </div>`;
+        }).join('');
+        compareMatchesList.innerHTML = items;
+    };
+
+    const populateCompareOptions = () => {
+        if (!compareList) return;
+        compareList.innerHTML = '';
+        sortedPlayers.forEach(p => {
+            const opt = document.createElement('option');
+            opt.value = p.name;
+            compareList.appendChild(opt);
+        });
+    };
 
     const tbody = document.getElementById('mainTableBody');
     const renderTable = () => {
@@ -1052,6 +1140,13 @@ function renderRatingPage() {
     const openPlayerModal = (p, opts = {}) => {
         const {skipUrlUpdate = false} = opts;
         if (!skipUrlUpdate) updatePlayerInUrl(p.name);
+        activePlayer = p;
+        activeDerived = computeDerivedStats(p);
+        if (activeDerived) activeDerived.label = p.name;
+        comparePlayer = null;
+        compareDerived = null;
+        if (compareInput) compareInput.value = '';
+        setCompareStatus('');
         document.getElementById('headerName').innerText = p.name;
         document.getElementById('headerTeam').innerText = p.team || "";
         const logoEl = document.getElementById('headerTeamLogo');
@@ -1093,55 +1188,72 @@ function renderRatingPage() {
         });
         document.getElementById('avgOpponentVal').innerText = countOpp > 0 ? (totalOpp / countOpp).toFixed(2) : "-";
 
-        const derivedStats = computeDerivedStats(p);
-        renderDerivedStats(derivedStats);
+        renderDerivedStats(activeDerived, compareDerived);
 
         playerModal.style.display = "flex";
         // Defer chart renders slightly to allow modal layout to settle (fixes zero-size canvas on reload with ?player=)
         setTimeout(() => {
-            renderLineChart(p);
-            renderStatsRadar(derivedStats);
+            renderLineChart(p, comparePlayer);
         }, 80);
         renderPieCharts('matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'matches', 'sets');
         renderPieCharts('dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'dMatches', 'dSets');
         renderHistory(p);
+        renderHeadToHead(p, comparePlayer);
     };
 
-    const renderLineChart = (p, attempt = 0) => {
+    const renderLineChart = (p, compareP = null, attempt = 0) => {
         const canvas = document.getElementById('ratingChart');
         if (!canvas || typeof Chart === 'undefined') {
-            if (attempt < 8) setTimeout(() => renderLineChart(p, attempt + 1), 120);
+            if (attempt < 8) setTimeout(() => renderLineChart(p, compareP, attempt + 1), 120);
             return;
         }
         const rect = canvas.getBoundingClientRect();
         if ((rect.width < 2 || rect.height < 2) && attempt < 8) {
-            setTimeout(() => renderLineChart(p, attempt + 1), 120);
+            setTimeout(() => renderLineChart(p, compareP, attempt + 1), 120);
             return;
         }
         const ctx = canvas.getContext('2d');
-        const sortedKeys = Object.keys(p.history).sort();
-        const labels = sortedKeys.map(k => k.split('|')[1]);
-        const dataPoints = sortedKeys.map(k => p.history[k]);
+        const keysA = Object.keys(p.history).sort();
+        const keysB = compareP ? Object.keys(compareP.history).sort() : [];
+        const allKeys = [...new Set([...keysA, ...keysB])].sort();
+        const labels = allKeys.map(k => k.split('|')[1]);
+        const dataPoints = allKeys.map(k => p.history[k] ?? null);
+        const datasets = [{
+            label: p.name,
+            data: dataPoints,
+            borderColor: '#4A90E2',
+            backgroundColor: 'rgba(74, 144, 226, 0.1)',
+            borderWidth: 2,
+            pointRadius: 4,
+            tension: 0.1,
+            fill: true
+        }];
+
+        if (compareP) {
+            const compareData = allKeys.map(k => compareP.history[k] ?? null);
+            datasets.push({
+                label: compareP.name,
+                data: compareData,
+                borderColor: '#dc3545',
+                backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                borderWidth: 2,
+                pointRadius: 4,
+                tension: 0.1,
+                fill: true
+            });
+        }
 
         if (chartRefs['line']) chartRefs['line'].destroy();
         chartRefs['line'] = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: labels,
-                datasets: [{
-                    label: p.name,
-                    data: dataPoints,
-                    borderColor: '#4A90E2',
-                    backgroundColor: 'rgba(74, 144, 226, 0.1)',
-                    borderWidth: 2,
-                    pointRadius: 4,
-                    tension: 0.1,
-                    fill: true
-                }]
+                datasets: datasets
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                plugins: { legend: { display: datasets.length > 1 } },
                 scales: {x: {ticks: {autoSkip: true, maxTicksLimit: 10}}}
             }
         });
@@ -1186,11 +1298,13 @@ function renderRatingPage() {
             const isWin = m.score_own > m.score_opp;
             const oppRatingHtml = m.isDoubles ? '' : `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
 
-            // Display Date if present (future/scheduled structure), else Round
-            const displayDate = m.round;
+            // Display round with season and doubles badge when available
+            const seasonLabel = m.season ? ` (${m.season})` : '';
+            const doublesHtml = m.isDoubles ? '<span class="doubles-badge">ŠTVORHRA</span>' : '';
+            const displayDate = `${m.round}${seasonLabel}${doublesHtml ? ' ' + doublesHtml : ''}`;
 
             html += `<div class="history-item">
-                <div class="match-date">${displayDate} ${m.isDoubles ? '<span class="doubles-badge">ŠTVORHRA</span>' : ''}</div>
+                <div class="match-date">${displayDate}</div>
                 <div class="match-content">
                     <div class="player-row"><span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}</div>
                     <div class="score-row ${isWin ? 'win-text' : 'loss-text'}">${m.score_own}:${m.score_opp}</div>
@@ -1200,6 +1314,28 @@ function renderRatingPage() {
         });
         html += `</div>`;
         container.innerHTML = html;
+    };
+
+    const clearComparison = () => {
+        comparePlayer = null;
+        compareDerived = null;
+        setCompareStatus('');
+        if (activePlayer && activeDerived) {
+            renderDerivedStats(activeDerived, null);
+            renderLineChart(activePlayer, null);
+            renderHeadToHead(activePlayer, null);
+        }
+    };
+
+    const applyComparison = (target) => {
+        if (!activePlayer || !activeDerived) return;
+        comparePlayer = target;
+        compareDerived = computeDerivedStats(target);
+        if (compareDerived) compareDerived.label = target.name;
+        setCompareStatus(`Porovnávanie s ${target.name}`, true);
+        renderDerivedStats(activeDerived, compareDerived);
+        renderLineChart(activePlayer, comparePlayer);
+        renderHeadToHead(activePlayer, comparePlayer);
     };
 
     const openPlayerFromUrl = () => {
@@ -1216,6 +1352,38 @@ function renderRatingPage() {
     };
     window.openInfoModal = () => document.getElementById("infoModal").style.display = "flex";
     window.closeInfoModal = () => document.getElementById("infoModal").style.display = "none";
+    populateCompareOptions();
+    if (compareForm) {
+        compareForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!activePlayer) return;
+            const val = (compareInput?.value || '').trim();
+            if (!val) {
+                setCompareStatus('Zadajte meno hráča.');
+                renderHeadToHead(activePlayer, null);
+                return;
+            }
+            const target = playerLookup[normalizePlayerKey(val)];
+            if (!target) {
+                setCompareStatus('Hráč nenájdený.');
+                renderHeadToHead(activePlayer, null);
+                return;
+            }
+            if (target.name === activePlayer.name) {
+                setCompareStatus('Vyberte iného hráča.');
+                renderHeadToHead(activePlayer, null);
+                return;
+            }
+            applyComparison(target);
+        });
+    }
+    if (clearCompareBtn) {
+        clearCompareBtn.addEventListener('click', () => {
+            clearComparison();
+            if (compareInput) compareInput.value = '';
+            if (activePlayer) renderHeadToHead(activePlayer, null);
+        });
+    }
     renderTable();
     initTeamFilter();
     openPlayerFromUrl();

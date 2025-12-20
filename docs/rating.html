@@ -136,6 +136,26 @@
         .diff-up { color: #28a745; } .diff-down { color: #dc3545; } .diff-neu { color: #999; }
         .doubles-badge { background-color: #ef6c00; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.6em; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
 
+        /* Compare section */
+        #compareSection { margin: 10px 0 18px 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+        #compareSection h3 { margin: 0 0 10px 0; color: #333; font-size: 1.05em; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .compare-form-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+        .compare-input { flex: 1; min-width: 200px; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95em; }
+        .compare-btn { padding: 10px 14px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; background: #4A90E2; color: #fff; transition: background 0.2s; }
+        .compare-btn:hover { background: #357ac8; }
+        .compare-clear { background: #f3f4f6; color: #555; }
+        .compare-clear:hover { background: #e5e7eb; }
+        .compare-status { margin-top: 6px; font-size: 0.9em; color: #dc3545; }
+        .compare-status.ok { color: #198754; }
+        .compare-matches { margin-top: 12px; border-top: 1px dashed #e5e7eb; padding-top: 10px; }
+        .compare-matches-title { font-weight: 700; color: #444; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .compare-match-item { padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 6px; background: #f9fafb; margin-bottom: 8px; }
+        .compare-match-item:last-child { margin-bottom: 0; }
+        .compare-match-head { display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #333; }
+        .compare-match-score { font-weight: 800; color: #4A90E2; }
+        .compare-match-score.loss { color: #dc3545; }
+        .compare-match-meta { font-size: 0.85em; color: #666; margin-top: 4px; display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+
         /* Derived Stats */
         #derivedStatsSection { margin: 10px 0 25px 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .derived-stats-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; align-items: stretch; }
@@ -145,6 +165,10 @@
         .stat-label-der .stat-label-main { font-weight: 700; color: #333; }
         .stat-label-der .stat-tip { font-size: 0.82em; color: #6b7280; line-height: 1.3; }
         .stat-row .stat-value { font-weight: 800; color: #4A90E2; font-size: 1.05em; }
+        .stat-value-pair { display: flex; align-items: center; gap: 8px; }
+        .stat-value-primary { color: #4A90E2; }
+        .stat-row .stat-value.stat-value-compare { color: #dc3545; }
+        .stat-value-dash { color: #9ca3af; }
         .info-icon { cursor: help; color: #6b7280; font-size: 0.95em; }
         .stats-radar { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: center; min-height: 260px; }
         #statsRadarChart { width: 100%; max-width: 360px; height: 260px; }
@@ -226,6 +250,20 @@
             <span class="close-btn" onclick="closePlayerModal()">&times;</span>
             <div id="selectedPlayerHeader"><div class="player-header-name" id="headerName"></div><div class="player-header-team" id="headerTeam"></div><div class="player-header-logo" id="headerTeamLogoWrapper"><img id="headerTeamLogo" alt="Team logo"></div></div>
             <div id="chartContainerWrapper"><canvas id="ratingChart"></canvas></div>
+            <div id="compareSection">
+                <h3>Porovnať</h3>
+                <form id="compareForm" class="compare-form-row">
+                    <input id="compareInput" class="compare-input" type="text" list="comparePlayerList" placeholder="Začnite písať meno hráča..." autocomplete="off">
+                    <button type="submit" class="compare-btn">Porovnať</button>
+                    <button type="button" id="clearCompareBtn" class="compare-btn compare-clear">Vymazať</button>
+                </form>
+                <div id="compareStatus" class="compare-status"></div>
+                <div class="compare-matches">
+                    <div class="compare-matches-title">Vzájomné zápasy</div>
+                    <div id="compareMatchesList"></div>
+                </div>
+                <datalist id="comparePlayerList"></datalist>
+            </div>
             <div id="derivedStatsSection">
                 <div class="derived-stats-grid">
                     <div class="stats-list" id="derivedStatsList"></div>
