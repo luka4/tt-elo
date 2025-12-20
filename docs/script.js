@@ -406,16 +406,119 @@ function computeDerivedStats(p) {
 function buildStatsDescription(stats) {
     const v = stats.values;
 
-    const band = (key) => getBandLabel(v[key]);
-    const parts = [
-        `Ofenzíva je ${band('attack')} (${v.attack.toFixed(0)}) a naznačuje, ako presvedčivo hráč získava sety.`,
-        `Defenzíva je ${band('defense')} (${v.defense.toFixed(0)}) – vyjadruje schopnosť držať krok aj proti silnejším súperom.`,
-        `Stabilita výkonu je ${band('consistency')} (${v.consistency.toFixed(0)}), čo poukazuje na vyrovnanosť výsledkov v čase.`,
-        `Momentum je ${band('momentum')} (${v.momentum.toFixed(0)}) a odráža aktuálnu formu na základe posledných zápasov.`,
-        `Tímový vplyv dosahuje úroveň ${band('teamImpact')} (${v.teamImpact.toFixed(0)}) najmä v štvorhrách.`,
-        `Výkon pod tlakom je ${band('clutch')} (${v.clutch.toFixed(0)}) a ukazuje, ako sa hráč presadzuje v tesných a rozhodujúcich dueloch.`
-    ];
+    const fmt = (x) => (Number.isFinite(x) ? x.toFixed(0) : '–');
+    const tier = (x) => {
+        const val = clamp(Number.isFinite(x) ? x : 50, 0, 100);
+        if (val < 30) return 0;      // weak
+        if (val < 60) return 1;      // average
+        if (val < 90) return 2;      // strong
+        return 3;                    // elite
+    };
+    const t = {
+        attack: tier(v.attack),
+        defense: tier(v.defense),
+        consistency: tier(v.consistency),
+        momentum: tier(v.momentum),
+        teamImpact: tier(v.teamImpact),
+        clutch: tier(v.clutch)
+    };
 
+    const statSentence = (key) => {
+        const valTxt = fmt(v[key]);
+        const lvl = t[key];
+        const map = {
+            attack: [
+                `V ofenzíve sa presadzuje ťažšie (${valTxt}) – sety získava skôr po boji než dominanciou.`,
+                `Ofenzíva je skôr priemerná (${valTxt}): dokáže vyhrávať sety, ale bez častej dominancie.`,
+                `V ofenzíve pôsobí presvedčivo (${valTxt}) a často si vie vytvoriť náskok v setoch.`,
+                `Ofenzíva je dominantná (${valTxt}) – časté jasné výsledky naznačujú veľkú útočnú silu.`
+            ],
+            defense: [
+                `V defenzíve má rezervy (${valTxt}); pri prehrách často stráca rýchlo a ťažšie drží krok s favoritmi.`,
+                `Defenzíva je priemerná (${valTxt}) – pri prehrách si občas zoberie set, no ťažšie otáča nepriaznivý vývoj.`,
+                `Defenzíva je silná (${valTxt}): aj proti silnejším súperom vie brať sety a udržať zápas vyrovnaný.`,
+                `Defenzíva je výborná (${valTxt}) – aj keď prehrá, často je to tesné a súper sa na body poriadne nadre.`
+            ],
+            consistency: [
+                `Výkonnosť výrazne kolíše (${valTxt}); výsledky sa v čase menia od zápasu k zápasu.`,
+                `Stabilita je priemerná (${valTxt}) – forma vie kolísať, no bez extrémov.`,
+                `Výkony sú väčšinou vyrovnané (${valTxt}); hráč si drží svoj štandard.`,
+                `Veľmi stabilný výkon (${valTxt}) – len zriedka príde výrazný výkyv.`
+            ],
+            momentum: [
+                `Posledné zápasy naznačujú pokles formy (${valTxt}).`,
+                `Forma je skôr neutrálna (${valTxt}) – bez výrazného rastu či poklesu.`,
+                `Forma rastie (${valTxt}); v posledných zápasoch častejšie zbiera body.`,
+                `Výrazne rastúca forma (${valTxt}) – hráč je momentálne vo veľmi dobrej vlne.`
+            ],
+            teamImpact: [
+                `V štvorhre zatiaľ neprináša veľký bodový prínos (${valTxt}).`,
+                `V štvorhre je prínos skôr vyrovnaný (${valTxt}) – raz pomôže, raz nie.`,
+                `V štvorhre je výrazným prínosom (${valTxt}) a často pomáha tímu bodovať.`,
+                `Opora štvorhry (${valTxt}) – v tíme prináša nadpriemerný rozdiel.`
+            ],
+            clutch: [
+                `V koncovkách a tesných zápasoch sa presadzuje ťažšie (${valTxt}).`,
+                `V tesných dueloch je to skôr 50/50 (${valTxt}).`,
+                `Koncovky zvláda dobre (${valTxt}); v tesných zápasoch často dokáže rozhodnúť.`,
+                `Exceluje pod tlakom (${valTxt}) – tesné zápasy vie pravidelne strhávať na svoju stranu.`
+            ]
+        };
+        return (map[key] && map[key][lvl]) ? map[key][lvl] : '';
+    };
+
+    const parts = [
+        statSentence('attack'),
+        statSentence('defense'),
+        statSentence('consistency'),
+        statSentence('momentum'),
+        statSentence('teamImpact'),
+        statSentence('clutch')
+    ].filter(Boolean);
+
+    // Combination / playstyle summary (reacts to strengths + weaknesses)
+    const metaLabel = (key) => (STAT_META[key] ? STAT_META[key].label : key);
+    const allKeys = ['attack', 'defense', 'consistency', 'momentum', 'teamImpact', 'clutch'];
+    const sorted = allKeys
+        .map(k => ({ k, val: Number.isFinite(v[k]) ? v[k] : 50, lvl: t[k] }))
+        .sort((a, b) => b.val - a.val);
+    const top = sorted.filter(x => x.lvl >= 2).slice(0, 2);
+    const low = sorted.slice().reverse().filter(x => x.lvl === 0).slice(0, 1);
+
+    const summaryParts = [];
+    if (top.length) {
+        const topTxt = top.map(x => metaLabel(x.k)).join(' a ');
+        summaryParts.push(`Najsilnejšie stránky: ${topTxt}.`);
+    } else {
+        summaryParts.push('Profil je zatiaľ bez výraznej dominantnej stránky.');
+    }
+    if (low.length) {
+        summaryParts.push(`Najväčšia rezerva: ${metaLabel(low[0].k)}.`);
+    }
+
+    // Archetype from Attack/Defense combo
+    if (t.attack >= 2 && t.defense <= 1) {
+        summaryParts.push('Skôr ofenzívny typ: keď si vytvorí tlak, vie zápas rýchlo uzavrieť; dôležité je nenechať sa zatlačiť.');
+    } else if (t.defense >= 2 && t.attack <= 1) {
+        summaryParts.push('Skôr trpezlivý/defenzívny typ: vie držať výmeny a postupne si vybojovať sety.');
+    } else if (t.attack >= 2 && t.defense >= 2) {
+        summaryParts.push('Komplexný profil: vie dominovať aj odolávať tlaku.');
+    }
+
+    // Form vs stability + clutch nuance
+    if (t.momentum >= 2 && t.consistency <= 1) {
+        summaryParts.push('Aktuálne je vo vlne, hoci dlhodobo vie forma kolísať.');
+    } else if (t.momentum <= 1 && t.consistency >= 2) {
+        summaryParts.push('Aj pri slabšej vlne má pevný základ; výsledky bývajú stabilné.');
+    }
+    if (t.clutch >= 2 && t.momentum <= 1) {
+        summaryParts.push('Aj keď forma nie je top, koncovky mu často vychádzajú.');
+    }
+    if (t.teamImpact >= 2) {
+        summaryParts.push('V štvorhre je pre tím výrazná pridaná hodnota.');
+    }
+
+    parts.push(summaryParts.join(' '));
     return parts.join(' ');
 }
 
@@ -523,8 +626,12 @@ function renderDerivedStats(stats, compareStats = null) {
 
     const disclaimer = document.getElementById('statsDisclaimer');
     if (disclaimer) {
-        const lowSample = stats.counts.total < 5 ? ' Dáta sú veľmi obmedzené, berte hodnoty s rezervou.' : '';
-        disclaimer.innerText = 'Štatistiky sú odhady na základe dostupných zápasov; nízky počet zápasov tlmí extrémy.' + lowSample;
+        const lowSample = stats.counts.total < 5 ? ' Počet zápasov je veľmi nízky, berte to s väčšou rezervou.' : '';
+        disclaimer.innerText =
+            'Vyššie uvedený popis vychádza výlučne z dostupných štatistík a výkonov hráča v zápasoch. ' +
+            'Bohužiaľ nevieme zmerať „skutočné“ herné zručnosti (napr. kvalitu topspinu, techniku bekhendu/forehendu, použité vybavenie a poťahy a pod.). ' +
+            'Text slúži len na zábavné/informačné účely a nemusí verne odrážať reálnu hernú silu.' +
+            lowSample;
     }
 
     renderStatsRadar(stats, compareStats);
