@@ -5,8 +5,8 @@
   margin: 90px auto 40px auto;
 }
 
-#page-home h1,
-#page-home h2 {
+#page-home #mainContainer h1,
+#page-home #mainContainer h2 {
   text-align: center;
   color: var(--color-text);
   margin: 20px 0;
@@ -14,7 +14,7 @@
   letter-spacing: 1px;
 }
 
-#page-home h2 {
+#page-home #mainContainer h2 {
   font-size: 1.4em;
   margin-top: 40px;
   border-bottom: 2px solid var(--color-primary);

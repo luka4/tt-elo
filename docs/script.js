@@ -1825,7 +1825,7 @@ function renderNavigation() {
         <h1 class="nav-title">
             <a href="index.html">Košická Miniliga</a>
         </h1>
-        <div class="nav-badge">Aktualizované:<br>18.12.2025 21:00</div>
+        <div class="nav-badge">Aktualizované:<br>18.12.2025</div>
         <div class="nav-links">
             ${links.map(getLinkHtml).join('')}
         </div>
