@@ -342,6 +342,7 @@ function computeDerivedStats(p) {
     const closeMatches = p.matchDetails.filter(m => (m.score_own + m.score_opp) === 5);
     const recentMatches = p.matchDetails.slice(-12);
     const recentShort = p.matchDetails.slice(-5);
+    const safeBlend = (base, count, threshold) => (Number.isFinite(base) && count > 0) ? confidenceBlend(base, count, threshold) : null;
 
     // Attack: set margin dominance (singles only)
     const attackMargins = singles.map(m => {
@@ -350,8 +351,8 @@ function computeDerivedStats(p) {
         const total = Math.max(1, own + opp);
         return (own - opp) / Math.max(3, total); // normalize to roughly [-1, 1]
     });
-    const attackBase = attackMargins.length ? clamp(50 + avg(attackMargins) * 50) : 50;
-    const attack = confidenceBlend(attackBase, singles.length, 10);
+    const attackBase = attackMargins.length ? clamp(50 + avg(attackMargins) * 50) : null;
+    const attack = safeBlend(attackBase, singles.length, 10);
 
     // Defense: performance in losses vs stronger opponents (fallback to all losses)
     const ratingBefore = (m) => (m.rating_after || 0) - (m.delta_own || 0);
@@ -365,8 +366,9 @@ function computeDerivedStats(p) {
         const total = Math.max(1, own + opp);
         return own / total; // share of sets the player still took
     });
-    const defenseBase = defenseShares.length ? clamp(avg(defenseShares) * 100) : 50;
-    const defense = (confidenceBlend(defenseBase, defensePool.length, 8)) * 2;
+    const defenseBase = defenseShares.length ? clamp(avg(defenseShares) * 100) : null;
+    const defenseRaw = safeBlend(defenseBase, defensePool.length, 8);
+    const defense = Number.isFinite(defenseRaw) ? (defenseRaw * 2) : null;
 
     // Consistency: volatility of rating deltas (all recent matches)
     const volDeltas = recentMatches.map(m => Math.abs(m.delta_own || 0));
@@ -374,23 +376,23 @@ function computeDerivedStats(p) {
     const variance = volDeltas.length ? avg(volDeltas.map(d => Math.pow(d - meanDelta, 2))) : 0;
     const std = Math.sqrt(variance);
     const normVol = Math.min(std / 12, 1.5); // std of 12+ means low consistency
-    const consistencyBase = clamp(100 - normVol * 100);
-    const consistency = confidenceBlend(consistencyBase, recentMatches.length, 10);
+    const consistencyBase = volDeltas.length ? clamp(100 - normVol * 100) : null;
+    const consistency = safeBlend(consistencyBase, recentMatches.length, 10);
 
     // Momentum: recent rating trend (last 5)
     const momentumDelta = avg(recentShort.map(m => m.delta_own || 0));
-    const momentumBase = clamp(50 + momentumDelta * 3); // 5 pts avg delta ~ +15/-15
-    const momentum = confidenceBlend(momentumBase, recentShort.length, 5);
+    const momentumBase = recentShort.length ? clamp(50 + momentumDelta * 3) : null; // 5 pts avg delta ~ +15/-15
+    const momentum = safeBlend(momentumBase, recentShort.length, 5);
 
     // Team Impact: doubles win rate
     const dWins = doubles.filter(m => m.score_own > m.score_opp).length;
-    const teamImpactBase = doubles.length ? clamp((dWins / doubles.length) * 100) : 50;
-    const teamImpact = confidenceBlend(teamImpactBase, doubles.length, 8);
+    const teamImpactBase = doubles.length ? clamp((dWins / doubles.length) * 100) : null;
+    const teamImpact = safeBlend(teamImpactBase, doubles.length, 8);
 
     // Clutch: close 3:2 matches
     const closeWins = closeMatches.filter(m => m.score_own > m.score_opp).length;
-    const clutchBase = closeMatches.length ? clamp(50 + ((closeWins / closeMatches.length) - 0.5) * 100) : 50;
-    const clutch = confidenceBlend(clutchBase, closeMatches.length, 4);
+    const clutchBase = closeMatches.length ? clamp(50 + ((closeWins / closeMatches.length) - 0.5) * 100) : null;
+    const clutch = safeBlend(clutchBase, closeMatches.length, 4);
 
     return {
         values: {attack, defense, consistency, momentum, teamImpact, clutch},
@@ -405,6 +407,7 @@ function computeDerivedStats(p) {
 
 function buildStatsDescription(stats) {
     const v = stats.values;
+    const c = stats.counts || {};
 
     const fmt = (x) => (Number.isFinite(x) ? x.toFixed(0) : '–');
     const tier = (x) => {
@@ -424,6 +427,24 @@ function buildStatsDescription(stats) {
     };
 
     const statSentence = (key) => {
+        if (!Number.isFinite(v[key])) {
+            if (key === 'teamImpact') {
+                return (c.doubles || 0) === 0
+                    ? 'Štvorhra: zatiaľ bez odohraného zápasu – „Tímový vplyv“ sa nedá vyhodnotiť.'
+                    : `„${STAT_META[key]?.label || key}“ zatiaľ nemá dosť dát na vyhodnotenie.`;
+            }
+            if (key === 'clutch') {
+                return (c.close || 0) === 0
+                    ? 'Tesné päťsetové zápasy (3:2 / 2:3): zatiaľ žiadne – „Výkon pod tlakom“ je N/A.'
+                    : `„${STAT_META[key]?.label || key}“ zatiaľ nemá dosť dát na vyhodnotenie.`;
+            }
+            if (key === 'attack' || key === 'defense') {
+                return (c.singles || 0) === 0
+                    ? 'Dvojhra: zatiaľ bez odohraného zápasu – ofenzívny/defenzívny profil je N/A.'
+                    : `„${STAT_META[key]?.label || key}“ zatiaľ nemá dosť dát na vyhodnotenie.`;
+            }
+            return `„${STAT_META[key]?.label || key}“ zatiaľ nemá dosť dát na vyhodnotenie.`;
+        }
         const valTxt = fmt(v[key]);
         const lvl = t[key];
         const map = {
@@ -536,15 +557,25 @@ function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts =
     const ctx = canvas.getContext('2d');
     if (chartRefs['radar']) chartRefs['radar'].destroy();
 
+    const keys = ['attack', 'defense', 'consistency', 'momentum', 'teamImpact', 'clutch'];
     const labels = ['Ofenzíva', 'Defenzíva', 'Stabilita výkonu', 'Momentum', 'Tímový vplyv', 'Výkon pod tlakom'];
-    const dataPoints = [
-        stats.values.attack,
-        stats.values.defense,
-        stats.values.consistency,
-        stats.values.momentum,
-        stats.values.teamImpact,
-        stats.values.clutch
-    ];
+    const getSampleHint = (s, key) => {
+        const c = s?.counts || {};
+        if (key === 'teamImpact') return `${c.doubles || 0} štvorhier`;
+        if (key === 'clutch') return `${c.close || 0} päťsetákov`;
+        if (key === 'attack' || key === 'defense') return `${c.singles || 0} dvojhier`;
+        return `${c.total || 0} zápasov`;
+    };
+    const toPointArrays = (vals, color) => {
+        const radii = keys.map(k => Number.isFinite(vals[k]) ? 3 : 0);
+        const pointColors = keys.map(k => Number.isFinite(vals[k]) ? color : 'rgba(0,0,0,0)');
+        return { radii, pointColors };
+    };
+    const dataPoints = keys.map(k => (Number.isFinite(stats.values[k]) ? stats.values[k] : null));
+    const axisHasAnyData = keys.map(k =>
+        Number.isFinite(stats.values[k]) || (compareStats && Number.isFinite(compareStats.values[k]))
+    );
+    const basePoint = toPointArrays(stats.values, '#4A90E2');
 
     const datasets = [{
         label: stats?.label || 'Hráč',
@@ -552,26 +583,22 @@ function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts =
         backgroundColor: 'rgba(74, 144, 226, 0.15)',
         borderColor: '#4A90E2',
         borderWidth: 2,
-        pointBackgroundColor: '#4A90E2',
-        pointRadius: 3
+        pointBackgroundColor: basePoint.pointColors,
+        pointRadius: basePoint.radii,
+        pointHoverRadius: basePoint.radii.map(r => (r ? 4 : 0))
     }];
 
     if (compareStats) {
+        const comparePoint = toPointArrays(compareStats.values, '#dc3545');
         datasets.push({
             label: compareStats.label || 'Porovnanie',
-            data: [
-                compareStats.values.attack,
-                compareStats.values.defense,
-                compareStats.values.consistency,
-                compareStats.values.momentum,
-                compareStats.values.teamImpact,
-                compareStats.values.clutch
-            ],
+            data: keys.map(k => (Number.isFinite(compareStats.values[k]) ? compareStats.values[k] : null)),
             backgroundColor: 'rgba(220, 53, 69, 0.12)',
             borderColor: '#dc3545',
             borderWidth: 2,
-            pointBackgroundColor: '#dc3545',
-            pointRadius: 3
+            pointBackgroundColor: comparePoint.pointColors,
+            pointRadius: comparePoint.radii,
+            pointHoverRadius: comparePoint.radii.map(r => (r ? 4 : 0))
         });
     }
 
@@ -584,14 +611,33 @@ function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts =
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: { legend: { display: datasets.length > 1 } },
+            plugins: {
+                legend: { display: datasets.length > 1 },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const raw = ctx.raw;
+                            const key = keys[ctx.dataIndex];
+                            if (raw === null || !Number.isFinite(raw)) {
+                                const hint = getSampleHint(ctx.datasetIndex === 0 ? stats : compareStats, key);
+                                return `${ctx.dataset.label}: – (N/A, ${hint})`;
+                            }
+                            return `${ctx.dataset.label}: ${Number(raw).toFixed(0)}`;
+                        }
+                    }
+                }
+            },
             scales: {
                 r: {
                     min: 0,
                     max: 100,
                     ticks: { display: false },
                     grid: { color: 'rgba(0,0,0,0.08)' },
-                    angleLines: { color: 'rgba(0,0,0,0.1)' }
+                    angleLines: { color: 'rgba(0,0,0,0.1)' },
+                    pointLabels: {
+                        color: (ctx) => axisHasAnyData[ctx.index] ? '#374151' : 'rgba(107,114,128,0.55)',
+                        font: { size: 11, weight: '600' }
+                    }
                 }
             }
         }
@@ -602,19 +648,23 @@ function renderDerivedStats(stats, compareStats = null) {
     const list = document.getElementById('derivedStatsList');
     if (list) {
         list.innerHTML = '';
+        const fmt = (x) => (Number.isFinite(x) ? x.toFixed(0) : '–');
         ['attack', 'defense', 'consistency', 'momentum', 'teamImpact', 'clutch'].forEach(key => {
             const meta = STAT_META[key];
             const row = document.createElement('div');
             row.className = 'stat-row';
-            const compareVal = compareStats ? compareStats.values[key].toFixed(0) : null;
+            const compareVal = compareStats ? fmt(compareStats.values[key]) : null;
+            const primaryVal = fmt(stats.values[key]);
+            const primaryMissing = primaryVal === '–';
+            const compareMissing = compareVal === '–';
             row.innerHTML = `
                 <div class="stat-label-der">
                     <span class="stat-label-main">${meta.label}</span>
                     <span class="stat-tip">${meta.tip}</span>
                 </div>
                 <div class="stat-value-pair">
-                    <span class="stat-value stat-value-primary">${stats.values[key].toFixed(0)}</span>
-                    <span class="stat-value ${compareVal ? 'stat-value-compare' : 'stat-value-dash'}">${compareVal ?? ''}</span>
+                    <span class="stat-value stat-value-primary ${primaryMissing ? 'stat-none' : ''}">${primaryVal}</span>
+                    <span class="stat-value ${compareStats ? (compareMissing ? 'stat-none' : 'stat-value-compare') : 'stat-value-dash'}">${compareStats ? compareVal : ''}</span>
                 </div>
             `;
             list.appendChild(row);
@@ -627,11 +677,14 @@ function renderDerivedStats(stats, compareStats = null) {
     const disclaimer = document.getElementById('statsDisclaimer');
     if (disclaimer) {
         const lowSample = stats.counts.total < 5 ? ' Počet zápasov je veľmi nízky, berte to s väčšou rezervou.' : '';
+        const hasNA = ['attack','defense','consistency','momentum','teamImpact','clutch'].some(k => !Number.isFinite(stats.values[k]));
+        const naNote = hasNA ? ' Hodnoty „–“ znamenajú, že pre danú štatistiku nie sú dostupné dáta (napr. 0 štvorhier alebo 0 päťsetákov).' : '';
         disclaimer.innerText =
             'Vyššie uvedený popis vychádza výlučne z dostupných štatistík a výkonov hráča v zápasoch. ' +
             'Bohužiaľ nevieme zmerať „skutočné“ herné zručnosti (napr. kvalitu topspinu, techniku bekhendu/forehendu, použité vybavenie a poťahy a pod.). ' +
             'Text slúži len na zábavné/informačné účely a nemusí verne odrážať reálnu hernú silu.' +
-            lowSample;
+            lowSample +
+            naNote;
     }
 
     renderStatsRadar(stats, compareStats);
