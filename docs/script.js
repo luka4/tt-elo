@@ -1836,8 +1836,16 @@ function renderNavigation() {
 // Add this to your existing window load event
 window.addEventListener('load', renderNavigation);
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const id = document.body.id;
+
+    // matchResults is now loaded asynchronously (from data/matches.json + optional Google Sheet)
+    try {
+        if (window.matchResultsPromise) await window.matchResultsPromise;
+    } catch (e) {
+        console.error('Failed to load match data:', e);
+    }
+
     requestAnimationFrame(() => {
         if (id === 'page-rating') renderRatingPage();
         else if (id === 'page-home') renderHomePage();
@@ -1850,4 +1858,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function hideLoader() {
     document.body.classList.remove('loading');
     document.getElementById('pageLoader')?.classList.add('hidden');
+    // When `body.loading` is removed, `#pageContent` becomes visible.
+    // Recompute header offset at that moment (nav height was 0 while hidden).
+    requestAnimationFrame(() => {
+        if (typeof updateLayout === 'function') updateLayout();
+    });
 }
