@@ -46,6 +46,21 @@ function clamp(val, min = 0, max = 100) {
     return Math.min(max, Math.max(min, val));
 }
 
+// Minimal HTML escaping for safe text/attribute interpolation in innerHTML strings.
+function escapeHtml(str) {
+    return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function escapeAttr(str) {
+    // Same escaping works for attributes.
+    return escapeHtml(str);
+}
+
 // Blend score toward neutral 50 for low sample counts
 function confidenceBlend(base, count, threshold = 8) {
     const confidence = Math.min(count / threshold, 1);
@@ -111,6 +126,109 @@ function isPlayedMatch(m) {
         return false;
     }
     return true;
+}
+
+// --- Date helpers (used for "Aktuálne Kolo" selection on home page) ---
+function parseMatchDate(raw) {
+    if (!raw) return null;
+    if (raw instanceof Date && !isNaN(raw.getTime())) return raw;
+
+    const str = String(raw).trim();
+    if (!str) return null;
+
+    // Try ISO first (YYYY-MM-DD ...)
+    let m = str.match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
+    if (m) {
+        const y = parseInt(m[1], 10), mo = parseInt(m[2], 10) - 1, d = parseInt(m[3], 10);
+        const dt = new Date(y, mo, d);
+        return isNaN(dt.getTime()) ? null : dt;
+    }
+
+    // Common SK formats: DD.MM.YYYY or DD/MM/YYYY (optionally with extra text)
+    m = str.match(/(\d{1,2})[./](\d{1,2})[./](\d{4})/);
+    if (m) {
+        const d = parseInt(m[1], 10), mo = parseInt(m[2], 10) - 1, y = parseInt(m[3], 10);
+        const dt = new Date(y, mo, d);
+        return isNaN(dt.getTime()) ? null : dt;
+    }
+
+    // Fallback: let JS try (works for some ISO-ish variants)
+    const dt = new Date(str);
+    return isNaN(dt.getTime()) ? null : dt;
+}
+
+function startOfIsoWeek(d) {
+    const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const day = x.getDay(); // 0=Sun..6=Sat
+    const diff = (day === 0) ? -6 : (1 - day); // Monday-start week
+    x.setDate(x.getDate() + diff);
+    x.setHours(0, 0, 0, 0);
+    return x;
+}
+
+function isSameIsoWeek(a, b) {
+    if (!a || !b) return false;
+    return startOfIsoWeek(a).getTime() === startOfIsoWeek(b).getTime();
+}
+
+function getRoundNumFromStr(roundStr) {
+    const s = String(roundStr || '');
+    const m = s.match(/\d+/);
+    return m ? parseInt(m[0], 10) : 0;
+}
+
+function buildRoundsIndex(matches) {
+    const rounds = {};
+    (matches || []).forEach(m => {
+        const id = getMatchRoundId(m);
+        if (!rounds[id]) {
+            rounds[id] = {
+                id,
+                name: m.round,
+                season: m.season,
+                seasonOrder: getSeasonOrder(m.season),
+                roundNum: getRoundNumFromStr(m.round),
+                refMatch: m
+            };
+        }
+    });
+    return rounds;
+}
+
+function getThisWeekRoundId(matches, today = new Date()) {
+    const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const bestById = {};
+
+    (matches || []).forEach(m => {
+        const dt = parseMatchDate(m.date);
+        if (!dt) return;
+        if (!isSameIsoWeek(dt, t)) return;
+
+        const id = getMatchRoundId(m);
+        const abs = Math.abs(dt.getTime() - t.getTime());
+        const seasonOrder = getSeasonOrder(m.season);
+        const roundNum = getRoundNumFromStr(m.round);
+
+        const prev = bestById[id];
+        if (!prev || abs < prev.abs) {
+            bestById[id] = { abs, seasonOrder, roundNum, refMatch: m };
+        } else if (abs === prev.abs) {
+            // Tie-break: prefer later season/round (more "current")
+            if (seasonOrder > prev.seasonOrder || (seasonOrder === prev.seasonOrder && roundNum > prev.roundNum)) {
+                bestById[id] = { abs, seasonOrder, roundNum, refMatch: m };
+            }
+        }
+    });
+
+    const entries = Object.entries(bestById);
+    if (entries.length === 0) return null;
+
+    entries.sort(([, a], [, b]) => {
+        if (a.abs !== b.abs) return a.abs - b.abs;
+        if (a.seasonOrder !== b.seasonOrder) return b.seasonOrder - a.seasonOrder;
+        return b.roundNum - a.roundNum;
+    });
+    return entries[0][0];
 }
 
 function processData() {
@@ -699,6 +817,12 @@ function renderHomePage() {
     const {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList} = processData();
     const playedMatches = matchResults.filter(isPlayedMatch);
 
+    // "Aktuálne Kolo" selection:
+    // Prefer a round that has any match scheduled in the same ISO week as today.
+    // Fallback to the existing "latest played round" logic.
+    const thisWeekRoundId = getThisWeekRoundId(matchResults, new Date());
+    const currentRoundId = thisWeekRoundId || latestRoundId;
+
     // Stats
     const uniqueTeamMatches = new Set(playedMatches.map(m => `${getMatchRoundId(m)}_${m.player_a_team}_${m.player_b_team}`));
     document.getElementById('totalRounds').innerText = roundsSet.size;
@@ -706,15 +830,17 @@ function renderHomePage() {
     document.getElementById('totalMatches').innerText = playedMatches.length;
     document.getElementById('totalSets').innerText = totalSets;
 
-    const latestTitleText = latestRoundId ? (
-        (() => {
-            const m = playedMatches.find(pm => getMatchRoundId(pm) === latestRoundId);
-            const s = m && m.season ? ` (${m.season})` : '';
-            return m ? `${m.round}${s}` : latestRoundName;
-        })()
-    ) : "Zatiaľ žiadne zápasy";
+    const currentTitleText = currentRoundId ? (() => {
+        // Prefer the round name from any match in that round; fall back to legacy string.
+        const m = matchResults.find(x => getMatchRoundId(x) === currentRoundId) || playedMatches.find(x => getMatchRoundId(x) === currentRoundId);
+        const s = m && m.season ? ` (${m.season})` : '';
+        return m ? `${m.round}${s}` : (latestRoundName || currentRoundId);
+    })() : "Zatiaľ žiadne zápasy";
 
-    document.getElementById('latestRoundTitle').innerText = latestTitleText;
+    const latestTitleEl = document.getElementById('latestRoundTitle');
+    if (latestTitleEl) {
+        latestTitleEl.innerText = currentRoundId ? `Aktuálne Kolo: ${currentTitleText}` : currentTitleText;
+    }
 
     // Top Gainers
     const top5 = Object.values(players).sort((a, b) => b.roundGain - a.roundGain).slice(0, 5);
@@ -745,17 +871,19 @@ function renderHomePage() {
     }
 
     // Latest Results (Now "Current Round")
-    if (latestRoundId) {
-        const currentRoundMatches = matchResults.filter(m => getMatchRoundId(m) === latestRoundId);
+    if (currentRoundId) {
+        const currentRoundMatches = matchResults.filter(m => getMatchRoundId(m) === currentRoundId);
         renderMatchList(currentRoundMatches, document.getElementById('latestRoundContainer'), false);
 
-        // Force update the title explicitly
-        const currentTitle = document.getElementById('latestRoundTitle');
-        if (currentTitle) currentTitle.innerText = `Aktuálne Kolo: ${latestTitleText}`;
-
         // Previous Round Logic
-        const allRoundIds = [...new Set(matchResults.filter(isPlayedMatch).map(m => getMatchRoundId(m)))];
-        const currentIndex = allRoundIds.indexOf(latestRoundId);
+        const roundsIndex = buildRoundsIndex(matchResults);
+        const allRoundIds = Object.values(roundsIndex)
+            .sort((a, b) => {
+                if (a.seasonOrder !== b.seasonOrder) return a.seasonOrder - b.seasonOrder; // older -> newer
+                return a.roundNum - b.roundNum; // lower -> higher
+            })
+            .map(r => r.id);
+        const currentIndex = allRoundIds.indexOf(currentRoundId);
 
         if (currentIndex > 0) {
             const prevRoundId = allRoundIds[currentIndex - 1];
@@ -765,6 +893,8 @@ function renderHomePage() {
             const s = pm && pm.season ? ` (${pm.season})` : '';
             const prevName = pm ? `${pm.round}${s}` : prevRoundId;
 
+            const prevHeader = document.getElementById('prevRoundTitle')?.parentElement;
+            if (prevHeader) prevHeader.style.display = '';
             document.getElementById('prevRoundTitle').innerText = prevName;
             renderMatchList(prevRoundMatches, document.getElementById('prevRoundContainer'), false);
         } else {
@@ -778,7 +908,7 @@ function renderHomePage() {
     if (!upcomingContainer) return;
 
     // Filter FUTURE matches - only from SUBSEQUENT rounds (not in latest ID)
-    const futureMatches = matchResults.filter(m => !isPlayedMatch(m) && getMatchRoundId(m) !== latestRoundId);
+    const futureMatches = matchResults.filter(m => !isPlayedMatch(m) && getMatchRoundId(m) !== currentRoundId);
 
     if (futureMatches.length > 0) {
         const uniqueFutureIds = [...new Set(futureMatches.map(m => getMatchRoundId(m)))];
@@ -892,13 +1022,18 @@ function renderMatchList(matches, container, appendToProvided) {
 
         const logoA = getTeamLogoSrc(match.teamA);
         const logoB = getTeamLogoSrc(match.teamB);
-        const logoAHtml = logoA ? `<img class="team-logo-small" src="${logoA}" alt="${match.teamA} logo" loading="lazy">` : '';
-        const logoBHtml = logoB ? `<img class="team-logo-small" src="${logoB}" alt="${match.teamB} logo" loading="lazy">` : '';
+        const logoSlotHtml = (src, teamName) => {
+            const alt = `${escapeAttr(teamName)} logo`;
+            const img = src ? `<img class="team-logo-small" src="${src}" alt="${alt}" loading="lazy">` : '';
+            return `<div class="team-logo-slot">${img}</div>`;
+        };
+        const logoAHtml = logoSlotHtml(logoA, match.teamA);
+        const logoBHtml = logoSlotHtml(logoB, match.teamB);
 
         if (isPlayed) {
             const summary = document.createElement('div');
             summary.className = 'match-summary';
-            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div>${logoAHtml}<div class="score-badge">${match.scoreA}-${match.scoreB}</div>${logoBHtml}<div class="team-name team-right">${match.teamB}</div><div class="expand-icon">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge">${match.scoreA}-${match.scoreB}</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
             const details = document.createElement('div');
             details.className = 'match-details';
 
@@ -932,7 +1067,7 @@ function renderMatchList(matches, container, appendToProvided) {
                 if (list.length === 0) return '';
                 const tLogo = getTeamLogoSrc(teamName);
                 let h = `<div class="team-stats ${align}">`;
-                if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${teamName} logo" loading="lazy"></div>`;
+                if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${escapeAttr(teamName)} logo" loading="lazy"></div>`;
                 list.forEach((p, index) => {
                     h += `<div class="player-stat-row">
                         <div class="player-stat-name">${p.name}</div>
@@ -967,7 +1102,7 @@ function renderMatchList(matches, container, appendToProvided) {
             const summary = document.createElement('div');
             summary.className = 'match-summary';
             // Same structure as played matches for perfect alignment
-            summary.innerHTML = `<div class="team-name team-left">${match.teamA}</div>${logoAHtml}<div class="score-badge" style="background:#e0e0e0; color:#555;">VS</div>${logoBHtml}<div class="team-name team-right">${match.teamB}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge" style="background:#e0e0e0; color:#555;">VS</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
             matchRow.appendChild(summary);
 
             const dateStr = match.date ? match.date : '';
@@ -1701,7 +1836,7 @@ function renderTablePage() {
         const getHist = (tn) => {
             const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
             const logoSrc = getTeamLogoSrc(tn);
-            const logoBlock = logoSrc ? `<div class="team-logo-banner"><img src="${logoSrc}" alt="${tn} logo" class="team-logo-large" loading="lazy"></div>` : '';
+            const logoBlock = logoSrc ? `<div class="team-logo-banner"><img src="${logoSrc}" alt="${escapeAttr(tn)} logo" class="team-logo-large" loading="lazy"></div>` : '';
             if (mm.length === 0) return `${logoBlock}<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
             let h = `${logoBlock}<div class="history-list">`;
             mm.forEach(m => {
