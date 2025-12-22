@@ -8,7 +8,7 @@
 var matchResults = window.matchResults = [];
 
 (() => {
-  const ASSET_VERSION = '7';
+  const ASSET_VERSION = '8';
   const STATIC_MATCHES_URL = `data/matches.json?v=${ASSET_VERSION}`;
 
   const SPREADSHEET_ID = '1JES8EiYKtrNuALCtXMk_kFIU_hHWm9s9tGyD6HIU0tk';
@@ -81,6 +81,9 @@ var matchResults = window.matchResults = [];
     matchResults = [...staticMatches, ...dynamicMatches];
     window.matchResults = matchResults;
 
+    console.log('DYNAMIC Matches START');
+    console.log(dynamicMatches);
+    console.log('DYNAMIC Matches END');
     console.log('Total Matches Loaded:', matchResults.length);
     return matchResults;
   }
