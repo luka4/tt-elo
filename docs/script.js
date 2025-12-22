@@ -46,6 +46,11 @@ function clamp(val, min = 0, max = 100) {
     return Math.min(max, Math.max(min, val));
 }
 
+function isWalkoverToken(name) {
+    const n = String(name ?? '').trim().toUpperCase();
+    return n === 'WO' || n === 'W/O' || n === 'W.O.';
+}
+
 // Minimal HTML escaping for safe text/attribute interpolation in innerHTML strings.
 function escapeHtml(str) {
     return String(str ?? '')
@@ -1047,7 +1052,9 @@ function renderMatchList(matches, container, appendToProvided) {
                 const sB = parseInt(g.score_b);
 
                 const updateP = (namesStr, team, won) => {
+                    if (!namesStr) return;
                     namesStr.split('/').map(n => n.trim()).forEach(n => {
+                        if (!n || isWalkoverToken(n)) return;
                         if (!stats[n]) stats[n] = { name: n, team: team, points: 0, possible: 0 };
                         stats[n].possible += pVal;
                         if (won) stats[n].points += pVal;
