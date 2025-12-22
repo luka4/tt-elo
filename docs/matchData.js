@@ -8,7 +8,7 @@
 var matchResults = window.matchResults = [];
 
 (() => {
-  const ASSET_VERSION = '8';
+  const ASSET_VERSION = '9';
   const STATIC_MATCHES_URL = `data/matches.json?v=${ASSET_VERSION}`;
 
   const SPREADSHEET_ID = '1JES8EiYKtrNuALCtXMk_kFIU_hHWm9s9tGyD6HIU0tk';
