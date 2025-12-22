@@ -1948,6 +1948,19 @@ function renderNavigation() {
     const path = window.location.pathname;
     const page = path.split("/").pop() || "index.html";
 
+    const applySeasonalNavBadge = () => {
+        const badge = document.getElementById('navBadge');
+        if (!badge) return;
+
+        const now = new Date();
+        const m = now.getMonth(); // 0=Jan .. 11=Dec
+        const d = now.getDate();
+
+        // Enable during December and the first week of January.
+        const isXmasSeason = (m === 11) || (m === 0 && d <= 7);
+        if (isXmasSeason) badge.classList.add('nav-badge--xmas');
+    };
+
     // Define links
     const links = [
         { url: 'results.html', text: 'Výsledky' },
@@ -1967,11 +1980,12 @@ function renderNavigation() {
         <h1 class="nav-title">
             <a href="index.html">Košická Miniliga</a>
         </h1>
-        <div class="nav-badge">Aktualizované:<br>22.12.2025</div>
+        <div class="nav-badge" id="navBadge">Aktualizované:<br>22.12.2025</div>
         <div class="nav-links">
             ${links.map(getLinkHtml).join('')}
         </div>
     </nav>`;
+    applySeasonalNavBadge();
     if (typeof updateLayout === 'function') updateLayout();
 }
 
