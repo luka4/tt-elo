@@ -17,8 +17,8 @@
 
 /* Results uses gray round headers + sticky behavior */
 #page-results .round-header {
-  background: #d3d3d3;
-  color: #444;
+  background: var(--color-surface-2);
+  color: var(--color-text-subtle);
   position: sticky;
   top: var(--header-offset, 80px);
   z-index: 10;

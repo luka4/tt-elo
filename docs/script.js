@@ -42,6 +42,38 @@ function getKFactor(matchesCount) {
     return K_FACTOR_STAGES[matchesCount] || K_FACTOR_STAGES.default;
 }
 
+function getThemeVar(name, fallback = '') {
+    try {
+        const v = window.getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+        return v || fallback;
+    } catch {
+        return fallback;
+    }
+}
+
+function toRgba(color, alpha = 1) {
+    const c = String(color || '').trim();
+    if (!c) return `rgba(0,0,0,${alpha})`;
+    if (c.startsWith('rgba(')) return c;
+    if (c.startsWith('rgb(')) {
+        const m = c.match(/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/i);
+        if (!m) return c;
+        return `rgba(${m[1]},${m[2]},${m[3]},${alpha})`;
+    }
+    if (c.startsWith('#')) {
+        const hex = c.slice(1);
+        const norm = (hex.length === 3)
+            ? hex.split('').map(ch => ch + ch).join('')
+            : (hex.length === 6 ? hex : '');
+        if (!norm) return c;
+        const r = parseInt(norm.slice(0, 2), 16);
+        const g = parseInt(norm.slice(2, 4), 16);
+        const b = parseInt(norm.slice(4, 6), 16);
+        return `rgba(${r},${g},${b},${alpha})`;
+    }
+    return c;
+}
+
 function clamp(val, min = 0, max = 100) {
     return Math.min(max, Math.max(min, val));
 }
@@ -682,6 +714,10 @@ function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts =
 
     const keys = ['attack', 'defense', 'consistency', 'momentum', 'teamImpact', 'clutch'];
     const labels = ['Ofenzíva', 'Defenzíva', 'Stabilita výkonu', 'Momentum', 'Tímový vplyv', 'Výkon pod tlakom'];
+    const themePrimary = getThemeVar('--color-primary', '#7c3aed');
+    const themeDanger = getThemeVar('--color-danger', '#dc2626');
+    const themeTextSubtle = getThemeVar('--color-text-subtle', '#374151');
+    const themeMuted = getThemeVar('--color-muted', '#6b7280');
     const getSampleHint = (s, key) => {
         const c = s?.counts || {};
         if (key === 'teamImpact') return `${c.doubles || 0} štvorhier`;
@@ -698,13 +734,13 @@ function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts =
     const axisHasAnyData = keys.map(k =>
         Number.isFinite(stats.values[k]) || (compareStats && Number.isFinite(compareStats.values[k]))
     );
-    const basePoint = toPointArrays(stats.values, '#4A90E2');
+    const basePoint = toPointArrays(stats.values, themePrimary);
 
     const datasets = [{
         label: stats?.label || 'Hráč',
         data: dataPoints,
-        backgroundColor: 'rgba(74, 144, 226, 0.15)',
-        borderColor: '#4A90E2',
+        backgroundColor: toRgba(themePrimary, 0.15),
+        borderColor: themePrimary,
         borderWidth: 2,
         pointBackgroundColor: basePoint.pointColors,
         pointRadius: basePoint.radii,
@@ -712,12 +748,12 @@ function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts =
     }];
 
     if (compareStats) {
-        const comparePoint = toPointArrays(compareStats.values, '#dc3545');
+        const comparePoint = toPointArrays(compareStats.values, themeDanger);
         datasets.push({
             label: compareStats.label || 'Porovnanie',
             data: keys.map(k => (Number.isFinite(compareStats.values[k]) ? compareStats.values[k] : null)),
-            backgroundColor: 'rgba(220, 53, 69, 0.12)',
-            borderColor: '#dc3545',
+            backgroundColor: toRgba(themeDanger, 0.12),
+            borderColor: themeDanger,
             borderWidth: 2,
             pointBackgroundColor: comparePoint.pointColors,
             pointRadius: comparePoint.radii,
@@ -758,7 +794,7 @@ function renderStatsRadar(stats, compareStats = null, attempt = 0, maxAttempts =
                     grid: { color: 'rgba(0,0,0,0.08)' },
                     angleLines: { color: 'rgba(0,0,0,0.1)' },
                     pointLabels: {
-                        color: (ctx) => axisHasAnyData[ctx.index] ? '#374151' : 'rgba(107,114,128,0.55)',
+                        color: (ctx) => axisHasAnyData[ctx.index] ? themeTextSubtle : toRgba(themeMuted, 0.55),
                         font: { size: 11, weight: '600' }
                     }
                 }
@@ -872,7 +908,7 @@ function renderHomePage() {
         });
         upsetDiv.innerHTML = html;
     } else {
-        upsetDiv.innerHTML = `<div style="text-align:center; color:#999;">Žiadne prekvapenia v tomto kole.</div>`;
+        upsetDiv.innerHTML = `<div style="text-align:center; color:var(--color-muted-2);">Žiadne prekvapenia v tomto kole.</div>`;
     }
 
     // Latest Results (Now "Current Round")
@@ -1109,14 +1145,14 @@ function renderMatchList(matches, container, appendToProvided) {
             const summary = document.createElement('div');
             summary.className = 'match-summary';
             // Same structure as played matches for perfect alignment
-            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge" style="background:#e0e0e0; color:#555;">VS</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge score-badge--vs">VS</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
             matchRow.appendChild(summary);
 
             const dateStr = match.date ? match.date : '';
             const locStr = match.location ? match.location : '';
             if (dateStr || locStr) {
                 const metaDiv = document.createElement('div');
-                metaDiv.style.cssText = "text-align:center; font-size:0.75em; color:#666; padding-bottom:8px; margin-top:-8px;";
+                metaDiv.style.cssText = "text-align:center; font-size:0.75em; color:var(--color-muted); padding-bottom:8px; margin-top:-8px;";
                 metaDiv.innerHTML = `${dateStr}${dateStr && locStr ? ' | ' : ''}${locStr}`;
                 matchRow.appendChild(metaDiv);
             }
@@ -1539,11 +1575,13 @@ function renderRatingPage() {
         };
 
         const dataPoints = compareP ? buildFilledSeries(p.history, allKeys) : allKeys.map(k => p.history[k] ?? null);
+        const themePrimary = getThemeVar('--color-primary', '#7c3aed');
+        const themeDanger = getThemeVar('--color-danger', '#dc2626');
         const datasets = [{
             label: p.name,
             data: dataPoints,
-            borderColor: '#4A90E2',
-            backgroundColor: 'rgba(74, 144, 226, 0.1)',
+            borderColor: themePrimary,
+            backgroundColor: toRgba(themePrimary, 0.1),
             borderWidth: 2,
             pointRadius: 4,
             tension: 0.1,
@@ -1555,8 +1593,8 @@ function renderRatingPage() {
             datasets.push({
                 label: compareP.name,
                 data: compareData,
-                borderColor: '#dc3545',
-                backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                borderColor: themeDanger,
+                backgroundColor: toRgba(themeDanger, 0.1),
                 borderWidth: 2,
                 pointRadius: 4,
                 tension: 0.1,
@@ -1595,11 +1633,13 @@ function renderRatingPage() {
         const createPie = (id, w, l) => {
             const ctx = document.getElementById(id).getContext('2d');
             if (chartRefs[id]) chartRefs[id].destroy();
+            const themeSuccess = getThemeVar('--color-success', '#16a34a');
+            const themeDanger = getThemeVar('--color-danger', '#dc2626');
             chartRefs[id] = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: ['Výhry', 'Prehry'],
-                    datasets: [{data: [w, l], backgroundColor: ['#28a745', '#dc3545'], borderWidth: 0}]
+                    datasets: [{data: [w, l], backgroundColor: [themeSuccess, themeDanger], borderWidth: 0}]
                 },
                 options: {responsive: true, maintainAspectRatio: false, plugins: {legend: {display: false}}}
             });
@@ -1822,7 +1862,7 @@ function renderTablePage() {
 
         const titleText = `${season}${group ? ' - Skupina ' + group : ''}`;
         const title = document.createElement('h2');
-        title.style.cssText = "color: #4A90E2; margin: 25px 0 10px 0; padding-left: 5px; border-left: 4px solid #4A90E2;";
+        title.style.cssText = "color: var(--color-primary); margin: 25px 0 10px 0; padding-left: 5px; border-left: 4px solid var(--color-primary);";
         title.innerText = titleText;
         wrapper.appendChild(title);
 
@@ -1844,7 +1884,7 @@ function renderTablePage() {
             const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
             const logoSrc = getTeamLogoSrc(tn);
             const logoBlock = logoSrc ? `<div class="team-logo-banner"><img src="${logoSrc}" alt="${escapeAttr(tn)} logo" class="team-logo-large" loading="lazy"></div>` : '';
-            if (mm.length === 0) return `${logoBlock}<div style="padding:15px; text-align:center; color:#999;">Žiadne zápasy</div>`;
+            if (mm.length === 0) return `${logoBlock}<div style="padding:15px; text-align:center; color:var(--color-muted-2);">Žiadne zápasy</div>`;
             let h = `${logoBlock}<div class="history-list">`;
             mm.forEach(m => {
                 const isHome = m.teamA === tn;
@@ -1856,7 +1896,7 @@ function renderTablePage() {
                     scClass = "score-draw";
                     scHtml = "VS";
                 }
-                const vsStyle = !m.isPlayed ? 'style="color:#aaa;"' : '';
+                const vsStyle = !m.isPlayed ? 'style="color:var(--color-muted-2);"' : '';
                 h += `<div class="history-row"><div class="hr-date">${m.roundName}</div><div class="hr-match">
                     <span class="hr-team hr-home ${m.teamA === tn ? "current-team" : "other-team"}">${m.teamA}</span><span class="hr-score ${scClass}" ${vsStyle}>${scHtml}</span><span class="hr-team hr-guest ${m.teamB === tn ? "current-team" : "other-team"}">${m.teamB}</span></div></div>`;
             });

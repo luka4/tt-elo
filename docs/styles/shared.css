@@ -3,22 +3,53 @@
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* Colors */
-  --color-bg: #f2f4f8;
+  --color-bg: #f8fafc;
   --color-surface: #ffffff;
-  --color-text: #333333;
-  --color-muted: #666666;
-  --color-muted-2: #888888;
-  --color-border: #e1e4e8;
+  --color-surface-2: #fafaff;
 
-  --color-primary: #4A90E2;
-  --color-primary-hover: #357ABD;
+  --color-text: #111827;
+  --color-text-subtle: #374151;
+  --color-text-inverse: #ffffff;
 
-  --color-success: #28a745;
-  --color-danger: #dc3545;
-  --color-warning: #ff9800;
+  --color-muted: #6b7280;
+  --color-muted-2: #9ca3af;
 
-  --color-pill-bg: #FFD700;
-  --color-pill-text: #000000;
+  --color-border: #e5e7eb;
+  --color-border-strong: #d1d5db;
+
+  /* Theme (Hybrid: Charcoal/Graphite + Blue + Coral + Lime) */
+  --color-primary: #111827;        /* charcoal */
+  --color-primary-hover: #0b1220;  /* deeper charcoal */
+
+  --color-accent: #3b82f6;         /* blue */
+  --color-accent-hover: #2563eb;   /* blue hover */
+
+  --color-accent-2: #fb7185;       /* coral */
+  --color-accent-2-hover: #f43f5e; /* coral hover */
+
+  --color-accent-3: #84cc16;       /* lime */
+  --color-accent-3-hover: #65a30d; /* lime hover */
+
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-warning: #f59e0b;
+
+  --color-success-soft: #dcfce7;
+  --color-warning-soft: #fffbeb;
+  --color-warning-text: #92400e;
+  --color-info-soft: #eff6ff;
+  --color-info-text: #1d4ed8;
+
+  --color-ink: #111827;
+
+  --color-pill-bg: var(--color-accent-3);
+  --color-pill-text: #111827;
+
+  --color-medal-gold: #fef3c7;
+  --color-medal-silver: #f3f4f6;
+  --color-medal-bronze: #fde2c4;
+
+  --color-row-hover: #f3f4f6;
 
   /* Radii + shadows */
   --radius-sm: 4px;
@@ -75,8 +106,8 @@ a {
   left: 0;
   width: 100%;
   z-index: 5000;
-  background-color: var(--color-primary);
-  color: #ffffff;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-text-inverse);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 10px 0;
   text-align: center;
@@ -92,7 +123,7 @@ a {
 }
 
 .nav-title a {
-  color: #ffffff;
+  color: var(--color-text-inverse);
   text-decoration: none;
 }
 
@@ -153,11 +184,11 @@ a {
 
 .nav-links a:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: var(--color-text-inverse);
 }
 
 .nav-links a.active {
-  background-color: #ffffff;
+  background-color: var(--color-surface);
   color: var(--color-primary);
 }
 
@@ -198,11 +229,11 @@ a {
   font-weight: 800;
   font-size: 1.1em;
   text-transform: uppercase;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--color-border-strong);
 }
 
 .match-row {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -212,7 +243,7 @@ a {
 }
 
 .match-row:hover {
-  background-color: #f9f9f9;
+  background-color: var(--color-row-hover);
 }
 
 .match-summary {
@@ -272,7 +303,7 @@ a {
 
 .score-badge {
   background: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-text-inverse);
   font-weight: 800;
   font-size: 1.2em;
   padding: 5px 12px;
@@ -282,10 +313,17 @@ a {
   letter-spacing: 1px;
 }
 
+/* Used for unplayed matches where score is not available yet */
+.score-badge.score-badge--vs {
+  background: var(--color-surface-2);
+  color: var(--color-text-subtle);
+  border: 1px solid var(--color-border);
+}
+
 .match-details {
   display: none;
-  background-color: #fafafa;
-  border-top: 1px solid #eee;
+  background-color: var(--color-surface-2);
+  border-top: 1px solid var(--color-border);
   padding: 10px 0;
   box-shadow: var(--shadow-inset);
 }
@@ -295,7 +333,7 @@ a {
   flex-direction: column;
   align-items: center;
   padding: 12px 15px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-border);
   position: relative;
 }
 
@@ -342,7 +380,7 @@ a {
 
 .doubles-badge {
   background-color: var(--color-warning);
-  color: #ffffff;
+  color: var(--color-text-inverse);
   font-size: 0.7em;
   padding: 2px 6px;
   border-radius: 3px;
@@ -352,7 +390,7 @@ a {
 }
 
 .expand-icon {
-  color: #999;
+  color: var(--color-muted-2);
   font-size: 0.8em;
   margin-left: 10px;
   transition: transform 0.3s;
@@ -368,7 +406,7 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 10px 15px;
-  background-color: #f8f9fa;
+  background-color: var(--color-surface-2);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -390,7 +428,7 @@ a {
 .player-stat-row {
   padding-bottom: 8px;
   margin-bottom: 8px;
-  color: #444;
+  color: var(--color-text-subtle);
   display: flex;
   flex-direction: column;
   align-items: center;

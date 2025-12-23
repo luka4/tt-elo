@@ -62,7 +62,7 @@
 /* Home uses primary-colored round headers */
 #page-home .round-header {
   background: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-text-inverse);
 }
 
 .top-players-list {
@@ -80,7 +80,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .top-player-row:last-child {
@@ -89,7 +89,7 @@
 
 .tp-rank {
   font-weight: 900;
-  color: #ccc;
+  color: var(--color-muted-2);
   width: 30px;
   font-size: 1.2em;
 }
@@ -103,7 +103,7 @@
 .tp-gain {
   font-weight: 800;
   color: var(--color-success);
-  background: #e8f5e9;
+  background: var(--color-success-soft);
   padding: 4px 8px;
   border-radius: var(--radius-sm);
 }
@@ -167,8 +167,8 @@
 }
 
 .upset-score {
-  background: #333;
-  color: #ffffff;
+  background: var(--color-ink);
+  color: var(--color-text-inverse);
   padding: 4px 8px;
   border-radius: var(--radius-sm);
   font-weight: 800;
@@ -223,7 +223,7 @@
 
 .sched-vs {
   font-size: 0.8em;
-  color: #999;
+  color: var(--color-muted-2);
   text-transform: uppercase;
   font-weight: 900;
 }
@@ -231,7 +231,7 @@
 .schedule-meta {
   font-size: 0.85em;
   color: var(--color-muted);
-  background: #f9f9f9;
+  background: var(--color-surface-2);
   padding: 4px 8px;
   border-radius: var(--radius-sm);
   display: inline-block;

@@ -32,13 +32,13 @@ th,
 td {
   padding: 15px 10px;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
   white-space: nowrap;
 }
 
 th {
   background-color: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-text-inverse);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.85em;
@@ -55,7 +55,7 @@ td:nth-child(2) {
   left: 0;
   z-index: 11;
   text-align: left;
-  border-right: 2px solid #f0f0f0;
+  border-right: 2px solid var(--color-border);
 }
 
 th:nth-child(2) {
@@ -68,12 +68,12 @@ th:nth-child(2) {
 }
 
 .main-row:hover td {
-  background-color: #f8f9fa;
+  background-color: var(--color-row-hover);
 }
 
 .detail-row {
   display: none;
-  background-color: #fcfcfc;
+  background-color: var(--color-surface-2);
 }
 
 .detail-row.open {
@@ -82,8 +82,8 @@ th:nth-child(2) {
 
 .detail-cell {
   padding: 0 !important;
-  border-bottom: 2px solid #ddd !important;
-  background-color: #fcfcfc;
+  border-bottom: 2px solid var(--color-border-strong) !important;
+  background-color: var(--color-surface-2);
 }
 
 .history-list {
@@ -95,7 +95,7 @@ th:nth-child(2) {
   display: flex;
   align-items: center;
   padding: 8px 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
   font-size: 13px;
 }
 
@@ -104,12 +104,12 @@ th:nth-child(2) {
 }
 
 .history-row:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: var(--color-surface-2);
 }
 
 .hr-date {
   width: 80px;
-  color: #999;
+  color: var(--color-muted-2);
   font-size: 0.85em;
   text-align: left;
   flex-shrink: 0;
@@ -152,7 +152,7 @@ th:nth-child(2) {
   color: var(--color-danger);
 }
 .score-draw {
-  color: #f6c71f;
+  color: var(--color-warning);
 }
 
 .current-team {
@@ -174,7 +174,7 @@ th:nth-child(2) {
   font-weight: 900;
   color: var(--color-primary);
   font-size: 1.1em;
-  background-color: #fbfbfb;
+  background-color: var(--color-surface-2);
 }
 
 .col-score {
@@ -185,15 +185,15 @@ th:nth-child(2) {
 
 .col-avg {
   font-weight: bold;
-  color: #555;
-  background-color: #fdfdfd;
+  color: var(--color-text-subtle);
+  background-color: var(--color-surface);
 }
 
 .expand-icon {
   display: inline-block;
   font-size: 0.7em;
   margin-left: 8px;
-  color: #999;
+  color: var(--color-muted-2);
   transition: transform 0.2s;
 }
 
@@ -228,8 +228,8 @@ th:nth-child(2) {
 .tooltip-text {
   visibility: hidden;
   width: 140px;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--color-ink);
+  color: var(--color-text-inverse);
   text-align: center;
   border-radius: 6px;
   padding: 8px;
@@ -261,7 +261,7 @@ th:nth-child(2) {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent #333 transparent;
+  border-color: transparent transparent var(--color-ink) transparent;
 }
 
 .prediction-wrapper {
@@ -296,20 +296,20 @@ select {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #ffffff;
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-surface);
   min-width: 150px;
 }
 
 .pred-vs {
   font-weight: 900;
-  color: #ccc;
+  color: var(--color-muted-2);
   font-size: 1.2em;
 }
 
 .pred-btn {
   background-color: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-text-inverse);
   border: none;
   padding: 12px 25px;
   font-size: 16px;
@@ -327,7 +327,7 @@ select {
 .pred-result {
   display: none;
   margin-top: 20px;
-  border-top: 1px dashed #eee;
+  border-top: 1px dashed var(--color-border);
   padding-top: 20px;
   animation: fadeIn 0.5s;
 }
@@ -349,10 +349,10 @@ select {
 }
 
 .rating-box {
-  background: #f9f9f9;
+  background: var(--color-surface-2);
   padding: 8px 15px;
   border-radius: var(--radius-sm);
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
 }
 
 .rating-val {
@@ -361,13 +361,13 @@ select {
 }
 
 .main-row.gold td {
-  background: #ffe27a;
+  background: var(--color-medal-gold);
 }
 .main-row.silver td {
-  background: #e0e0e0;
+  background: var(--color-medal-silver);
 }
 .main-row.bronze td {
-  background: #f3b27b;
+  background: var(--color-medal-bronze);
 }
 
 .main-row.gold:hover td,

@@ -1,10 +1,10 @@
 :root {
-    --table-blue: #2563eb;
-    --table-border: #1e40af;
+    --table-blue: var(--color-primary);
+    --table-border: var(--color-primary-hover);
     --line: rgba(255,255,255,.85);
 
-    --racket-red: #dc2626;
-    --racket-shadow: #991b1b;
+    --racket-red: var(--color-accent);
+    --racket-shadow: var(--color-accent-hover);
     --handle: #8b5a2b;
 
     --ball: #ffffff;
@@ -102,7 +102,7 @@ body.loading #pageContent {
     top: 12px;                   /* slightly above table surface */
     width: 6px;
     height: calc(100% - 24px);
-    background: #e5e7eb;
+    background: var(--color-border);
     transform: translateX(-50%);
     border-radius: 2px;
     box-shadow:
@@ -178,7 +178,7 @@ body.loading #pageContent {
     font-size: 0.85rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #111827;
+    color: var(--color-text);
     animation: text-pulse 1.4s ease-in-out infinite;
 }
 
