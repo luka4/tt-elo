@@ -1165,6 +1165,7 @@ function renderMatchList(matches, container, appendToProvided) {
 // --- RATING PAGE ---
 function renderRatingPage() {
     const {players} = processData();
+    // Baseline order (default view): by rating desc
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
     let selectedTeams = [];
     let activePlayer = null;
@@ -1177,6 +1178,112 @@ function renderRatingPage() {
     sortedPlayers.forEach(p => {
         playerLookup[normalizePlayerKey(p.name)] = p;
     });
+
+    // Create rating-based ranking (1-based, doesn't change with sorting)
+    const ratingRanking = new Map();
+    sortedPlayers.forEach((p, i) => {
+        ratingRanking.set(normalizePlayerKey(p.name), i + 1);
+    });
+
+    // Sorting state (applies to all columns except "Tím")
+    const baselineIndex = new Map(sortedPlayers.map((p, i) => [normalizePlayerKey(p.name), i]));
+    let sortState = { key: 'rating', dir: 'desc' }; // default = rating desc
+
+    const cmpStr = (a, b) => String(a || '').localeCompare(String(b || ''), 'sk', {sensitivity: 'base'});
+    const cmpNum = (a, b) => (Number(a) || 0) - (Number(b) || 0);
+    const sortPlayers = (list) => {
+        const dirMul = sortState.dir === 'asc' ? 1 : -1;
+        const decorated = list.map((p, idx) => ({p, idx})); // stable
+
+        const getSuccessMatches = (p) => p.matches > 0 ? (p.wins / p.matches) * 100 : 0;
+        const getSuccessSets = (p) => {
+            const total = (p.setsWin || 0) + (p.setsLose || 0);
+            return total > 0 ? ((p.setsWin || 0) / total) * 100 : 0;
+        };
+        const getLastPlayedNum = (p) => getRoundNumFromStr(p.lastPlayed);
+        const getBestWinRating = (p) => (typeof p.bestWinRating === 'number' && !isNaN(p.bestWinRating)) ? p.bestWinRating : -Infinity;
+
+        const valueForKey = (p, key) => {
+            switch (key) {
+                // Special: "#" column acts as "reset to default order"
+                case 'pos':
+                    return 0;
+                case 'name':
+                    return p.name || '';
+                case 'rating':
+                    return p.rating || 0;
+                case 's_matches':
+                    return p.matches || 0;
+                case 's_wins':
+                    return p.wins || 0;
+                case 's_losses':
+                    return p.losses || 0;
+                case 's_sets_win':
+                    return p.setsWin || 0;
+                case 's_sets_lose':
+                    return p.setsLose || 0;
+                case 's_success_matches':
+                    return getSuccessMatches(p);
+                case 's_success_sets':
+                    return getSuccessSets(p);
+                case 'd_matches':
+                    return p.dMatches || 0;
+                case 'd_wins':
+                    return p.dWins || 0;
+                case 'd_losses':
+                    return p.dLosses || 0;
+                case 'best_win':
+                    return getBestWinRating(p);
+                case 'last_played':
+                    return getLastPlayedNum(p);
+                case 'max_rating':
+                    return p.maxRating || 0;
+                case 'min_rating':
+                    return p.minRating || 0;
+                default:
+                    return 0;
+            }
+        };
+
+        const isStringKey = (k) => k === 'name';
+        decorated.sort((A, B) => {
+            const a = A.p, b = B.p;
+            if (sortState.key === 'pos') {
+                const ia = baselineIndex.get(normalizePlayerKey(a.name)) ?? 0;
+                const ib = baselineIndex.get(normalizePlayerKey(b.name)) ?? 0;
+                if (ia !== ib) return (ia - ib) * dirMul;
+                return (A.idx - B.idx); // stable
+            }
+
+            // Special handling for sets column: sort by setsWin desc/asc then setsLose inverse for readability
+            if (sortState.key === 's_sets') {
+                const aw = a.setsWin || 0, bw = b.setsWin || 0;
+                const al = a.setsLose || 0, bl = b.setsLose || 0;
+                if (aw !== bw) return (aw - bw) * dirMul;
+                // Fewer lost sets is better when sorting desc; invert using dirMul
+                if (al !== bl) return (bl - al) * dirMul;
+                return (A.idx - B.idx);
+            }
+
+            const va = valueForKey(a, sortState.key);
+            const vb = valueForKey(b, sortState.key);
+            const diff = isStringKey(sortState.key) ? cmpStr(va, vb) : cmpNum(va, vb);
+            if (diff !== 0) return diff * dirMul;
+
+            // Tie-break: baseline order, then stable index
+            const ia = baselineIndex.get(normalizePlayerKey(a.name)) ?? 0;
+            const ib = baselineIndex.get(normalizePlayerKey(b.name)) ?? 0;
+            if (ia !== ib) return ia - ib;
+            return A.idx - B.idx;
+        });
+        return decorated.map(x => x.p);
+    };
+
+    const getDisplayedPlayers = () => {
+        let list = sortedPlayers;
+        if (selectedTeams.length > 0) list = list.filter(p => selectedTeams.includes(p.team));
+        return sortPlayers(list);
+    };
 
     const compareInput = document.getElementById('compareInput');
     const compareForm = document.getElementById('compareForm');
@@ -1238,8 +1345,8 @@ function renderRatingPage() {
     const tbody = document.getElementById('mainTableBody');
     const renderTable = () => {
         tbody.innerHTML = '';
-        sortedPlayers.forEach((p, index) => {
-            if (selectedTeams.length > 0 && !selectedTeams.includes(p.team)) return;
+        const display = getDisplayedPlayers();
+        display.forEach((p, index) => {
             const tr = document.createElement('tr');
             // if (p.team === 'COKERY') tr.classList.add('team-cokery');
             // if (p.team === 'ASTORIAFIT') tr.classList.add('team-astoria');
@@ -1256,8 +1363,9 @@ function renderRatingPage() {
             if (p.matches + p.dMatches <= 10) ratingClass = 'rating-low';
             else if (p.matches + p.dMatches <= 20) ratingClass = 'rating-med';
 
+            const ratingRank = ratingRanking.get(normalizePlayerKey(p.name)) || (index + 1);
             tr.innerHTML = `
-                <td>${index + 1}</td><td>${p.name}</td><td>${p.team}</td>
+                <td>${ratingRank}</td><td>${p.name}</td><td>${p.team}</td>
                 <td class="${ratingClass}">${p.rating.toFixed(2)}</td>
                 <td class="border-left-thick">${p.matches}</td><td>${p.wins}</td><td>${p.losses}</td>
                 <td>${p.setsWin}:${p.setsLose}</td><td>${successMatches}</td><td>${successSets}</td>
@@ -1266,6 +1374,81 @@ function renderRatingPage() {
                 <td>${p.maxRating.toFixed(2)}</td><td>${p.minRating.toFixed(2)}</td>
             `;
             tbody.appendChild(tr);
+        });
+    };
+
+    const attachSortHandlersForThead = (theadEl) => {
+        if (!theadEl) return;
+        const rows = Array.from(theadEl.querySelectorAll('tr'));
+        if (rows.length < 2) return;
+        const topRow = Array.from(rows[0].children).filter(el => el.tagName === 'TH');
+        const subRow = Array.from(rows[1].children).filter(el => el.tagName === 'TH');
+
+        // Build leaf headers in visual left-to-right order:
+        // - leaf in top row are those with rowspan > 1 (single-column headers)
+        // - group headers in top row (colspan > 1) are expanded using subRow THs
+        let subPtr = 0;
+        const leafThs = [];
+        topRow.forEach(th => {
+            const colSpan = th.colSpan || 1;
+            const rowSpan = th.rowSpan || 1;
+            if (rowSpan > 1 && colSpan === 1) {
+                leafThs.push(th);
+            } else if (colSpan > 1) {
+                for (let i = 0; i < colSpan; i++) {
+                    if (subRow[subPtr]) leafThs.push(subRow[subPtr]);
+                    subPtr++;
+                }
+            }
+        });
+
+        // Column index -> sort key (must match tbody column order)
+        const colKeys = [
+            'pos',           // #
+            'name',          // Hráč
+            null,            // Tím (excluded)
+            'rating',        // Rating
+            's_matches',     // Singles: Zápasy
+            's_wins',        // Singles: Výhry
+            's_losses',      // Singles: Prehry
+            's_sets',        // Singles: Sety
+            's_success_matches', // Singles: Úspešnosť Zápasy
+            's_success_sets',    // Singles: Úspešnosť Sety
+            'd_matches',     // Doubles: Zápasy
+            'd_wins',        // Doubles: Výhry
+            'd_losses',      // Doubles: Prehry
+            'best_win',      // Naj Výhra
+            'last_played',   // Naposledy Hral
+            'max_rating',    // Max Rating
+            'min_rating'     // Min Rating
+        ];
+
+        leafThs.forEach((th, colIdx) => {
+            const key = colKeys[colIdx] || null;
+            // Skip Team, and skip any unexpected headers
+            if (!key) return;
+            // Allow re-attachment for sticky headers
+            if (th.dataset.sortBound === '1' && !theadEl.closest('#stickyHeaderContainer')) return;
+            th.dataset.sortBound = '1';
+            th.style.cursor = 'pointer';
+            th.addEventListener('click', (e) => {
+                // Do not interfere with nested controls (like Team dropdown button)
+                if (e.target && e.target.closest && e.target.closest('.team-filter-wrapper')) return;
+                e.preventDefault();
+                e.stopPropagation();
+
+                const prevKey = sortState.key;
+                if (prevKey === key) {
+                    sortState.dir = (sortState.dir === 'asc') ? 'desc' : 'asc';
+                } else {
+                    sortState.key = key;
+                    // Default direction: text asc, numbers desc (more useful in stats tables)
+                    sortState.dir = (key === 'name') ? 'asc' : 'desc';
+                    // "#" acts as "reset": keep default rating desc
+                    if (key === 'pos') sortState.dir = 'asc';
+                }
+                renderTable();
+            }, {passive: false});
         });
     };
 
@@ -1298,6 +1481,7 @@ function renderRatingPage() {
     const table = document.getElementById('mainTable');
     if (wrapper && table) {
         const thead = table.querySelector('thead');
+        attachSortHandlersForThead(thead);
         let stickyContainer = document.getElementById('stickyHeaderContainer');
 
         // Remove existing if any (to prevent duplicates on re-render)
@@ -1312,6 +1496,9 @@ function renderRatingPage() {
         // Clone header immediately
         stickyTable.appendChild(thead.cloneNode(true));
         stickyTable.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+
+        // Attach sort handlers to sticky header
+        attachSortHandlersForThead(stickyTable.querySelector('thead'));
 
         const updateWidths = () => {
             const origThs = Array.from(thead.querySelectorAll('th'));
@@ -1374,6 +1561,7 @@ function renderRatingPage() {
             });
         };
 
+        let wasSticking = false;
         const onScroll = () => {
             const nav = document.getElementById('mainNav');
             const navHeight = nav ? nav.offsetHeight : 0;
@@ -1386,11 +1574,25 @@ function renderRatingPage() {
 
             if (shouldStick) {
                 stickyContainer.style.display = 'block';
+                // Enable interaction when visible (allows sorting on sticky header)
+                stickyContainer.style.pointerEvents = 'auto';
+                stickyTable.style.pointerEvents = 'auto';
+                stickyTable.querySelectorAll('th').forEach(th => th.style.pointerEvents = 'auto');
                 stickyContainer.style.top = navHeight + 'px';
                 stickyContainer.scrollLeft = wrapper.scrollLeft;
-                updateWidths();
+                // Only update widths when first becoming visible or after resize
+                if (!wasSticking) {
+                    updateWidths();
+                    wasSticking = true;
+                }
             } else {
-                stickyContainer.style.display = 'none';
+                if (wasSticking) {
+                    stickyContainer.style.display = 'none';
+                    stickyContainer.style.pointerEvents = 'none';
+                    stickyTable.style.pointerEvents = 'none';
+                    stickyTable.querySelectorAll('th').forEach(th => th.style.pointerEvents = 'none');
+                    wasSticking = false;
+                }
                 table.classList.remove('sticky-active');
             }
         };
@@ -1485,7 +1687,8 @@ function renderRatingPage() {
         compareDerived = null;
         if (compareInput) compareInput.value = '';
         setCompareStatus('');
-        document.getElementById('headerName').innerText = p.name;
+        const playerRanking = ratingRanking.get(normalizePlayerKey(p.name)) || '?';
+        document.getElementById('headerName').innerText = `#${playerRanking} ${p.name}`;
         document.getElementById('headerTeam').innerText = p.team || "";
         const logoEl = document.getElementById('headerTeamLogo');
         const logoWrap = document.getElementById('headerTeamLogoWrapper');
