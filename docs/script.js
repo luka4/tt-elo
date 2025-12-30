@@ -2210,7 +2210,6 @@ function renderRatingPage() {
 function renderTablePage() {
     const {players} = processData();
     const tables = {};
-    const allTeamsSet = new Set();
 
     // 1. Group Matches
     matchResults.forEach(m => {
@@ -2228,8 +2227,6 @@ function renderTablePage() {
         }
         tables[tableKey].matches.push(m);
 
-        if (m.player_a_team) allTeamsSet.add(m.player_a_team);
-        if (m.player_b_team) allTeamsSet.add(m.player_b_team);
     });
 
     // 2. Prepare Container
@@ -2390,47 +2387,299 @@ function renderTablePage() {
         wrapper.appendChild(tableWrapper);
         if(container) container.appendChild(wrapper);
     });
+}
 
-    // 5. Setup Prediction (Global)
-    const globalTeams = {};
-    const globalPlayers = players;
+// --- PREDICTION PAGE ---
+function renderPredictionPage() {
+    const {players} = processData();
+    const normalizeKey = (n) => (n || '').trim().toLowerCase();
+    const allPlayers = Object.values(players).filter(p => p.name && p.team && p.team !== 'N/A');
+    const playerLookup = new Map(allPlayers.map(p => [normalizeKey(p.name), p]));
 
-    allTeamsSet.forEach(teamName => {
-        const tp = Object.values(globalPlayers).filter(p => p.team === teamName).sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
-        const avg = tp.length > 0 ? tp.reduce((acc, p) => acc + p.rating, 0) / tp.length : 0;
-        globalTeams[teamName] = { avgRating: avg };
+    // Group players by team and sort them by activity then rating
+    const teamMap = new Map();
+    const sortRoster = (list) => [...list].sort((a, b) => {
+        const actA = (a.matches + a.dMatches);
+        const actB = (b.matches + b.dMatches);
+        if (actA !== actB) return actB - actA;
+        if (a.rating !== b.rating) return b.rating - a.rating;
+        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
     });
+    allPlayers.forEach(p => {
+        if (!teamMap.has(p.team)) teamMap.set(p.team, []);
+        teamMap.get(p.team).push(p);
+    });
+    teamMap.forEach((list, key) => teamMap.set(key, sortRoster(list)));
+    const teamNames = Array.from(teamMap.keys()).sort((a, b) => a.localeCompare(b, 'sk', {sensitivity: 'base'}));
 
-    const selectA = document.getElementById('teamSelectA');
-    const selectB = document.getElementById('teamSelectB');
-    if (selectA && selectB) {
-        selectA.innerHTML = '<option value="">Vyber Domácich</option>';
-        selectB.innerHTML = '<option value="">Vyber Hostí</option>';
-        [...allTeamsSet].sort().forEach(t => {
-            if(t === "N/A") return;
-            selectA.add(new Option(t, t));
-            selectB.add(new Option(t, t));
+    const teamSelectA = document.getElementById('teamSelectA');
+    const teamSelectB = document.getElementById('teamSelectB');
+    const teamPredictionResult = document.getElementById('teamPredictionResult');
+    const teamPredScore = document.getElementById('teamPredScore');
+    const teamRateA = document.getElementById('teamRateA');
+    const teamRateB = document.getElementById('teamRateB');
+    const teamStatus = document.getElementById('teamPredictionStatus');
+    const lineupA = document.getElementById('teamLineupA');
+    const lineupB = document.getElementById('teamLineupB');
+    const lineupTitleA = document.getElementById('lineupTitleA');
+    const lineupTitleB = document.getElementById('lineupTitleB');
+    const teamPredictBtn = document.getElementById('teamPredictBtn');
+    const teamLogoA = document.getElementById('teamLogoA');
+    const teamLogoB = document.getElementById('teamLogoB');
+
+    // Individual prediction elements
+    const indForm = document.getElementById('individualPredictionForm');
+    const indStatus = document.getElementById('individualPredictionStatus');
+    const indResult = document.getElementById('individualPredictionResult');
+    const indPlayerA = document.getElementById('individualPlayerA');
+    const indPlayerB = document.getElementById('individualPlayerB');
+    const indScoreList = document.getElementById('individualScoreList');
+    const indRateA = document.getElementById('indRateA');
+    const indRateB = document.getElementById('indRateB');
+    const indScoreNote = document.getElementById('individualScoreNote');
+    const indPlayersList = document.getElementById('individualPlayersList');
+
+    if (!teamSelectA || !teamSelectB || !teamPredictionResult) return;
+
+    const avgRating = (list) => list.length ? list.reduce((s, p) => s + p.rating, 0) / list.length : 0;
+    const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+    const getScoreDistribution = (probWin) => {
+        const p = Math.max(0, Math.min(1, probWin || 0));
+        const q = 1 - p;
+        const dist = {
+            '3-0': Math.pow(p, 3),
+            '3-1': 3 * Math.pow(p, 3) * q,
+            '3-2': 6 * Math.pow(p, 3) * Math.pow(q, 2),
+            '2-3': 6 * Math.pow(q, 3) * Math.pow(p, 2),
+            '1-3': 3 * Math.pow(q, 3) * p,
+            '0-3': Math.pow(q, 3),
+        };
+        const total = Object.values(dist).reduce((s, v) => s + v, 0) || 1;
+        return Object.fromEntries(Object.entries(dist).map(([k, v]) => [k, (v / total) * 100]));
+    };
+
+    const renderScoreList = (el, dist) => {
+        if (!el) return;
+        const entries = Object.entries(dist || {});
+        let maxVal = -Infinity, minVal = Infinity;
+        entries.forEach(([, v]) => {
+            if (v > maxVal) maxVal = v;
+            if (v < minVal) minVal = v;
         });
-    }
+        const html = entries.map(([score, pct]) => {
+            const val = Number.isFinite(pct) ? pct.toFixed(1) : '0.0';
+            let cls = '';
+            if (pct === maxVal) cls = ' score-row--max';
+            else if (pct === minVal) cls = ' score-row--min';
+            return `<div class="score-row${cls}"><span class="score-label">${score}</span><div class="score-bar"><span class="score-bar-fill" style="width:${val}%;"></span></div><span class="score-value">${val}%</span></div>`;
+        }).join('');
+        el.innerHTML = html;
+    };
 
-    window.calculatePrediction = () => {
-        const tA = document.getElementById('teamSelectA').value;
-        const tB = document.getElementById('teamSelectB').value;
-        if (!tA || !tB || tA === tB) {
-            alert("Vyberte prosím dva rozdielne tímy.");
+    const setTeamLogo = (teamName, targetEl) => {
+        if (!targetEl) return;
+        if (!teamName) {
+            targetEl.innerHTML = '';
             return;
         }
-        const rA = globalTeams[tA] ? globalTeams[tA].avgRating : 0;
-        const rB = globalTeams[tB] ? globalTeams[tB].avgRating : 0;
-
-        const sA = Math.round(18 * (1 / (1 + Math.pow(10, (rB - rA) / 300))));
-        document.getElementById('predScore').innerText = `${sA} : ${18 - sA}`;
-        document.getElementById('rateA').innerText = rA.toFixed(1);
-        document.getElementById('rateB').innerText = rB.toFixed(1);
-        const rb = document.getElementById('predictionResult');
-        rb.style.display = 'block';
-        setTimeout(() => rb.scrollIntoView({behavior: 'smooth', block: 'center'}), 100);
+        const logo = getTeamLogoSrc(teamName);
+        if (logo) {
+            targetEl.innerHTML = `<img src="${escapeAttr(logo)}" alt="${escapeAttr(teamName)} logo" loading="lazy">`;
+        } else {
+            targetEl.innerHTML = `<span class="logo-placeholder">${escapeHtml(teamName.slice(0, 3).toUpperCase())}</span>`;
+        }
     };
+
+    const populateTeams = (select) => {
+        if (!select) return;
+        select.innerHTML = `<option value="">${select.id === 'teamSelectA' ? 'Vyberte domáci tím' : 'Vyberte hosťujúci tím'}</option>`;
+        teamNames.forEach(t => {
+            const opt = document.createElement('option');
+            opt.value = t;
+            opt.textContent = t;
+            select.appendChild(opt);
+        });
+    };
+
+    const renderLineup = (teamName, targetEl, titleEl) => {
+        if (titleEl && !titleEl.dataset.defaultTitle) titleEl.dataset.defaultTitle = titleEl.textContent || '';
+        if (titleEl) titleEl.textContent = teamName ? `Zostava ${teamName}` : (titleEl.dataset.defaultTitle || '');
+        if (!targetEl) return;
+        targetEl.innerHTML = '';
+        if (!teamName) {
+            targetEl.innerHTML = `<div class="lineup-hint">Vyberte tím pre zobrazenie hráčov.</div>`;
+            return;
+        }
+        const roster = teamMap.get(teamName) || [];
+        if (roster.length === 0) {
+            targetEl.innerHTML = `<div class="lineup-hint">Žiadni hráči k dispozícii.</div>`;
+            return;
+        }
+        roster.forEach((p, idx) => {
+            const checked = idx < 4;
+            const meta = `Rating ${p.rating.toFixed(1)} • Zápasy ${p.matches + p.dMatches}`;
+            targetEl.insertAdjacentHTML('beforeend',
+                `<label class="lineup-player">
+                    <div>
+                        <div>${escapeHtml(p.name)}</div>
+                        <div class="player-meta">${escapeHtml(meta)}</div>
+                    </div>
+                    <input type="checkbox" value="${escapeAttr(p.name)}" ${checked ? 'checked' : ''}>
+                </label>`);
+        });
+
+        const applyLimitState = () => {
+            const checked = targetEl.querySelectorAll('input[type="checkbox"]:checked');
+            const disable = checked.length >= 4;
+            targetEl.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                if (!cb.checked) cb.disabled = disable;
+            });
+        };
+
+        if (!targetEl.dataset.boundLimit) {
+            targetEl.addEventListener('change', (e) => {
+                const cb = e.target;
+                if (!(cb instanceof HTMLInputElement) || cb.type !== 'checkbox') return;
+                const checked = targetEl.querySelectorAll('input[type="checkbox"]:checked');
+                if (checked.length > 4) {
+                    cb.checked = false;
+                    setTeamStatus('Maximálne 4 hráči na tím.');
+                } else if (checked.length >= 3) {
+                    setTeamStatus('');
+                }
+                applyLimitState();
+            });
+            targetEl.dataset.boundLimit = '1';
+        }
+        applyLimitState();
+    };
+
+    const collectLineup = (teamName, targetEl) => {
+        const roster = teamMap.get(teamName) || [];
+        const fallback = roster.slice(0, 4).map(p => p.name);
+        const selectedNames = Array.from(targetEl?.querySelectorAll('input[type="checkbox"]:checked') || []).map(el => el.value);
+        const namesRaw = selectedNames.length > 0 ? selectedNames : fallback;
+        const names = namesRaw.slice(0, 4);
+        const chosen = roster.filter(p => names.includes(p.name)).slice(0, 4);
+        const hasWO = chosen.length === 3;
+        return { names, players: chosen.length ? chosen : roster.slice(0, 4), hasWO };
+    };
+
+    const setTeamStatus = (msg) => {
+        if (teamStatus) teamStatus.innerText = msg || '';
+    };
+
+    const renderTeamPrediction = () => {
+        const tA = teamSelectA.value;
+        const tB = teamSelectB.value;
+        if (!tA || !tB) {
+            setTeamStatus('Vyberte oba tímy.');
+            return;
+        }
+        if (tA === tB) {
+            setTeamStatus('Zvoľte rozdielne tímy.');
+            return;
+        }
+        setTeamStatus('');
+
+        const lineupSelA = collectLineup(tA, lineupA);
+        const lineupSelB = collectLineup(tB, lineupB);
+        const rosterA = lineupSelA.players;
+        const rosterB = lineupSelB.players;
+
+        if (rosterA.length < 3 || rosterB.length < 3) {
+            setTeamStatus('Vyberte aspoň 3 hráčov v oboch tímoch (max 4).');
+            return;
+        }
+
+        const avgA = avgRating(rosterA);
+        const avgB = avgRating(rosterB);
+        const singlesA = rosterA[0] ? rosterA[0].rating : avgA;
+        const singlesB = rosterB[0] ? rosterB[0].rating : avgB;
+        const doublesA = rosterA.length >= 2 ? (rosterA[0].rating + rosterA[1].rating) / 2 : singlesA;
+        const doublesB = rosterB.length >= 2 ? (rosterB[0].rating + rosterB[1].rating) / 2 : singlesB;
+
+        let sA = Math.round(18 * winProb(avgA, avgB));
+        let sB = Math.max(0, 18 - sA);
+
+        if (lineupSelA.hasWO) sB += 5;
+        if (lineupSelB.hasWO) sA += 5;
+        if ((sA + sB) > 18) {
+            const scale = 18 / (sA + sB);
+            sA = Math.round(sA * scale);
+            sB = Math.max(0, 18 - sA);
+        }
+
+        sA = Math.min(18, Math.max(0, sA));
+        sB = Math.min(18, Math.max(0, sB));
+
+        if (teamPredScore) teamPredScore.innerText = `${sA} : ${sB}`;
+        if (teamRateA) teamRateA.innerText = avgA.toFixed(1);
+        if (teamRateB) teamRateB.innerText = avgB.toFixed(1);
+        if (teamPredictionResult) teamPredictionResult.style.display = 'block';
+    };
+
+    populateTeams(teamSelectA);
+    populateTeams(teamSelectB);
+
+    teamSelectA.addEventListener('change', () => {
+        renderLineup(teamSelectA.value, lineupA, lineupTitleA);
+        setTeamLogo(teamSelectA.value, teamLogoA);
+    });
+    teamSelectB.addEventListener('change', () => {
+        renderLineup(teamSelectB.value, lineupB, lineupTitleB);
+        setTeamLogo(teamSelectB.value, teamLogoB);
+    });
+    if (teamPredictBtn) teamPredictBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        renderTeamPrediction();
+    });
+
+    // Individual prediction setup
+    if (indPlayersList) {
+        indPlayersList.innerHTML = sortRoster(allPlayers).map(p => `<option value="${escapeAttr(p.name)}">`).join('');
+    }
+
+    const setIndStatus = (msg) => {
+        if (indStatus) indStatus.innerText = msg || '';
+    };
+
+    const renderIndividualPrediction = () => {
+        const nameA = (indPlayerA?.value || '').trim();
+        const nameB = (indPlayerB?.value || '').trim();
+
+        if (!nameA || !nameB) {
+            setIndStatus('Vyplňte prosím oboch hráčov.');
+            return;
+        }
+        if (normalizeKey(nameA) === normalizeKey(nameB)) {
+            setIndStatus('Zvoľte dvoch rôznych hráčov.');
+            return;
+        }
+        const pA = playerLookup.get(normalizeKey(nameA));
+        const pB = playerLookup.get(normalizeKey(nameB));
+        if (!pA || !pB) {
+            setIndStatus('Hráč nebol nájdený. Skúste iné meno.');
+            return;
+        }
+        setIndStatus('');
+
+        const dist = getScoreDistribution(winProb(pA.rating, pB.rating));
+        renderScoreList(indScoreList, dist);
+        if (indRateA) indRateA.innerText = pA.rating.toFixed(1);
+        if (indRateB) indRateB.innerText = pB.rating.toFixed(1);
+        const teamLabelA = pA.team ? ` (${pA.team})` : '';
+        const teamLabelB = pB.team ? ` (${pB.team})` : '';
+        if (indScoreNote) indScoreNote.innerText = `Skóre je uvádzané ako ${pA.name}${teamLabelA} : ${pB.name}${teamLabelB}.`;
+        if (indResult) indResult.style.display = 'block';
+    };
+
+    if (indForm) {
+        indForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            renderIndividualPrediction();
+        });
+    }
 }
 
 // ============================================================
@@ -2462,6 +2711,7 @@ function renderNavigation() {
         { url: 'results.html', text: 'Výsledky' },
         { url: 'table.html', text: 'Tabuľka' },
         { url: 'rating.html', text: 'Rating' },
+        { url: 'prediction.html', text: 'Predikcia' },
     ];
 
     // Build the "Active" class string logic
@@ -2503,6 +2753,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         else if (id === 'page-home') renderHomePage();
         else if (id === 'page-results') renderResultsPage();
         else if (id === 'page-table') renderTablePage();
+        else if (id === 'page-prediction') renderPredictionPage();
         hideLoader();
     });
 });

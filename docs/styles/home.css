@@ -138,6 +138,8 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   opacity: 0.95;
+  text-align: center;
+  width: 100%;
 }
 
 .stat-back-text {

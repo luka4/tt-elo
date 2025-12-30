@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Košická Miniliga - Predikcia</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="loader2.css">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/prediction.css">
+</head>
+<body id="page-prediction" class="loading">
+
+<div id="pageLoader">
+    <div class="loader">
+        <div class="scene">
+            <div class="table"></div>
+            <div class="net"></div>
+            <div class="racket left"></div>
+            <div class="racket right"></div>
+            <div class="ball"></div>
+        </div>
+        <div class="loading-text">Načítava sa</div>
+    </div>
+</div>
+
+<div id="pageContent">
+    <div id="mainNavContainer"></div>
+    <div class="container" id="mainContainer">
+        <h2>Predikcia zápasov</h2>
+        <p class="page-intro">Vyberte tímy alebo konkrétnych hráčov a zobrazte očakávané výsledky vrátane pravdepodobností jednotlivých skóre.</p>
+
+        <section class="prediction-card" id="teamPredictionSection">
+            <div class="section-header">
+                <div class="section-title">Tímová predikcia</div>
+                <div class="section-subtitle">Zostavte nominácie oboch tímov, zobrazte očakávaný výsledok a pravdepodobnosti skóre pre singles aj doubles.</div>
+            </div>
+
+            <div class="pred-controls pred-controls--stacked">
+                <div class="team-select-row team-select-row--right">
+                    <div class="selector-group">
+                        <label for="teamSelectA">Domáci tím</label>
+                        <select id="teamSelectA">
+                            <option value="">Vyberte domáci tím</option>
+                        </select>
+                    </div>
+                    <div class="team-logo-chip" id="teamLogoA"></div>
+                </div>
+                <div class="selector-group vs-group">
+                    <span class="pred-vs">VS</span>
+                </div>
+                <div class="team-select-row team-select-row--left">
+                    <div class="selector-group">
+                        <label for="teamSelectB">Hosťujúci tím</label>
+                        <select id="teamSelectB">
+                            <option value="">Vyberte hosťujúci tím</option>
+                        </select>
+                    </div>
+                    <div class="team-logo-chip" id="teamLogoB"></div>
+                </div>
+            </div>
+            <div id="teamPredictionStatus" class="status-text"></div>
+
+            <div class="lineup-wrapper" id="lineupWrapper">
+                <div class="lineup-card">
+                    <div class="lineup-title" id="lineupTitleA">Zostava domáci</div>
+                    <div class="lineup-body" id="teamLineupA"></div>
+                </div>
+                <div class="lineup-card">
+                    <div class="lineup-title" id="lineupTitleB">Zostava hostia</div>
+                    <div class="lineup-body" id="teamLineupB"></div>
+                </div>
+            </div>
+            <div class="predict-action-row">
+                <button id="teamPredictBtn" class="pred-btn">Vypočítať predikciu</button>
+            </div>
+
+            <div id="teamPredictionResult" class="pred-result">
+                <div class="score-prediction" id="teamPredScore">-- : --</div>
+                <div class="pred-details">
+                    <div class="rating-box">Ø Rating: <span class="rating-val" id="teamRateA">0</span></div>
+                    <div class="rating-box">Ø Rating: <span class="rating-val" id="teamRateB">0</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="prediction-card" id="individualPredictionSection">
+            <div class="section-header">
+                <div class="section-title">Individuálna predikcia</div>
+                <div class="section-subtitle">Vyberte dvoch hráčov (písanie vyhľadáva mená) a zobrazte pravdepodobnosť jednotlivých skóre.</div>
+            </div>
+
+            <form id="individualPredictionForm" class="individual-form">
+                <div class="selector-group">
+                    <label for="individualPlayerA">Hráč A</label>
+                    <input id="individualPlayerA" list="individualPlayersList" placeholder="Začnite písať meno hráča..." autocomplete="off">
+                </div>
+                <div class="selector-group vs-group">
+                    <span class="pred-vs">VS</span>
+                </div>
+                <div class="selector-group">
+                    <label for="individualPlayerB">Hráč B</label>
+                    <input id="individualPlayerB" list="individualPlayersList" placeholder="Začnite písať meno hráča..." autocomplete="off">
+                </div>
+                <div class="selector-group action-group">
+                    <button type="submit" class="pred-btn">Predikovať</button>
+                </div>
+            </form>
+            <datalist id="individualPlayersList"></datalist>
+            <div id="individualPredictionStatus" class="status-text"></div>
+
+            <div id="individualPredictionResult" class="pred-result">
+                <div class="pred-details">
+                    <div class="rating-box">Rating A: <span class="rating-val" id="indRateA">0</span></div>
+                    <div class="rating-box">Rating B: <span class="rating-val" id="indRateB">0</span></div>
+                </div>
+                <div class="score-card">
+                    <div class="score-card-title" id="individualScoreNote">Skóre je uvádzané ako A : B.</div>
+                    <div class="score-list score-list--grid" id="individualScoreList"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="matchData.js?v=5"></script>
+<script src="script.js?v=6"></script>
+</body>
+</html>
+
