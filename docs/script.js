@@ -481,6 +481,118 @@ function processData() {
 }
 
 // ============================================================
+// 3B. "REBRÍČEK" POINTS (LEAGUE SCORING)
+// ============================================================
+// Rules (as provided):
+// - Singles win = 1 point
+// - Doubles win = 0.5 point (doubles loss = 0)
+// - Kontumácia (team walkover) gives special points to players listed in the sheet:
+//   played 1x -> +0.5, 2x -> +1.0, 3x -> +1.5, 4x -> +2.5
+//
+// Data encoding note:
+// - Walkovers are represented as matches where one side is "WO" (or W/O / W.O.).
+// - For full-walkover fixtures (no real games played between the teams in that round),
+//   we apply the special mapping instead of counting each WO game as a full win.
+function computeRebricekMap(playersByName) {
+    const points = new Map();
+    const addPts = (playerName, delta) => {
+        if (!playerName || !Number.isFinite(delta)) return;
+        // Keep aligned with rating page: only show players that exist in playersByName (processData)
+        if (!playersByName || !playersByName[playerName]) return;
+        points.set(playerName, (points.get(playerName) || 0) + delta);
+    };
+
+    const splitNames = (raw) => String(raw || '').split('/').map(s => s.trim()).filter(Boolean);
+    const hasWO = (names) => names.some(isWalkoverToken);
+    const isDoublesMatch = (m) => (m?.doubles === true || m?.doubles === "true");
+    const scoreNum = (x) => (Number.isFinite(x) ? x : parseInt(x, 10)) || 0;
+
+    const fixtureKey = (m) => `${getMatchRoundId(m)}::${(m.player_a_team || '').trim()}::${(m.player_b_team || '').trim()}`;
+    const fixtures = new Map();
+
+    // 1) Group played matches by fixture (round + teams) and track whether fixture has any "real" (non-WO) games.
+    (matchResults || []).filter(isPlayedMatch).forEach(m => {
+        const key = fixtureKey(m);
+        const fx = fixtures.get(key) || { items: [], hasRealGame: false };
+
+        const namesA = splitNames(m.player_a);
+        const namesB = splitNames(m.player_b);
+        const aWO = hasWO(namesA);
+        const bWO = hasWO(namesB);
+
+        if (!aWO && !bWO) fx.hasRealGame = true;
+        fx.items.push({
+            m,
+            isDoubles: isDoublesMatch(m),
+            namesA,
+            namesB,
+            aWO,
+            bWO
+        });
+        fixtures.set(key, fx);
+    });
+
+    const kontumacyPointsForAppearances = (appearances) => {
+        const n = Math.max(0, appearances | 0);
+        if (n <= 0) return 0;
+        if (n === 4) return 2.5;
+        // 1->0.5, 2->1.0, 3->1.5
+        if (n >= 1 && n <= 3) return n * 0.5;
+        // Safety: cap at 2.5 (league sheet implies max 4x)
+        return 2.5;
+    };
+
+    // 2) Compute points per fixture
+    fixtures.forEach(fx => {
+        if (!fx.items.length) return;
+
+        // Full kontumácia fixture: no real games, only WO-encoded games.
+        if (!fx.hasRealGame) {
+            const appearances = new Map(); // playerName -> number of WO games listed in the sheet
+
+            fx.items.forEach(it => {
+                // Ignore WO vs WO placeholders
+                if (it.aWO && it.bWO) return;
+                // Count players on the non-WO side as "played"
+                const nonWO = it.aWO ? it.namesB : it.namesA;
+                nonWO.forEach(n => {
+                    if (isWalkoverToken(n)) return;
+                    appearances.set(n, (appearances.get(n) || 0) + 1);
+                });
+            });
+
+            appearances.forEach((count, playerName) => {
+                addPts(playerName, kontumacyPointsForAppearances(count));
+            });
+            return;
+        }
+
+        // Partial fixture (some real games played): treat each match individually.
+        fx.items.forEach(it => {
+            const sA = scoreNum(it.m.score_a);
+            const sB = scoreNum(it.m.score_b);
+            if (sA === sB) return;
+
+            // Determine winner side (including WO games within an otherwise "real" fixture).
+            const winnerNames = (sA > sB) ? it.namesA : it.namesB;
+            if (!winnerNames || winnerNames.length === 0) return;
+
+            if (it.isDoubles) {
+                winnerNames.forEach(n => {
+                    if (isWalkoverToken(n)) return;
+                    addPts(n, 0.5);
+                });
+            } else {
+                const winner = winnerNames.find(n => !isWalkoverToken(n));
+                if (winner) addPts(winner, 1);
+            }
+        });
+    });
+
+    return points;
+}
+
+// ============================================================
 // 3A. DERIVED STATS ENGINE (FRONTEND ONLY)
 // ============================================================
 function getBandLabel(val) {
@@ -871,6 +983,76 @@ function renderHomePage() {
     document.getElementById('totalMatches').innerText = playedMatches.length;
     document.getElementById('totalSets').innerText = totalSets;
 
+    // Back-side explanations for the 4 stat cards
+    const roundsBack = document.getElementById('statBackRoundsText');
+    if (roundsBack) {
+        const weeks = roundsSet.size || 0;
+        roundsBack.innerText = `V lige sa odohralo približne ${weeks} týždňov (kôl).`;
+    }
+    const tmBack = document.getElementById('statBackTeamMatchesText');
+    if (tmBack) {
+        const hours = uniqueTeamMatches.size * 3;
+        tmBack.innerText = `Ak jeden tímový zápas trvá cca 3 hodiny, tak spolu je to približne ${hours} hodín stolného tenisu.`;
+    }
+    const matchesBack = document.getElementById('statBackMatchesText');
+    if (matchesBack) {
+        matchesBack.innerText = 'Celkový počet odohraných zápasov (dvojhry + štvorhry) v lige.';
+    }
+    const setsBack = document.getElementById('statBackSetsText');
+    if (setsBack) {
+        const points = totalSets * 18;
+        setsBack.innerText = `Ak má jeden set v priemere ~18 lôpt, tak sa odohralo približne ${points} lôpt.`;
+    }
+
+    // Home "stat cards" flip interaction (tap/click + keyboard)
+    // Implemented here so it only runs on the home page.
+    (() => {
+        const cards = Array.from(document.querySelectorAll('[data-flip-card]'));
+        if (!cards.length) return;
+        const setFlipped = (card, flipped) => {
+            card.classList.toggle('is-flipped', !!flipped);
+            card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+            const back = card.querySelector('.stat-face--back');
+            if (back) back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+        };
+        const closeAll = (except = null) => {
+            cards.forEach(c => { if (c !== except) setFlipped(c, false); });
+        };
+        cards.forEach(card => {
+            if (card.dataset.flipBound === '1') return;
+            card.dataset.flipBound = '1';
+
+            const onToggle = () => {
+                const willFlip = !card.classList.contains('is-flipped');
+                closeAll(willFlip ? card : null);
+                setFlipped(card, willFlip);
+            };
+
+            card.addEventListener('click', (e) => {
+                // Let links on the back side work normally
+                if (e.target && e.target.closest && e.target.closest('a')) return;
+                e.preventDefault();
+                onToggle();
+            }, {passive: false});
+
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onToggle();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeAll();
+                }
+            }, {passive: false});
+        });
+
+        // Click outside closes flipped cards
+        document.addEventListener('click', (e) => {
+            if (e.target && e.target.closest && e.target.closest('[data-flip-card]')) return;
+            closeAll();
+        }, {passive: true, once: true});
+    })();
+
     const currentTitleText = currentRoundId ? (() => {
         // Prefer the round name from any match in that round; fall back to legacy string.
         const m = matchResults.find(x => getMatchRoundId(x) === currentRoundId) || playedMatches.find(x => getMatchRoundId(x) === currentRoundId);
@@ -1167,6 +1349,34 @@ function renderRatingPage() {
     const {players} = processData();
     // Baseline order (default view): by rating desc
     const sortedPlayers = Object.values(players).sort((a, b) => b.rating - a.rating);
+
+    // Attach "Rebríček" points per player (computed from matchResults + kontumácia rules)
+    const rebricekMap = computeRebricekMap(players);
+    sortedPlayers.forEach(p => {
+        p.rebricek = rebricekMap.get(p.name) || 0;
+    });
+
+    // Attach "Form" (last 5 matches) for rating table
+    // Uses matchDetails order (chronological as processed) and marks win/loss by match score.
+    const computeForm = (p, n = 5) => {
+        const details = Array.isArray(p?.matchDetails) ? p.matchDetails : [];
+        const recent = details.slice(-n);
+        const bools = recent.map(m => (m.score_own || 0) > (m.score_opp || 0)); // true=win, false=loss
+        // Score for sorting: recent results have higher weight (binary encoded)
+        let score = 0;
+        bools.forEach((isWin, idx) => {
+            const weight = 1 << idx; // oldest=1, newest=16 (for 5)
+            if (isWin) score += weight;
+        });
+        const wins = bools.filter(Boolean).length;
+        return { bools, score, wins };
+    };
+    sortedPlayers.forEach(p => {
+        const f = computeForm(p, 5);
+        p.form = f.bools;
+        p.formScore = f.score;
+        p.formWins = f.wins;
+    });
     let selectedTeams = [];
     let activePlayer = null;
     let activeDerived = null;
@@ -1210,8 +1420,12 @@ function renderRatingPage() {
                     return 0;
                 case 'name':
                     return p.name || '';
+                case 'form':
+                    return p.formScore || 0;
                 case 'rating':
                     return p.rating || 0;
+                case 'rebricek':
+                    return p.rebricek || 0;
                 case 's_matches':
                     return p.matches || 0;
                 case 's_wins':
@@ -1364,9 +1578,23 @@ function renderRatingPage() {
             else if (p.matches + p.dMatches <= 20) ratingClass = 'rating-med';
 
             const ratingRank = ratingRanking.get(normalizePlayerKey(p.name)) || (index + 1);
+            const rebricekVal = Number.isInteger(p.rebricek) ? String(p.rebricek) : (p.rebricek || 0).toFixed(1);
+            const formBools = Array.isArray(p.form) ? p.form : [];
+            const formHtml = (() => {
+                // Always render 5 circles; missing matches appear as empty/neutral.
+                const dots = [];
+                for (let i = 0; i < 5; i++) {
+                    if (i >= formBools.length) dots.push(`<span class="form-dot form-dot--empty" title="N/A"></span>`);
+                    else dots.push(`<span class="form-dot ${formBools[i] ? 'form-dot--win' : 'form-dot--loss'}" title="${formBools[i] ? 'Výhra' : 'Prehra'}"></span>`);
+                }
+                return `<div class="form-dots" aria-label="Forma (posledných 5 zápasov)">${dots.join('')}</div>`;
+            })();
             tr.innerHTML = `
                 <td>${ratingRank}</td><td>${p.name}</td><td>${p.team}</td>
+                <td class="form-cell">${formHtml}</td>
                 <td class="${ratingClass}">${p.rating.toFixed(2)}</td>
+<!--                TODO temporary remove rebricek-->
+<!--                <td>${rebricekVal}</td>-->
                 <td class="border-left-thick">${p.matches}</td><td>${p.wins}</td><td>${p.losses}</td>
                 <td>${p.setsWin}:${p.setsLose}</td><td>${successMatches}</td><td>${successSets}</td>
                 <td class="border-left-thick">${p.dMatches}</td><td>${p.dWins}</td><td>${p.dLosses}</td>
@@ -1407,17 +1635,20 @@ function renderRatingPage() {
             'pos',           // #
             'name',          // Hráč
             null,            // Tím (excluded)
+            'form',          // Forma
             'rating',        // Rating
+            // TODO temporary remove rebricek
+            // 'rebricek',
             's_matches',     // Singles: Zápasy
             's_wins',        // Singles: Výhry
             's_losses',      // Singles: Prehry
-            's_sets',        // Singles: Sety
+            null,            // Singles: Sety (NOT sortable)
             's_success_matches', // Singles: Úspešnosť Zápasy
             's_success_sets',    // Singles: Úspešnosť Sety
             'd_matches',     // Doubles: Zápasy
             'd_wins',        // Doubles: Výhry
             'd_losses',      // Doubles: Prehry
-            'best_win',      // Naj Výhra
+            null,            // Naj Výhra (NOT sortable)
             'last_played',   // Naposledy Hral
             'max_rating',    // Max Rating
             'min_rating'     // Min Rating
@@ -1738,6 +1969,7 @@ function renderRatingPage() {
         }, 80);
         renderPieCharts('matchesChart', 'setsChart', p.matches, p.wins, p.losses, p.setsWin, p.setsLose, 'matches', 'sets');
         renderPieCharts('dMatchesChart', 'dSetsChart', p.dMatches, p.dWins, p.dLosses, p.dSetsWin, p.dSetsLose, 'dMatches', 'dSets');
+        renderFormHistory(p);
         renderHistory(p);
         renderHeadToHead(p, comparePlayer);
     };
@@ -1819,6 +2051,27 @@ function renderRatingPage() {
                 scales: {x: {ticks: {autoSkip: true, maxTicksLimit: 10}}}
             }
         });
+    };
+
+    const renderFormHistory = (p) => {
+        const container = document.getElementById('formHistory');
+        if (!container) return;
+        container.innerHTML = '';
+        const allMatches = Array.isArray(p?.matchDetails) ? p.matchDetails : [];
+        // Show all matches; let flex-wrap handle overflow into multiple lines.
+        const subset = allMatches;
+        if (!subset.length) {
+            container.innerHTML = `<div style="color:var(--color-muted); font-size:0.85em;">Žiadne zápasy.</div>`;
+            return;
+        }
+        const dots = subset.map((m) => {
+            const isWin = (m.score_own || 0) > (m.score_opp || 0);
+            const cls = isWin ? 'form-dot--win' : 'form-dot--loss';
+            const badge = m.isDoubles ? ' (Štvorhra)' : '';
+            const title = `${m.round || ''}${m.season ? ' ' + m.season : ''}${badge} • ${m.score_own || 0}:${m.score_opp || 0}`;
+            return `<span class="form-dot ${cls}" title="${escapeAttr(title)}"></span>`;
+        });
+        container.innerHTML = dots.join('');
     };
 
     const renderPieCharts = (mId, sId, matches, wins, losses, sWin, sLose, mPre, sPre) => {

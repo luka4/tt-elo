@@ -40,7 +40,10 @@
                     <th rowspan="2" style="min-width: 20px;">#</th>
                     <th rowspan="2">Hráč</th>
                     <th rowspan="2"><div class="team-filter-wrapper"><div class="team-filter-btn" onclick="toggleTeamDropdown(event)">Tím <span style="font-size: 0.8em">▼</span></div><div id="teamDropdown" class="team-filter-dropdown"></div></div></th>
+                    <th rowspan="2">Forma</th>
                     <th rowspan="2">Rating</th>
+<!--                    TODO temporary remove rebricek-->
+<!--                    <th rowspan="2">Rebríček</th>-->
                     <th colspan="6" class="border-left-thick">Zápasy Dvojhra (Singles)</th>
                     <th colspan="3" class="border-left-thick">Zápasy Štvorhra (Doubles)</th>
                     <th rowspan="2" class="border-left-thick">Naj Výhra</th>
@@ -62,7 +65,13 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closePlayerModal()">&times;</span>
             <div id="selectedPlayerHeader"><div class="player-header-name" id="headerName"></div><div class="player-header-team" id="headerTeam"></div><div class="player-header-logo" id="headerTeamLogoWrapper"><img id="headerTeamLogo" alt="Team logo"></div></div>
-            <div id="chartContainerWrapper"><canvas id="ratingChart"></canvas></div>
+            <div id="chartContainerWrapper">
+                <canvas id="ratingChart"></canvas>
+            </div>
+            <div id="formHistoryWrapper">
+                <div class="form-history-title">Forma (všetky zápasy, posledné novšie vpravo)</div>
+                <div id="formHistory" class="form-history"></div>
+            </div>
             <div id="compareSection">
                 <h3>Porovnať</h3>
                 <form id="compareForm" class="compare-form-row">

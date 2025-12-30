@@ -72,6 +72,64 @@ td {
   white-space: nowrap;
 }
 
+/* Form (last 5 matches) dots */
+.form-cell {
+  min-width: 86px;
+}
+
+.form-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.form-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.form-dot--win {
+  background: var(--color-success);
+}
+
+.form-dot--loss {
+  background: var(--color-danger);
+}
+
+.form-dot--empty {
+  background: rgba(156, 163, 175, 0.35);
+  border: 1px solid rgba(156, 163, 175, 0.55);
+  box-shadow: none;
+}
+
+/* Detailed form history under rating chart */
+#formHistoryWrapper {
+  margin-top: 12px;
+}
+
+.form-history-title {
+  font-size: 0.85em;
+  color: var(--color-muted);
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.form-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.form-history .form-dot {
+  width: 11px;
+  height: 11px;
+}
+
 /* Dynamic Sticky Offsets */
 :root {
   --col-1-width: 40px;
@@ -235,7 +293,7 @@ tbody td:nth-child(2) {
   background-color: var(--color-row-hover);
 }
 
-td:nth-child(4) {
+td:nth-child(5) {
   font-weight: bold;
   background-color: var(--color-surface);
 }
