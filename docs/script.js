@@ -2714,25 +2714,97 @@ function renderNavigation() {
         { url: 'prediction.html', text: 'Predikcia' },
     ];
 
+    // Mobile menu includes Home as first item
+    const mobileLinks = [
+        { url: 'index.html', text: 'Domov' },
+        ...links
+    ];
+
     // Build the "Active" class string logic
     const getLinkHtml = (link) => {
         const isActive = page === link.url;
         return `<a href="${link.url}" ${isActive ? 'class="active"' : ''}>${link.text}</a>`;
     };
 
+    // Build mobile menu links with stagger animation classes
+    const getMobileLinkHtml = (link, index) => {
+        const isActive = page === link.url;
+        return `<a href="${link.url}" class="mobile-nav-link${isActive ? ' active' : ''}" style="--stagger-index: ${index}">${link.text}</a>`;
+    };
+
     // Note: The H1 tag is used for SEO (as discussed previously)
     navContainer.innerHTML = `
     <nav class="top-nav" id="mainNav">
+        <!-- Hamburger menu button (mobile only) -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
         <h1 class="nav-title">
             <a href="index.html">Košická Miniliga</a>
         </h1>
         <div class="nav-badge" id="navBadge">Aktualizované:<br>22.12.2025</div>
+        <!-- Desktop nav links -->
         <div class="nav-links">
             ${links.map(getLinkHtml).join('')}
         </div>
-    </nav>`;
+    </nav>
+    <!-- Mobile sidebar menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <aside class="mobile-nav-sidebar" id="mobileNavSidebar">
+        <div class="mobile-nav-links">
+            ${mobileLinks.map(getMobileLinkHtml).join('')}
+        </div>
+    </aside>`;
+    
     applySeasonalNavBadge();
+    initMobileNav();
     if (typeof updateLayout === 'function') updateLayout();
+}
+
+// Mobile navigation functionality
+function initMobileNav() {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const overlay = document.getElementById('mobileNavOverlay');
+    const sidebar = document.getElementById('mobileNavSidebar');
+    
+    if (!hamburgerBtn || !overlay || !sidebar) return;
+
+    const openMenu = () => {
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+        hamburgerBtn.classList.add('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    };
+
+    hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (sidebar.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    // Close on overlay click
+    overlay.addEventListener('click', closeMenu);
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+            closeMenu();
+        }
+    });
 }
 
 // Add this to your existing window load event
