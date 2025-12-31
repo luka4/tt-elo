@@ -422,3 +422,211 @@
   font-weight: 900;
 }
 
+/* ============================================================
+   "WHAT IF" SIMULATOR STYLES
+   ============================================================ */
+
+.whatif-result {
+  display: none;
+}
+
+.whatif-players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.whatif-player {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 160px;
+}
+
+.whatif-player--a {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+
+.whatif-player--b {
+  border-color: var(--color-muted);
+}
+
+.whatif-player-name {
+  font-size: 1.15em;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.whatif-player-rating,
+.whatif-player-kfactor {
+  font-size: 0.9em;
+  color: var(--color-muted);
+}
+
+.whatif-player-rating span,
+.whatif-player-kfactor span {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.whatif-vs {
+  font-weight: 900;
+  font-size: 1.4em;
+  color: var(--color-muted-2);
+}
+
+.whatif-scenarios {
+  margin-top: 8px;
+}
+
+.whatif-scenarios-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  font-size: 1.1em;
+}
+
+.whatif-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.whatif-scenario {
+  background: var(--color-surface-2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.whatif-scenario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.whatif-scenario--win {
+  border-color: var(--color-success);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, transparent 100%);
+}
+
+.whatif-scenario--loss {
+  border-color: var(--color-danger);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, transparent 100%);
+}
+
+.whatif-scenario-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.whatif-scenario-icon {
+  font-size: 1.3em;
+}
+
+.whatif-scenario-score {
+  font-size: 1.4em;
+  font-weight: 900;
+  color: var(--color-text);
+}
+
+.whatif-scenario-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.whatif-delta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.whatif-delta-value {
+  font-size: 1.6em;
+  font-weight: 900;
+}
+
+.whatif-delta--positive .whatif-delta-value {
+  color: var(--color-success);
+}
+
+.whatif-delta--negative .whatif-delta-value {
+  color: var(--color-danger);
+}
+
+.whatif-delta-label {
+  font-size: 0.75em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.whatif-new-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.whatif-new-rating-value {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.whatif-new-rating-label {
+  font-size: 0.7em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 640px) {
+  .whatif-players {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .whatif-vs {
+    display: none;
+  }
+
+  .whatif-player {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .whatif-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .whatif-scenario {
+    padding: 10px;
+  }
+
+  .whatif-delta-value {
+    font-size: 1.3em;
+  }
+
+  .whatif-new-rating-value {
+    font-size: 1em;
+  }
+}
+

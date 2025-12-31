@@ -2680,6 +2680,158 @@ function renderPredictionPage() {
             renderIndividualPrediction();
         });
     }
+
+    // ============================================================
+    // "WHAT IF" SIMULATOR
+    // ============================================================
+    const whatIfForm = document.getElementById('whatIfForm');
+    const whatIfStatus = document.getElementById('whatIfStatus');
+    const whatIfResult = document.getElementById('whatIfResult');
+    const whatIfPlayerA = document.getElementById('whatIfPlayerA');
+    const whatIfPlayerB = document.getElementById('whatIfPlayerB');
+    const whatIfPlayersList = document.getElementById('whatIfPlayersList');
+    const whatIfGrid = document.getElementById('whatIfGrid');
+    const whatIfNameA = document.getElementById('whatIfNameA');
+    const whatIfNameB = document.getElementById('whatIfNameB');
+    const whatIfRatingA = document.getElementById('whatIfRatingA');
+    const whatIfRatingB = document.getElementById('whatIfRatingB');
+    const whatIfKFactorA = document.getElementById('whatIfKFactorA');
+    const whatIfKFactorB = document.getElementById('whatIfKFactorB');
+
+    // Populate players datalist for What If
+    if (whatIfPlayersList) {
+        whatIfPlayersList.innerHTML = sortRoster(allPlayers).map(p => `<option value="${escapeAttr(p.name)}">`).join('');
+    }
+
+    const setWhatIfStatus = (msg) => {
+        if (whatIfStatus) whatIfStatus.innerText = msg || '';
+    };
+
+    /**
+     * Calculate ELO rating change for a hypothetical match.
+     * @param {number} ratingA - Player A's current rating
+     * @param {number} ratingB - Player B's current rating
+     * @param {number} scoreA - Player A's sets won
+     * @param {number} scoreB - Player B's sets won
+     * @param {number} kFactorA - Player A's K-factor
+     * @param {number} kFactorB - Player B's K-factor
+     * @returns {object} - { deltaA, deltaB, newRatingA, newRatingB }
+     */
+    const calculateWhatIfRatingChange = (ratingA, ratingB, scoreA, scoreB, kFactorA, kFactorB) => {
+        const N = scoreA + scoreB;
+        const expectedA = N / (1 + Math.pow(10, (ratingB - ratingA) / 300));
+        const expectedB = N / (1 + Math.pow(10, (ratingA - ratingB) / 300));
+        
+        const diffA = scoreA - expectedA;
+        const diffB = scoreB - expectedB;
+        
+        const deltaA = kFactorA * diffA;
+        const deltaB = kFactorB * diffB;
+        
+        return {
+            deltaA: deltaA,
+            deltaB: deltaB,
+            newRatingA: ratingA + deltaA,
+            newRatingB: ratingB + deltaB
+        };
+    };
+
+    const renderWhatIfSimulator = () => {
+        const nameA = (whatIfPlayerA?.value || '').trim();
+        const nameB = (whatIfPlayerB?.value || '').trim();
+
+        if (!nameA || !nameB) {
+            setWhatIfStatus('Vyplňte prosím oboch hráčov.');
+            if (whatIfResult) whatIfResult.style.display = 'none';
+            return;
+        }
+        if (normalizeKey(nameA) === normalizeKey(nameB)) {
+            setWhatIfStatus('Zvoľte dvoch rôznych hráčov.');
+            if (whatIfResult) whatIfResult.style.display = 'none';
+            return;
+        }
+        const pA = playerLookup.get(normalizeKey(nameA));
+        const pB = playerLookup.get(normalizeKey(nameB));
+        if (!pA || !pB) {
+            setWhatIfStatus('Hráč nebol nájdený. Skúste iné meno.');
+            if (whatIfResult) whatIfResult.style.display = 'none';
+            return;
+        }
+        setWhatIfStatus('');
+
+        // Get K-factors based on next match (current matches + 1)
+        const kFactorA = getKFactor(pA.matches + 1);
+        const kFactorB = getKFactor(pB.matches + 1);
+
+        // Update player info display
+        if (whatIfNameA) whatIfNameA.innerText = pA.name;
+        if (whatIfNameB) whatIfNameB.innerText = pB.name;
+        if (whatIfRatingA) whatIfRatingA.innerText = pA.rating.toFixed(2);
+        if (whatIfRatingB) whatIfRatingB.innerText = pB.rating.toFixed(2);
+        if (whatIfKFactorA) whatIfKFactorA.innerText = kFactorA;
+        if (whatIfKFactorB) whatIfKFactorB.innerText = kFactorB;
+
+        // Define all possible score scenarios
+        const scenarios = [
+            { scoreA: 3, scoreB: 0, label: '3:0', isWin: true },
+            { scoreA: 3, scoreB: 1, label: '3:1', isWin: true },
+            { scoreA: 3, scoreB: 2, label: '3:2', isWin: true },
+            { scoreA: 2, scoreB: 3, label: '2:3', isWin: false },
+            { scoreA: 1, scoreB: 3, label: '1:3', isWin: false },
+            { scoreA: 0, scoreB: 3, label: '0:3', isWin: false },
+        ];
+
+        // Calculate rating changes for each scenario
+        const scenarioResults = scenarios.map(s => {
+            const result = calculateWhatIfRatingChange(
+                pA.rating, pB.rating, 
+                s.scoreA, s.scoreB, 
+                kFactorA, kFactorB
+            );
+            return {
+                ...s,
+                ...result
+            };
+        });
+
+        // Render the scenarios grid
+        if (whatIfGrid) {
+            whatIfGrid.innerHTML = scenarioResults.map(s => {
+                const deltaClass = s.deltaA >= 0 ? 'whatif-delta--positive' : 'whatif-delta--negative';
+                const deltaSign = s.deltaA >= 0 ? '+' : '';
+                const outcomeClass = s.isWin ? 'whatif-scenario--win' : 'whatif-scenario--loss';
+                const outcomeIcon = s.isWin ? '🏆' : '😔';
+                
+                return `
+                    <div class="whatif-scenario ${outcomeClass}">
+                        <div class="whatif-scenario-header">
+                            <span class="whatif-scenario-icon">${outcomeIcon}</span>
+                            <span class="whatif-scenario-score">${s.label}</span>
+                        </div>
+                        <div class="whatif-scenario-body">
+                            <div class="whatif-delta ${deltaClass}">
+                                <span class="whatif-delta-value">${deltaSign}${s.deltaA.toFixed(2)}</span>
+                                <span class="whatif-delta-label">zmena ratingu</span>
+                            </div>
+                            <div class="whatif-new-rating">
+                                <span class="whatif-new-rating-value">${s.newRatingA.toFixed(2)}</span>
+                                <span class="whatif-new-rating-label">nový rating</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        if (whatIfResult) whatIfResult.style.display = 'block';
+    };
+
+    if (whatIfForm) {
+        whatIfForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            renderWhatIfSimulator();
+        });
+    }
 }
 
 // ============================================================

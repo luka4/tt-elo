@@ -120,6 +120,52 @@
                 </div>
             </div>
         </section>
+
+        <section class="prediction-card" id="whatIfSection">
+            <div class="section-header">
+                <div class="section-title">🎯 "Čo ak?" Simulátor</div>
+                <div class="section-subtitle">Zistite, ako by sa zmenil váš rating pri rôznych výsledkoch zápasu.</div>
+            </div>
+
+            <form id="whatIfForm" class="individual-form">
+                <div class="selector-group">
+                    <label for="whatIfPlayerA">Vy (Hráč A)</label>
+                    <input id="whatIfPlayerA" list="whatIfPlayersList" placeholder="Vaše meno..." autocomplete="off">
+                </div>
+                <div class="selector-group vs-group">
+                    <span class="pred-vs">VS</span>
+                </div>
+                <div class="selector-group">
+                    <label for="whatIfPlayerB">Súper (Hráč B)</label>
+                    <input id="whatIfPlayerB" list="whatIfPlayersList" placeholder="Meno súpera..." autocomplete="off">
+                </div>
+                <div class="selector-group action-group">
+                    <button type="submit" class="pred-btn">Simulovať</button>
+                </div>
+            </form>
+            <datalist id="whatIfPlayersList"></datalist>
+            <div id="whatIfStatus" class="status-text"></div>
+
+            <div id="whatIfResult" class="pred-result whatif-result">
+                <div class="whatif-players">
+                    <div class="whatif-player whatif-player--a">
+                        <div class="whatif-player-name" id="whatIfNameA">-</div>
+                        <div class="whatif-player-rating">Rating: <span id="whatIfRatingA">-</span></div>
+                        <div class="whatif-player-kfactor">K-faktor: <span id="whatIfKFactorA">-</span></div>
+                    </div>
+                    <div class="whatif-vs">VS</div>
+                    <div class="whatif-player whatif-player--b">
+                        <div class="whatif-player-name" id="whatIfNameB">-</div>
+                        <div class="whatif-player-rating">Rating: <span id="whatIfRatingB">-</span></div>
+                        <div class="whatif-player-kfactor">K-faktor: <span id="whatIfKFactorB">-</span></div>
+                    </div>
+                </div>
+                <div class="whatif-scenarios">
+                    <div class="whatif-scenarios-title">Možné scenáre pre Hráča A:</div>
+                    <div class="whatif-grid" id="whatIfGrid"></div>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 
