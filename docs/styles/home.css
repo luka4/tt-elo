@@ -51,10 +51,12 @@
 }
 
 .stat-card__inner {
+  position: relative;
   height: 100%;
   min-height: 120px;
   border-radius: 14px;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 600ms cubic-bezier(.2, .8, .2, 1);
   box-shadow: var(--card-shadow);
 }
@@ -73,6 +75,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
   user-select: none;
@@ -105,13 +108,18 @@
 
 .stat-face--front {
   color: var(--card-ink);
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 .stat-face--back {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   color: var(--card-ink);
   text-align: center;
   gap: 8px;
+  z-index: 1;
 }
 
 .stat-icon {
