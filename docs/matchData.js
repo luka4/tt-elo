@@ -1,6 +1,6 @@
 /* matchData.js (lightweight loader)
    - Loads static matches from data/matches.json (so we don't ship a giant JS array)
-   - Optionally merges in dynamic matches from Google Sheets
+   - Merges in dynamic matches from Google Sheets using GoogleSheetsLoader
 */
 
 // Expose globals expected by script.js
@@ -11,10 +11,8 @@ var matchResults = window.matchResults = [];
   const ASSET_VERSION = '10';
   const STATIC_MATCHES_URL = `data/matches.json?v=${ASSET_VERSION}`;
 
-  const SPREADSHEET_ID = '1JES8EiYKtrNuALCtXMk_kFIU_hHWm9s9tGyD6HIU0tk';
-  const SHEET_NAME = 'Results';
-  const QUERY = 'SELECT P'; // Fetch only column P
-  const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&tq=${encodeURIComponent(QUERY)}`;
+  const RESULTS_SHEET_NAME = 'Results';
+  const RESULTS_QUERY = 'SELECT P'; // Fetch only column P
 
   async function loadStaticMatches() {
     try {
@@ -31,27 +29,13 @@ var matchResults = window.matchResults = [];
     }
   }
 
-  function parseGoogleGvizResponse(text) {
-    // Google returns: /*O_o*\/ google.visualization.Query.setResponse({...});
-    const start = text.indexOf('{');
-    const end = text.lastIndexOf('}');
-    if (start < 0 || end < 0 || end <= start) return null;
-    const jsonString = text.substring(start, end + 1);
-    return JSON.parse(jsonString);
-  }
-
   async function loadDynamicMatches() {
     try {
-      const res = await fetch(SHEET_URL, { cache: 'no-store' });
-      if (!res.ok) {
-        console.error('Failed to load Google Sheet data. Status:', res.status);
-        return [];
-      }
-
-      const text = await res.text();
-      const apiResponse = parseGoogleGvizResponse(text);
-      const rows = apiResponse?.table?.rows;
-      if (!Array.isArray(rows)) return [];
+      const rows = await GoogleSheetsLoader.fetchSheet({
+        sheetName: RESULTS_SHEET_NAME,
+        query: RESULTS_QUERY,
+        cache: false
+      });
 
       return rows
         .map((row) => {
@@ -67,7 +51,7 @@ var matchResults = window.matchResults = [];
         })
         .filter((x) => x !== null);
     } catch (e) {
-      console.error('Error connecting to Google Sheets:', e);
+      console.error('Error loading dynamic matches:', e);
       return [];
     }
   }

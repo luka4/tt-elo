@@ -2706,6 +2706,29 @@ function renderNavigation() {
         if (isXmasSeason) badge.classList.add('nav-badge--xmas');
     };
 
+    // Fetch and update nav badge text from Google Sheets (Config!B2)
+    const loadNavBadgeFromSheet = async () => {
+        if (typeof GoogleSheetsLoader === 'undefined') {
+            console.warn('GoogleSheetsLoader not available, keeping static nav badge.');
+            return;
+        }
+        try {
+            const badgeText = await GoogleSheetsLoader.fetchCell({
+                sheetName: 'Config',
+                cell: 'B2',
+                cache: false
+            });
+            if (badgeText) {
+                const badge = document.getElementById('navBadge');
+                if (badge) {
+                    badge.innerHTML = badgeText;
+                }
+            }
+        } catch (e) {
+            console.error('Failed to load nav badge from sheet:', e);
+        }
+    };
+
     // Define links
     const links = [
         { url: 'results.html', text: 'Výsledky' },
@@ -2759,6 +2782,7 @@ function renderNavigation() {
     </aside>`;
     
     applySeasonalNavBadge();
+    loadNavBadgeFromSheet(); // Load dynamic badge text from Google Sheets
     initMobileNav();
     if (typeof updateLayout === 'function') updateLayout();
 }
