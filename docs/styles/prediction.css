@@ -423,9 +423,121 @@
 }
 
 /* ============================================================
-   "WHAT IF" SIMULATOR STYLES
+   COMBINED MATCH SIMULATOR STYLES
    ============================================================ */
 
+.sim-result {
+  display: none;
+}
+
+.sim-players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.sim-player {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 180px;
+}
+
+.sim-player--a {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+
+.sim-player--b {
+  border-color: var(--color-muted);
+}
+
+.sim-player-name {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.sim-player-team {
+  font-size: 0.85em;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.sim-player-rating,
+.sim-player-kfactor {
+  font-size: 0.9em;
+  color: var(--color-muted);
+}
+
+.sim-player-rating span,
+.sim-player-kfactor span {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.sim-vs {
+  font-weight: 900;
+  font-size: 1.6em;
+  color: var(--color-muted-2);
+}
+
+.sim-results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sim-section {
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  border: 1px solid var(--color-border);
+}
+
+.sim-section-title {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.sim-section-note {
+  font-size: 0.85em;
+  color: var(--color-muted);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.sim-section--prediction .score-list--grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sim-section--rating .whatif-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 800px) {
+  .sim-results-grid {
+    grid-template-columns: 1fr;
+  }
+  .sim-section--rating .whatif-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Legacy whatif styles (kept for backward compatibility) */
 .whatif-result {
   display: none;
 }

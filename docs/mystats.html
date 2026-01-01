@@ -165,25 +165,45 @@
                     </div>
                 </div>
 
-                <!-- What If Preview -->
+                <!-- Match Simulator Preview -->
                 <div class="whatif-preview">
-                    <h4 class="whatif-preview-title">🎯 "Čo ak?" Simulátor</h4>
-                    <p class="whatif-preview-desc">Zistite, ako by sa zmenil váš rating pri rôznych výsledkoch zápasu.</p>
+                    <h4 class="whatif-preview-title">🎯 Predikcia & Simulátor</h4>
+                    <p class="whatif-preview-desc">Zobrazte pravdepodobnosť výsledkov aj simuláciu zmeny ratingu.</p>
                     
                     <div class="whatif-opponent-select">
                         <label for="myWhatIfOpponent">Vyberte súpera:</label>
                         <input type="text" id="myWhatIfOpponent" list="myWhatIfList" placeholder="Meno súpera..." autocomplete="off">
                         <datalist id="myWhatIfList"></datalist>
-                        <button id="myWhatIfBtn" class="mystats-btn">Simulovať</button>
+                        <button id="myWhatIfBtn" class="mystats-btn">Analyzovať</button>
                     </div>
                     
                     <div id="myWhatIfResult" class="whatif-result" style="display: none;">
-                        <div class="whatif-players-mini">
-                            <span id="myWhatIfYou">Vy</span>
-                            <span class="vs">vs</span>
-                            <span id="myWhatIfOpp">Súper</span>
+                        <!-- Player Info Cards -->
+                        <div class="sim-players-mini">
+                            <div class="sim-player-mini sim-player-mini--a">
+                                <div class="sim-player-name-mini" id="myWhatIfYou">Vy</div>
+                                <div class="sim-player-rating-mini">Rating: <span id="myWhatIfRatingA">-</span></div>
+                                <div class="sim-player-kfactor-mini">K-faktor: <span id="myWhatIfKFactorA">-</span></div>
+                            </div>
+                            <div class="sim-vs-mini">VS</div>
+                            <div class="sim-player-mini sim-player-mini--b">
+                                <div class="sim-player-name-mini" id="myWhatIfOpp">Súper</div>
+                                <div class="sim-player-rating-mini">Rating: <span id="myWhatIfRatingB">-</span></div>
+                                <div class="sim-player-kfactor-mini">K-faktor: <span id="myWhatIfKFactorB">-</span></div>
+                            </div>
                         </div>
-                        <div class="whatif-grid-mini" id="myWhatIfGrid"></div>
+                        
+                        <!-- Prediction probabilities -->
+                        <div class="sim-section-mini">
+                            <div class="sim-section-title-mini">📊 Pravdepodobnosť výsledkov</div>
+                            <div class="score-list score-list--mini" id="myPredictionScoreList"></div>
+                        </div>
+                        
+                        <!-- Rating simulation -->
+                        <div class="sim-section-mini">
+                            <div class="sim-section-title-mini">🎯 Simulácia zmeny ratingu</div>
+                            <div class="whatif-grid-mini" id="myWhatIfGrid"></div>
+                        </div>
                     </div>
                 </div>
             </section>

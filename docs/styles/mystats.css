@@ -637,6 +637,151 @@
   gap: 10px;
 }
 
+/* Mini player info cards for simulator */
+.sim-players-mini {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.sim-player-mini {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 12px 18px;
+  text-align: center;
+  min-width: 130px;
+}
+
+.sim-player-mini--a {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+
+.sim-player-mini--b {
+  border-color: var(--color-muted);
+}
+
+.sim-player-name-mini {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.sim-player-rating-mini,
+.sim-player-kfactor-mini {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.sim-player-rating-mini span,
+.sim-player-kfactor-mini span {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.sim-vs-mini {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--color-muted-2);
+}
+
+/* Mini sections for combined simulator */
+.sim-section-mini {
+  margin-bottom: 20px;
+}
+
+.sim-section-mini:last-child {
+  margin-bottom: 0;
+}
+
+.sim-section-title-mini {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+/* Mini score list for predictions */
+.score-list--mini {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.score-row-mini {
+  display: grid;
+  grid-template-columns: 42px 1fr 50px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--color-surface);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.score-row-mini.win {
+  border-left: 3px solid var(--color-success);
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, var(--color-surface) 30%);
+}
+
+.score-row-mini.loss {
+  border-left: 3px solid var(--color-danger);
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.08) 0%, var(--color-surface) 30%);
+}
+
+.score-label-mini {
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.score-row-mini.win .score-label-mini {
+  color: var(--color-success);
+}
+
+.score-row-mini.loss .score-label-mini {
+  color: var(--color-danger);
+}
+
+.score-bar-mini {
+  height: 10px;
+  background: var(--color-border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.score-bar-fill-mini {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.score-row-mini.win .score-bar-fill-mini {
+  background: linear-gradient(90deg, var(--color-success) 0%, #34d399 100%);
+}
+
+.score-row-mini.loss .score-bar-fill-mini {
+  background: linear-gradient(90deg, var(--color-danger) 0%, #f87171 100%);
+}
+
+.score-pct-mini {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.score-row-mini.win .score-pct-mini {
+  color: var(--color-success);
+}
+
+.score-row-mini.loss .score-pct-mini {
+  color: var(--color-danger);
+}
+
 .whatif-scenario-mini {
   background: var(--color-surface);
   border-radius: 8px;

@@ -2638,87 +2638,38 @@ function renderPredictionPage() {
         renderTeamPrediction();
     });
 
-    // Individual prediction setup
-    if (indPlayersList) {
-        indPlayersList.innerHTML = sortRoster(allPlayers).map(p => `<option value="${escapeAttr(p.name)}">`).join('');
-    }
-
-    const setIndStatus = (msg) => {
-        if (indStatus) indStatus.innerText = msg || '';
-    };
-
-    const renderIndividualPrediction = () => {
-        const nameA = (indPlayerA?.value || '').trim();
-        const nameB = (indPlayerB?.value || '').trim();
-
-        if (!nameA || !nameB) {
-            setIndStatus('Vyplňte prosím oboch hráčov.');
-            return;
-        }
-        if (normalizeKey(nameA) === normalizeKey(nameB)) {
-            setIndStatus('Zvoľte dvoch rôznych hráčov.');
-            return;
-        }
-        const pA = playerLookup.get(normalizeKey(nameA));
-        const pB = playerLookup.get(normalizeKey(nameB));
-        if (!pA || !pB) {
-            setIndStatus('Hráč nebol nájdený. Skúste iné meno.');
-            return;
-        }
-        setIndStatus('');
-
-        const dist = getScoreDistribution(winProb(pA.rating, pB.rating));
-        renderScoreList(indScoreList, dist);
-        if (indRateA) indRateA.innerText = pA.rating.toFixed(1);
-        if (indRateB) indRateB.innerText = pB.rating.toFixed(1);
-        const teamLabelA = pA.team ? ` (${pA.team})` : '';
-        const teamLabelB = pB.team ? ` (${pB.team})` : '';
-        if (indScoreNote) indScoreNote.innerText = `Skóre je uvádzané ako ${pA.name}${teamLabelA} : ${pB.name}${teamLabelB}.`;
-        if (indResult) indResult.style.display = 'block';
-    };
-
-    if (indForm) {
-        indForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            renderIndividualPrediction();
-        });
-    }
-
     // ============================================================
-    // "WHAT IF" SIMULATOR
+    // COMBINED MATCH SIMULATOR (Prediction + What If)
     // ============================================================
-    const whatIfForm = document.getElementById('whatIfForm');
-    const whatIfStatus = document.getElementById('whatIfStatus');
-    const whatIfResult = document.getElementById('whatIfResult');
-    const whatIfPlayerA = document.getElementById('whatIfPlayerA');
-    const whatIfPlayerB = document.getElementById('whatIfPlayerB');
-    const whatIfPlayersList = document.getElementById('whatIfPlayersList');
-    const whatIfGrid = document.getElementById('whatIfGrid');
-    const whatIfNameA = document.getElementById('whatIfNameA');
-    const whatIfNameB = document.getElementById('whatIfNameB');
-    const whatIfRatingA = document.getElementById('whatIfRatingA');
-    const whatIfRatingB = document.getElementById('whatIfRatingB');
-    const whatIfKFactorA = document.getElementById('whatIfKFactorA');
-    const whatIfKFactorB = document.getElementById('whatIfKFactorB');
+    const simForm = document.getElementById('matchSimulatorForm');
+    const simStatus = document.getElementById('simStatus');
+    const simResult = document.getElementById('simResult');
+    const simPlayerA = document.getElementById('simPlayerA');
+    const simPlayerB = document.getElementById('simPlayerB');
+    const simPlayersList = document.getElementById('simPlayersList');
+    const simScoreList = document.getElementById('simScoreList');
+    const simWhatIfGrid = document.getElementById('simWhatIfGrid');
+    const simNameA = document.getElementById('simNameA');
+    const simNameB = document.getElementById('simNameB');
+    const simTeamA = document.getElementById('simTeamA');
+    const simTeamB = document.getElementById('simTeamB');
+    const simRatingA = document.getElementById('simRatingA');
+    const simRatingB = document.getElementById('simRatingB');
+    const simKFactorA = document.getElementById('simKFactorA');
+    const simKFactorB = document.getElementById('simKFactorB');
+    const simScoreNote = document.getElementById('simScoreNote');
 
-    // Populate players datalist for What If
-    if (whatIfPlayersList) {
-        whatIfPlayersList.innerHTML = sortRoster(allPlayers).map(p => `<option value="${escapeAttr(p.name)}">`).join('');
+    // Populate players datalist
+    if (simPlayersList) {
+        simPlayersList.innerHTML = sortRoster(allPlayers).map(p => `<option value="${escapeAttr(p.name)}">`).join('');
     }
 
-    const setWhatIfStatus = (msg) => {
-        if (whatIfStatus) whatIfStatus.innerText = msg || '';
+    const setSimStatus = (msg) => {
+        if (simStatus) simStatus.innerText = msg || '';
     };
 
     /**
      * Calculate ELO rating change for a hypothetical match.
-     * @param {number} ratingA - Player A's current rating
-     * @param {number} ratingB - Player B's current rating
-     * @param {number} scoreA - Player A's sets won
-     * @param {number} scoreB - Player B's sets won
-     * @param {number} kFactorA - Player A's K-factor
-     * @param {number} kFactorB - Player B's K-factor
-     * @returns {object} - { deltaA, deltaB, newRatingA, newRatingB }
      */
     const calculateWhatIfRatingChange = (ratingA, ratingB, scoreA, scoreB, kFactorA, kFactorB) => {
         const N = scoreA + scoreB;
@@ -2739,41 +2690,57 @@ function renderPredictionPage() {
         };
     };
 
-    const renderWhatIfSimulator = () => {
-        const nameA = (whatIfPlayerA?.value || '').trim();
-        const nameB = (whatIfPlayerB?.value || '').trim();
+    /**
+     * Render the combined match simulator (prediction + rating simulation)
+     */
+    const renderMatchSimulator = () => {
+        const nameA = (simPlayerA?.value || '').trim();
+        const nameB = (simPlayerB?.value || '').trim();
 
         if (!nameA || !nameB) {
-            setWhatIfStatus('Vyplňte prosím oboch hráčov.');
-            if (whatIfResult) whatIfResult.style.display = 'none';
+            setSimStatus('Vyplňte prosím oboch hráčov.');
+            if (simResult) simResult.style.display = 'none';
             return;
         }
         if (normalizeKey(nameA) === normalizeKey(nameB)) {
-            setWhatIfStatus('Zvoľte dvoch rôznych hráčov.');
-            if (whatIfResult) whatIfResult.style.display = 'none';
+            setSimStatus('Zvoľte dvoch rôznych hráčov.');
+            if (simResult) simResult.style.display = 'none';
             return;
         }
         const pA = playerLookup.get(normalizeKey(nameA));
         const pB = playerLookup.get(normalizeKey(nameB));
         if (!pA || !pB) {
-            setWhatIfStatus('Hráč nebol nájdený. Skúste iné meno.');
-            if (whatIfResult) whatIfResult.style.display = 'none';
+            setSimStatus('Hráč nebol nájdený. Skúste iné meno.');
+            if (simResult) simResult.style.display = 'none';
             return;
         }
-        setWhatIfStatus('');
+        setSimStatus('');
 
         // Get K-factors based on next match (current matches + 1)
         const kFactorA = getKFactor(pA.matches + 1);
         const kFactorB = getKFactor(pB.matches + 1);
 
         // Update player info display
-        if (whatIfNameA) whatIfNameA.innerText = pA.name;
-        if (whatIfNameB) whatIfNameB.innerText = pB.name;
-        if (whatIfRatingA) whatIfRatingA.innerText = pA.rating.toFixed(2);
-        if (whatIfRatingB) whatIfRatingB.innerText = pB.rating.toFixed(2);
-        if (whatIfKFactorA) whatIfKFactorA.innerText = kFactorA;
-        if (whatIfKFactorB) whatIfKFactorB.innerText = kFactorB;
+        if (simNameA) simNameA.innerText = pA.name;
+        if (simNameB) simNameB.innerText = pB.name;
+        if (simTeamA) simTeamA.innerText = pA.team || '';
+        if (simTeamB) simTeamB.innerText = pB.team || '';
+        if (simRatingA) simRatingA.innerText = pA.rating.toFixed(2);
+        if (simRatingB) simRatingB.innerText = pB.rating.toFixed(2);
+        if (simKFactorA) simKFactorA.innerText = kFactorA;
+        if (simKFactorB) simKFactorB.innerText = kFactorB;
 
+        // Update score note
+        const teamLabelA = pA.team ? ` (${pA.team})` : '';
+        const teamLabelB = pB.team ? ` (${pB.team})` : '';
+        if (simScoreNote) simScoreNote.innerText = `Skóre je uvádzané ako ${pA.name}${teamLabelA} : ${pB.name}${teamLabelB}.`;
+
+        // ============ PREDICTION PART ============
+        // Calculate score distribution probabilities
+        const dist = getScoreDistribution(winProb(pA.rating, pB.rating));
+        renderScoreList(simScoreList, dist);
+
+        // ============ RATING SIMULATION PART ============
         // Define all possible score scenarios
         const scenarios = [
             { scoreA: 3, scoreB: 0, label: '3:0', isWin: true },
@@ -2791,15 +2758,12 @@ function renderPredictionPage() {
                 s.scoreA, s.scoreB, 
                 kFactorA, kFactorB
             );
-            return {
-                ...s,
-                ...result
-            };
+            return { ...s, ...result };
         });
 
         // Render the scenarios grid
-        if (whatIfGrid) {
-            whatIfGrid.innerHTML = scenarioResults.map(s => {
+        if (simWhatIfGrid) {
+            simWhatIfGrid.innerHTML = scenarioResults.map(s => {
                 const deltaClass = s.deltaA >= 0 ? 'whatif-delta--positive' : 'whatif-delta--negative';
                 const deltaSign = s.deltaA >= 0 ? '+' : '';
                 const outcomeClass = s.isWin ? 'whatif-scenario--win' : 'whatif-scenario--loss';
@@ -2826,13 +2790,13 @@ function renderPredictionPage() {
             }).join('');
         }
 
-        if (whatIfResult) whatIfResult.style.display = 'block';
+        if (simResult) simResult.style.display = 'block';
     };
 
-    if (whatIfForm) {
-        whatIfForm.addEventListener('submit', (e) => {
+    if (simForm) {
+        simForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            renderWhatIfSimulator();
+            renderMatchSimulator();
         });
     }
 }
@@ -3225,11 +3189,12 @@ function renderMyStatsPage() {
         `;
     };
 
-    // What If mini simulator
+    // Combined match simulator (Prediction + What If) for My Stats page
     const renderWhatIfMini = () => {
         const opponentInput = document.getElementById('myWhatIfOpponent');
         const resultDiv = document.getElementById('myWhatIfResult');
         const gridDiv = document.getElementById('myWhatIfGrid');
+        const predictionList = document.getElementById('myPredictionScoreList');
         const youSpan = document.getElementById('myWhatIfYou');
         const oppSpan = document.getElementById('myWhatIfOpp');
 
@@ -3251,12 +3216,62 @@ function renderMyStatsPage() {
             return 10;
         };
 
+        // Win probability and score distribution
+        const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+        const getScoreDistribution = (probWin) => {
+            const p = Math.max(0, Math.min(1, probWin || 0));
+            const q = 1 - p;
+            const dist = {
+                '3-0': Math.pow(p, 3),
+                '3-1': 3 * Math.pow(p, 3) * q,
+                '3-2': 6 * Math.pow(p, 3) * Math.pow(q, 2),
+                '2-3': 6 * Math.pow(q, 3) * Math.pow(p, 2),
+                '1-3': 3 * Math.pow(q, 3) * p,
+                '0-3': Math.pow(q, 3),
+            };
+            const total = Object.values(dist).reduce((s, v) => s + v, 0) || 1;
+            return Object.fromEntries(Object.entries(dist).map(([k, v]) => [k, (v / total) * 100]));
+        };
+
         const kA = getKFactor(currentPlayer);
         const kB = getKFactor(opponent);
         const rA = currentPlayer.rating;
         const rB = opponent.rating;
 
-        // Calculate expected score for different scenarios
+        // Update player info cards
+        youSpan.textContent = currentPlayer.name;
+        oppSpan.textContent = opponent.name;
+        
+        const ratingAEl = document.getElementById('myWhatIfRatingA');
+        const ratingBEl = document.getElementById('myWhatIfRatingB');
+        const kFactorAEl = document.getElementById('myWhatIfKFactorA');
+        const kFactorBEl = document.getElementById('myWhatIfKFactorB');
+        
+        if (ratingAEl) ratingAEl.textContent = rA.toFixed(2);
+        if (ratingBEl) ratingBEl.textContent = rB.toFixed(2);
+        if (kFactorAEl) kFactorAEl.textContent = kA;
+        if (kFactorBEl) kFactorBEl.textContent = kB;
+
+        // ============ PREDICTION PART ============
+        const dist = getScoreDistribution(winProb(rA, rB));
+        if (predictionList) {
+            const scores = ['3-0', '3-1', '3-2', '2-3', '1-3', '0-3'];
+            predictionList.innerHTML = scores.map(score => {
+                const pct = dist[score] || 0;
+                const isWin = score.startsWith('3');
+                return `
+                    <div class="score-row-mini ${isWin ? 'win' : 'loss'}">
+                        <span class="score-label-mini">${score.replace('-', ':')}</span>
+                        <div class="score-bar-mini">
+                            <div class="score-bar-fill-mini" style="width: ${pct}%"></div>
+                        </div>
+                        <span class="score-pct-mini">${pct.toFixed(1)}%</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ============ RATING SIMULATION PART ============
         const scenarios = [
             { label: '3:0', setsA: 3, setsB: 0, isWin: true },
             { label: '3:1', setsA: 3, setsB: 1, isWin: true },
@@ -3276,9 +3291,6 @@ function renderMyStatsPage() {
                 newRatingA: rA + deltaA
             };
         });
-
-        youSpan.textContent = currentPlayer.name;
-        oppSpan.textContent = opponent.name;
 
         gridDiv.innerHTML = results.map(s => {
             const deltaClass = s.deltaA >= 0 ? 'positive' : 'negative';

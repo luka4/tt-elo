@@ -84,85 +84,64 @@
             </div>
         </section>
 
-        <section class="prediction-card" id="individualPredictionSection">
+        <section class="prediction-card" id="matchSimulatorSection">
             <div class="section-header">
-                <div class="section-title">Individuálna predikcia</div>
-                <div class="section-subtitle">Vyberte dvoch hráčov (písanie vyhľadáva mená) a zobrazte pravdepodobnosť jednotlivých skóre.</div>
+                <div class="section-title">🎯 Predikcia & Simulátor</div>
+                <div class="section-subtitle">Vyberte dvoch hráčov a zobrazte pravdepodobnosť výsledkov aj simuláciu zmeny ratingu.</div>
             </div>
 
-            <form id="individualPredictionForm" class="individual-form">
+            <form id="matchSimulatorForm" class="individual-form">
                 <div class="selector-group">
-                    <label for="individualPlayerA">Hráč A</label>
-                    <input id="individualPlayerA" list="individualPlayersList" placeholder="Začnite písať meno hráča..." autocomplete="off">
+                    <label for="simPlayerA">Hráč A</label>
+                    <input id="simPlayerA" list="simPlayersList" placeholder="Začnite písať meno hráča..." autocomplete="off">
                 </div>
                 <div class="selector-group vs-group">
                     <span class="pred-vs">VS</span>
                 </div>
                 <div class="selector-group">
-                    <label for="individualPlayerB">Hráč B</label>
-                    <input id="individualPlayerB" list="individualPlayersList" placeholder="Začnite písať meno hráča..." autocomplete="off">
+                    <label for="simPlayerB">Hráč B</label>
+                    <input id="simPlayerB" list="simPlayersList" placeholder="Začnite písať meno hráča..." autocomplete="off">
                 </div>
                 <div class="selector-group action-group">
-                    <button type="submit" class="pred-btn">Predikovať</button>
+                    <button type="submit" class="pred-btn">Analyzovať</button>
                 </div>
             </form>
-            <datalist id="individualPlayersList"></datalist>
-            <div id="individualPredictionStatus" class="status-text"></div>
+            <datalist id="simPlayersList"></datalist>
+            <div id="simStatus" class="status-text"></div>
 
-            <div id="individualPredictionResult" class="pred-result">
-                <div class="pred-details">
-                    <div class="rating-box">Rating A: <span class="rating-val" id="indRateA">0</span></div>
-                    <div class="rating-box">Rating B: <span class="rating-val" id="indRateB">0</span></div>
-                </div>
-                <div class="score-card">
-                    <div class="score-card-title" id="individualScoreNote">Skóre je uvádzané ako A : B.</div>
-                    <div class="score-list score-list--grid" id="individualScoreList"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="prediction-card" id="whatIfSection">
-            <div class="section-header">
-                <div class="section-title">🎯 "Čo ak?" Simulátor</div>
-                <div class="section-subtitle">Zistite, ako by sa zmenil váš rating pri rôznych výsledkoch zápasu.</div>
-            </div>
-
-            <form id="whatIfForm" class="individual-form">
-                <div class="selector-group">
-                    <label for="whatIfPlayerA">Vy (Hráč A)</label>
-                    <input id="whatIfPlayerA" list="whatIfPlayersList" placeholder="Vaše meno..." autocomplete="off">
-                </div>
-                <div class="selector-group vs-group">
-                    <span class="pred-vs">VS</span>
-                </div>
-                <div class="selector-group">
-                    <label for="whatIfPlayerB">Súper (Hráč B)</label>
-                    <input id="whatIfPlayerB" list="whatIfPlayersList" placeholder="Meno súpera..." autocomplete="off">
-                </div>
-                <div class="selector-group action-group">
-                    <button type="submit" class="pred-btn">Simulovať</button>
-                </div>
-            </form>
-            <datalist id="whatIfPlayersList"></datalist>
-            <div id="whatIfStatus" class="status-text"></div>
-
-            <div id="whatIfResult" class="pred-result whatif-result">
-                <div class="whatif-players">
-                    <div class="whatif-player whatif-player--a">
-                        <div class="whatif-player-name" id="whatIfNameA">-</div>
-                        <div class="whatif-player-rating">Rating: <span id="whatIfRatingA">-</span></div>
-                        <div class="whatif-player-kfactor">K-faktor: <span id="whatIfKFactorA">-</span></div>
+            <div id="simResult" class="pred-result sim-result">
+                <!-- Player Info Header -->
+                <div class="sim-players">
+                    <div class="sim-player sim-player--a">
+                        <div class="sim-player-name" id="simNameA">-</div>
+                        <div class="sim-player-team" id="simTeamA"></div>
+                        <div class="sim-player-rating">Rating: <span id="simRatingA">-</span></div>
+                        <div class="sim-player-kfactor">K-faktor: <span id="simKFactorA">-</span></div>
                     </div>
-                    <div class="whatif-vs">VS</div>
-                    <div class="whatif-player whatif-player--b">
-                        <div class="whatif-player-name" id="whatIfNameB">-</div>
-                        <div class="whatif-player-rating">Rating: <span id="whatIfRatingB">-</span></div>
-                        <div class="whatif-player-kfactor">K-faktor: <span id="whatIfKFactorB">-</span></div>
+                    <div class="sim-vs">VS</div>
+                    <div class="sim-player sim-player--b">
+                        <div class="sim-player-name" id="simNameB">-</div>
+                        <div class="sim-player-team" id="simTeamB"></div>
+                        <div class="sim-player-rating">Rating: <span id="simRatingB">-</span></div>
+                        <div class="sim-player-kfactor">K-faktor: <span id="simKFactorB">-</span></div>
                     </div>
                 </div>
-                <div class="whatif-scenarios">
-                    <div class="whatif-scenarios-title">Možné scenáre pre Hráča A:</div>
-                    <div class="whatif-grid" id="whatIfGrid"></div>
+
+                <!-- Combined Results -->
+                <div class="sim-results-grid">
+                    <!-- Prediction probabilities -->
+                    <div class="sim-section sim-section--prediction">
+                        <div class="sim-section-title">📊 Pravdepodobnosť výsledkov</div>
+                        <div class="sim-section-note" id="simScoreNote">Skóre je uvádzané ako Hráč A : Hráč B.</div>
+                        <div class="score-list score-list--grid" id="simScoreList"></div>
+                    </div>
+
+                    <!-- Rating simulation -->
+                    <div class="sim-section sim-section--rating">
+                        <div class="sim-section-title">🎯 Simulácia zmeny ratingu</div>
+                        <div class="sim-section-note">Ako by sa zmenil rating Hráča A pri jednotlivých výsledkoch.</div>
+                        <div class="whatif-grid" id="simWhatIfGrid"></div>
+                    </div>
                 </div>
             </div>
         </section>
