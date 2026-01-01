@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Košická Miniliga - Moje Štatistiky</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/mystats.css">
+</head>
+<body id="page-mystats" class="loading">
+
+<div id="pageLoader">
+    <div class="loader">
+        <div class="scene">
+            <div class="ball"></div>
+            <div class="racket">
+                <div class="blade"></div>
+                <div class="handle"></div>
+            </div>
+        </div>
+        <div class="loading-text">Načítava sa</div>
+    </div>
+</div>
+
+<div id="pageContent">
+    <div id="mainNavContainer"></div>
+
+    <div class="container" id="mainContainer">
+        <!-- Player Selection Section (shown when no player selected) -->
+        <section id="playerSelectSection" class="mystats-card mystats-card--welcome">
+            <div class="welcome-icon">👤</div>
+            <h2>Moje Štatistiky</h2>
+            <p class="welcome-text">Vyberte si svoje meno a zobrazte personalizované štatistiky, grafy a záznamy.</p>
+            <div class="player-select-form">
+                <label for="myPlayerSelect">Vaše meno:</label>
+                <input type="text" id="myPlayerSelect" list="myPlayersList" placeholder="Začnite písať meno..." autocomplete="off">
+                <datalist id="myPlayersList"></datalist>
+                <button id="selectPlayerBtn" class="mystats-btn">Zobraziť moje štatistiky</button>
+            </div>
+            <div id="playerSelectStatus" class="status-text"></div>
+        </section>
+
+        <!-- Main Stats Section (shown after player selected) -->
+        <div id="myStatsContent" style="display: none;">
+            <!-- Header with player info -->
+            <div class="mystats-header">
+                <div class="mystats-header-left">
+                    <div class="mystats-avatar" id="myStatsAvatar">?</div>
+                    <div class="mystats-header-info">
+                        <h1 class="mystats-name" id="myStatsName">-</h1>
+                        <div class="mystats-team" id="myStatsTeam">-</div>
+                    </div>
+                </div>
+                <div class="mystats-header-right">
+                    <button id="changePlayerBtn" class="mystats-btn mystats-btn--secondary">Zmeniť hráča</button>
+                </div>
+            </div>
+
+            <!-- Core Stats Block -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📊 Prehľad</h3>
+                <div class="core-stats-grid">
+                    <div class="core-stat core-stat--primary">
+                        <div class="core-stat-value" id="myRating">-</div>
+                        <div class="core-stat-label">Aktuálny Rating</div>
+                        <div class="core-stat-rank" id="myRank">#- z -</div>
+                    </div>
+                    <div class="core-stat core-stat--change">
+                        <div class="core-stat-value" id="myRatingChange">-</div>
+                        <div class="core-stat-label">Zmena (toto kolo)</div>
+                    </div>
+                    <div class="core-stat">
+                        <div class="core-stat-value" id="myPeakRating">-</div>
+                        <div class="core-stat-label">Peak Rating</div>
+                        <div class="core-stat-sub" id="myPeakWhen">-</div>
+                    </div>
+                    <div class="core-stat">
+                        <div class="core-stat-value" id="myRecord">-</div>
+                        <div class="core-stat-label">Bilancia (V-P)</div>
+                    </div>
+                    <div class="core-stat core-stat--form">
+                        <div class="core-stat-label">Forma (posledných 5)</div>
+                        <div class="core-stat-form" id="myForm">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personal Rating Chart -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📈 Vývoj Ratingu</h3>
+                <div class="chart-container">
+                    <canvas id="myRatingChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Compare Section -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">⚔️ Porovnanie</h3>
+                <div class="compare-section">
+                    <form id="myCompareForm" class="compare-form">
+                        <input type="text" id="myCompareInput" list="myCompareList" placeholder="Porovnať s hráčom..." autocomplete="off">
+                        <datalist id="myCompareList"></datalist>
+                        <button type="submit" class="mystats-btn">Porovnať</button>
+                        <button type="button" id="myClearCompareBtn" class="mystats-btn mystats-btn--secondary">Vymazať</button>
+                    </form>
+                    <div id="myCompareStatus" class="compare-status"></div>
+                    <div id="myCompareResult" class="compare-result" style="display: none;">
+                        <div class="compare-h2h">
+                            <div class="h2h-title">Vzájomné zápasy</div>
+                            <div class="h2h-score" id="myH2HScore">- : -</div>
+                        </div>
+                        <div class="compare-matches-list" id="myCompareMatches"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Derived Stats / Radar Chart -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">🎯 Herný Profil</h3>
+                <div class="derived-stats-container">
+                    <div class="derived-stats-list" id="myDerivedStatsList"></div>
+                    <div class="derived-stats-chart">
+                        <canvas id="myRadarChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Records & Achievements -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">🏆 Rekordy a Úspechy</h3>
+                <div class="records-grid">
+                    <div class="record-card record-card--best">
+                        <div class="record-icon">🥇</div>
+                        <div class="record-title">Najlepšia Výhra</div>
+                        <div class="record-value" id="myBestWin">-</div>
+                        <div class="record-sub" id="myBestWinRating">-</div>
+                    </div>
+                    <div class="record-card record-card--upset">
+                        <div class="record-icon">💥</div>
+                        <div class="record-title">Najväčší Upset</div>
+                        <div class="record-value" id="myBiggestUpset">-</div>
+                        <div class="record-sub" id="myBiggestUpsetDiff">-</div>
+                    </div>
+                    <div class="record-card record-card--streak">
+                        <div class="record-icon">🔥</div>
+                        <div class="record-title">Najdlhšia Séria Výhier</div>
+                        <div class="record-value" id="myLongestStreak">-</div>
+                        <div class="record-sub" id="myCurrentStreak">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upcoming Section -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📅 Nadchádzajúce</h3>
+                <div id="myUpcomingSection">
+                    <div id="myNextMatch" class="next-match-card">
+                        <div class="next-match-title">Najbližší zápas tímu</div>
+                        <div class="next-match-details" id="myNextMatchDetails">
+                            <span class="no-match">Žiadny plánovaný zápas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What If Preview -->
+                <div class="whatif-preview">
+                    <h4 class="whatif-preview-title">🎯 "Čo ak?" Simulátor</h4>
+                    <p class="whatif-preview-desc">Zistite, ako by sa zmenil váš rating pri rôznych výsledkoch zápasu.</p>
+                    
+                    <div class="whatif-opponent-select">
+                        <label for="myWhatIfOpponent">Vyberte súpera:</label>
+                        <input type="text" id="myWhatIfOpponent" list="myWhatIfList" placeholder="Meno súpera..." autocomplete="off">
+                        <datalist id="myWhatIfList"></datalist>
+                        <button id="myWhatIfBtn" class="mystats-btn">Simulovať</button>
+                    </div>
+                    
+                    <div id="myWhatIfResult" class="whatif-result" style="display: none;">
+                        <div class="whatif-players-mini">
+                            <span id="myWhatIfYou">Vy</span>
+                            <span class="vs">vs</span>
+                            <span id="myWhatIfOpp">Súper</span>
+                        </div>
+                        <div class="whatif-grid-mini" id="myWhatIfGrid"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Match History (Recent) -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📜 Posledné Zápasy</h3>
+                <div id="myRecentMatches" class="recent-matches-list"></div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="googleSheetsLoader.js?v=1"></script>
+<script src="matchData.js?v=6"></script>
+<script src="script.js?v=8"></script>
+</body>
+</html>
+

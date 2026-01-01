@@ -8,6 +8,9 @@ const K_FACTOR_STAGES = {1: 30, 2: 26, 3: 22, 4: 18, 5: 14, default: 10};
 
 let chartRefs = {};
 
+// Global helper: normalize player name for lookup
+const normalizePlayerKey = (name) => (name || '').trim().toLowerCase();
+
 // Team logos (used on standings + detail)
 const LOGO_BASE_PATH = 'media/team_logos';
 const TEAM_LOGOS = {
@@ -2835,6 +2838,700 @@ function renderPredictionPage() {
 }
 
 // ============================================================
+// MY STATS PAGE
+// ============================================================
+function renderMyStatsPage() {
+    const {players} = processData();
+    const playerArr = Object.values(players);
+    const MYSTATS_STORAGE_KEY = 'mystats_player_name';
+
+    // Create player lookup for quick access
+    const playerLookup = {};
+    playerArr.forEach(p => {
+        playerLookup[normalizePlayerKey(p.name)] = p;
+    });
+
+    // Create ranking map
+    const sortedByRating = [...playerArr].sort((a, b) => b.rating - a.rating);
+    const ratingRanking = new Map();
+    sortedByRating.forEach((p, i) => ratingRanking.set(normalizePlayerKey(p.name), i + 1));
+    const totalPlayers = playerArr.length;
+
+    // DOM elements
+    const selectSection = document.getElementById('playerSelectSection');
+    const statsContent = document.getElementById('myStatsContent');
+    const playerInput = document.getElementById('myPlayerSelect');
+    const playersList = document.getElementById('myPlayersList');
+    const selectBtn = document.getElementById('selectPlayerBtn');
+    const selectStatus = document.getElementById('playerSelectStatus');
+    const changePlayerBtn = document.getElementById('changePlayerBtn');
+
+    // Populate datalists
+    const populatePlayersList = (listEl) => {
+        if (!listEl) return;
+        listEl.innerHTML = '';
+        playerArr.forEach(p => {
+            const opt = document.createElement('option');
+            opt.value = p.name;
+            listEl.appendChild(opt);
+        });
+    };
+
+    populatePlayersList(playersList);
+    populatePlayersList(document.getElementById('myCompareList'));
+    populatePlayersList(document.getElementById('myWhatIfList'));
+
+    // Current selected player
+    let currentPlayer = null;
+    let myRatingChart = null;
+    let myRadarChart = null;
+
+    // Show player selection screen
+    const showSelectScreen = () => {
+        if (selectSection) selectSection.style.display = 'block';
+        if (statsContent) statsContent.style.display = 'none';
+    };
+
+    // Show stats screen
+    const showStatsScreen = () => {
+        if (selectSection) selectSection.style.display = 'none';
+        if (statsContent) statsContent.style.display = 'block';
+    };
+
+    // Calculate win streak
+    const calculateStreak = (matchDetails) => {
+        let currentStreak = 0;
+        let longestStreak = 0;
+        let tempStreak = 0;
+
+        matchDetails.forEach(m => {
+            const isWin = m.score_own > m.score_opp;
+            if (isWin) {
+                tempStreak++;
+                if (tempStreak > longestStreak) longestStreak = tempStreak;
+            } else {
+                tempStreak = 0;
+            }
+        });
+
+        // Current streak (from end)
+        for (let i = matchDetails.length - 1; i >= 0; i--) {
+            if (matchDetails[i].score_own > matchDetails[i].score_opp) {
+                currentStreak++;
+            } else {
+                break;
+            }
+        }
+
+        return { current: currentStreak, longest: longestStreak };
+    };
+
+    // Calculate biggest upset
+    const calculateBiggestUpset = (matchDetails) => {
+        let biggestUpset = null;
+        let biggestDiff = 0;
+
+        matchDetails.filter(m => !m.isDoubles).forEach(m => {
+            const isWin = m.score_own > m.score_opp;
+            if (isWin && m.opp_rating_after > 0) {
+                // Estimate opponent's rating before the match
+                const oppRatingBefore = (m.opp_rating_after || 0) - (m.delta_opp || 0);
+                const myRatingBefore = (m.rating_after || 0) - (m.delta_own || 0);
+                const diff = oppRatingBefore - myRatingBefore;
+                if (diff > biggestDiff) {
+                    biggestDiff = diff;
+                    biggestUpset = {
+                        opponent: m.opponent,
+                        diff: diff,
+                        score: `${m.score_own}:${m.score_opp}`,
+                        round: m.round
+                    };
+                }
+            }
+        });
+
+        return biggestUpset;
+    };
+
+    // Get recent form (last 5 matches)
+    const getRecentForm = (matchDetails) => {
+        return matchDetails.slice(-5).map(m => m.score_own > m.score_opp ? 'W' : 'L');
+    };
+
+    // Find peak rating and when
+    const findPeakRating = (p) => {
+        const historyKeys = Object.keys(p.history).sort();
+        let peakRating = p.maxRating;
+        let peakWhen = '-';
+
+        for (const key of historyKeys) {
+            if (p.history[key] === p.maxRating) {
+                peakWhen = key.split('|')[1] || key;
+                break;
+            }
+        }
+
+        return { rating: peakRating, when: peakWhen };
+    };
+
+    // Render rating line chart
+    const renderMyLineChart = (p, compareP = null, attempt = 0) => {
+        const canvas = document.getElementById('myRatingChart');
+        if (!canvas || typeof Chart === 'undefined') {
+            if (attempt < 8) setTimeout(() => renderMyLineChart(p, compareP, attempt + 1), 120);
+            return;
+        }
+
+        const ctx = canvas.getContext('2d');
+        const keysA = Object.keys(p.history).sort();
+        const keysB = compareP ? Object.keys(compareP.history).sort() : [];
+        const allKeys = [...new Set([...keysA, ...keysB])].sort();
+        const labels = allKeys.map(k => k.split('|')[1] || k);
+
+        const buildFilledSeries = (history, keys) => {
+            const raw = keys.map(k => (Object.prototype.hasOwnProperty.call(history, k) ? history[k] : null));
+            const firstIdx = raw.findIndex(v => v !== null && v !== undefined);
+            if (firstIdx === -1) return raw.map(() => null);
+            let lastIdx = -1;
+            for (let i = raw.length - 1; i >= 0; i--) {
+                if (raw[i] !== null && raw[i] !== undefined) { lastIdx = i; break; }
+            }
+            let lastVal = raw[firstIdx];
+            for (let i = firstIdx; i <= lastIdx; i++) {
+                if (raw[i] === null || raw[i] === undefined) raw[i] = lastVal;
+                else lastVal = raw[i];
+            }
+            return raw;
+        };
+
+        const dataPoints = compareP ? buildFilledSeries(p.history, allKeys) : allKeys.map(k => p.history[k] ?? null);
+        const themePrimary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#7c3aed';
+        const themeDanger = getComputedStyle(document.documentElement).getPropertyValue('--color-danger').trim() || '#dc2626';
+
+        const datasets = [{
+            label: p.name,
+            data: dataPoints,
+            borderColor: themePrimary,
+            backgroundColor: themePrimary + '20',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3,
+            pointRadius: 3,
+            pointBackgroundColor: themePrimary
+        }];
+
+        if (compareP) {
+            datasets.push({
+                label: compareP.name,
+                data: buildFilledSeries(compareP.history, allKeys),
+                borderColor: themeDanger,
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                tension: 0.3,
+                pointRadius: 2,
+                pointBackgroundColor: themeDanger
+            });
+        }
+
+        if (myRatingChart) myRatingChart.destroy();
+        myRatingChart = new Chart(ctx, {
+            type: 'line',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: compareP !== null }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: { color: 'rgba(128,128,128,0.15)' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { maxTicksLimit: 10 }
+                    }
+                }
+            }
+        });
+    };
+
+    // Track current derived stats for comparison
+    let currentDerived = null;
+    let compareDerived = null;
+
+    // Stat keys and labels (same order as rating.html)
+    const STAT_KEYS = ['attack', 'defense', 'consistency', 'momentum', 'teamImpact', 'clutch'];
+
+    // Render radar chart with optional comparison
+    const renderMyRadarChart = (p, compareP = null) => {
+        const canvas = document.getElementById('myRadarChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+
+        const derived = computeDerivedStats(p);
+        if (!derived || !derived.values) return;
+
+        currentDerived = derived;
+        compareDerived = compareP ? computeDerivedStats(compareP) : null;
+
+        const v = derived.values;
+        const ctx = canvas.getContext('2d');
+        const labels = STAT_KEYS.map(k => STAT_META[k].label);
+        const data = STAT_KEYS.map(k => v[k] ?? 50);
+
+        const themePrimary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#7c3aed';
+        const themeDanger = getComputedStyle(document.documentElement).getPropertyValue('--color-danger').trim() || '#dc2626';
+
+        const datasets = [{
+            label: p.name,
+            data,
+            backgroundColor: themePrimary + '40',
+            borderColor: themePrimary,
+            borderWidth: 2,
+            pointBackgroundColor: themePrimary
+        }];
+
+        if (compareP && compareDerived) {
+            const cv = compareDerived.values;
+            datasets.push({
+                label: compareP.name,
+                data: STAT_KEYS.map(k => cv[k] ?? 50),
+                backgroundColor: themeDanger + '20',
+                borderColor: themeDanger,
+                borderWidth: 2,
+                borderDash: [5, 5],
+                pointBackgroundColor: themeDanger
+            });
+        }
+
+        if (myRadarChart) myRadarChart.destroy();
+        myRadarChart = new Chart(ctx, {
+            type: 'radar',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: compareP !== null } },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { stepSize: 20, display: false },
+                        grid: { color: 'rgba(128,128,128,0.2)' },
+                        pointLabels: { font: { size: 11 } }
+                    }
+                }
+            }
+        });
+
+        // Render derived stats list with comparison
+        renderMyDerivedStats(derived, compareDerived);
+    };
+
+    // Render derived stats list (similar to rating.html)
+    const renderMyDerivedStats = (stats, compareStats = null) => {
+        const derivedList = document.getElementById('myDerivedStatsList');
+        if (!derivedList) return;
+
+        const fmt = (x) => (Number.isFinite(x) ? x.toFixed(0) : '–');
+        
+        derivedList.innerHTML = STAT_KEYS.map(key => {
+            const meta = STAT_META[key];
+            const primaryVal = fmt(stats.values[key]);
+            const compareVal = compareStats ? fmt(compareStats.values[key]) : null;
+            const primaryMissing = primaryVal === '–';
+            const compareMissing = compareVal === '–';
+
+            return `
+                <div class="derived-stat-item${compareStats ? ' has-compare' : ''}">
+                    <div class="derived-stat-label">
+                        <span class="derived-stat-name">${meta.label}</span>
+                        <span class="derived-stat-tip">${meta.tip}</span>
+                    </div>
+                    <div class="derived-stat-values">
+                        <span class="derived-stat-value ${primaryMissing ? 'stat-none' : ''}">${primaryVal}</span>
+                        ${compareStats ? `<span class="derived-stat-value derived-stat-compare ${compareMissing ? 'stat-none' : ''}">${compareVal}</span>` : ''}
+                    </div>
+                </div>
+            `;
+        }).join('');
+    };
+
+    // Render recent matches
+    const renderRecentMatches = (p) => {
+        const container = document.getElementById('myRecentMatches');
+        if (!container) return;
+
+        const recent = p.matchDetails.slice(-10).reverse();
+        if (recent.length === 0) {
+            container.innerHTML = '<p class="no-match">Žiadne zápasy</p>';
+            return;
+        }
+
+        container.innerHTML = recent.map(m => {
+            const isWin = m.score_own > m.score_opp;
+            const deltaSign = m.delta_own >= 0 ? '+' : '';
+            const deltaClass = m.delta_own >= 0 ? 'positive' : 'negative';
+            return `
+                <div class="recent-match-item ${isWin ? 'win' : 'loss'}">
+                    <div class="recent-match-left">
+                        <div class="recent-match-opponent">${m.opponent}</div>
+                        <div class="recent-match-meta">${m.round}${m.isDoubles ? ' (Štvorhra)' : ''}</div>
+                    </div>
+                    <div class="recent-match-result">
+                        <div class="recent-match-score">${m.score_own}:${m.score_opp}</div>
+                        <div class="recent-match-delta ${deltaClass}">${deltaSign}${m.delta_own.toFixed(2)}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    };
+
+    // Render upcoming team match
+    const renderUpcomingMatch = (p) => {
+        const container = document.getElementById('myNextMatchDetails');
+        if (!container) return;
+
+        const teamName = p.team;
+        if (!teamName || teamName === 'N/A') {
+            container.innerHTML = '<span class="no-match">Žiadny tím priradený</span>';
+            return;
+        }
+
+        // Find upcoming (unplayed) matches for the player's team using isPlayedMatch helper
+        const futureMatches = matchResults.filter(m => {
+            return !isPlayedMatch(m) && (m.player_a_team === teamName || m.player_b_team === teamName);
+        });
+
+        if (futureMatches.length === 0) {
+            container.innerHTML = '<span class="no-match">Žiadny plánovaný zápas</span>';
+            return;
+        }
+
+        const next = futureMatches[0];
+        const opponent = next.player_a_team === teamName ? next.player_b_team : next.player_a_team;
+        const dateStr = next.date || '';
+        const location = next.location || '';
+
+        container.innerHTML = `
+            <div class="next-match-teams">
+                <span>${teamName}</span>
+                <span class="vs">vs</span>
+                <span>${opponent}</span>
+            </div>
+            <div class="next-match-meta">${next.round || ''}${dateStr ? ' • ' + dateStr : ''}${location ? ' • ' + location : ''}</div>
+        `;
+    };
+
+    // What If mini simulator
+    const renderWhatIfMini = () => {
+        const opponentInput = document.getElementById('myWhatIfOpponent');
+        const resultDiv = document.getElementById('myWhatIfResult');
+        const gridDiv = document.getElementById('myWhatIfGrid');
+        const youSpan = document.getElementById('myWhatIfYou');
+        const oppSpan = document.getElementById('myWhatIfOpp');
+
+        if (!opponentInput || !resultDiv || !gridDiv || !currentPlayer) return;
+
+        const oppName = opponentInput.value.trim();
+        const opponent = playerLookup[normalizePlayerKey(oppName)];
+
+        if (!opponent) {
+            resultDiv.style.display = 'none';
+            return;
+        }
+
+        // Get K factors
+        const getKFactor = (p) => {
+            const totalMatches = p.matches + p.dMatches;
+            if (totalMatches < 5) return 30;
+            if (totalMatches < 10) return 20;
+            return 10;
+        };
+
+        const kA = getKFactor(currentPlayer);
+        const kB = getKFactor(opponent);
+        const rA = currentPlayer.rating;
+        const rB = opponent.rating;
+
+        // Calculate expected score for different scenarios
+        const scenarios = [
+            { label: '3:0', setsA: 3, setsB: 0, isWin: true },
+            { label: '3:1', setsA: 3, setsB: 1, isWin: true },
+            { label: '3:2', setsA: 3, setsB: 2, isWin: true },
+            { label: '2:3', setsA: 2, setsB: 3, isWin: false },
+            { label: '1:3', setsA: 1, setsB: 3, isWin: false },
+            { label: '0:3', setsA: 0, setsB: 3, isWin: false }
+        ];
+
+        const results = scenarios.map(s => {
+            const totalSets = s.setsA + s.setsB;
+            const expectedA = totalSets / (1 + Math.pow(10, (rB - rA) / 300));
+            const deltaA = kA * (s.setsA - expectedA);
+            return {
+                ...s,
+                deltaA,
+                newRatingA: rA + deltaA
+            };
+        });
+
+        youSpan.textContent = currentPlayer.name;
+        oppSpan.textContent = opponent.name;
+
+        gridDiv.innerHTML = results.map(s => {
+            const deltaClass = s.deltaA >= 0 ? 'positive' : 'negative';
+            const deltaSign = s.deltaA >= 0 ? '+' : '';
+            return `
+                <div class="whatif-scenario-mini ${s.isWin ? 'win' : 'loss'}">
+                    <div class="whatif-score-mini">${s.label}</div>
+                    <div class="whatif-delta-mini ${deltaClass}">${deltaSign}${s.deltaA.toFixed(2)}</div>
+                </div>
+            `;
+        }).join('');
+
+        resultDiv.style.display = 'block';
+    };
+
+    // Head-to-head comparison
+    const renderH2H = (comparePlayer) => {
+        const resultDiv = document.getElementById('myCompareResult');
+        const scoreDiv = document.getElementById('myH2HScore');
+        const matchesList = document.getElementById('myCompareMatches');
+
+        if (!resultDiv || !currentPlayer || !comparePlayer) {
+            if (resultDiv) resultDiv.style.display = 'none';
+            return;
+        }
+
+        // Find matches between these players
+        const h2hMatches = currentPlayer.matchDetails.filter(m => 
+            !m.isDoubles && normalizePlayerKey(m.opponent) === normalizePlayerKey(comparePlayer.name)
+        );
+
+        if (h2hMatches.length === 0) {
+            resultDiv.style.display = 'block';
+            scoreDiv.textContent = '0 : 0';
+            matchesList.innerHTML = '<p class="no-match">Žiadne vzájomné zápasy</p>';
+            return;
+        }
+
+        let winsA = 0, winsB = 0;
+        h2hMatches.forEach(m => {
+            if (m.score_own > m.score_opp) winsA++;
+            else winsB++;
+        });
+
+        scoreDiv.textContent = `${winsA} : ${winsB}`;
+        matchesList.innerHTML = h2hMatches.reverse().map(m => {
+            const isWin = m.score_own > m.score_opp;
+            return `
+                <div class="compare-match-item">
+                    <span>${m.round}</span>
+                    <span class="compare-match-result ${isWin ? 'win' : 'loss'}">${m.score_own}:${m.score_opp}</span>
+                </div>
+            `;
+        }).join('');
+
+        resultDiv.style.display = 'block';
+    };
+
+    // Main render function for selected player
+    const renderPlayerStats = (p) => {
+        currentPlayer = p;
+        localStorage.setItem(MYSTATS_STORAGE_KEY, p.name);
+
+        // Header
+        document.getElementById('myStatsName').textContent = p.name;
+        document.getElementById('myStatsTeam').textContent = p.team || '-';
+        document.getElementById('myStatsAvatar').textContent = p.name.charAt(0).toUpperCase();
+
+        // Core stats
+        const rank = ratingRanking.get(normalizePlayerKey(p.name)) || '?';
+        document.getElementById('myRating').textContent = p.rating.toFixed(2);
+        document.getElementById('myRank').textContent = `#${rank} z ${totalPlayers}`;
+
+        // Rating change (this round)
+        const roundChange = p.roundGain || 0;
+        const changeEl = document.getElementById('myRatingChange');
+        const changeSign = roundChange >= 0 ? '+' : '';
+        changeEl.textContent = `${changeSign}${roundChange.toFixed(2)}`;
+        changeEl.classList.remove('positive', 'negative');
+        changeEl.classList.add(roundChange >= 0 ? 'positive' : 'negative');
+
+        // Peak rating
+        const peak = findPeakRating(p);
+        document.getElementById('myPeakRating').textContent = peak.rating.toFixed(2);
+        document.getElementById('myPeakWhen').textContent = peak.when;
+
+        // Win/Loss record
+        document.getElementById('myRecord').textContent = `${p.wins + p.dWins}V - ${p.losses + p.dLosses}P`;
+
+        // Form
+        const form = getRecentForm(p.matchDetails);
+        const formContainer = document.getElementById('myForm');
+        formContainer.innerHTML = form.map(f => 
+            `<span class="form-indicator ${f === 'W' ? 'win' : 'loss'}">${f}</span>`
+        ).join('');
+
+        // Records
+        // Best win
+        if (p.bestWinOpponent && isFinite(p.bestWinRating)) {
+            document.getElementById('myBestWin').textContent = p.bestWinOpponent;
+            document.getElementById('myBestWinRating').textContent = `Rating: ${p.bestWinRating.toFixed(2)}`;
+        } else {
+            document.getElementById('myBestWin').textContent = '-';
+            document.getElementById('myBestWinRating').textContent = '';
+        }
+
+        // Biggest upset
+        const upset = calculateBiggestUpset(p.matchDetails);
+        if (upset) {
+            document.getElementById('myBiggestUpset').textContent = upset.opponent;
+            document.getElementById('myBiggestUpsetDiff').textContent = `+${upset.diff.toFixed(0)} rating rozdiel`;
+        } else {
+            document.getElementById('myBiggestUpset').textContent = '-';
+            document.getElementById('myBiggestUpsetDiff').textContent = '';
+        }
+
+        // Streak
+        const streak = calculateStreak(p.matchDetails);
+        document.getElementById('myLongestStreak').textContent = `${streak.longest} výhier`;
+        document.getElementById('myCurrentStreak').textContent = streak.current > 0 ? `Aktuálna: ${streak.current}` : 'Žiadna aktívna';
+
+        // Render charts and other sections
+        setTimeout(() => renderMyLineChart(p), 100);
+        setTimeout(() => renderMyRadarChart(p), 150);
+        renderRecentMatches(p);
+        renderUpcomingMatch(p);
+
+        showStatsScreen();
+    };
+
+    // Select player handler
+    const handleSelectPlayer = () => {
+        const name = playerInput.value.trim();
+        if (!name) {
+            selectStatus.textContent = 'Zadajte meno hráča.';
+            return;
+        }
+
+        const player = playerLookup[normalizePlayerKey(name)];
+        if (!player) {
+            selectStatus.textContent = 'Hráč nebol nájdený.';
+            return;
+        }
+
+        selectStatus.textContent = '';
+        renderPlayerStats(player);
+    };
+
+    // Event listeners
+    if (selectBtn) {
+        selectBtn.addEventListener('click', handleSelectPlayer);
+    }
+
+    if (playerInput) {
+        playerInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleSelectPlayer();
+            }
+        });
+    }
+
+    if (changePlayerBtn) {
+        changePlayerBtn.addEventListener('click', () => {
+            localStorage.removeItem(MYSTATS_STORAGE_KEY);
+            currentPlayer = null;
+            if (playerInput) playerInput.value = '';
+            showSelectScreen();
+        });
+    }
+
+    // Compare functionality
+    const compareForm = document.getElementById('myCompareForm');
+    const compareInput = document.getElementById('myCompareInput');
+    const clearCompareBtn = document.getElementById('myClearCompareBtn');
+    const compareStatus = document.getElementById('myCompareStatus');
+
+    if (compareForm) {
+        compareForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!currentPlayer || !compareInput) return;
+
+            const name = compareInput.value.trim();
+            if (!name) {
+                compareStatus.textContent = 'Zadajte meno hráča.';
+                return;
+            }
+
+            const target = playerLookup[normalizePlayerKey(name)];
+            if (!target) {
+                compareStatus.textContent = 'Hráč nebol nájdený.';
+                return;
+            }
+
+            if (normalizePlayerKey(target.name) === normalizePlayerKey(currentPlayer.name)) {
+                compareStatus.textContent = 'Nemôžete porovnať sami so sebou.';
+                return;
+            }
+
+            compareStatus.textContent = `Porovnávanie s ${target.name}`;
+            compareStatus.classList.add('ok');
+            renderMyLineChart(currentPlayer, target);
+            renderMyRadarChart(currentPlayer, target);
+            renderH2H(target);
+        });
+    }
+
+    if (clearCompareBtn) {
+        clearCompareBtn.addEventListener('click', () => {
+            if (compareInput) compareInput.value = '';
+            if (compareStatus) {
+                compareStatus.textContent = '';
+                compareStatus.classList.remove('ok');
+            }
+            document.getElementById('myCompareResult').style.display = 'none';
+            if (currentPlayer) {
+                renderMyLineChart(currentPlayer);
+                renderMyRadarChart(currentPlayer);
+            }
+        });
+    }
+
+    // What If button
+    const whatIfBtn = document.getElementById('myWhatIfBtn');
+    if (whatIfBtn) {
+        whatIfBtn.addEventListener('click', renderWhatIfMini);
+    }
+
+    const whatIfInput = document.getElementById('myWhatIfOpponent');
+    if (whatIfInput) {
+        whatIfInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                renderWhatIfMini();
+            }
+        });
+    }
+
+    // Check for saved player
+    const savedName = localStorage.getItem(MYSTATS_STORAGE_KEY);
+    if (savedName) {
+        const savedPlayer = playerLookup[normalizePlayerKey(savedName)];
+        if (savedPlayer) {
+            renderPlayerStats(savedPlayer);
+        } else {
+            showSelectScreen();
+        }
+    } else {
+        showSelectScreen();
+    }
+}
+
+// ============================================================
 // NAVIGATION RENDERER
 // ============================================================
 function renderNavigation() {
@@ -2887,6 +3584,7 @@ function renderNavigation() {
         { url: 'table.html', text: 'Tabuľka' },
         { url: 'rating.html', text: 'Rating' },
         { url: 'prediction.html', text: 'Predikcia' },
+        { url: 'mystats.html', text: 'Moje Štatistiky' },
     ];
 
     // Mobile menu includes Home as first item
@@ -3002,6 +3700,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         else if (id === 'page-results') renderResultsPage();
         else if (id === 'page-table') renderTablePage();
         else if (id === 'page-prediction') renderPredictionPage();
+        else if (id === 'page-mystats') renderMyStatsPage();
         hideLoader();
     });
 });
