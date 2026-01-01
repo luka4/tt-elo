@@ -3256,11 +3256,20 @@ function renderMyStatsPage() {
         const dist = getScoreDistribution(winProb(rA, rB));
         if (predictionList) {
             const scores = ['3-0', '3-1', '3-2', '2-3', '1-3', '0-3'];
+            // Find max and min probabilities
+            let maxVal = -Infinity, minVal = Infinity;
+            scores.forEach(score => {
+                const pct = dist[score] || 0;
+                if (pct > maxVal) maxVal = pct;
+                if (pct < minVal) minVal = pct;
+            });
             predictionList.innerHTML = scores.map(score => {
                 const pct = dist[score] || 0;
-                const isWin = score.startsWith('3');
+                let cls = '';
+                if (pct === maxVal) cls = ' score-row-mini--max';
+                else if (pct === minVal) cls = ' score-row-mini--min';
                 return `
-                    <div class="score-row-mini ${isWin ? 'win' : 'loss'}">
+                    <div class="score-row-mini${cls}">
                         <span class="score-label-mini">${score.replace('-', ':')}</span>
                         <div class="score-bar-mini">
                             <div class="score-bar-fill-mini" style="width: ${pct}%"></div>

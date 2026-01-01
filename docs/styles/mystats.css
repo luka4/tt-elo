@@ -574,8 +574,8 @@
 
 .whatif-preview-title {
   margin: 0 0 8px 0;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .whatif-preview-desc {
@@ -653,7 +653,7 @@
   border-radius: 10px;
   padding: 12px 18px;
   text-align: center;
-  min-width: 130px;
+  width: 130px;
 }
 
 .sim-player-mini--a {
@@ -724,32 +724,15 @@
   border: 1px solid var(--color-border);
 }
 
-.score-row-mini.win {
-  border-left: 3px solid var(--color-success);
-  background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, var(--color-surface) 30%);
-}
-
-.score-row-mini.loss {
-  border-left: 3px solid var(--color-danger);
-  background: linear-gradient(90deg, rgba(239, 68, 68, 0.08) 0%, var(--color-surface) 30%);
-}
-
 .score-label-mini {
   font-weight: 800;
   color: var(--color-text);
 }
 
-.score-row-mini.win .score-label-mini {
-  color: var(--color-success);
-}
-
-.score-row-mini.loss .score-label-mini {
-  color: var(--color-danger);
-}
-
 .score-bar-mini {
   height: 10px;
-  background: var(--color-border);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -758,28 +741,26 @@
   height: 100%;
   border-radius: 5px;
   transition: width 0.3s ease;
-}
-
-.score-row-mini.win .score-bar-fill-mini {
-  background: linear-gradient(90deg, var(--color-success) 0%, #34d399 100%);
-}
-
-.score-row-mini.loss .score-bar-fill-mini {
-  background: linear-gradient(90deg, var(--color-danger) 0%, #f87171 100%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
 }
 
 .score-pct-mini {
   font-weight: 700;
   font-size: 0.85rem;
+  color: var(--color-text);
   text-align: right;
 }
 
-.score-row-mini.win .score-pct-mini {
+.score-row-mini--max .score-label-mini,
+.score-row-mini--max .score-pct-mini {
   color: var(--color-success);
+  font-weight: 900;
 }
 
-.score-row-mini.loss .score-pct-mini {
+.score-row-mini--min .score-label-mini,
+.score-row-mini--min .score-pct-mini {
   color: var(--color-danger);
+  font-weight: 900;
 }
 
 .whatif-scenario-mini {
