@@ -2808,12 +2808,31 @@ function renderMyStatsPage() {
     const {players} = processData();
     const playerArr = Object.values(players);
     const MYSTATS_STORAGE_KEY = 'mystats_player_name';
+    const URL_PARAM_NAME = 'player';
 
     // Create player lookup for quick access
     const playerLookup = {};
     playerArr.forEach(p => {
         playerLookup[normalizePlayerKey(p.name)] = p;
     });
+
+    // URL query parameter helpers
+    const getPlayerFromURL = () => {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(URL_PARAM_NAME) || null;
+    };
+
+    const updateURLWithPlayer = (playerName) => {
+        const url = new URL(window.location.href);
+        if (!playerName) {
+            // Remove the parameter if no player
+            url.searchParams.delete(URL_PARAM_NAME);
+        } else {
+            // Add or update the parameter (URLSearchParams.set automatically encodes)
+            url.searchParams.set(URL_PARAM_NAME, playerName);
+        }
+        window.history.replaceState({}, '', url);
+    };
 
     // Create ranking map
     const sortedByRating = [...playerArr].sort((a, b) => b.rating - a.rating);
@@ -3362,6 +3381,7 @@ function renderMyStatsPage() {
     const renderPlayerStats = (p) => {
         currentPlayer = p;
         localStorage.setItem(MYSTATS_STORAGE_KEY, p.name);
+        updateURLWithPlayer(p.name);
 
         // Header
         document.getElementById('myStatsName').textContent = p.name;
@@ -3466,6 +3486,7 @@ function renderMyStatsPage() {
         changePlayerBtn.addEventListener('click', () => {
             localStorage.removeItem(MYSTATS_STORAGE_KEY);
             currentPlayer = null;
+            updateURLWithPlayer(null);
             if (playerInput) playerInput.value = '';
             showSelectScreen();
         });
@@ -3538,12 +3559,39 @@ function renderMyStatsPage() {
         });
     }
 
-    // Check for saved player
+    // Initialize: Check URL param first, then localStorage
+    const urlPlayerName = getPlayerFromURL();
     const savedName = localStorage.getItem(MYSTATS_STORAGE_KEY);
-    if (savedName) {
+    
+    let playerNameToLoad = null;
+    
+    if (urlPlayerName) {
+        // URL has player name
+        const urlPlayer = playerLookup[normalizePlayerKey(urlPlayerName)];
+        if (urlPlayer) {
+            playerNameToLoad = urlPlayer.name;
+            // Update localStorage if it differs from URL
+            if (savedName !== urlPlayer.name) {
+                localStorage.setItem(MYSTATS_STORAGE_KEY, urlPlayer.name);
+            }
+        } else {
+            // URL has invalid player name, clear it
+            updateURLWithPlayer(null);
+        }
+    } else if (savedName) {
+        // No URL param but localStorage has a value, update URL
         const savedPlayer = playerLookup[normalizePlayerKey(savedName)];
         if (savedPlayer) {
-            renderPlayerStats(savedPlayer);
+            playerNameToLoad = savedPlayer.name;
+            updateURLWithPlayer(savedPlayer.name);
+        }
+    }
+    
+    // Load the player if we found one
+    if (playerNameToLoad) {
+        const player = playerLookup[normalizePlayerKey(playerNameToLoad)];
+        if (player) {
+            renderPlayerStats(player);
         } else {
             showSelectScreen();
         }
