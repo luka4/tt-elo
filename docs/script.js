@@ -2969,14 +2969,23 @@ function renderMyStatsPage() {
 
     // Find peak rating and when
     const findPeakRating = (p) => {
-        const historyKeys = Object.keys(p.history).sort();
-        let peakRating = p.maxRating;
+        let peakRating = 0;
         let peakWhen = '-';
 
-        for (const key of historyKeys) {
-            if (p.history[key] === p.maxRating) {
-                peakWhen = key.split('|')[1] || key;
-                break;
+        // Look through matchDetails to find the actual peak rating and when it occurred
+        if (Array.isArray(p.matchDetails) && p.matchDetails.length > 0) {
+            let maxRatingMatch = null;
+
+            p.matchDetails.forEach(m => {
+                const rating = m.rating_after;
+                if (rating != null && (maxRatingMatch === null || rating > maxRatingMatch.rating_after)) {
+                    maxRatingMatch = m;
+                }
+            });
+
+            if (maxRatingMatch) {
+                peakRating = maxRatingMatch.rating_after;
+                peakWhen = maxRatingMatch.round + ' ' + maxRatingMatch.season || maxRatingMatch.date || '-';
             }
         }
 
