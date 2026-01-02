@@ -970,6 +970,32 @@ function renderDerivedStats(stats, compareStats = null) {
 
 // --- HOME PAGE ---
 function renderHomePage() {
+    // Load disclaimer from Google Sheets (Config!B3)
+    const loadDisclaimerFromSheet = async () => {
+        if (typeof GoogleSheetsLoader === 'undefined') {
+            console.warn('GoogleSheetsLoader not available, disclaimer will not be shown.');
+            return;
+        }
+        try {
+            const disclaimerText = await GoogleSheetsLoader.fetchCell({
+                sheetName: 'Config',
+                cell: 'B3',
+                cache: false
+            });
+            const disclaimerContainer = document.getElementById('disclaimerContainer');
+            if (disclaimerText && disclaimerText.trim() && disclaimerContainer) {
+                disclaimerContainer.innerHTML = `<p>${disclaimerText}</p>`;
+                disclaimerContainer.style.display = 'block';
+            } else if (disclaimerContainer) {
+                disclaimerContainer.style.display = 'none';
+            }
+        } catch (e) {
+            console.error('Failed to load disclaimer from sheet:', e);
+        }
+    };
+
+    loadDisclaimerFromSheet();
+
     const {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList} = processData();
     const playedMatches = matchResults.filter(isPlayedMatch);
 
