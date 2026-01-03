@@ -837,6 +837,36 @@ td:nth-child(5) {
   letter-spacing: 0.5px;
 }
 
+.history-item--hidden {
+  display: none;
+}
+
+.show-all-matches-container {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.show-all-matches-btn {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.show-all-matches-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.show-all-matches-btn:active {
+  transform: scale(0.98);
+}
+
 /* Compare section */
 #compareSection {
   margin: 10px 0 18px 0;
