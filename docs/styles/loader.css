@@ -1,6 +1,6 @@
 :root {
     --handle: #7c2d12;
-    --rubber-red: var(--color-accent);
+    --rubber-red: #dc2626;
     --ball: #ffffff;
     --ball-outline: rgba(0, 0, 0, 0.25);
 }
@@ -87,7 +87,7 @@ body.loading #pageContent {
     height: 56px;
     background: var(--rubber-red);
     border-radius: 50%;
-    box-shadow: inset 0 0 0 4px var(--color-accent-hover);
+    box-shadow: inset 0 0 0 4px rgba(220, 38, 38, 0.3);
 }
 
 .handle {
@@ -128,3 +128,4 @@ body.loading #pageContent {
     0%, 100% { opacity: 0.4; }
     50% { opacity: 1; }
 }
+
