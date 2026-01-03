@@ -3192,34 +3192,92 @@ function renderMyStatsPage() {
         }).join('');
     };
 
-    // Render recent matches
+    // Render recent matches (reusing history format from rating.html)
     const renderRecentMatches = (p) => {
         const container = document.getElementById('myRecentMatches');
         if (!container) return;
 
-        const recent = p.matchDetails.slice(-10).reverse();
-        if (recent.length === 0) {
+        const getDiffHtml = (delta) => {
+            if (Math.abs(delta) < 0.01) return `<span class="diff-val diff-neu">-</span>`;
+            return `<span class="diff-val ${delta > 0 ? 'diff-up' : 'diff-down'}">${delta > 0 ? '▲' : '▼'}${Math.abs(delta).toFixed(2)}</span>`;
+        };
+
+        if (p.matchDetails.length === 0) {
             container.innerHTML = '<p class="no-match">Žiadne zápasy</p>';
             return;
         }
 
-        container.innerHTML = recent.map(m => {
+        const allMatches = [...p.matchDetails].reverse();
+        const visibleMatches = allMatches.slice(0, 5);
+        const hiddenMatches = allMatches.slice(5);
+        const hasMoreMatches = hiddenMatches.length > 0;
+
+        let html = `<div class='history-section'><div class='history-title'>História Zápasov: ${p.name}</div>`;
+        
+        // Render visible matches (first 5)
+        visibleMatches.forEach(m => {
             const isWin = m.score_own > m.score_opp;
-            const deltaSign = m.delta_own >= 0 ? '+' : '';
-            const deltaClass = m.delta_own >= 0 ? 'positive' : 'negative';
-            return `
-                <div class="recent-match-item ${isWin ? 'win' : 'loss'}">
-                    <div class="recent-match-left">
-                        <div class="recent-match-opponent">${m.opponent}</div>
-                        <div class="recent-match-meta">${m.round}${m.isDoubles ? ' (Štvorhra)' : ''}</div>
-                    </div>
-                    <div class="recent-match-result">
-                        <div class="recent-match-score">${m.score_own}:${m.score_opp}</div>
-                        <div class="recent-match-delta ${deltaClass}">${deltaSign}${m.delta_own.toFixed(2)}</div>
-                    </div>
+            const oppRatingHtml = m.isDoubles ? '' : `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
+
+            // Display round with season and doubles badge when available
+            const seasonLabel = m.season ? ` (${m.season})` : '';
+            const doublesHtml = m.isDoubles ? '<span class="doubles-badge">ŠTVORHRA</span>' : '';
+            const displayDate = `${m.round}${seasonLabel}${doublesHtml ? ' ' + doublesHtml : ''}`;
+
+            html += `<div class="history-item">
+                <div class="match-date">${displayDate}</div>
+                <div class="match-content">
+                    <div class="player-row"><span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}</div>
+                    <div class="score-row ${isWin ? 'win-text' : 'loss-text'}">${m.score_own}:${m.score_opp}</div>
+                    <div class="player-row"><span class="player-name-span">${m.opponent}</span><span>(${m.opponent_team}${oppRatingHtml})</span>${getDiffHtml(m.delta_opp)}</div>
                 </div>
-            `;
-        }).join('');
+            </div>`;
+        });
+
+        // Render hidden matches (rest, initially hidden)
+        hiddenMatches.forEach(m => {
+            const isWin = m.score_own > m.score_opp;
+            const oppRatingHtml = m.isDoubles ? '' : `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
+
+            // Display round with season and doubles badge when available
+            const seasonLabel = m.season ? ` (${m.season})` : '';
+            const doublesHtml = m.isDoubles ? '<span class="doubles-badge">ŠTVORHRA</span>' : '';
+            const displayDate = `${m.round}${seasonLabel}${doublesHtml ? ' ' + doublesHtml : ''}`;
+
+            html += `<div class="history-item history-item--hidden">
+                <div class="match-date">${displayDate}</div>
+                <div class="match-content">
+                    <div class="player-row"><span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}</div>
+                    <div class="score-row ${isWin ? 'win-text' : 'loss-text'}">${m.score_own}:${m.score_opp}</div>
+                    <div class="player-row"><span class="player-name-span">${m.opponent}</span><span>(${m.opponent_team}${oppRatingHtml})</span>${getDiffHtml(m.delta_opp)}</div>
+                </div>
+            </div>`;
+        });
+
+        html += `</div>`;
+        
+        // Add "Show all matches" button if there are more matches
+        if (hasMoreMatches) {
+            html += `<div class="show-all-matches-container">
+                <button id="showAllMatchesBtn" class="show-all-matches-btn">Zobraziť všetky zápasy</button>
+            </div>`;
+        }
+        
+        container.innerHTML = html;
+
+        // Add event listener for the button
+        if (hasMoreMatches) {
+            const showAllBtn = document.getElementById('showAllMatchesBtn');
+            if (showAllBtn) {
+                showAllBtn.addEventListener('click', () => {
+                    const hiddenItems = container.querySelectorAll('.history-item--hidden');
+                    hiddenItems.forEach(item => {
+                        item.classList.remove('history-item--hidden');
+                    });
+                    showAllBtn.style.display = 'none';
+                });
+            }
+        }
     };
 
     // Render upcoming team match
