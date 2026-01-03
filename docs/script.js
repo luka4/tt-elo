@@ -3574,7 +3574,7 @@ function renderMyStatsPage() {
         }
     };
 
-    // Render upcoming team match
+    // Render upcoming team matches
     const renderUpcomingMatch = (p) => {
         const container = document.getElementById('myNextMatchDetails');
         if (!container) return;
@@ -3595,19 +3595,79 @@ function renderMyStatsPage() {
             return;
         }
 
-        const next = futureMatches[0];
-        const opponent = next.player_a_team === teamName ? next.player_b_team : next.player_a_team;
-        const dateStr = next.date || '';
-        const location = next.location || '';
+        // Sort matches by date/round to show them in order
+        const sortedMatches = futureMatches.sort((a, b) => {
+            const dateA = parseMatchDate(a.date) || new Date(0);
+            const dateB = parseMatchDate(b.date) || new Date(0);
+            return dateA - dateB;
+        });
 
-        container.innerHTML = `
-            <div class="next-match-teams">
-                <span>${teamName}</span>
-                <span class="vs">vs</span>
-                <span>${opponent}</span>
+        const visibleMatch = sortedMatches[0];
+        const hiddenMatches = sortedMatches.slice(1);
+        const hasMoreMatches = hiddenMatches.length > 0;
+
+        let html = '';
+        
+        // Show first match (always visible)
+        const dateStr = visibleMatch.date || '';
+        const location = visibleMatch.location || '';
+        html += `
+            <div class="next-match-item">
+                <div class="next-match-teams">
+                    <span>${visibleMatch.player_a_team}</span>
+                    <span class="vs">vs</span>
+                    <span>${visibleMatch.player_b_team}</span>
+                </div>
+                <div class="next-match-meta">${visibleMatch.round || ''}${dateStr ? ' • ' + dateStr : ''}${location ? ' • ' + location : ''}</div>
             </div>
-            <div class="next-match-meta">${next.round || ''}${dateStr ? ' • ' + dateStr : ''}${location ? ' • ' + location : ''}</div>
         `;
+
+        // Show hidden matches (initially hidden)
+        hiddenMatches.forEach((match, index) => {
+            const matchDateStr = match.date || '';
+            const matchLocation = match.location || '';
+            const isLast = index === hiddenMatches.length - 1;
+
+            html += `
+                <div class="next-match-item next-match-item--hidden${isLast ? '' : ' next-match-item--separator'}">
+                    <div class="next-match-teams">
+                        <span>${match.player_a_team}</span>
+                        <span class="vs">vs</span>
+                        <span>${match.player_b_team}</span>
+                    </div>
+                    <div class="next-match-meta">${match.round || ''}${matchDateStr ? ' • ' + matchDateStr : ''}${matchLocation ? ' • ' + matchLocation : ''}</div>
+                </div>
+            `;
+        });
+
+        // Add "Show all matches" button if there are more matches
+        if (hasMoreMatches) {
+            html += `<div class="show-all-upcoming-container">
+                <button id="showAllUpcomingBtn" class="show-all-upcoming-btn">Zobraziť všetky nadchádzajúce zápasy</button>
+            </div>`;
+        }
+
+        container.innerHTML = html;
+
+        // Add event listener for the button
+        if (hasMoreMatches) {
+            const showAllBtn = document.getElementById('showAllUpcomingBtn');
+            if (showAllBtn) {
+                showAllBtn.addEventListener('click', () => {
+                    // Add separator to the first match
+                    const firstMatch = container.querySelector('.next-match-item:not(.next-match-item--hidden)');
+                    if (firstMatch) {
+                        firstMatch.classList.add('next-match-item--separator');
+                    }
+                    // Show all hidden matches
+                    const hiddenItems = container.querySelectorAll('.next-match-item--hidden');
+                    hiddenItems.forEach(item => {
+                        item.classList.remove('next-match-item--hidden');
+                    });
+                    showAllBtn.style.display = 'none';
+                });
+            }
+        }
     };
 
     // Combined match simulator (Prediction + What If) for My Stats page

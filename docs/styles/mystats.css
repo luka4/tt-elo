@@ -562,6 +562,50 @@
   font-size: 0.9rem;
 }
 
+.next-match-item {
+  padding: 12px 0;
+}
+
+.next-match-item--hidden {
+  display: none;
+}
+
+.next-match-item--separator {
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.next-match-item:last-child {
+  padding-bottom: 0;
+}
+
+.show-all-upcoming-container {
+  text-align: center;
+  margin-top: 16px;
+  padding: 8px;
+}
+
+.show-all-upcoming-btn {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.show-all-upcoming-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.show-all-upcoming-btn:active {
+  transform: scale(0.98);
+}
+
 /* ============================================================
    WHAT IF PREVIEW
    ============================================================ */
