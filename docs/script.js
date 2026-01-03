@@ -200,7 +200,8 @@ function parseMatchDate(raw) {
 function startOfIsoWeek(d) {
     const x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
     const day = x.getDay(); // 0=Sun..6=Sat
-    const diff = (day === 0) ? -6 : (1 - day); // Monday-start week
+    const diff = -day; // Sunday-start week
+    // const diff = day === 6 ? 0 : -(7 - (6 - day)); // Saturday-start week
     x.setDate(x.getDate() + diff);
     x.setHours(0, 0, 0, 0);
     return x;
@@ -271,7 +272,7 @@ function getThisWeekRoundId(matches, today = new Date()) {
     return entries[0][0];
 }
 
-function processData() {
+function processData(currentRoundIdOverride = null) {
     const players = {};
     const roundsSet = new Set();
     const upsetsList = [];
@@ -285,6 +286,10 @@ function processData() {
     const latestRoundId = lastMatch ? getMatchRoundId(lastMatch) : null;
     // We keep latestRoundName for legacy display strings, but logic should use ID
     const latestRoundName = lastMatch ? lastMatch.round : "";
+    
+    // Use currentRoundIdOverride if provided (for determining which round's stats to show)
+    // Otherwise fall back to latestRoundId
+    const effectiveRoundId = currentRoundIdOverride || latestRoundId;
 
     const initPlayer = (nameRaw, teamName) => {
         const name = nameRaw.trim();
@@ -315,7 +320,7 @@ function processData() {
         totalSets += (scoreA + scoreB);
 
         const isDoubles = match.doubles === true || match.doubles === "true";
-        const isLatestRound = getMatchRoundId(match) === latestRoundId;
+        const isLatestRound = getMatchRoundId(match) === effectiveRoundId;
 
         const pNamesA = match.player_a.split('/').map(n => n.trim());
         const pNamesB = match.player_b.split('/').map(n => n.trim());
@@ -1011,14 +1016,19 @@ function renderHomePage() {
 
     loadDisclaimerFromSheet();
 
-    const {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList} = processData();
     const playedMatches = matchResults.filter(isPlayedMatch);
 
     // "Aktuálne Kolo" selection:
     // Prefer a round that has any match scheduled in the same ISO week as today.
     // Fallback to the existing "latest played round" logic.
+    // Calculate this FIRST so we can pass it to processData for correct round stats
+    const lastPlayedMatch = playedMatches.length > 0 ? playedMatches[playedMatches.length - 1] : null;
+    const latestRoundId = lastPlayedMatch ? getMatchRoundId(lastPlayedMatch) : null;
     const thisWeekRoundId = getThisWeekRoundId(matchResults, new Date());
     const currentRoundId = thisWeekRoundId || latestRoundId;
+    
+    // Process data with currentRoundId so stats are calculated for the correct round
+    const {players, roundsSet, totalSets, latestRoundName, upsetsList} = processData(currentRoundId);
 
     // Stats
     const uniqueTeamMatches = new Set(playedMatches.map(m => `${getMatchRoundId(m)}_${m.player_a_team}_${m.player_b_team}`));
