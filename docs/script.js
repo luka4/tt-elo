@@ -409,8 +409,12 @@ function processData() {
             }
         }
 
+        // Store opponent ratings BEFORE any updates (needed for calculating opp_rating_after)
+        const oppRatingBeforeA = isDoubles ? 0 : (pNamesB.length > 0 ? players[pNamesB[0]].rating : 0);
+        const oppRatingBeforeB = isDoubles ? 0 : (pNamesA.length > 0 ? players[pNamesA[0]].rating : 0);
+
         // Updated updateSide to accept raw DIFF and displayDelta for opponent
-        const updateSide = (pNames, scoreOwn, scoreOpp, diffOwn, displayDeltaOpp, oppNames, oppTeam) => {
+        const updateSide = (pNames, scoreOwn, scoreOpp, diffOwn, diffOpp, displayDeltaOpp, oppNames, oppTeam, oppRatingBeforeMatch) => {
             pNames.forEach(name => {
                 const p = players[name];
 
@@ -455,7 +459,17 @@ function processData() {
                 p.minRating = Math.min(p.rating, p.minRating);
 
                 const opponentName = oppNames.join(' / ');
-                const oppRatingAfter = isDoubles ? 0 : (players[oppNames[0]].rating);
+                // Calculate opponent's rating AFTER the match
+                // Use the opponent's rating BEFORE the match (stored before any updates)
+                // and add their delta to get their rating after
+                let oppRatingAfter = 0;
+                if (!isDoubles && oppNames.length > 0 && oppRatingBeforeMatch !== undefined) {
+                    const oppPlayer = players[oppNames[0]];
+                    const oppCurrentK = getKFactor(oppPlayer.matches + oppPlayer.dMatches);
+                    const oppDelta = oppCurrentK * diffOpp;
+                    // Use the stored "before" rating + delta to get "after" rating
+                    oppRatingAfter = oppRatingBeforeMatch + oppDelta;
+                }
 
                 p.matchDetails.push({
                     date: match.date || match.round,
@@ -476,8 +490,9 @@ function processData() {
         };
 
         // Pass diffA/B for calculation, and displayDeltaB/A for opponent history logs
-        updateSide(pNamesA, scoreA, scoreB, diffA, displayDeltaB, pNamesB, match.player_b_team);
-        updateSide(pNamesB, scoreB, scoreA, diffB, displayDeltaA, pNamesA, match.player_a_team);
+        // Also pass diffOpp and oppRatingBeforeMatch so we can calculate opponent's rating after correctly
+        updateSide(pNamesA, scoreA, scoreB, diffA, diffB, displayDeltaB, pNamesB, match.player_b_team, oppRatingBeforeA);
+        updateSide(pNamesB, scoreB, scoreA, diffB, diffA, displayDeltaA, pNamesA, match.player_a_team, oppRatingBeforeB);
     });
 
     return {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList};
