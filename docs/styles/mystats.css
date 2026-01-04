@@ -278,7 +278,7 @@
 }
 
 .form-indicator.draw {
-  background: var(--color-muted);
+  background: var(--color-warning);
   color: white;
 }
 

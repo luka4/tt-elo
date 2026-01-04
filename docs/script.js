@@ -4654,7 +4654,12 @@ function renderMyTeamPage() {
 
             const summary = document.createElement('div');
             summary.className = 'match-summary';
-            summary.innerHTML = `<div class="match-round-info">${escapeHtml(seasonRoundText)}</div><div class="team-name team-left ${teamAClass}">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge ${scoreBadgeClass}">${scoreA}-${scoreB}</div>${logoBHtml}<div class="team-name team-right ${teamBClass}">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left ${teamAClass}">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge ${scoreBadgeClass}">${scoreA}-${scoreB}</div>${logoBHtml}<div class="team-name team-right ${teamBClass}">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+            // Add round info as separate element positioned at bottom left
+            const roundInfo = document.createElement('div');
+            roundInfo.className = 'match-round-info';
+            roundInfo.textContent = seasonRoundText;
+            matchRow.appendChild(roundInfo);
 
             const details = document.createElement('div');
             details.className = 'match-details';
@@ -4772,7 +4777,12 @@ function renderMyTeamPage() {
 
                         const summary = document.createElement('div');
                         summary.className = 'match-summary';
-                        summary.innerHTML = `<div class="match-round-info">${escapeHtml(seasonRoundText)}</div><div class="team-name team-left ${teamAClass}">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge ${scoreBadgeClass}">${scoreA}-${scoreB}</div>${logoBHtml}<div class="team-name team-right ${teamBClass}">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+                        summary.innerHTML = `<div class="team-name team-left ${teamAClass}">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge ${scoreBadgeClass}">${scoreA}-${scoreB}</div>${logoBHtml}<div class="team-name team-right ${teamBClass}">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+                        // Add round info as separate element positioned at bottom left
+                        const roundInfo = document.createElement('div');
+                        roundInfo.className = 'match-round-info';
+                        roundInfo.textContent = seasonRoundText;
+                        matchRow.appendChild(roundInfo);
 
                         const details = document.createElement('div');
                         details.className = 'match-details';
@@ -5039,13 +5049,33 @@ function renderMyTeamPage() {
         const logoEl = document.getElementById('myTeamLogoImg');
         const logoContainer = document.getElementById('myTeamLogo');
         const logoSrc = getTeamLogoSrc(teamName);
-        if (logoEl && logoContainer && logoSrc) {
-            logoEl.src = logoSrc;
-            logoEl.style.display = 'block';
-            logoContainer.textContent = '';
-        } else if (logoContainer) {
-            logoContainer.textContent = teamName.charAt(0).toUpperCase();
-            if (logoEl) logoEl.style.display = 'none';
+        if (logoEl && logoContainer) {
+            if (logoSrc) {
+                // Show logo image
+                logoEl.src = logoSrc;
+                logoEl.style.display = 'block';
+                logoEl.style.width = '100%';
+                logoEl.style.height = '100%';
+                logoEl.style.objectFit = 'contain';
+                logoEl.style.borderRadius = '50%';
+                // Remove only text nodes (preserve img element)
+                Array.from(logoContainer.childNodes).forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        node.remove();
+                    }
+                });
+                logoContainer.style.background = 'transparent';
+            } else {
+                // No logo - show first letter
+                logoEl.style.display = 'none';
+                // Remove only text nodes first
+                Array.from(logoContainer.childNodes).forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        node.remove();
+                    }
+                });
+                logoContainer.textContent = teamName.charAt(0).toUpperCase();
+            }
         }
 
         // Core stats

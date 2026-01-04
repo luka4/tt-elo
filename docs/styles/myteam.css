@@ -215,9 +215,10 @@
 }
 
 #myTeamLogoImg {
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 /* Responsive */
@@ -268,28 +269,23 @@
   }
 }
 
-/* Match Round Info */
+/* Match Round Info - positioned at bottom left of match row */
 .match-round-info {
   font-size: 0.7em;
   color: var(--color-muted);
-  min-width: 100px;
-  max-width: 120px;
-  text-align: left;
-  padding-right: 10px;
-  flex-shrink: 0;
+  position: absolute;
+  bottom: 4px;
+  left: 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: calc(100% - 30px);
 }
 
-/* Ensure match-summary layout works with round info */
-#myTeamRecentMatches .match-summary {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: nowrap;
+/* Match row needs relative positioning for absolute round info */
+#myTeamRecentMatches .match-row {
+  position: relative;
+  padding-bottom: 20px;
 }
 
 /* Score Badge Colors */
