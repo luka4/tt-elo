@@ -277,6 +277,11 @@
   color: white;
 }
 
+.form-indicator.draw {
+  background: var(--color-muted);
+  color: white;
+}
+
 /* ============================================================
    CHART CONTAINER
    ============================================================ */

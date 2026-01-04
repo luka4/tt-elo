@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RP5HV7SX60"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RP5HV7SX60');
+    </script>
+    <title>Košická Miniliga - Môj Tím</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/mystats.css">
+    <link rel="stylesheet" href="styles/prediction.css">
+    <link rel="stylesheet" href="styles/myteam.css">
+</head>
+<body id="page-myteam" class="loading">
+
+<div id="pageLoader">
+    <div class="loader">
+        <div class="scene">
+            <div class="ball"></div>
+            <div class="racket">
+                <div class="blade"></div>
+                <div class="handle"></div>
+            </div>
+        </div>
+        <div class="loading-text">Načítava sa</div>
+    </div>
+</div>
+
+<div id="pageContent">
+    <div id="mainNavContainer"></div>
+
+    <div class="container" id="mainContainer">
+        <!-- Team Selection Section (shown when no team selected) -->
+        <section id="teamSelectSection" class="mystats-card mystats-card--welcome">
+            <div class="welcome-icon">🏆</div>
+            <h2>Môj Tím</h2>
+            <p class="welcome-text">Vyberte si tím a zobrazte štatistiky, grafy a záznamy vášho tímu.</p>
+            <div class="player-select-form">
+                <label for="myTeamSelect">Váš tím:</label>
+                <input type="text" id="myTeamSelect" list="myTeamsList" placeholder="Začnite písať názov tímu..." autocomplete="off">
+                <datalist id="myTeamsList"></datalist>
+                <button id="selectTeamBtn" class="mystats-btn">Zobraziť štatistiky tímu</button>
+            </div>
+            <div id="teamSelectStatus" class="status-text"></div>
+        </section>
+
+        <!-- Main Stats Section (shown after team selected) -->
+        <div id="myTeamContent" style="display: none;">
+            <!-- Header with team info -->
+            <div class="mystats-header">
+                <div class="mystats-header-left">
+                    <div class="mystats-avatar" id="myTeamLogo">
+                        <img id="myTeamLogoImg" src="" alt="Team logo" style="display: none; width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+                    </div>
+                    <div class="mystats-header-info">
+                        <h1 class="mystats-name" id="myTeamName">-</h1>
+                        <div class="mystats-team" id="myTeamSubtitle">Tímové štatistiky</div>
+                    </div>
+                </div>
+                <div class="mystats-header-right">
+                    <button id="changeTeamBtn" class="mystats-btn mystats-btn--secondary">Zmeniť tím</button>
+                </div>
+            </div>
+
+            <!-- Core Stats Block -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📊 Prehľad</h3>
+                <div class="core-stats-grid">
+                    <div class="core-stat core-stat--primary">
+                        <div class="core-stat-value" id="myTeamActiveRating">-</div>
+                        <div class="core-stat-label">Aktívny Rating</div>
+                        <div class="core-stat-sub" id="myTeamActiveRatingSub">(4 najaktívnejší hráči)</div>
+                    </div>
+                    <div class="core-stat">
+                        <div class="core-stat-value" id="myTeamOverallRating">-</div>
+                        <div class="core-stat-label">Celkový Rating</div>
+                        <div class="core-stat-sub" id="myTeamOverallRatingSub">(všetci hráči)</div>
+                    </div>
+                    <div class="core-stat">
+                        <div class="core-stat-value" id="myTeamRecord">-</div>
+                        <div class="core-stat-label">Bilancia (V-R-P)</div>
+                    </div>
+                    <div class="core-stat core-stat--form">
+                        <div class="core-stat-label">Forma (posledných 5 zápasov)</div>
+                        <div class="core-stat-form" id="myTeamForm">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Players Section -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">👥 Hráči</h3>
+                <div id="myTeamPlayersList" class="team-players-list"></div>
+            </section>
+
+            <!-- Team Rating Chart -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📈 Vývoj Ratingu</h3>
+                <div class="chart-container">
+                    <canvas id="myTeamRatingChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Upcoming Section -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📅 Nadchádzajúce</h3>
+                <div id="myTeamUpcomingSection">
+                    <div id="myTeamNextMatch" class="next-match-card">
+                        <div class="next-match-title">Najbližší zápas tímu</div>
+                        <div class="next-match-details" id="myTeamNextMatchDetails">
+                            <span class="no-match">Žiadny plánovaný zápas</span>
+                        </div>
+                    </div>
+                    <div id="myTeamShowAllUpcomingContainer" class="show-all-upcoming-container" style="display: none;">
+                        <button id="myTeamShowAllUpcomingBtn" class="show-all-upcoming-btn">Zobraziť všetky nadchádzajúce zápasy</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prediction Section -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">🎯 Predikcia</h3>
+                <div class="team-prediction-wrapper">
+                    <div class="pred-controls">
+                        <div class="team-select-row team-select-row--right">
+                            <div class="selector-group">
+                                <label>Domáci tím</label>
+                                <div id="myTeamPredTeamADisplay" class="team-display">-</div>
+                            </div>
+                            <div class="team-logo-chip" id="myTeamPredLogoA"></div>
+                        </div>
+                        <div class="selector-group vs-group">
+                            <span class="pred-vs">VS</span>
+                        </div>
+                        <div class="team-select-row team-select-row--left">
+                            <div class="selector-group">
+                                <label for="myTeamPredTeamB">Hosťujúci tím</label>
+                                <select id="myTeamPredTeamB">
+                                    <option value="">Vyberte hosťujúci tím</option>
+                                </select>
+                            </div>
+                            <div class="team-logo-chip" id="myTeamPredLogoB"></div>
+                        </div>
+                    </div>
+                    <div id="myTeamPredictionStatus" class="status-text"></div>
+
+                    <div class="lineup-wrapper" id="myTeamLineupWrapper">
+                        <div class="lineup-card">
+                            <div class="lineup-title" id="myTeamLineupTitleA">Zostava domáci</div>
+                            <div class="lineup-body" id="myTeamLineupA"></div>
+                        </div>
+                        <div class="lineup-card">
+                            <div class="lineup-title" id="myTeamLineupTitleB">Zostava hostia</div>
+                            <div class="lineup-body" id="myTeamLineupB"></div>
+                        </div>
+                    </div>
+                    <div class="predict-action-row">
+                        <button id="myTeamPredictBtn" class="pred-btn">Vypočítať predikciu</button>
+                    </div>
+
+                    <div id="myTeamPredictionResult" class="pred-result">
+                        <div class="score-prediction" id="myTeamPredScore">-- : --</div>
+                        <div class="pred-details">
+                            <div class="rating-box">Ø Rating: <span class="rating-val" id="myTeamRateA">0</span></div>
+                            <div class="rating-box">Ø Rating: <span class="rating-val" id="myTeamRateB">0</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Match History (Recent) -->
+            <section class="mystats-card">
+                <h3 class="mystats-section-title">📜 Posledné Zápasy</h3>
+                <div id="myTeamRecentMatches"></div>
+                <div id="myTeamShowAllMatchesContainer" class="show-all-matches-container" style="display: none;">
+                    <button id="myTeamShowAllMatchesBtn" class="show-all-matches-btn">Zobraziť všetky zápasy</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="googleSheetsLoader.js?v=1"></script>
+<script src="matchData.js?v=6"></script>
+<script src="script.js?v=8"></script>
+</body>
+</html>
+

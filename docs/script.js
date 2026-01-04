@@ -4072,6 +4072,1089 @@ function renderMyStatsPage() {
     }
 }
 
+// --- MY TEAM PAGE ---
+function renderMyTeamPage() {
+    const {players} = processData();
+    const playerArr = Object.values(players);
+    const MYTEAM_STORAGE_KEY = 'myteam_team_name';
+    const MYSTATS_STORAGE_KEY = 'mystats_player_name';
+    const URL_PARAM_NAME = 'team';
+
+    // Create team map
+    const teamMap = new Map();
+    const sortRoster = (list) => [...list].sort((a, b) => {
+        const actA = (a.matches + a.dMatches);
+        const actB = (b.matches + b.dMatches);
+        if (actA !== actB) return actB - actA;
+        if (a.rating !== b.rating) return b.rating - a.rating;
+        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+    });
+    playerArr.forEach(p => {
+        if (p.team && p.team !== 'N/A') {
+            if (!teamMap.has(p.team)) teamMap.set(p.team, []);
+            teamMap.get(p.team).push(p);
+        }
+    });
+    teamMap.forEach((list, key) => teamMap.set(key, sortRoster(list)));
+    const teamNames = Array.from(teamMap.keys()).sort((a, b) => a.localeCompare(b, 'sk', {sensitivity: 'base'}));
+
+    // URL query parameter helpers
+    const getTeamFromURL = () => {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(URL_PARAM_NAME) || null;
+    };
+
+    const updateURLWithTeam = (teamName) => {
+        const url = new URL(window.location.href);
+        if (!teamName) {
+            url.searchParams.delete(URL_PARAM_NAME);
+        } else {
+            url.searchParams.set(URL_PARAM_NAME, teamName);
+        }
+        window.history.replaceState({}, '', url);
+    };
+
+    // DOM elements
+    const selectSection = document.getElementById('teamSelectSection');
+    const teamContent = document.getElementById('myTeamContent');
+    const teamInput = document.getElementById('myTeamSelect');
+    const teamsList = document.getElementById('myTeamsList');
+    const selectBtn = document.getElementById('selectTeamBtn');
+    const selectStatus = document.getElementById('teamSelectStatus');
+    const changeTeamBtn = document.getElementById('changeTeamBtn');
+
+    // Populate datalists
+    const populateTeamsList = (listEl) => {
+        if (!listEl) return;
+        listEl.innerHTML = '';
+        teamNames.forEach(team => {
+            const opt = document.createElement('option');
+            opt.value = team;
+            listEl.appendChild(opt);
+        });
+    };
+
+    populateTeamsList(teamsList);
+
+    // Current selected team
+    let currentTeam = null;
+    let myTeamRatingChart = null;
+
+    // Show team selection screen
+    const showSelectScreen = () => {
+        if (selectSection) selectSection.style.display = 'block';
+        if (teamContent) teamContent.style.display = 'none';
+    };
+
+    // Show stats screen
+    const showStatsScreen = () => {
+        if (selectSection) selectSection.style.display = 'none';
+        if (teamContent) teamContent.style.display = 'block';
+    };
+
+    // Calculate team active rating (4 most active players)
+    const getActiveRating = (teamPlayers) => {
+        const active = teamPlayers.slice(0, 4);
+        if (active.length === 0) return 0;
+        return active.reduce((sum, p) => sum + p.rating, 0) / active.length;
+    };
+
+    // Calculate team overall rating (all players)
+    const getOverallRating = (teamPlayers) => {
+        if (teamPlayers.length === 0) return 0;
+        return teamPlayers.reduce((sum, p) => sum + p.rating, 0) / teamPlayers.length;
+    };
+
+    // Calculate team W/D/L record
+    const getTeamRecord = (teamName) => {
+        const teamMatches = matchResults.filter(m => {
+            if (!isPlayedMatch(m)) return false;
+            return m.player_a_team === teamName || m.player_b_team === teamName;
+        });
+
+        // Group by team match (same round, same teams)
+        const grouped = {};
+        teamMatches.forEach(m => {
+            const key = `${getMatchRoundId(m)}_${m.player_a_team}_${m.player_b_team}`;
+            if (!grouped[key]) {
+                grouped[key] = {
+                    teamA: m.player_a_team,
+                    teamB: m.player_b_team,
+                    games: [],
+                    round: m.round
+                };
+            }
+            grouped[key].games.push(m);
+        });
+
+        let wins = 0, draws = 0, losses = 0;
+        Object.values(grouped).forEach(match => {
+            let scoreA = 0, scoreB = 0;
+            match.games.forEach(g => {
+                const sA = parseInt(g.score_a) || 0;
+                const sB = parseInt(g.score_b) || 0;
+                if (sA > sB) scoreA++;
+                if (sB > sA) scoreB++;
+            });
+            const isHome = match.teamA === teamName;
+            const ourScore = isHome ? scoreA : scoreB;
+            const theirScore = isHome ? scoreB : scoreA;
+            if (ourScore > theirScore) wins++;
+            else if (ourScore < theirScore) losses++;
+            else draws++;
+        });
+
+        return { wins, draws, losses };
+    };
+
+    // Calculate team form (last 5 team matches)
+    const getTeamForm = (teamName) => {
+        const teamMatches = matchResults.filter(m => {
+            if (!isPlayedMatch(m)) return false;
+            return m.player_a_team === teamName || m.player_b_team === teamName;
+        });
+
+        const grouped = {};
+        teamMatches.forEach(m => {
+            const key = `${getMatchRoundId(m)}_${m.player_a_team}_${m.player_b_team}`;
+            if (!grouped[key]) {
+                grouped[key] = {
+                    teamA: m.player_a_team,
+                    teamB: m.player_b_team,
+                    games: [],
+                    round: m.round,
+                    seasonOrder: getSeasonOrder(m.season),
+                    roundNum: getRoundNumFromStr(m.round)
+                };
+            }
+            grouped[key].games.push(m);
+        });
+
+        const sorted = Object.values(grouped).sort((a, b) => {
+            if (a.seasonOrder !== b.seasonOrder) return b.seasonOrder - a.seasonOrder;
+            return b.roundNum - a.roundNum;
+        });
+
+        const form = [];
+        sorted.slice(0, 5).forEach(match => {
+            let scoreA = 0, scoreB = 0;
+            match.games.forEach(g => {
+                const sA = parseInt(g.score_a) || 0;
+                const sB = parseInt(g.score_b) || 0;
+                if (sA > sB) scoreA++;
+                if (sB > sA) scoreB++;
+            });
+            const isHome = match.teamA === teamName;
+            const ourScore = isHome ? scoreA : scoreB;
+            const theirScore = isHome ? scoreB : scoreA;
+            form.push(ourScore > theirScore ? 'W' : (ourScore < theirScore ? 'L' : 'D'));
+        });
+
+        return form.reverse(); // Oldest first
+    };
+
+    // Render rating chart (active vs overall)
+    const renderTeamRatingChart = (teamName, teamPlayers, attempt = 0) => {
+        const canvas = document.getElementById('myTeamRatingChart');
+        if (!canvas || typeof Chart === 'undefined') {
+            if (attempt < 8) setTimeout(() => renderTeamRatingChart(teamName, teamPlayers, attempt + 1), 120);
+            return;
+        }
+
+        // Collect all unique rounds from PLAYED matches only
+        const roundsMap = new Map();
+        matchResults.filter(isPlayedMatch).forEach(m => {
+            const id = getMatchRoundId(m);
+            if (!roundsMap.has(id)) {
+                const rNum = parseInt((m.round.match(/\d+/) || [0])[0]);
+                const sOrder = getSeasonOrder(m.season);
+                roundsMap.set(id, {
+                    id,
+                    name: m.round,
+                    season: m.season,
+                    seasonOrder: sOrder,
+                    roundNum: rNum
+                });
+            }
+        });
+
+        const sortedRounds = Array.from(roundsMap.values()).sort((a, b) => {
+            if (a.seasonOrder !== b.seasonOrder) return a.seasonOrder - b.seasonOrder;
+            return a.roundNum - b.roundNum;
+        });
+
+        // Calculate ratings per round using actual player history
+        const activeRatings = [];
+        const overallRatings = [];
+        const labels = [];
+
+        sortedRounds.forEach(round => {
+            // Get player ratings at the END of this round from their history
+            const playersAtRound = teamPlayers.map(p => {
+                // Find the last history entry that matches this round
+                // History keys format: "20251-01|1. kolo (JAR 2025)"
+                const targetPrefix = `${round.seasonOrder}-${String(round.roundNum).padStart(2, '0')}`;
+                let ratingAtRound = null;
+                let lastMatchingKey = null;
+
+                // Get all history keys for this player
+                const historyKeys = Object.keys(p.history || {});
+                
+                // Find all history entries that match this round
+                const matchingKeys = historyKeys.filter(key => {
+                    const keyParts = key.split('|');
+                    if (keyParts.length < 1) return false;
+                    return keyParts[0] === targetPrefix;
+                });
+
+                if (matchingKeys.length > 0) {
+                    // Get the last one (after all matches in this round)
+                    matchingKeys.sort();
+                    lastMatchingKey = matchingKeys[matchingKeys.length - 1];
+                    ratingAtRound = p.history[lastMatchingKey];
+                } else {
+                    // No history for this round, try to find the most recent before this round
+                    for (let i = historyKeys.length - 1; i >= 0; i--) {
+                        const key = historyKeys[i];
+                        const keyParts = key.split('|');
+                        if (keyParts.length < 1) continue;
+                        const keyPrefix = keyParts[0];
+                        const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
+                        const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
+                        
+                        if (keySeasonOrder < round.seasonOrder || 
+                            (keySeasonOrder === round.seasonOrder && keyRoundNum < round.roundNum)) {
+                            ratingAtRound = p.history[key];
+                            break;
+                        }
+                    }
+                }
+
+                // If no history found, player hasn't played yet - exclude from calculation
+                if (ratingAtRound === null) {
+                    return null;
+                }
+
+                // Count activity (matches played) up to and including this round
+                const matchesUpToRound = p.matchDetails.filter(md => {
+                    const mdSeasonOrder = getSeasonOrder(md.season);
+                    const mdRoundNum = getRoundNumFromStr(md.round);
+                    return mdSeasonOrder < round.seasonOrder || 
+                           (mdSeasonOrder === round.seasonOrder && mdRoundNum <= round.roundNum);
+                });
+                const activityAtRound = matchesUpToRound.length;
+
+                return {
+                    name: p.name,
+                    rating: ratingAtRound,
+                    activity: activityAtRound
+                };
+            }).filter(p => p !== null); // Only include players who have played
+
+            if (playersAtRound.length === 0) {
+                // No players have played yet at this round, skip it
+                return;
+            }
+
+            // Sort by activity then by rating (same as sortRoster logic)
+            const sorted = [...playersAtRound].sort((a, b) => {
+                if (a.activity !== b.activity) return b.activity - a.activity;
+                if (a.rating !== b.rating) return b.rating - a.rating;
+                return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+            });
+
+            // Calculate active rating (4 most active)
+            const active = sorted.slice(0, 4);
+            const activeRating = active.length > 0 
+                ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
+                : null;
+
+            // Calculate overall rating (all players who have played)
+            const overallRating = playersAtRound.length > 0
+                ? playersAtRound.reduce((sum, p) => sum + p.rating, 0) / playersAtRound.length
+                : null;
+
+            if (activeRating !== null && overallRating !== null) {
+                activeRatings.push(activeRating);
+                overallRatings.push(overallRating);
+                labels.push(round.name + (round.season ? ` (${round.season})` : ''));
+            }
+        });
+
+        // Check canvas size - if too small, retry (fixes issue when page loads with team in query string)
+        const rect = canvas.getBoundingClientRect();
+        if ((rect.width < 2 || rect.height < 2) && attempt < 8) {
+            setTimeout(() => renderTeamRatingChart(teamName, teamPlayers, attempt + 1), 120);
+            return;
+        }
+
+        const ctx = canvas.getContext('2d');
+        const themePrimary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#7c3aed';
+
+        if (myTeamRatingChart) myTeamRatingChart.destroy();
+        myTeamRatingChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Aktívny Rating',
+                    data: activeRatings,
+                    borderColor: themePrimary,
+                    backgroundColor: themePrimary + '20',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 3
+                }, {
+                    label: 'Celkový Rating',
+                    data: overallRatings,
+                    borderColor: '#000000',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    tension: 0.3,
+                    pointRadius: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: { color: 'rgba(128,128,128,0.15)' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { maxTicksLimit: 10 }
+                    }
+                }
+            }
+        });
+    };
+
+    // Render players list
+    const renderPlayersList = (teamPlayers) => {
+        const container = document.getElementById('myTeamPlayersList');
+        if (!container) return;
+
+        if (teamPlayers.length === 0) {
+            container.innerHTML = '<p class="no-match">Žiadni hráči</p>';
+            return;
+        }
+
+        const tableHTML = `
+            <div class="team-players-table-wrapper">
+                <table class="team-players-table">
+                    <thead>
+                        <tr>
+                            <th>Meno</th>
+                            <th>Rating</th>
+                            <th>Dvojhry V</th>
+                            <th>Dvojhry P</th>
+                            <th>Úspešnosť</th>
+                            <th>Štvorhry V</th>
+                            <th>Štvorhry P</th>
+                            <th>Úspešnosť</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${teamPlayers.map(p => {
+                            const singlesWinRate = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(1) : '0.0';
+                            const doublesWinRate = p.dMatches > 0 ? ((p.dWins / p.dMatches) * 100).toFixed(1) : '0.0';
+                            return `
+                                <tr>
+                                    <td class="team-player-name-cell">${escapeHtml(p.name)}</td>
+                                    <td class="team-player-rating-cell">${p.rating.toFixed(2)}</td>
+                                    <td>${p.wins}</td>
+                                    <td>${p.losses}</td>
+                                    <td>${singlesWinRate}%</td>
+                                    <td>${p.dWins}</td>
+                                    <td>${p.dLosses}</td>
+                                    <td>${doublesWinRate}%</td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
+        container.innerHTML = tableHTML;
+    };
+
+    // Render upcoming matches
+    const renderUpcomingMatches = (teamName) => {
+        const container = document.getElementById('myTeamNextMatchDetails');
+        const showAllContainer = document.getElementById('myTeamShowAllUpcomingContainer');
+        if (!container) return;
+
+        const futureMatches = matchResults.filter(m => {
+            return !isPlayedMatch(m) && (m.player_a_team === teamName || m.player_b_team === teamName);
+        });
+
+        if (futureMatches.length === 0) {
+            container.innerHTML = '<span class="no-match">Žiadny plánovaný zápas</span>';
+            if (showAllContainer) showAllContainer.style.display = 'none';
+            return;
+        }
+
+        const sortedMatches = futureMatches.sort((a, b) => {
+            const dateA = parseMatchDate(a.date) || new Date(0);
+            const dateB = parseMatchDate(b.date) || new Date(0);
+            return dateA - dateB;
+        });
+
+        const visibleMatch = sortedMatches[0];
+        const hiddenMatches = sortedMatches.slice(1);
+        const hasMoreMatches = hiddenMatches.length > 0;
+
+        let html = '';
+        const dateStr = visibleMatch.date || '';
+        const location = visibleMatch.location || '';
+        html += `
+            <div class="next-match-item">
+                <div class="next-match-teams">
+                    <span>${escapeHtml(visibleMatch.player_a_team)}</span>
+                    <span class="vs">vs</span>
+                    <span>${escapeHtml(visibleMatch.player_b_team)}</span>
+                </div>
+                <div class="next-match-meta">${visibleMatch.round || ''}${dateStr ? ' • ' + dateStr : ''}${location ? ' • ' + location : ''}</div>
+            </div>
+        `;
+
+        hiddenMatches.forEach((match, index) => {
+            const matchDateStr = match.date || '';
+            const matchLocation = match.location || '';
+            const isLast = index === hiddenMatches.length - 1;
+            html += `
+                <div class="next-match-item next-match-item--hidden${isLast ? '' : ' next-match-item--separator'}">
+                    <div class="next-match-teams">
+                        <span>${escapeHtml(match.player_a_team)}</span>
+                        <span class="vs">vs</span>
+                        <span>${escapeHtml(match.player_b_team)}</span>
+                    </div>
+                    <div class="next-match-meta">${match.round || ''}${matchDateStr ? ' • ' + matchDateStr : ''}${matchLocation ? ' • ' + matchLocation : ''}</div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+
+        if (hasMoreMatches && showAllContainer) {
+            showAllContainer.style.display = 'block';
+            const showAllBtn = document.getElementById('myTeamShowAllUpcomingBtn');
+            if (showAllBtn) {
+                showAllBtn.onclick = () => {
+                    const firstMatch = container.querySelector('.next-match-item:not(.next-match-item--hidden)');
+                    if (firstMatch) firstMatch.classList.add('next-match-item--separator');
+                    container.querySelectorAll('.next-match-item--hidden').forEach(item => {
+                        item.classList.remove('next-match-item--hidden');
+                    });
+                    showAllContainer.style.display = 'none';
+                };
+            }
+        } else if (showAllContainer) {
+            showAllContainer.style.display = 'none';
+        }
+    };
+
+    // Render recent matches (expandable like results.html)
+    const renderRecentMatches = (teamName) => {
+        const container = document.getElementById('myTeamRecentMatches');
+        const showAllContainer = document.getElementById('myTeamShowAllMatchesContainer');
+        if (!container) return;
+
+        const teamMatches = matchResults.filter(m => {
+            if (!isPlayedMatch(m)) return false;
+            return m.player_a_team === teamName || m.player_b_team === teamName;
+        });
+
+        // Group by team match
+        const grouped = {};
+        teamMatches.forEach(m => {
+            const key = `${getMatchRoundId(m)}_${m.player_a_team}_${m.player_b_team}`;
+            if (!grouped[key]) {
+                grouped[key] = {
+                    teamA: m.player_a_team,
+                    teamB: m.player_b_team,
+                    games: [],
+                    round: m.round,
+                    season: m.season,
+                    date: m.date,
+                    location: m.location,
+                    seasonOrder: getSeasonOrder(m.season),
+                    roundNum: getRoundNumFromStr(m.round)
+                };
+            }
+            grouped[key].games.push(m);
+        });
+
+        const sorted = Object.values(grouped).sort((a, b) => {
+            if (a.seasonOrder !== b.seasonOrder) return b.seasonOrder - a.seasonOrder;
+            return b.roundNum - a.roundNum;
+        });
+
+        const visibleMatches = sorted.slice(0, 5);
+        const hiddenMatches = sorted.slice(5);
+        const hasMoreMatches = hiddenMatches.length > 0;
+
+        if (visibleMatches.length === 0) {
+            container.innerHTML = '<p class="no-match">Žiadne zápasy</p>';
+            if (showAllContainer) showAllContainer.style.display = 'none';
+            return;
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'round-group';
+
+        visibleMatches.forEach(match => {
+            let scoreA = 0, scoreB = 0;
+            match.games.forEach(g => {
+                const sA = parseInt(g.score_a) || 0;
+                const sB = parseInt(g.score_b) || 0;
+                if (sA > sB) scoreA++;
+                if (sB > sA) scoreB++;
+            });
+
+            // Determine result for selected team
+            const isHome = match.teamA === teamName;
+            const ourScore = isHome ? scoreA : scoreB;
+            const theirScore = isHome ? scoreB : scoreA;
+            let scoreBadgeClass = '';
+            if (ourScore > theirScore) {
+                scoreBadgeClass = 'score-badge--win';
+            } else if (ourScore < theirScore) {
+                scoreBadgeClass = 'score-badge--loss';
+            } else {
+                scoreBadgeClass = 'score-badge--draw';
+            }
+
+            // Season/round info
+            const seasonRoundText = `${match.round || ''}${match.season ? ` • ${match.season}` : ''}`;
+
+            const matchRow = document.createElement('div');
+            matchRow.className = 'match-row';
+
+            const logoA = getTeamLogoSrc(match.teamA);
+            const logoB = getTeamLogoSrc(match.teamB);
+            const logoSlotHtml = (src, teamName) => {
+                const alt = `${escapeAttr(teamName)} logo`;
+                const img = src ? `<img class="team-logo-small" src="${src}" alt="${alt}" loading="lazy">` : '';
+                return `<div class="team-logo-slot">${img}</div>`;
+            };
+            const logoAHtml = logoSlotHtml(logoA, match.teamA);
+            const logoBHtml = logoSlotHtml(logoB, match.teamB);
+
+            // Determine which team name should be bold
+            const teamAClass = match.teamA === teamName ? 'team-name--selected' : '';
+            const teamBClass = match.teamB === teamName ? 'team-name--selected' : '';
+
+            const summary = document.createElement('div');
+            summary.className = 'match-summary';
+            summary.innerHTML = `<div class="match-round-info">${escapeHtml(seasonRoundText)}</div><div class="team-name team-left ${teamAClass}">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge ${scoreBadgeClass}">${scoreA}-${scoreB}</div>${logoBHtml}<div class="team-name team-right ${teamBClass}">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+
+            const details = document.createElement('div');
+            details.className = 'match-details';
+
+            // Stats generation
+            const stats = {};
+            match.games.forEach(g => {
+                const isD = g.doubles === true || g.doubles === "true";
+                const pVal = isD ? 0.5 : 1;
+                const sA = parseInt(g.score_a);
+                const sB = parseInt(g.score_b);
+
+                const updateP = (namesStr, team, won) => {
+                    if (!namesStr) return;
+                    namesStr.split('/').map(n => n.trim()).forEach(n => {
+                        if (!n || isWalkoverToken(n)) return;
+                        if (!stats[n]) stats[n] = { name: n, team: team, points: 0, possible: 0 };
+                        stats[n].possible += pVal;
+                        if (won) stats[n].points += pVal;
+                    });
+                };
+                updateP(g.player_a, match.teamA, sA > sB);
+                updateP(g.player_b, match.teamB, sB > sA);
+            });
+
+            const getTeamStatsHtml = (teamName, align) => {
+                const list = Object.values(stats).filter(p => p.team === teamName).sort((a, b) => {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return a.possible - b.possible;
+                });
+                if (list.length === 0) return '';
+                const tLogo = getTeamLogoSrc(teamName);
+                let h = `<div class="team-stats ${align}">`;
+                if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${escapeAttr(teamName)} logo" loading="lazy"></div>`;
+                list.forEach((p) => {
+                    h += `<div class="player-stat-row">
+                        <div class="player-stat-name">${escapeHtml(p.name)}</div>
+                        <span class="player-stat-score">${p.points}/${p.possible}</span>
+                    </div>`;
+                });
+                h += `</div>`;
+                return h;
+            };
+
+            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left')}${getTeamStatsHtml(match.teamB, 'right')}</div>`;
+
+            let gamesHtml = '';
+            match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
+                const sA = parseInt(g.score_a);
+                const sB = parseInt(g.score_b);
+                gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                    <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+            });
+            details.innerHTML = statsHtml + gamesHtml;
+
+            summary.onclick = () => {
+                const isEx = details.style.display === 'block';
+                details.style.display = isEx ? 'none' : 'block';
+                matchRow.classList.toggle('active', !isEx);
+            };
+            matchRow.appendChild(summary);
+            matchRow.appendChild(details);
+            wrapper.appendChild(matchRow);
+        });
+
+        container.innerHTML = '';
+        container.appendChild(wrapper);
+
+        if (hasMoreMatches && showAllContainer) {
+            showAllContainer.style.display = 'block';
+            const showAllBtn = document.getElementById('myTeamShowAllMatchesBtn');
+            if (showAllBtn) {
+                showAllBtn.onclick = () => {
+                    hiddenMatches.forEach(match => {
+                        let scoreA = 0, scoreB = 0;
+                        match.games.forEach(g => {
+                            const sA = parseInt(g.score_a) || 0;
+                            const sB = parseInt(g.score_b) || 0;
+                            if (sA > sB) scoreA++;
+                            if (sB > sA) scoreB++;
+                        });
+
+                        // Determine result for selected team
+                        const isHome = match.teamA === teamName;
+                        const ourScore = isHome ? scoreA : scoreB;
+                        const theirScore = isHome ? scoreB : scoreA;
+                        let scoreBadgeClass = '';
+                        if (ourScore > theirScore) {
+                            scoreBadgeClass = 'score-badge--win';
+                        } else if (ourScore < theirScore) {
+                            scoreBadgeClass = 'score-badge--loss';
+                        } else {
+                            scoreBadgeClass = 'score-badge--draw';
+                        }
+
+                        // Season/round info
+                        const seasonRoundText = `${match.round || ''}${match.season ? ` • ${match.season}` : ''}`;
+
+                        const matchRow = document.createElement('div');
+                        matchRow.className = 'match-row';
+
+                        const logoA = getTeamLogoSrc(match.teamA);
+                        const logoB = getTeamLogoSrc(match.teamB);
+                        const logoSlotHtml = (src, teamName) => {
+                            const alt = `${escapeAttr(teamName)} logo`;
+                            const img = src ? `<img class="team-logo-small" src="${src}" alt="${alt}" loading="lazy">` : '';
+                            return `<div class="team-logo-slot">${img}</div>`;
+                        };
+                        const logoAHtml = logoSlotHtml(logoA, match.teamA);
+                        const logoBHtml = logoSlotHtml(logoB, match.teamB);
+
+                        // Determine which team name should be bold
+                        const teamAClass = match.teamA === teamName ? 'team-name--selected' : '';
+                        const teamBClass = match.teamB === teamName ? 'team-name--selected' : '';
+
+                        const summary = document.createElement('div');
+                        summary.className = 'match-summary';
+                        summary.innerHTML = `<div class="match-round-info">${escapeHtml(seasonRoundText)}</div><div class="team-name team-left ${teamAClass}">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge ${scoreBadgeClass}">${scoreA}-${scoreB}</div>${logoBHtml}<div class="team-name team-right ${teamBClass}">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+
+                        const details = document.createElement('div');
+                        details.className = 'match-details';
+
+                        const stats = {};
+                        match.games.forEach(g => {
+                            const isD = g.doubles === true || g.doubles === "true";
+                            const pVal = isD ? 0.5 : 1;
+                            const sA = parseInt(g.score_a);
+                            const sB = parseInt(g.score_b);
+
+                            const updateP = (namesStr, team, won) => {
+                                if (!namesStr) return;
+                                namesStr.split('/').map(n => n.trim()).forEach(n => {
+                                    if (!n || isWalkoverToken(n)) return;
+                                    if (!stats[n]) stats[n] = { name: n, team: team, points: 0, possible: 0 };
+                                    stats[n].possible += pVal;
+                                    if (won) stats[n].points += pVal;
+                                });
+                            };
+                            updateP(g.player_a, match.teamA, sA > sB);
+                            updateP(g.player_b, match.teamB, sB > sA);
+                        });
+
+                        const getTeamStatsHtml = (teamName, align) => {
+                            const list = Object.values(stats).filter(p => p.team === teamName).sort((a, b) => {
+                                if (b.points !== a.points) return b.points - a.points;
+                                return a.possible - b.possible;
+                            });
+                            if (list.length === 0) return '';
+                            const tLogo = getTeamLogoSrc(teamName);
+                            let h = `<div class="team-stats ${align}">`;
+                            if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${escapeAttr(teamName)} logo" loading="lazy"></div>`;
+                            list.forEach((p) => {
+                                h += `<div class="player-stat-row">
+                                    <div class="player-stat-name">${escapeHtml(p.name)}</div>
+                                    <span class="player-stat-score">${p.points}/${p.possible}</span>
+                                </div>`;
+                            });
+                            h += `</div>`;
+                            return h;
+                        };
+
+                        const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left')}${getTeamStatsHtml(match.teamB, 'right')}</div>`;
+
+                        let gamesHtml = '';
+                        match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
+                            const sA = parseInt(g.score_a);
+                            const sB = parseInt(g.score_b);
+                            gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                                <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                        });
+                        details.innerHTML = statsHtml + gamesHtml;
+
+                        summary.onclick = () => {
+                            const isEx = details.style.display === 'block';
+                            details.style.display = isEx ? 'none' : 'block';
+                            matchRow.classList.toggle('active', !isEx);
+                        };
+                        matchRow.appendChild(summary);
+                        matchRow.appendChild(details);
+                        wrapper.appendChild(matchRow);
+                    });
+                    showAllContainer.style.display = 'none';
+                };
+            }
+        } else if (showAllContainer) {
+            showAllContainer.style.display = 'none';
+        }
+    };
+
+    // Initialize team prediction (similar to prediction page but with left team preselected)
+    const initTeamPrediction = (teamName) => {
+        const teamDisplayA = document.getElementById('myTeamPredTeamADisplay');
+        const teamSelectB = document.getElementById('myTeamPredTeamB');
+        const teamPredictionResult = document.getElementById('myTeamPredictionResult');
+        const teamPredScore = document.getElementById('myTeamPredScore');
+        const teamRateA = document.getElementById('myTeamRateA');
+        const teamRateB = document.getElementById('myTeamRateB');
+        const teamStatus = document.getElementById('myTeamPredictionStatus');
+        const lineupA = document.getElementById('myTeamLineupA');
+        const lineupB = document.getElementById('myTeamLineupB');
+        const lineupTitleA = document.getElementById('myTeamLineupTitleA');
+        const lineupTitleB = document.getElementById('myTeamLineupTitleB');
+        const teamPredictBtn = document.getElementById('myTeamPredictBtn');
+        const teamLogoA = document.getElementById('myTeamPredLogoA');
+        const teamLogoB = document.getElementById('myTeamPredLogoB');
+
+        if (!teamDisplayA || !teamSelectB || !teamPredictionResult) return;
+
+        const avgRating = (list) => list.length ? list.reduce((s, p) => s + p.rating, 0) / list.length : 0;
+        const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+
+        const setTeamLogo = (teamName, targetEl) => {
+            if (!targetEl) return;
+            if (!teamName) {
+                targetEl.innerHTML = '';
+                return;
+            }
+            const logo = getTeamLogoSrc(teamName);
+            if (logo) {
+                targetEl.innerHTML = `<img src="${escapeAttr(logo)}" alt="${escapeAttr(teamName)} logo" loading="lazy">`;
+            } else {
+                targetEl.innerHTML = `<span class="logo-placeholder">${escapeHtml(teamName.slice(0, 3).toUpperCase())}</span>`;
+            }
+        };
+
+        const populateTeams = (select) => {
+            if (!select) return;
+            select.innerHTML = `<option value="">Vyberte hosťujúci tím</option>`;
+            teamNames.forEach(t => {
+                if (t === teamName) return; // Don't include current team in opponent selection
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = t;
+                select.appendChild(opt);
+            });
+        };
+
+        const renderLineup = (teamName, targetEl, titleEl) => {
+            if (titleEl && !titleEl.dataset.defaultTitle) titleEl.dataset.defaultTitle = titleEl.textContent || '';
+            if (titleEl) titleEl.textContent = teamName ? `Zostava ${teamName}` : (titleEl.dataset.defaultTitle || '');
+            if (!targetEl) return;
+            targetEl.innerHTML = '';
+            if (!teamName) {
+                targetEl.innerHTML = `<div class="lineup-hint">Vyberte tím pre zobrazenie hráčov.</div>`;
+                return;
+            }
+            const roster = teamMap.get(teamName) || [];
+            if (roster.length === 0) {
+                targetEl.innerHTML = `<div class="lineup-hint">Žiadni hráči k dispozícii.</div>`;
+                return;
+            }
+            roster.forEach((p, idx) => {
+                const checked = idx < 4;
+                const meta = `Rating ${p.rating.toFixed(1)} • Zápasy ${p.matches + p.dMatches}`;
+                targetEl.insertAdjacentHTML('beforeend',
+                    `<label class="lineup-player">
+                        <div>
+                            <div>${escapeHtml(p.name)}</div>
+                            <div class="player-meta">${escapeHtml(meta)}</div>
+                        </div>
+                        <input type="checkbox" value="${escapeAttr(p.name)}" ${checked ? 'checked' : ''}>
+                    </label>`);
+            });
+
+            const applyLimitState = () => {
+                const checked = targetEl.querySelectorAll('input[type="checkbox"]:checked');
+                const disable = checked.length >= 4;
+                targetEl.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    if (!cb.checked) cb.disabled = disable;
+                });
+            };
+
+            if (!targetEl.dataset.boundLimit) {
+                targetEl.addEventListener('change', (e) => {
+                    const cb = e.target;
+                    if (!(cb instanceof HTMLInputElement) || cb.type !== 'checkbox') return;
+                    const checked = targetEl.querySelectorAll('input[type="checkbox"]:checked');
+                    if (checked.length > 4) {
+                        cb.checked = false;
+                        if (teamStatus) teamStatus.innerText = 'Maximálne 4 hráči na tím.';
+                    } else if (checked.length >= 3) {
+                        if (teamStatus) teamStatus.innerText = '';
+                    }
+                    applyLimitState();
+                });
+                targetEl.dataset.boundLimit = '1';
+            }
+            applyLimitState();
+        };
+
+        const collectLineup = (teamName, targetEl) => {
+            const roster = teamMap.get(teamName) || [];
+            const fallback = roster.slice(0, 4).map(p => p.name);
+            const selectedNames = Array.from(targetEl?.querySelectorAll('input[type="checkbox"]:checked') || []).map(el => el.value);
+            const namesRaw = selectedNames.length > 0 ? selectedNames : fallback;
+            const names = namesRaw.slice(0, 4);
+            const chosen = roster.filter(p => names.includes(p.name)).slice(0, 4);
+            const hasWO = chosen.length === 3;
+            return { names, players: chosen.length ? chosen : roster.slice(0, 4), hasWO };
+        };
+
+        const setTeamStatus = (msg) => {
+            if (teamStatus) teamStatus.innerText = msg || '';
+        };
+
+        const renderTeamPrediction = () => {
+            const tA = teamName; // Always use the current team
+            const tB = teamSelectB.value;
+            if (!tA || !tB) {
+                setTeamStatus('Vyberte hosťujúci tím.');
+                return;
+            }
+            if (tA === tB) {
+                setTeamStatus('Zvoľte rozdielny tím.');
+                return;
+            }
+            setTeamStatus('');
+
+            const lineupSelA = collectLineup(tA, lineupA);
+            const lineupSelB = collectLineup(tB, lineupB);
+            const rosterA = lineupSelA.players;
+            const rosterB = lineupSelB.players;
+
+            if (rosterA.length < 3 || rosterB.length < 3) {
+                setTeamStatus('Vyberte aspoň 3 hráčov v oboch tímoch (max 4).');
+                return;
+            }
+
+            const avgA = avgRating(rosterA);
+            const avgB = avgRating(rosterB);
+
+            let sA = Math.round(18 * winProb(avgA, avgB));
+            let sB = Math.max(0, 18 - sA);
+
+            if (lineupSelA.hasWO) sB += 5;
+            if (lineupSelB.hasWO) sA += 5;
+            if ((sA + sB) > 18) {
+                const scale = 18 / (sA + sB);
+                sA = Math.round(sA * scale);
+                sB = Math.max(0, 18 - sA);
+            }
+
+            sA = Math.min(18, Math.max(0, sA));
+            sB = Math.min(18, Math.max(0, sB));
+
+            if (teamPredScore) teamPredScore.innerText = `${sA} : ${sB}`;
+            if (teamRateA) teamRateA.innerText = avgA.toFixed(1);
+            if (teamRateB) teamRateB.innerText = avgB.toFixed(1);
+            if (teamPredictionResult) teamPredictionResult.style.display = 'block';
+        };
+
+        populateTeams(teamSelectB);
+
+        // Display the current team (not selectable)
+        if (teamName && teamDisplayA) {
+            teamDisplayA.textContent = teamName;
+            renderLineup(teamName, lineupA, lineupTitleA);
+            setTeamLogo(teamName, teamLogoA);
+        }
+
+        teamSelectB.addEventListener('change', () => {
+            renderLineup(teamSelectB.value, lineupB, lineupTitleB);
+            setTeamLogo(teamSelectB.value, teamLogoB);
+        });
+        if (teamPredictBtn) teamPredictBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            renderTeamPrediction();
+        });
+    };
+
+    // Main render function for selected team
+    const renderTeamStats = (teamName) => {
+        currentTeam = teamName;
+        localStorage.setItem(MYTEAM_STORAGE_KEY, teamName);
+        updateURLWithTeam(teamName);
+
+        const teamPlayers = teamMap.get(teamName) || [];
+        const sortedPlayers = sortRoster(teamPlayers);
+
+        // Header
+        document.getElementById('myTeamName').textContent = teamName;
+        const logoEl = document.getElementById('myTeamLogoImg');
+        const logoContainer = document.getElementById('myTeamLogo');
+        const logoSrc = getTeamLogoSrc(teamName);
+        if (logoEl && logoContainer && logoSrc) {
+            logoEl.src = logoSrc;
+            logoEl.style.display = 'block';
+            logoContainer.textContent = '';
+        } else if (logoContainer) {
+            logoContainer.textContent = teamName.charAt(0).toUpperCase();
+            if (logoEl) logoEl.style.display = 'none';
+        }
+
+        // Core stats
+        const activeRating = getActiveRating(sortedPlayers);
+        const overallRating = getOverallRating(teamPlayers);
+        document.getElementById('myTeamActiveRating').textContent = activeRating.toFixed(2);
+        document.getElementById('myTeamOverallRating').textContent = overallRating.toFixed(2);
+
+        // Record
+        const record = getTeamRecord(teamName);
+        document.getElementById('myTeamRecord').textContent = `${record.wins}V-${record.draws}R-${record.losses}P`;
+
+        // Form
+        const form = getTeamForm(teamName);
+        const formContainer = document.getElementById('myTeamForm');
+        formContainer.innerHTML = '';
+        form.forEach(result => {
+            const indicator = document.createElement('div');
+            indicator.className = `form-indicator ${result === 'W' ? 'win' : (result === 'L' ? 'loss' : 'draw')}`;
+            indicator.textContent = result;
+            formContainer.appendChild(indicator);
+        });
+        if (form.length === 0) {
+            formContainer.innerHTML = '<span style="color: var(--color-muted);">Žiadne zápasy</span>';
+        }
+
+        // Render sections
+        renderPlayersList(teamPlayers);
+        // Defer chart render slightly to allow layout to settle (fixes zero-size canvas on reload with ?team=)
+        setTimeout(() => {
+            renderTeamRatingChart(teamName, teamPlayers);
+        }, 80);
+        renderUpcomingMatches(teamName);
+        renderRecentMatches(teamName);
+        initTeamPrediction(teamName);
+    };
+
+    // Event handlers
+    if (selectBtn) {
+        selectBtn.addEventListener('click', () => {
+            const teamName = teamInput.value.trim();
+            if (!teamName) {
+                if (selectStatus) selectStatus.textContent = 'Prosím, vyberte tím.';
+                return;
+            }
+            const team = teamNames.find(t => t.toLowerCase() === teamName.toLowerCase());
+            if (!team) {
+                if (selectStatus) selectStatus.textContent = 'Tím nebol nájdený.';
+                return;
+            }
+            if (selectStatus) selectStatus.textContent = '';
+            renderTeamStats(team);
+            showStatsScreen();
+        });
+    }
+
+    if (changeTeamBtn) {
+        changeTeamBtn.addEventListener('click', () => {
+            showSelectScreen();
+            if (teamInput) teamInput.value = '';
+        });
+    }
+
+    // Initialize: Check URL param first, then localStorage (player's team), then localStorage (team)
+    const urlTeamName = getTeamFromURL();
+    const savedTeamName = localStorage.getItem(MYTEAM_STORAGE_KEY);
+    const savedPlayerName = localStorage.getItem(MYSTATS_STORAGE_KEY);
+
+    let teamNameToLoad = null;
+
+    if (urlTeamName) {
+        // URL has team name
+        const team = teamNames.find(t => t.toLowerCase() === urlTeamName.toLowerCase());
+        if (team) {
+            teamNameToLoad = team;
+            // Update localStorage if it differs from URL
+            if (savedTeamName !== team) {
+                localStorage.setItem(MYTEAM_STORAGE_KEY, team);
+            }
+        } else {
+            // URL has invalid team name, clear it
+            updateURLWithTeam(null);
+        }
+    } else if (savedPlayerName) {
+        // No URL param but localStorage has a player, use that player's team
+        const player = playerArr.find(p => normalizePlayerKey(p.name) === normalizePlayerKey(savedPlayerName));
+        if (player && player.team && player.team !== 'N/A' && teamMap.has(player.team)) {
+            teamNameToLoad = player.team;
+            localStorage.setItem(MYTEAM_STORAGE_KEY, player.team);
+            updateURLWithTeam(player.team);
+        }
+    } else if (savedTeamName) {
+        // No URL param and no player, but localStorage has a team, update URL
+        const team = teamNames.find(t => t.toLowerCase() === savedTeamName.toLowerCase());
+        if (team) {
+            teamNameToLoad = team;
+            updateURLWithTeam(team);
+        }
+    }
+
+    // Load the team if we found one
+    if (teamNameToLoad) {
+        renderTeamStats(teamNameToLoad);
+        showStatsScreen();
+    } else {
+        showSelectScreen();
+    }
+}
+
 // ============================================================
 // NAVIGATION RENDERER
 // ============================================================
@@ -4126,6 +5209,7 @@ function renderNavigation() {
         { url: 'rating.html', text: 'Rating' },
         { url: 'prediction.html', text: 'Predikcia' },
         { url: 'mystats.html', text: 'Moje Štatistiky' },
+        { url: 'myteam.html', text: 'Môj Tím' },
     ];
 
     // Mobile menu includes Home as first item
@@ -4242,6 +5326,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         else if (id === 'page-table') renderTablePage();
         else if (id === 'page-prediction') renderPredictionPage();
         else if (id === 'page-mystats') renderMyStatsPage();
+        else if (id === 'page-myteam') renderMyTeamPage();
         hideLoader();
     });
 });
