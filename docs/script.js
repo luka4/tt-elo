@@ -4136,8 +4136,13 @@ function renderMyTeamPage() {
 
     populateTeamsList(teamsList);
 
+    // Populate comparison datalist
+    const compareList = document.getElementById('myTeamCompareList');
+    populateTeamsList(compareList);
+
     // Current selected team
     let currentTeam = null;
+    let currentCompareTeam = null;
     let myTeamRatingChart = null;
 
     // Show team selection screen
@@ -4254,10 +4259,97 @@ function renderMyTeamPage() {
     };
 
     // Render rating chart (active vs overall)
-    const renderTeamRatingChart = (teamName, teamPlayers, attempt = 0) => {
+    // Helper function to calculate team ratings for a given round
+    const calculateTeamRatingsForRound = (teamPlayers, round) => {
+        const playersAtRound = teamPlayers.map(p => {
+            // Find the last history entry that matches this round
+            // History keys format: "20251-01|1. kolo (JAR 2025)"
+            const targetPrefix = `${round.seasonOrder}-${String(round.roundNum).padStart(2, '0')}`;
+            let ratingAtRound = null;
+
+            // Get all history keys for this player
+            const historyKeys = Object.keys(p.history || {});
+            
+            // Find all history entries that match this round
+            const matchingKeys = historyKeys.filter(key => {
+                const keyParts = key.split('|');
+                if (keyParts.length < 1) return false;
+                return keyParts[0] === targetPrefix;
+            });
+
+            if (matchingKeys.length > 0) {
+                // Get the last one (after all matches in this round)
+                matchingKeys.sort();
+                const lastMatchingKey = matchingKeys[matchingKeys.length - 1];
+                ratingAtRound = p.history[lastMatchingKey];
+            } else {
+                // No history for this round, try to find the most recent before this round
+                for (let i = historyKeys.length - 1; i >= 0; i--) {
+                    const key = historyKeys[i];
+                    const keyParts = key.split('|');
+                    if (keyParts.length < 1) continue;
+                    const keyPrefix = keyParts[0];
+                    const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
+                    const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
+                    
+                    if (keySeasonOrder < round.seasonOrder || 
+                        (keySeasonOrder === round.seasonOrder && keyRoundNum < round.roundNum)) {
+                        ratingAtRound = p.history[key];
+                        break;
+                    }
+                }
+            }
+
+            // If no history found, player hasn't played yet - exclude from calculation
+            if (ratingAtRound === null) {
+                return null;
+            }
+
+            // Count activity (matches played) up to and including this round
+            const matchesUpToRound = p.matchDetails.filter(md => {
+                const mdSeasonOrder = getSeasonOrder(md.season);
+                const mdRoundNum = getRoundNumFromStr(md.round);
+                return mdSeasonOrder < round.seasonOrder || 
+                       (mdSeasonOrder === round.seasonOrder && mdRoundNum <= round.roundNum);
+            });
+            const activityAtRound = matchesUpToRound.length;
+
+            return {
+                name: p.name,
+                rating: ratingAtRound,
+                activity: activityAtRound
+            };
+        }).filter(p => p !== null); // Only include players who have played
+
+        if (playersAtRound.length === 0) {
+            return { activeRating: null, overallRating: null };
+        }
+
+        // Sort by activity then by rating (same as sortRoster logic)
+        const sorted = [...playersAtRound].sort((a, b) => {
+            if (a.activity !== b.activity) return b.activity - a.activity;
+            if (a.rating !== b.rating) return b.rating - a.rating;
+            return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+        });
+
+        // Calculate active rating (4 most active)
+        const active = sorted.slice(0, 4);
+        const activeRating = active.length > 0 
+            ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
+            : null;
+
+        // Calculate overall rating (all players who have played)
+        const overallRating = playersAtRound.length > 0
+            ? playersAtRound.reduce((sum, p) => sum + p.rating, 0) / playersAtRound.length
+            : null;
+
+        return { activeRating, overallRating };
+    };
+
+    const renderTeamRatingChart = (teamName, teamPlayers, compareTeamName = null, compareTeamPlayers = null, attempt = 0) => {
         const canvas = document.getElementById('myTeamRatingChart');
         if (!canvas || typeof Chart === 'undefined') {
-            if (attempt < 8) setTimeout(() => renderTeamRatingChart(teamName, teamPlayers, attempt + 1), 120);
+            if (attempt < 8) setTimeout(() => renderTeamRatingChart(teamName, teamPlayers, compareTeamName, compareTeamPlayers, attempt + 1), 120);
             return;
         }
 
@@ -4286,135 +4378,92 @@ function renderMyTeamPage() {
         // Calculate ratings per round using actual player history
         const activeRatings = [];
         const overallRatings = [];
+        const compareActiveRatings = [];
+        const compareOverallRatings = [];
         const labels = [];
 
         sortedRounds.forEach(round => {
-            // Get player ratings at the END of this round from their history
-            const playersAtRound = teamPlayers.map(p => {
-                // Find the last history entry that matches this round
-                // History keys format: "20251-01|1. kolo (JAR 2025)"
-                const targetPrefix = `${round.seasonOrder}-${String(round.roundNum).padStart(2, '0')}`;
-                let ratingAtRound = null;
-                let lastMatchingKey = null;
-
-                // Get all history keys for this player
-                const historyKeys = Object.keys(p.history || {});
-                
-                // Find all history entries that match this round
-                const matchingKeys = historyKeys.filter(key => {
-                    const keyParts = key.split('|');
-                    if (keyParts.length < 1) return false;
-                    return keyParts[0] === targetPrefix;
-                });
-
-                if (matchingKeys.length > 0) {
-                    // Get the last one (after all matches in this round)
-                    matchingKeys.sort();
-                    lastMatchingKey = matchingKeys[matchingKeys.length - 1];
-                    ratingAtRound = p.history[lastMatchingKey];
-                } else {
-                    // No history for this round, try to find the most recent before this round
-                    for (let i = historyKeys.length - 1; i >= 0; i--) {
-                        const key = historyKeys[i];
-                        const keyParts = key.split('|');
-                        if (keyParts.length < 1) continue;
-                        const keyPrefix = keyParts[0];
-                        const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
-                        const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
-                        
-                        if (keySeasonOrder < round.seasonOrder || 
-                            (keySeasonOrder === round.seasonOrder && keyRoundNum < round.roundNum)) {
-                            ratingAtRound = p.history[key];
-                            break;
-                        }
-                    }
-                }
-
-                // If no history found, player hasn't played yet - exclude from calculation
-                if (ratingAtRound === null) {
-                    return null;
-                }
-
-                // Count activity (matches played) up to and including this round
-                const matchesUpToRound = p.matchDetails.filter(md => {
-                    const mdSeasonOrder = getSeasonOrder(md.season);
-                    const mdRoundNum = getRoundNumFromStr(md.round);
-                    return mdSeasonOrder < round.seasonOrder || 
-                           (mdSeasonOrder === round.seasonOrder && mdRoundNum <= round.roundNum);
-                });
-                const activityAtRound = matchesUpToRound.length;
-
-                return {
-                    name: p.name,
-                    rating: ratingAtRound,
-                    activity: activityAtRound
-                };
-            }).filter(p => p !== null); // Only include players who have played
-
-            if (playersAtRound.length === 0) {
-                // No players have played yet at this round, skip it
-                return;
-            }
-
-            // Sort by activity then by rating (same as sortRoster logic)
-            const sorted = [...playersAtRound].sort((a, b) => {
-                if (a.activity !== b.activity) return b.activity - a.activity;
-                if (a.rating !== b.rating) return b.rating - a.rating;
-                return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
-            });
-
-            // Calculate active rating (4 most active)
-            const active = sorted.slice(0, 4);
-            const activeRating = active.length > 0 
-                ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
-                : null;
-
-            // Calculate overall rating (all players who have played)
-            const overallRating = playersAtRound.length > 0
-                ? playersAtRound.reduce((sum, p) => sum + p.rating, 0) / playersAtRound.length
-                : null;
-
+            // Calculate ratings for current team
+            const { activeRating, overallRating } = calculateTeamRatingsForRound(teamPlayers, round);
+            
             if (activeRating !== null && overallRating !== null) {
                 activeRatings.push(activeRating);
                 overallRatings.push(overallRating);
                 labels.push(round.name + (round.season ? ` (${round.season})` : ''));
+
+                // Calculate ratings for comparison team if provided
+                if (compareTeamPlayers) {
+                    const compareRatings = calculateTeamRatingsForRound(compareTeamPlayers, round);
+                    compareActiveRatings.push(compareRatings.activeRating);
+                    compareOverallRatings.push(compareRatings.overallRating);
+                } else {
+                    compareActiveRatings.push(null);
+                    compareOverallRatings.push(null);
+                }
             }
         });
 
         // Check canvas size - if too small, retry (fixes issue when page loads with team in query string)
         const rect = canvas.getBoundingClientRect();
         if ((rect.width < 2 || rect.height < 2) && attempt < 8) {
-            setTimeout(() => renderTeamRatingChart(teamName, teamPlayers, attempt + 1), 120);
+            setTimeout(() => renderTeamRatingChart(teamName, teamPlayers, compareTeamName, compareTeamPlayers, attempt + 1), 120);
             return;
         }
 
         const ctx = canvas.getContext('2d');
         const themePrimary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#7c3aed';
+        const themeDanger = getComputedStyle(document.documentElement).getPropertyValue('--color-danger').trim() || '#dc2626';
+
+        const datasets = [{
+            label: 'Aktívny Rating',
+            data: activeRatings,
+            borderColor: themePrimary,
+            backgroundColor: themePrimary + '20',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3,
+            pointRadius: 3
+        }, {
+            label: 'Celkový Rating',
+            data: overallRatings,
+            borderColor: '#000000',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            tension: 0.3,
+            pointRadius: 2
+        }];
+
+        // Add comparison team datasets if provided
+        if (compareTeamName && compareTeamPlayers) {
+            datasets.push({
+                label: `${compareTeamName} - Aktívny Rating`,
+                data: compareActiveRatings,
+                borderColor: themeDanger,
+                backgroundColor: themeDanger + 20,
+                borderWidth: 2,
+                fill: true,
+                tension: 0.3,
+                pointRadius: 2
+            });
+            datasets.push({
+                label: `${compareTeamName} - Celkový Rating`,
+                data: compareOverallRatings,
+                borderColor: themeDanger,
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                tension: 0.3,
+                pointRadius: 2
+            });
+        }
 
         if (myTeamRatingChart) myTeamRatingChart.destroy();
         myTeamRatingChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels,
-                datasets: [{
-                    label: 'Aktívny Rating',
-                    data: activeRatings,
-                    borderColor: themePrimary,
-                    backgroundColor: themePrimary + '20',
-                    borderWidth: 2,
-                    fill: true,
-                    tension: 0.3,
-                    pointRadius: 3
-                }, {
-                    label: 'Celkový Rating',
-                    data: overallRatings,
-                    borderColor: '#000000',
-                    backgroundColor: 'transparent',
-                    borderWidth: 2,
-                    borderDash: [5, 5],
-                    tension: 0.3,
-                    pointRadius: 2
-                }]
+                datasets
             },
             options: {
                 responsive: true,
@@ -4870,6 +4919,7 @@ function renderMyTeamPage() {
         const teamPredictBtn = document.getElementById('myTeamPredictBtn');
         const teamLogoA = document.getElementById('myTeamPredLogoA');
         const teamLogoB = document.getElementById('myTeamPredLogoB');
+        const lineupWrapper = document.getElementById('myTeamLineupWrapper');
 
         if (!teamDisplayA || !teamSelectB || !teamPredictionResult) return;
 
@@ -5018,6 +5068,11 @@ function renderMyTeamPage() {
 
         populateTeams(teamSelectB);
 
+        // Initially hide the lineup wrapper
+        if (lineupWrapper) {
+            lineupWrapper.style.display = 'none';
+        }
+
         // Display the current team (not selectable)
         if (teamName && teamDisplayA) {
             teamDisplayA.textContent = teamName;
@@ -5026,8 +5081,23 @@ function renderMyTeamPage() {
         }
 
         teamSelectB.addEventListener('change', () => {
-            renderLineup(teamSelectB.value, lineupB, lineupTitleB);
-            setTeamLogo(teamSelectB.value, teamLogoB);
+            const selectedTeamB = teamSelectB.value;
+            if (selectedTeamB) {
+                // Show lineup wrapper when team B is selected
+                if (lineupWrapper) {
+                    lineupWrapper.style.display = '';
+                }
+                renderLineup(selectedTeamB, lineupB, lineupTitleB);
+                setTeamLogo(selectedTeamB, teamLogoB);
+            } else {
+                // Hide lineup wrapper when team B is cleared
+                if (lineupWrapper) {
+                    lineupWrapper.style.display = 'none';
+                }
+                if (lineupB) lineupB.innerHTML = '';
+                if (lineupTitleB) lineupTitleB.textContent = lineupTitleB.dataset.defaultTitle || 'Zostava hostia';
+                if (teamLogoB) teamLogoB.innerHTML = '';
+            }
         });
         if (teamPredictBtn) teamPredictBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -5106,7 +5176,8 @@ function renderMyTeamPage() {
         renderPlayersList(teamPlayers);
         // Defer chart render slightly to allow layout to settle (fixes zero-size canvas on reload with ?team=)
         setTimeout(() => {
-            renderTeamRatingChart(teamName, teamPlayers);
+            const compareTeamPlayers = currentCompareTeam ? (teamMap.get(currentCompareTeam) || []) : null;
+            renderTeamRatingChart(teamName, teamPlayers, currentCompareTeam, compareTeamPlayers);
         }, 80);
         renderUpcomingMatches(teamName);
         renderRecentMatches(teamName);
@@ -5136,6 +5207,68 @@ function renderMyTeamPage() {
         changeTeamBtn.addEventListener('click', () => {
             showSelectScreen();
             if (teamInput) teamInput.value = '';
+        });
+    }
+
+    // Compare functionality
+    const compareForm = document.getElementById('myTeamCompareForm');
+    const compareInput = document.getElementById('myTeamCompareInput');
+    const clearCompareBtn = document.getElementById('myTeamClearCompareBtn');
+    const compareStatus = document.getElementById('myTeamCompareStatus');
+
+    if (compareForm) {
+        compareForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!currentTeam || !compareInput) return;
+
+            const teamName = compareInput.value.trim();
+            if (!teamName) {
+                if (compareStatus) compareStatus.textContent = 'Zadajte názov tímu.';
+                return;
+            }
+
+            const target = teamNames.find(t => t.toLowerCase() === teamName.toLowerCase());
+            if (!target) {
+                if (compareStatus) compareStatus.textContent = 'Tím nebol nájdený.';
+                return;
+            }
+
+            if (target === currentTeam) {
+                if (compareStatus) compareStatus.textContent = 'Nemôžete porovnať tím so sebou samým.';
+                return;
+            }
+
+            currentCompareTeam = target;
+            if (compareStatus) {
+                compareStatus.textContent = `Porovnávanie s ${target}`;
+                compareStatus.classList.add('ok');
+            }
+
+            // Re-render chart with comparison
+            const teamPlayers = teamMap.get(currentTeam) || [];
+            const compareTeamPlayers = teamMap.get(currentCompareTeam) || [];
+            setTimeout(() => {
+                renderTeamRatingChart(currentTeam, teamPlayers, currentCompareTeam, compareTeamPlayers);
+            }, 80);
+        });
+    }
+
+    if (clearCompareBtn) {
+        clearCompareBtn.addEventListener('click', () => {
+            currentCompareTeam = null;
+            if (compareInput) compareInput.value = '';
+            if (compareStatus) {
+                compareStatus.textContent = '';
+                compareStatus.classList.remove('ok');
+            }
+
+            // Re-render chart without comparison
+            if (currentTeam) {
+                const teamPlayers = teamMap.get(currentTeam) || [];
+                setTimeout(() => {
+                    renderTeamRatingChart(currentTeam, teamPlayers);
+                }, 80);
+            }
         });
     }
 

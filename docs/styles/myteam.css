@@ -309,3 +309,10 @@
   font-weight: 700 !important;
 }
 
+/* Hide team logos in match rows on mobile */
+@media screen and (max-width: 768px) {
+  #myTeamRecentMatches .team-logo-slot {
+    display: none !important;
+  }
+}
+
