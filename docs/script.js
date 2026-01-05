@@ -5064,7 +5064,7 @@ function renderMyTeamPage() {
                         node.remove();
                     }
                 });
-                logoContainer.style.background = 'transparent';
+                logoContainer.style.background = 'white';
             } else {
                 // No logo - show first letter
                 logoEl.style.display = 'none';
