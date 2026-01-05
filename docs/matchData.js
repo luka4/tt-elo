@@ -8,7 +8,7 @@
 var matchResults = window.matchResults = [];
 
 (() => {
-  const ASSET_VERSION = '10';
+  const ASSET_VERSION = '11';
   const STATIC_MATCHES_URL = `data/matches.json?v=${ASSET_VERSION}`;
 
   const RESULTS_SHEET_NAME = 'Results';
