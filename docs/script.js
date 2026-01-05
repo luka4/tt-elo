@@ -2072,7 +2072,7 @@ function renderRatingPage() {
             borderColor: themePrimary,
             backgroundColor: toRgba(themePrimary, 0.1),
             borderWidth: 2,
-            pointRadius: 4,
+            pointRadius: 1,
             tension: 0.1,
             fill: true
         }];
@@ -2085,7 +2085,7 @@ function renderRatingPage() {
                 borderColor: themeDanger,
                 backgroundColor: toRgba(themeDanger, 0.1),
                 borderWidth: 2,
-                pointRadius: 4,
+                pointRadius: 1,
                 tension: 0.1,
                 fill: true
             });
@@ -3234,7 +3234,7 @@ function renderMyStatsPage() {
             borderWidth: 2,
             fill: true,
             tension: 0.3,
-            pointRadius: 3,
+            pointRadius: 1,
             pointBackgroundColor: themePrimary
         }];
 
@@ -3243,11 +3243,11 @@ function renderMyStatsPage() {
                 label: compareP.name,
                 data: buildFilledSeries(compareP.history, allKeys),
                 borderColor: themeDanger,
-                backgroundColor: 'transparent',
+                backgroundColor: themeDanger + 20,
                 borderWidth: 2,
-                borderDash: [5, 5],
+                fill: true,
                 tension: 0.3,
-                pointRadius: 2,
+                pointRadius: 1,
                 pointBackgroundColor: themeDanger
             });
         }
@@ -3319,7 +3319,7 @@ function renderMyStatsPage() {
                 backgroundColor: themeDanger + '20',
                 borderColor: themeDanger,
                 borderWidth: 2,
-                borderDash: [5, 5],
+                fill: true,
                 pointBackgroundColor: themeDanger
             });
         }
@@ -4422,7 +4422,7 @@ function renderMyTeamPage() {
             borderWidth: 2,
             fill: true,
             tension: 0.3,
-            pointRadius: 3
+            pointRadius: 1
         }, {
             label: 'Celkový Rating',
             data: overallRatings,
@@ -4431,7 +4431,7 @@ function renderMyTeamPage() {
             borderWidth: 2,
             borderDash: [5, 5],
             tension: 0.3,
-            pointRadius: 2
+            pointRadius: 1
         }];
 
         // Add comparison team datasets if provided
@@ -4444,7 +4444,7 @@ function renderMyTeamPage() {
                 borderWidth: 2,
                 fill: true,
                 tension: 0.3,
-                pointRadius: 2
+                pointRadius: 1
             });
             datasets.push({
                 label: `${compareTeamName} - Celkový Rating`,
@@ -4454,7 +4454,7 @@ function renderMyTeamPage() {
                 borderWidth: 2,
                 borderDash: [5, 5],
                 tension: 0.3,
-                pointRadius: 2
+                pointRadius: 1
             });
         }
 
@@ -4502,28 +4502,27 @@ function renderMyTeamPage() {
                         <tr>
                             <th>Meno</th>
                             <th>Rating</th>
-                            <th>Dvojhry V</th>
-                            <th>Dvojhry P</th>
-                            <th>Úspešnosť</th>
-                            <th>Štvorhry V</th>
-                            <th>Štvorhry P</th>
-                            <th>Úspešnosť</th>
+                            <th>Z</th>
+                            <th>V</th>
+                            <th>P</th>
+                            <th>Úsp</th>
                         </tr>
                     </thead>
                     <tbody>
-                        ${teamPlayers.map(p => {
+                        ${teamPlayers.map((p, index) => {
                             const singlesWinRate = p.matches > 0 ? ((p.wins / p.matches) * 100).toFixed(1) : '0.0';
                             const doublesWinRate = p.dMatches > 0 ? ((p.dWins / p.dMatches) * 100).toFixed(1) : '0.0';
+                            const winRate = (p.matches + p.dMatches) > 0 ? (((p.wins + p.dWins) / (p.matches + p.dMatches)) * 100).toFixed(1) : '0.0';
+                            const isTopFour = index < 4;
+                            const nameClass = isTopFour ? 'team-player-name--bold' : '';
                             return `
                                 <tr>
-                                    <td class="team-player-name-cell">${escapeHtml(p.name)}</td>
+                                    <td class="${nameClass}">${escapeHtml(p.name)}</td>
                                     <td class="team-player-rating-cell">${p.rating.toFixed(2)}</td>
-                                    <td>${p.wins}</td>
-                                    <td>${p.losses}</td>
-                                    <td>${singlesWinRate}%</td>
-                                    <td>${p.dWins}</td>
-                                    <td>${p.dLosses}</td>
-                                    <td>${doublesWinRate}%</td>
+                                    <td>${p.matches + p.dMatches}</td>
+                                    <td>${p.wins + p.dWins}</td>
+                                    <td>${p.losses + p.dLosses}</td>
+                                    <td>${winRate}%</td>
                                 </tr>
                             `;
                         }).join('')}
