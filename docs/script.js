@@ -3855,6 +3855,11 @@ function renderMyStatsPage() {
         localStorage.setItem(MYSTATS_STORAGE_KEY, p.name);
         updateURLWithPlayer(p.name);
 
+        // Send GA4 event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'view_player', { player: p.name });
+        }
+
         // Header
         document.getElementById('myStatsName').textContent = p.name;
         document.getElementById('myStatsTeam').textContent = p.team || '-';
@@ -5114,6 +5119,11 @@ function renderMyTeamPage() {
         currentTeam = teamName;
         localStorage.setItem(MYTEAM_STORAGE_KEY, teamName);
         updateURLWithTeam(teamName);
+
+        // Send GA4 event
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'view_team', { team: teamName });
+        }
 
         const teamPlayers = teamMap.get(teamName) || [];
         const sortedPlayers = sortRoster(teamPlayers);
