@@ -3878,8 +3878,13 @@ function renderMyStatsPage() {
         document.getElementById('myPeakRating').textContent = peak.rating.toFixed(2);
         document.getElementById('myPeakWhen').textContent = peak.when;
 
-        // Win/Loss record
-        document.getElementById('myRecord').textContent = `${p.wins + p.dWins}V - ${p.losses + p.dLosses}P`;
+        // Win/Loss record (colored)
+        const wins = p.wins + p.dWins;
+        const losses = p.losses + p.dLosses;
+        const recordEl = document.getElementById('myRecord');
+        if (recordEl) {
+            recordEl.innerHTML = `<span class="record-win">${wins}V</span> - <span class="record-loss">${losses}P</span>`;
+        }
 
         // Form
         const form = getRecentForm(p.matchDetails);
@@ -5153,9 +5158,12 @@ function renderMyTeamPage() {
         document.getElementById('myTeamActiveRating').textContent = activeRating.toFixed(2);
         document.getElementById('myTeamOverallRating').textContent = overallRating.toFixed(2);
 
-        // Record
+        // Record (colored)
         const record = getTeamRecord(teamName);
-        document.getElementById('myTeamRecord').textContent = `${record.wins}V-${record.draws}R-${record.losses}P`;
+        const recordEl = document.getElementById('myTeamRecord');
+        if (recordEl) {
+            recordEl.innerHTML = `<span class="record-win">${record.wins}V</span>-<span class="record-draw">${record.draws}R</span>-<span class="record-loss">${record.losses}P</span>`;
+        }
 
         // Form
         const form = getTeamForm(teamName);
