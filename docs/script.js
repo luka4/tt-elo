@@ -101,6 +101,106 @@ function escapeAttr(str) {
     return escapeHtml(str);
 }
 
+// ============================================================
+// 2.1. GLOBAL UTILITY FUNCTIONS (Refactored from duplicates)
+// ============================================================
+
+// Win probability calculation based on ELO ratings
+function winProb(rA, rB) {
+    return 1 / (1 + Math.pow(10, (rB - rA) / 300));
+}
+
+// Score distribution calculation for match predictions
+function getScoreDistribution(probWin) {
+    const p = Math.max(0, Math.min(1, probWin || 0));
+    const q = 1 - p;
+    const dist = {
+        '3-0': Math.pow(p, 3),
+        '3-1': 3 * Math.pow(p, 3) * q,
+        '3-2': 6 * Math.pow(p, 3) * Math.pow(q, 2),
+        '2-3': 6 * Math.pow(q, 3) * Math.pow(p, 2),
+        '1-3': 3 * Math.pow(q, 3) * p,
+        '0-3': Math.pow(q, 3),
+    };
+    const total = Object.values(dist).reduce((s, v) => s + v, 0) || 1;
+    return Object.fromEntries(Object.entries(dist).map(([k, v]) => [k, (v / total) * 100]));
+}
+
+// Calculate average rating from a list of players
+function avgRating(list) {
+    return list.length ? list.reduce((s, p) => s + p.rating, 0) / list.length : 0;
+}
+
+// Sort roster by activity (matches), then rating, then name
+function sortRoster(list) {
+    return [...list].sort((a, b) => {
+        const actA = (a.matches + a.dMatches);
+        const actB = (b.matches + b.dMatches);
+        if (actA !== actB) return actB - actA;
+        if (a.rating !== b.rating) return b.rating - a.rating;
+        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+    });
+}
+
+// Get player rating before a specific match
+function getPlayerRatingBeforeMatch(playerName, matchRound, matchSeason, playersData) {
+    const players = playersData || {};
+    const player = players[playerName];
+    if (!player) return INITIAL_RATING;
+
+    const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
+    const seasonOrder = getSeasonOrder(matchSeason);
+
+    // Find matches in this round
+    const matchesInRound = player.matchDetails.filter(md => {
+        const mdSeasonOrder = getSeasonOrder(md.season);
+        const mdRoundNum = getRoundNumFromStr(md.round);
+        return mdSeasonOrder === seasonOrder && mdRoundNum === roundNum;
+    });
+
+    if (matchesInRound.length > 0) {
+        // Get the first match (rating before the first game in this round)
+        const firstMatch = matchesInRound[0];
+        if (firstMatch.rating_after !== undefined && firstMatch.delta_own !== undefined) {
+            return firstMatch.rating_after - firstMatch.delta_own;
+        }
+    }
+
+    // If not found in matchDetails, try to use history
+    const targetPrefix = `${seasonOrder}-${String(roundNum).padStart(2, '0')}`;
+    const historyKeys = Object.keys(player.history || {}).sort();
+    for (let i = historyKeys.length - 1; i >= 0; i--) {
+        const key = historyKeys[i];
+        const keyParts = key.split('|');
+        if (keyParts.length < 1) continue;
+        const keyPrefix = keyParts[0];
+        const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
+        const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
+        
+        if (keySeasonOrder < seasonOrder || (keySeasonOrder === seasonOrder && keyRoundNum < roundNum)) {
+            return player.history[key];
+        }
+    }
+
+    return INITIAL_RATING;
+}
+
+// Get number of matches played before a specific match
+function getPlayerMatchesBeforeMatch(playerName, matchRound, matchSeason, playersData) {
+    const players = playersData || {};
+    const player = players[playerName];
+    if (!player) return 0;
+
+    const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
+    const seasonOrder = getSeasonOrder(matchSeason);
+
+    return player.matchDetails.filter(md => {
+        const mdSeasonOrder = getSeasonOrder(md.season);
+        const mdRoundNum = getRoundNumFromStr(md.round);
+        return mdSeasonOrder < seasonOrder || (mdSeasonOrder === seasonOrder && mdRoundNum < roundNum);
+    }).length;
+}
+
 // Blend score toward neutral 50 for low sample counts
 function confidenceBlend(base, count, threshold = 8) {
     const confidence = Math.min(count / threshold, 1);
@@ -1033,13 +1133,7 @@ function renderHomePage() {
     // Create team map for ratings
     const playerArr = Object.values(players);
     const teamMap = new Map();
-    const sortRoster = (list) => [...list].sort((a, b) => {
-        const actA = (a.matches + a.dMatches);
-        const actB = (b.matches + b.dMatches);
-        if (actA !== actB) return actB - actA;
-        if (a.rating !== b.rating) return b.rating - a.rating;
-        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
-    });
+    // Using global sortRoster function
     playerArr.forEach(p => {
         if (p.team && p.team !== 'N/A') {
             if (!teamMap.has(p.team)) teamMap.set(p.team, []);
@@ -1238,13 +1332,7 @@ function renderResultsPage() {
     
     // Create team map
     const teamMap = new Map();
-    const sortRoster = (list) => [...list].sort((a, b) => {
-        const actA = (a.matches + a.dMatches);
-        const actB = (b.matches + b.dMatches);
-        if (actA !== actB) return actB - actA;
-        if (a.rating !== b.rating) return b.rating - a.rating;
-        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
-    });
+    // Using global sortRoster function
     playerArr.forEach(p => {
         if (p.team && p.team !== 'N/A') {
             if (!teamMap.has(p.team)) teamMap.set(p.team, []);
@@ -1327,58 +1415,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
         teamMatches[key].games.push(m);
     });
 
-    // Helper functions for rating calculations (if players data is available)
-    const getPlayerRatingBeforeMatch = (playerName, matchRound, matchSeason) => {
-        if (!playersData || !playersData[playerName]) return INITIAL_RATING;
-        const player = playersData[playerName];
-
-        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
-        const seasonOrder = getSeasonOrder(matchSeason);
-
-        const matchesInRound = player.matchDetails.filter(md => {
-            const mdSeasonOrder = getSeasonOrder(md.season);
-            const mdRoundNum = getRoundNumFromStr(md.round);
-            return mdSeasonOrder === seasonOrder && mdRoundNum === roundNum;
-        });
-
-        if (matchesInRound.length > 0) {
-            const firstMatch = matchesInRound[0];
-            if (firstMatch.rating_after !== undefined && firstMatch.delta_own !== undefined) {
-                return firstMatch.rating_after - firstMatch.delta_own;
-            }
-        }
-
-        const targetPrefix = `${seasonOrder}-${String(roundNum).padStart(2, '0')}`;
-        const historyKeys = Object.keys(player.history || {}).sort();
-        for (let i = historyKeys.length - 1; i >= 0; i--) {
-            const key = historyKeys[i];
-            const keyParts = key.split('|');
-            if (keyParts.length < 1) continue;
-            const keyPrefix = keyParts[0];
-            const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
-            const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
-            
-            if (keySeasonOrder < seasonOrder || (keySeasonOrder === seasonOrder && keyRoundNum < roundNum)) {
-                return player.history[key];
-            }
-        }
-
-        return INITIAL_RATING;
-    };
-
-    const getPlayerMatchesBeforeMatch = (playerName, matchRound, matchSeason) => {
-        if (!playersData || !playersData[playerName]) return 0;
-        const player = playersData[playerName];
-
-        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
-        const seasonOrder = getSeasonOrder(matchSeason);
-
-        return player.matchDetails.filter(md => {
-            const mdSeasonOrder = getSeasonOrder(md.season);
-            const mdRoundNum = getRoundNumFromStr(md.round);
-            return mdSeasonOrder < seasonOrder || (mdSeasonOrder === seasonOrder && mdRoundNum < roundNum);
-        }).length;
-    };
+    // Using global getPlayerRatingBeforeMatch and getPlayerMatchesBeforeMatch functions directly
 
     const calculateTeamRatingsForMatch = (teamName, match) => {
         if (!teamMapData || !playersData) {
@@ -1404,11 +1441,11 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 if (isDoubles && playersA.length === 2) {
                     const key = `${playersA[0]}/${playersA[1]}`;
                     if (!playerDataMap.has(key)) {
-                        const rating1 = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
-                        const rating2 = getPlayerRatingBeforeMatch(playersA[1], match.round, match.season);
+                        const rating1 = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season, playersData);
+                        const rating2 = getPlayerRatingBeforeMatch(playersA[1], match.round, match.season, playersData);
                         const avgRating = (rating1 + rating2) / 2;
-                        const matches1 = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
-                        const matches2 = getPlayerMatchesBeforeMatch(playersA[1], match.round, match.season);
+                        const matches1 = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season, playersData);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersA[1], match.round, match.season, playersData);
                         const totalMatches = matches1 + matches2;
                         if (totalMatches > 0) {
                             playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
@@ -1417,8 +1454,8 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 } else if (playersA.length === 1) {
                     const key = playersA[0];
                     if (!playerDataMap.has(key)) {
-                        const rating = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
-                        const matches = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
+                        const rating = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season, playersData);
+                        const matches = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season, playersData);
                         if (matches > 0) {
                             playerDataMap.set(key, { rating, matches });
                         }
@@ -1433,11 +1470,11 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 if (isDoubles && playersB.length === 2) {
                     const key = `${playersB[0]}/${playersB[1]}`;
                     if (!playerDataMap.has(key)) {
-                        const rating1 = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
-                        const rating2 = getPlayerRatingBeforeMatch(playersB[1], match.round, match.season);
+                        const rating1 = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season, playersData);
+                        const rating2 = getPlayerRatingBeforeMatch(playersB[1], match.round, match.season, playersData);
                         const avgRating = (rating1 + rating2) / 2;
-                        const matches1 = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
-                        const matches2 = getPlayerMatchesBeforeMatch(playersB[1], match.round, match.season);
+                        const matches1 = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season, playersData);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersB[1], match.round, match.season, playersData);
                         const totalMatches = matches1 + matches2;
                         if (totalMatches > 0) {
                             playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
@@ -1446,8 +1483,8 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 } else if (playersB.length === 1) {
                     const key = playersB[0];
                     if (!playerDataMap.has(key)) {
-                        const rating = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
-                        const matches = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
+                        const rating = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season, playersData);
+                        const matches = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season, playersData);
                         if (matches > 0) {
                             playerDataMap.set(key, { rating, matches });
                         }
@@ -1468,8 +1505,8 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
             
             // Get ratings for each unique player
             uniquePlayersSet.forEach(playerName => {
-                const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season);
-                const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season);
+                const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season, playersData);
+                const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season, playersData);
                 if (matches > 0) {
                     individualPlayerRatings.push(rating);
                     playerMatchCounts.push(matches);
@@ -1501,8 +1538,8 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
         }
 
         const playersAtMatch = teamPlayers.map(p => {
-            const rating = getPlayerRatingBeforeMatch(p.name, match.round, match.season);
-            const matches = getPlayerMatchesBeforeMatch(p.name, match.round, match.season);
+            const rating = getPlayerRatingBeforeMatch(p.name, match.round, match.season, playersData);
+            const matches = getPlayerMatchesBeforeMatch(p.name, match.round, match.season, playersData);
             return { name: p.name, rating, matches };
         }).filter(p => p.matches > 0);
 
@@ -1615,7 +1652,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 ratingsA = calculateTeamRatingsForMatch(match.teamA, match);
                 ratingsB = calculateTeamRatingsForMatch(match.teamB, match);
                 
-                const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+                // Using global winProb function
                 const totalSets = 18;
                 let predScoreA = Math.round(totalSets * winProb(ratingsA.actualRating, ratingsB.actualRating));
                 let predScoreB = Math.max(0, totalSets - predScoreA);
@@ -1725,7 +1762,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 ratingsB = calculateCurrentTeamRatings(match.teamB);
                 
                 // Prediction based on active rating
-                const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+                // Using global winProb function
                 const totalSets = 18;
                 let predScoreA = Math.round(totalSets * winProb(ratingsA.activeRating, ratingsB.activeRating));
                 let predScoreB = Math.max(0, totalSets - predScoreA);
@@ -3028,13 +3065,7 @@ function renderPredictionPage() {
 
     // Group players by team and sort them by activity then rating
     const teamMap = new Map();
-    const sortRoster = (list) => [...list].sort((a, b) => {
-        const actA = (a.matches + a.dMatches);
-        const actB = (b.matches + b.dMatches);
-        if (actA !== actB) return actB - actA;
-        if (a.rating !== b.rating) return b.rating - a.rating;
-        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
-    });
+    // Using global sortRoster function
     allPlayers.forEach(p => {
         if (!teamMap.has(p.team)) teamMap.set(p.team, []);
         teamMap.get(p.team).push(p);
@@ -3071,22 +3102,8 @@ function renderPredictionPage() {
 
     if (!teamSelectA || !teamSelectB || !teamPredictionResult) return;
 
-    const avgRating = (list) => list.length ? list.reduce((s, p) => s + p.rating, 0) / list.length : 0;
-    const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
-    const getScoreDistribution = (probWin) => {
-        const p = Math.max(0, Math.min(1, probWin || 0));
-        const q = 1 - p;
-        const dist = {
-            '3-0': Math.pow(p, 3),
-            '3-1': 3 * Math.pow(p, 3) * q,
-            '3-2': 6 * Math.pow(p, 3) * Math.pow(q, 2),
-            '2-3': 6 * Math.pow(q, 3) * Math.pow(p, 2),
-            '1-3': 3 * Math.pow(q, 3) * p,
-            '0-3': Math.pow(q, 3),
-        };
-        const total = Object.values(dist).reduce((s, v) => s + v, 0) || 1;
-        return Object.fromEntries(Object.entries(dist).map(([k, v]) => [k, (v / total) * 100]));
-    };
+    // Using global avgRating function
+    // Using global winProb and getScoreDistribution functions
 
     const renderScoreList = (el, dist) => {
         if (!el) return;
@@ -4109,21 +4126,7 @@ function renderMyStatsPage() {
         };
 
         // Win probability and score distribution
-        const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
-        const getScoreDistribution = (probWin) => {
-            const p = Math.max(0, Math.min(1, probWin || 0));
-            const q = 1 - p;
-            const dist = {
-                '3-0': Math.pow(p, 3),
-                '3-1': 3 * Math.pow(p, 3) * q,
-                '3-2': 6 * Math.pow(p, 3) * Math.pow(q, 2),
-                '2-3': 6 * Math.pow(q, 3) * Math.pow(p, 2),
-                '1-3': 3 * Math.pow(q, 3) * p,
-                '0-3': Math.pow(q, 3),
-            };
-            const total = Object.values(dist).reduce((s, v) => s + v, 0) || 1;
-            return Object.fromEntries(Object.entries(dist).map(([k, v]) => [k, (v / total) * 100]));
-        };
+        // Using global winProb and getScoreDistribution functions
 
         const kA = getKFactor(currentPlayer);
         const kB = getKFactor(opponent);
@@ -4493,13 +4496,7 @@ function renderMyTeamPage() {
 
     // Create team map
     const teamMap = new Map();
-    const sortRoster = (list) => [...list].sort((a, b) => {
-        const actA = (a.matches + a.dMatches);
-        const actB = (b.matches + b.dMatches);
-        if (actA !== actB) return actB - actA;
-        if (a.rating !== b.rating) return b.rating - a.rating;
-        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
-    });
+    // Using global sortRoster function
     playerArr.forEach(p => {
         if (p.team && p.team !== 'N/A') {
             if (!teamMap.has(p.team)) teamMap.set(p.team, []);
@@ -5020,68 +5017,7 @@ function renderMyTeamPage() {
         }
     };
 
-    // Helper function to get player rating before a specific match
-    const getPlayerRatingBeforeMatch = (playerName, matchRound, matchSeason) => {
-        const player = players[playerName];
-        if (!player) return INITIAL_RATING;
-
-        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
-        const seasonOrder = getSeasonOrder(matchSeason);
-
-        // Find matches in this round
-        const matchesInRound = player.matchDetails.filter(md => {
-            const mdSeasonOrder = getSeasonOrder(md.season);
-            const mdRoundNum = getRoundNumFromStr(md.round);
-            return mdSeasonOrder === seasonOrder && mdRoundNum === roundNum;
-        });
-
-        if (matchesInRound.length > 0) {
-            // Get the first match (rating before the first game in this round)
-            // All matches in the same round should have the same "before" rating
-            const firstMatch = matchesInRound[0];
-            if (firstMatch.rating_after !== undefined && firstMatch.delta_own !== undefined) {
-                // Calculate rating before: rating_after - delta_own
-                return firstMatch.rating_after - firstMatch.delta_own;
-            }
-        }
-
-        // If not found in matchDetails, try to use history
-        const targetPrefix = `${seasonOrder}-${String(roundNum).padStart(2, '0')}`;
-        
-        const historyKeys = Object.keys(player.history || {}).sort();
-        for (let i = historyKeys.length - 1; i >= 0; i--) {
-            const key = historyKeys[i];
-            const keyParts = key.split('|');
-            if (keyParts.length < 1) continue;
-            const keyPrefix = keyParts[0];
-            const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
-            const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
-            
-            // If we find a history entry before this match, use it
-            if (keySeasonOrder < seasonOrder || (keySeasonOrder === seasonOrder && keyRoundNum < roundNum)) {
-                return player.history[key];
-            }
-        }
-
-        // Fallback to initial rating
-        return INITIAL_RATING;
-    };
-
-    // Helper function to get number of matches played before a specific match
-    const getPlayerMatchesBeforeMatch = (playerName, matchRound, matchSeason) => {
-        const player = players[playerName];
-        if (!player) return 0;
-
-        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
-        const seasonOrder = getSeasonOrder(matchSeason);
-
-        // Count matches that occurred before this match
-        return player.matchDetails.filter(md => {
-            const mdSeasonOrder = getSeasonOrder(md.season);
-            const mdRoundNum = getRoundNumFromStr(md.round);
-            return mdSeasonOrder < seasonOrder || (mdSeasonOrder === seasonOrder && mdRoundNum < roundNum);
-        }).length;
-    };
+    // Using global getPlayerRatingBeforeMatch and getPlayerMatchesBeforeMatch functions directly
 
     // Calculate team ratings for a match
     const calculateTeamRatingsForMatch = (teamName, match) => {
@@ -5108,11 +5044,11 @@ function renderMyTeamPage() {
                 if (isDoubles && playersA.length === 2) {
                     const key = `${playersA[0]}/${playersA[1]}`;
                     if (!playerDataMap.has(key)) {
-                        const rating1 = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
-                        const rating2 = getPlayerRatingBeforeMatch(playersA[1], match.round, match.season);
+                        const rating1 = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season, players);
+                        const rating2 = getPlayerRatingBeforeMatch(playersA[1], match.round, match.season, players);
                         const avgRating = (rating1 + rating2) / 2;
-                        const matches1 = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
-                        const matches2 = getPlayerMatchesBeforeMatch(playersA[1], match.round, match.season);
+                        const matches1 = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season, players);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersA[1], match.round, match.season, players);
                         const totalMatches = matches1 + matches2;
                         if (totalMatches > 0) {
                             playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
@@ -5121,8 +5057,8 @@ function renderMyTeamPage() {
                 } else if (playersA.length === 1) {
                     const key = playersA[0];
                     if (!playerDataMap.has(key)) {
-                        const rating = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
-                        const matches = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
+                        const rating = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season, players);
+                        const matches = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season, players);
                         if (matches > 0) {
                             playerDataMap.set(key, { rating, matches });
                         }
@@ -5138,11 +5074,11 @@ function renderMyTeamPage() {
                 if (isDoubles && playersB.length === 2) {
                     const key = `${playersB[0]}/${playersB[1]}`;
                     if (!playerDataMap.has(key)) {
-                        const rating1 = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
-                        const rating2 = getPlayerRatingBeforeMatch(playersB[1], match.round, match.season);
+                        const rating1 = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season, players);
+                        const rating2 = getPlayerRatingBeforeMatch(playersB[1], match.round, match.season, players);
                         const avgRating = (rating1 + rating2) / 2;
-                        const matches1 = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
-                        const matches2 = getPlayerMatchesBeforeMatch(playersB[1], match.round, match.season);
+                        const matches1 = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season, players);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersB[1], match.round, match.season, players);
                         const totalMatches = matches1 + matches2;
                         if (totalMatches > 0) {
                             playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
@@ -5151,8 +5087,8 @@ function renderMyTeamPage() {
                 } else if (playersB.length === 1) {
                     const key = playersB[0];
                     if (!playerDataMap.has(key)) {
-                        const rating = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
-                        const matches = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
+                        const rating = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season, players);
+                        const matches = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season, players);
                         if (matches > 0) {
                             playerDataMap.set(key, { rating, matches });
                         }
@@ -5174,8 +5110,8 @@ function renderMyTeamPage() {
             
             // Get ratings for each unique player
             uniquePlayersSet.forEach(playerName => {
-                const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season);
-                const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season);
+                const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season, players);
+                const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season, players);
                 if (matches > 0) {
                     individualPlayerRatings.push(rating);
                     playerMatchCounts.push(matches);
@@ -5208,8 +5144,8 @@ function renderMyTeamPage() {
 
         // Calculate active rating and overall rating at the time of the match
         const playersAtMatch = teamPlayers.map(p => {
-            const rating = getPlayerRatingBeforeMatch(p.name, match.round, match.season);
-            const matches = getPlayerMatchesBeforeMatch(p.name, match.round, match.season);
+            const rating = getPlayerRatingBeforeMatch(p.name, match.round, match.season, players);
+            const matches = getPlayerMatchesBeforeMatch(p.name, match.round, match.season, players);
             return { name: p.name, rating, matches };
         }).filter(p => p.matches > 0);
 
@@ -5363,7 +5299,7 @@ function renderMyTeamPage() {
             const ratingsB = calculateTeamRatingsForMatch(match.teamB, match);
             
             // Calculate prediction based on actual ratings
-            const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+            // Using global winProb function
             const totalSets = 18; // Total sets in a team match
             let predScoreA = Math.round(totalSets * winProb(ratingsA.actualRating, ratingsB.actualRating));
             let predScoreB = Math.max(0, totalSets - predScoreA);
@@ -5541,7 +5477,7 @@ function renderMyTeamPage() {
                         const ratingsB = calculateTeamRatingsForMatch(match.teamB, match);
                         
                         // Calculate prediction based on actual ratings
-                        const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+                        // Using global winProb function
                         const totalSets = 18; // Total sets in a team match
                         let predScoreA = Math.round(totalSets * winProb(ratingsA.actualRating, ratingsB.actualRating));
                         let predScoreB = Math.max(0, totalSets - predScoreA);
@@ -5659,8 +5595,8 @@ function renderMyTeamPage() {
 
         if (!teamDisplayA || !teamSelectB || !teamPredictionResult) return;
 
-        const avgRating = (list) => list.length ? list.reduce((s, p) => s + p.rating, 0) / list.length : 0;
-        const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+        // Using global avgRating function
+        // Using global winProb function
 
         const setTeamLogo = (teamName, targetEl) => {
             if (!targetEl) return;
