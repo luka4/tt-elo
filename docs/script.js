@@ -1030,6 +1030,24 @@ function renderHomePage() {
     // Process data with currentRoundId so stats are calculated for the correct round
     const {players, roundsSet, totalSets, latestRoundName, upsetsList} = processData(currentRoundId);
 
+    // Create team map for ratings
+    const playerArr = Object.values(players);
+    const teamMap = new Map();
+    const sortRoster = (list) => [...list].sort((a, b) => {
+        const actA = (a.matches + a.dMatches);
+        const actB = (b.matches + b.dMatches);
+        if (actA !== actB) return actB - actA;
+        if (a.rating !== b.rating) return b.rating - a.rating;
+        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+    });
+    playerArr.forEach(p => {
+        if (p.team && p.team !== 'N/A') {
+            if (!teamMap.has(p.team)) teamMap.set(p.team, []);
+            teamMap.get(p.team).push(p);
+        }
+    });
+    teamMap.forEach((list, key) => teamMap.set(key, sortRoster(list)));
+
     // Stats
     const uniqueTeamMatches = new Set(playedMatches.map(m => `${getMatchRoundId(m)}_${m.player_a_team}_${m.player_b_team}`));
     document.getElementById('totalRounds').innerText = roundsSet.size;
@@ -1150,7 +1168,7 @@ function renderHomePage() {
     // Latest Results (Now "Current Round")
     if (currentRoundId) {
         const currentRoundMatches = matchResults.filter(m => getMatchRoundId(m) === currentRoundId);
-        renderMatchList(currentRoundMatches, document.getElementById('latestRoundContainer'), false);
+        renderMatchList(currentRoundMatches, document.getElementById('latestRoundContainer'), false, players, teamMap);
 
         // Previous Round Logic
         const roundsIndex = buildRoundsIndex(matchResults);
@@ -1173,7 +1191,7 @@ function renderHomePage() {
             const prevHeader = document.getElementById('prevRoundTitle')?.parentElement;
             if (prevHeader) prevHeader.style.display = '';
             document.getElementById('prevRoundTitle').innerText = prevName;
-            renderMatchList(prevRoundMatches, document.getElementById('prevRoundContainer'), false);
+            renderMatchList(prevRoundMatches, document.getElementById('prevRoundContainer'), false, players, teamMap);
         } else {
             const prevHeader = document.getElementById('prevRoundTitle').parentElement;
             if (prevHeader) prevHeader.style.display = 'none';
@@ -1205,7 +1223,7 @@ function renderHomePage() {
         listDiv.innerHTML = '';
         listDiv.removeAttribute('class'); // Remove grid layout class
 
-        renderMatchList(nextRoundMatches, listDiv, false);
+        renderMatchList(nextRoundMatches, listDiv, false, players, teamMap);
 
         upcomingContainer.style.display = 'block';
     } else {
@@ -1215,6 +1233,26 @@ function renderHomePage() {
 
 // --- RESULTS PAGE ---
 function renderResultsPage() {
+    const {players} = processData();
+    const playerArr = Object.values(players);
+    
+    // Create team map
+    const teamMap = new Map();
+    const sortRoster = (list) => [...list].sort((a, b) => {
+        const actA = (a.matches + a.dMatches);
+        const actB = (b.matches + b.dMatches);
+        if (actA !== actB) return actB - actA;
+        if (a.rating !== b.rating) return b.rating - a.rating;
+        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+    });
+    playerArr.forEach(p => {
+        if (p.team && p.team !== 'N/A') {
+            if (!teamMap.has(p.team)) teamMap.set(p.team, []);
+            teamMap.get(p.team).push(p);
+        }
+    });
+    teamMap.forEach((list, key) => teamMap.set(key, sortRoster(list)));
+
     const rounds = {};
     // Group by ROUND ID (Season + Round), only PLAYED matches
     matchResults.filter(isPlayedMatch).forEach(m => {
@@ -1258,13 +1296,13 @@ function renderResultsPage() {
         header.innerText = `${r.name}${seasonPart}`;
 
         roundWrapper.appendChild(header);
-        renderMatchList(r.matches, roundWrapper, true);
+        renderMatchList(r.matches, roundWrapper, true, players, teamMap);
         container.appendChild(roundWrapper);
     });
 }
 
 // Shared Helper for List
-function renderMatchList(matches, container, appendToProvided) {
+function renderMatchList(matches, container, appendToProvided, playersData = null, teamMapData = null) {
     const teamMatches = {};
     matches.forEach(m => {
         const key = `${m.player_a_team}::${m.player_b_team}`;
@@ -1275,7 +1313,9 @@ function renderMatchList(matches, container, appendToProvided) {
             scoreB: 0,
             games: [],
             date: m.date,
-            location: m.location
+            location: m.location,
+            round: m.round,
+            season: m.season
         };
 
         if (isPlayedMatch(m)) {
@@ -1286,6 +1326,197 @@ function renderMatchList(matches, container, appendToProvided) {
         }
         teamMatches[key].games.push(m);
     });
+
+    // Helper functions for rating calculations (if players data is available)
+    const getPlayerRatingBeforeMatch = (playerName, matchRound, matchSeason) => {
+        if (!playersData || !playersData[playerName]) return INITIAL_RATING;
+        const player = playersData[playerName];
+
+        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
+        const seasonOrder = getSeasonOrder(matchSeason);
+
+        const matchesInRound = player.matchDetails.filter(md => {
+            const mdSeasonOrder = getSeasonOrder(md.season);
+            const mdRoundNum = getRoundNumFromStr(md.round);
+            return mdSeasonOrder === seasonOrder && mdRoundNum === roundNum;
+        });
+
+        if (matchesInRound.length > 0) {
+            const firstMatch = matchesInRound[0];
+            if (firstMatch.rating_after !== undefined && firstMatch.delta_own !== undefined) {
+                return firstMatch.rating_after - firstMatch.delta_own;
+            }
+        }
+
+        const targetPrefix = `${seasonOrder}-${String(roundNum).padStart(2, '0')}`;
+        const historyKeys = Object.keys(player.history || {}).sort();
+        for (let i = historyKeys.length - 1; i >= 0; i--) {
+            const key = historyKeys[i];
+            const keyParts = key.split('|');
+            if (keyParts.length < 1) continue;
+            const keyPrefix = keyParts[0];
+            const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
+            const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
+            
+            if (keySeasonOrder < seasonOrder || (keySeasonOrder === seasonOrder && keyRoundNum < roundNum)) {
+                return player.history[key];
+            }
+        }
+
+        return INITIAL_RATING;
+    };
+
+    const getPlayerMatchesBeforeMatch = (playerName, matchRound, matchSeason) => {
+        if (!playersData || !playersData[playerName]) return 0;
+        const player = playersData[playerName];
+
+        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
+        const seasonOrder = getSeasonOrder(matchSeason);
+
+        return player.matchDetails.filter(md => {
+            const mdSeasonOrder = getSeasonOrder(md.season);
+            const mdRoundNum = getRoundNumFromStr(md.round);
+            return mdSeasonOrder < seasonOrder || (mdSeasonOrder === seasonOrder && mdRoundNum < roundNum);
+        }).length;
+    };
+
+    const calculateTeamRatingsForMatch = (teamName, match) => {
+        if (!teamMapData || !playersData) {
+            return { actualRating: 0, activeRating: 0, overallRating: 0 };
+        }
+        const teamPlayers = teamMapData.get(teamName) || [];
+        if (teamPlayers.length === 0) {
+            return { actualRating: 0, activeRating: 0, overallRating: 0 };
+        }
+
+        const playerDataMap = new Map();
+        
+        match.games.forEach(g => {
+            const isDoubles = g.doubles === true || g.doubles === "true";
+            const playersA = g.player_a ? g.player_a.split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n)) : [];
+            const playersB = g.player_b ? g.player_b.split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n)) : [];
+            
+            if (g.player_a_team === teamName) {
+                if (isDoubles && playersA.length === 2) {
+                    const key = `${playersA[0]}/${playersA[1]}`;
+                    if (!playerDataMap.has(key)) {
+                        const rating1 = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
+                        const rating2 = getPlayerRatingBeforeMatch(playersA[1], match.round, match.season);
+                        const avgRating = (rating1 + rating2) / 2;
+                        const matches1 = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersA[1], match.round, match.season);
+                        const totalMatches = matches1 + matches2;
+                        if (totalMatches > 0) {
+                            playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
+                        }
+                    }
+                } else if (playersA.length === 1) {
+                    const key = playersA[0];
+                    if (!playerDataMap.has(key)) {
+                        const rating = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
+                        const matches = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
+                        if (matches > 0) {
+                            playerDataMap.set(key, { rating, matches });
+                        }
+                    }
+                }
+            }
+            
+            if (g.player_b_team === teamName) {
+                if (isDoubles && playersB.length === 2) {
+                    const key = `${playersB[0]}/${playersB[1]}`;
+                    if (!playerDataMap.has(key)) {
+                        const rating1 = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
+                        const rating2 = getPlayerRatingBeforeMatch(playersB[1], match.round, match.season);
+                        const avgRating = (rating1 + rating2) / 2;
+                        const matches1 = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersB[1], match.round, match.season);
+                        const totalMatches = matches1 + matches2;
+                        if (totalMatches > 0) {
+                            playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
+                        }
+                    }
+                } else if (playersB.length === 1) {
+                    const key = playersB[0];
+                    if (!playerDataMap.has(key)) {
+                        const rating = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
+                        const matches = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
+                        if (matches > 0) {
+                            playerDataMap.set(key, { rating, matches });
+                        }
+                    }
+                }
+            }
+        });
+
+        let actualRating = 0;
+        const playerData = Array.from(playerDataMap.values());
+        if (playerData.length > 0) {
+            let totalWeighted = 0;
+            let totalWeight = 0;
+            for (const data of playerData) {
+                totalWeighted += data.rating * data.matches;
+                totalWeight += data.matches;
+            }
+            actualRating = totalWeight > 0 ? totalWeighted / totalWeight : 0;
+        }
+
+        const playersAtMatch = teamPlayers.map(p => {
+            const rating = getPlayerRatingBeforeMatch(p.name, match.round, match.season);
+            const matches = getPlayerMatchesBeforeMatch(p.name, match.round, match.season);
+            return { name: p.name, rating, matches };
+        }).filter(p => p.matches > 0);
+
+        const sorted = [...playersAtMatch].sort((a, b) => {
+            if (b.matches !== a.matches) return b.matches - a.matches;
+            if (a.rating !== b.rating) return b.rating - a.rating;
+            return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+        });
+
+        const active = sorted.slice(0, 4);
+        const activeRating = active.length > 0 
+            ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
+            : 0;
+
+        const overallRating = playersAtMatch.length > 0
+            ? playersAtMatch.reduce((sum, p) => sum + p.rating, 0) / playersAtMatch.length
+            : 0;
+
+        return { actualRating, activeRating, overallRating };
+    };
+
+    // Calculate current team ratings (for unplayed matches - uses current ratings, not before-match)
+    const calculateCurrentTeamRatings = (teamName) => {
+        if (!teamMapData || !playersData) {
+            return { activeRating: 0, overallRating: 0 };
+        }
+        const teamPlayers = teamMapData.get(teamName) || [];
+        if (teamPlayers.length === 0) {
+            return { activeRating: 0, overallRating: 0 };
+        }
+
+        // Sort by activity (matches) then by rating
+        const sorted = [...teamPlayers].sort((a, b) => {
+            const actA = (a.matches + a.dMatches);
+            const actB = (b.matches + b.dMatches);
+            if (actB !== actA) return actB - actA;
+            if (a.rating !== b.rating) return b.rating - a.rating;
+            return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+        });
+
+        // Active rating (4 most active)
+        const active = sorted.slice(0, 4);
+        const activeRating = active.length > 0 
+            ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
+            : 0;
+
+        // Overall rating (all players)
+        const overallRating = teamPlayers.length > 0
+            ? teamPlayers.reduce((sum, p) => sum + p.rating, 0) / teamPlayers.length
+            : 0;
+
+        return { activeRating, overallRating };
+    };
 
     const wrapper = appendToProvided ? container : document.createElement('div');
     if (!appendToProvided) wrapper.className = 'round-group';
@@ -1336,20 +1567,80 @@ function renderMatchList(matches, container, appendToProvided) {
                 updateP(g.player_b, match.teamB, sB > sA);
             });
 
-            const getTeamStatsHtml = (teamName, align) => {
+            // Calculate ratings and prediction if players data is available
+            let predictionHtml = '';
+            let ratingsA = null;
+            let ratingsB = null;
+            
+            if (playersData && teamMapData) {
+                ratingsA = calculateTeamRatingsForMatch(match.teamA, match);
+                ratingsB = calculateTeamRatingsForMatch(match.teamB, match);
+                
+                const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+                const totalSets = 18;
+                let predScoreA = Math.round(totalSets * winProb(ratingsA.actualRating, ratingsB.actualRating));
+                let predScoreB = Math.max(0, totalSets - predScoreA);
+                
+                predScoreA = Math.min(totalSets, Math.max(0, predScoreA));
+                predScoreB = Math.min(totalSets, Math.max(0, predScoreB));
+                
+                predictionHtml = `<div class="match-prediction-section">
+                    <div class="prediction-label">Systémová predikcia pred zápasom:</div>
+                    <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
+                </div>`;
+            }
+
+            const getTeamStatsHtml = (teamName, align, teamRatings = null) => {
                 const list = Object.values(stats).filter(p => p.team === teamName).sort((a, b) => {
                     if (b.points !== a.points) {
-                        return b.points - a.points; // Higher points first
+                        return b.points - a.points;
                     }
-                    return a.possible - b.possible; // Lower possible first (if points equal)
+                    return a.possible - b.possible;
                 });
                 if (list.length === 0) return '';
                 const tLogo = getTeamLogoSrc(teamName);
                 let h = `<div class="team-stats ${align}">`;
                 if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${escapeAttr(teamName)} logo" loading="lazy"></div>`;
+                
+                // Add rating information if available
+                if (teamRatings) {
+                    h += `<div class="team-rating-info">
+                        <div class="rating-info-item">
+                            <span class="rating-label">
+                                Skutočný rating:
+                                <span class="tooltip-container">
+                                    <span class="tooltip-icon">ℹ️</span>
+                                    <span class="tooltip-text">Priemerný rating hráčov, ktorí hrali v zápase</span>
+                                </span>
+                            </span>
+                            <span class="rating-value">${teamRatings.actualRating.toFixed(2)}</span>
+                        </div>
+                        <div class="rating-info-item">
+                            <span class="rating-label">
+                                Aktívny rating:
+                                <span class="tooltip-container">
+                                    <span class="tooltip-icon">ℹ️</span>
+                                    <span class="tooltip-text">Priemerný rating 4 najaktívnejších hráčov v tíme</span>
+                                </span>
+                            </span>
+                            <span class="rating-value">${teamRatings.activeRating.toFixed(2)}</span>
+                        </div>
+                        <div class="rating-info-item">
+                            <span class="rating-label">
+                                Celkový rating:
+                                <span class="tooltip-container">
+                                    <span class="tooltip-icon">ℹ️</span>
+                                    <span class="tooltip-text">Priemerný rating všetkých hráčov v tíme</span>
+                                </span>
+                            </span>
+                            <span class="rating-value">${teamRatings.overallRating.toFixed(2)}</span>
+                        </div>
+                    </div>`;
+                }
+                
                 list.forEach((p, index) => {
                     h += `<div class="player-stat-row">
-                        <div class="player-stat-name">${p.name}</div>
+                        <div class="player-stat-name">${escapeHtml(p.name)}</div>
                         <span class="player-stat-score">${p.points}/${p.possible}</span>
                     </div>`;
                 });
@@ -1357,7 +1648,7 @@ function renderMatchList(matches, container, appendToProvided) {
                 return h;
             };
 
-            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left')}${getTeamStatsHtml(match.teamB, 'right')}</div>`;
+            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
             // --- STATS GENERATION END ---
 
             let gamesHtml = '';
@@ -1365,9 +1656,9 @@ function renderMatchList(matches, container, appendToProvided) {
                 const sA = parseInt(g.score_a);
                 const sB = parseInt(g.score_b);
                 gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                    <div class="game-names"><div class="player-left">${g.player_a}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${g.player_b}</div></div></div>`;
+                    <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
             });
-            details.innerHTML = statsHtml + gamesHtml;
+            details.innerHTML = predictionHtml + statsHtml + gamesHtml;
 
             summary.onclick = () => {
                 const isEx = details.style.display === 'block';
@@ -1377,12 +1668,83 @@ function renderMatchList(matches, container, appendToProvided) {
             matchRow.appendChild(summary);
             matchRow.appendChild(details);
         } else {
-            // Unplayed View
+            // Unplayed View - with expand functionality and ratings
             const summary = document.createElement('div');
             summary.className = 'match-summary';
-            // Same structure as played matches for perfect alignment
-            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge score-badge--vs">VS</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon" style="visibility:hidden">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge score-badge--vs">VS</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+            
+            const details = document.createElement('div');
+            details.className = 'match-details';
+
+            // Calculate current team ratings and prediction if players data is available
+            let predictionHtml = '';
+            let ratingsA = null;
+            let ratingsB = null;
+            
+            if (playersData && teamMapData) {
+                ratingsA = calculateCurrentTeamRatings(match.teamA);
+                ratingsB = calculateCurrentTeamRatings(match.teamB);
+                
+                // Prediction based on active rating
+                const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+                const totalSets = 18;
+                let predScoreA = Math.round(totalSets * winProb(ratingsA.activeRating, ratingsB.activeRating));
+                let predScoreB = Math.max(0, totalSets - predScoreA);
+                
+                predScoreA = Math.min(totalSets, Math.max(0, predScoreA));
+                predScoreB = Math.min(totalSets, Math.max(0, predScoreB));
+                
+                predictionHtml = `<div class="match-prediction-section">
+                    <div class="prediction-label">Systémová predikcia pred zápasom:</div>
+                    <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
+                </div>`;
+
+                const getTeamRatingsHtml = (teamName, align, teamRatings) => {
+                    const tLogo = getTeamLogoSrc(teamName);
+                    let h = `<div class="team-stats ${align}">`;
+                    if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${escapeAttr(teamName)} logo" loading="lazy"></div>`;
+                    
+                    // Add rating information (only active and overall, no actual rating)
+                    h += `<div class="team-rating-info">
+                        <div class="rating-info-item">
+                            <span class="rating-label">
+                                Aktívny rating:
+                                <span class="tooltip-container">
+                                    <span class="tooltip-icon">ℹ️</span>
+                                    <span class="tooltip-text">Priemerný rating 4 najaktívnejších hráčov v tíme</span>
+                                </span>
+                            </span>
+                            <span class="rating-value">${teamRatings.activeRating.toFixed(2)}</span>
+                        </div>
+                        <div class="rating-info-item">
+                            <span class="rating-label">
+                                Celkový rating:
+                                <span class="tooltip-container">
+                                    <span class="tooltip-icon">ℹ️</span>
+                                    <span class="tooltip-text">Priemerný rating všetkých hráčov v tíme</span>
+                                </span>
+                            </span>
+                            <span class="rating-value">${teamRatings.overallRating.toFixed(2)}</span>
+                        </div>
+                    </div>`;
+                    h += `</div>`;
+                    return h;
+                };
+
+                const ratingsHtml = `<div class="match-stats-container">${getTeamRatingsHtml(match.teamA, 'left', ratingsA)}${getTeamRatingsHtml(match.teamB, 'right', ratingsB)}</div>`;
+                details.innerHTML = predictionHtml + ratingsHtml;
+            } else {
+                details.innerHTML = '';
+            }
+
+            summary.onclick = () => {
+                const isEx = details.style.display === 'block';
+                details.style.display = isEx ? 'none' : 'block';
+                matchRow.classList.toggle('active', !isEx);
+            };
+
             matchRow.appendChild(summary);
+            matchRow.appendChild(details);
 
             const dateStr = match.date ? match.date : '';
             const locStr = match.location ? match.location : '';
@@ -4619,6 +4981,181 @@ function renderMyTeamPage() {
         }
     };
 
+    // Helper function to get player rating before a specific match
+    const getPlayerRatingBeforeMatch = (playerName, matchRound, matchSeason) => {
+        const player = players[playerName];
+        if (!player) return INITIAL_RATING;
+
+        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
+        const seasonOrder = getSeasonOrder(matchSeason);
+
+        // Find matches in this round
+        const matchesInRound = player.matchDetails.filter(md => {
+            const mdSeasonOrder = getSeasonOrder(md.season);
+            const mdRoundNum = getRoundNumFromStr(md.round);
+            return mdSeasonOrder === seasonOrder && mdRoundNum === roundNum;
+        });
+
+        if (matchesInRound.length > 0) {
+            // Get the first match (rating before the first game in this round)
+            // All matches in the same round should have the same "before" rating
+            const firstMatch = matchesInRound[0];
+            if (firstMatch.rating_after !== undefined && firstMatch.delta_own !== undefined) {
+                // Calculate rating before: rating_after - delta_own
+                return firstMatch.rating_after - firstMatch.delta_own;
+            }
+        }
+
+        // If not found in matchDetails, try to use history
+        const targetPrefix = `${seasonOrder}-${String(roundNum).padStart(2, '0')}`;
+        
+        const historyKeys = Object.keys(player.history || {}).sort();
+        for (let i = historyKeys.length - 1; i >= 0; i--) {
+            const key = historyKeys[i];
+            const keyParts = key.split('|');
+            if (keyParts.length < 1) continue;
+            const keyPrefix = keyParts[0];
+            const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
+            const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
+            
+            // If we find a history entry before this match, use it
+            if (keySeasonOrder < seasonOrder || (keySeasonOrder === seasonOrder && keyRoundNum < roundNum)) {
+                return player.history[key];
+            }
+        }
+
+        // Fallback to initial rating
+        return INITIAL_RATING;
+    };
+
+    // Helper function to get number of matches played before a specific match
+    const getPlayerMatchesBeforeMatch = (playerName, matchRound, matchSeason) => {
+        const player = players[playerName];
+        if (!player) return 0;
+
+        const roundNum = parseInt((matchRound.match(/\d+/) || [0])[0]);
+        const seasonOrder = getSeasonOrder(matchSeason);
+
+        // Count matches that occurred before this match
+        return player.matchDetails.filter(md => {
+            const mdSeasonOrder = getSeasonOrder(md.season);
+            const mdRoundNum = getRoundNumFromStr(md.round);
+            return mdSeasonOrder < seasonOrder || (mdSeasonOrder === seasonOrder && mdRoundNum < roundNum);
+        }).length;
+    };
+
+    // Calculate team ratings for a match
+    const calculateTeamRatingsForMatch = (teamName, match) => {
+        const teamPlayers = teamMap.get(teamName) || [];
+        if (teamPlayers.length === 0) {
+            return { actualRating: 0, activeRating: 0, overallRating: 0 };
+        }
+
+        // Calculate actual rating based on players in the match
+        // Use a Set to track unique players (for singles) and unique pairs (for doubles)
+        const playerDataMap = new Map(); // key: player name or "player1/player2" for doubles, value: {rating, matches}
+        
+        match.games.forEach(g => {
+            const isDoubles = g.doubles === true || g.doubles === "true";
+            const playersA = g.player_a ? g.player_a.split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n)) : [];
+            const playersB = g.player_b ? g.player_b.split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n)) : [];
+            
+            // Process team A players
+            if (g.player_a_team === teamName) {
+                if (isDoubles && playersA.length === 2) {
+                    const key = `${playersA[0]}/${playersA[1]}`;
+                    if (!playerDataMap.has(key)) {
+                        const rating1 = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
+                        const rating2 = getPlayerRatingBeforeMatch(playersA[1], match.round, match.season);
+                        const avgRating = (rating1 + rating2) / 2;
+                        const matches1 = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersA[1], match.round, match.season);
+                        const totalMatches = matches1 + matches2;
+                        if (totalMatches > 0) {
+                            playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
+                        }
+                    }
+                } else if (playersA.length === 1) {
+                    const key = playersA[0];
+                    if (!playerDataMap.has(key)) {
+                        const rating = getPlayerRatingBeforeMatch(playersA[0], match.round, match.season);
+                        const matches = getPlayerMatchesBeforeMatch(playersA[0], match.round, match.season);
+                        if (matches > 0) {
+                            playerDataMap.set(key, { rating, matches });
+                        }
+                    }
+                }
+            }
+            
+            // Process team B players
+            if (g.player_b_team === teamName) {
+                if (isDoubles && playersB.length === 2) {
+                    const key = `${playersB[0]}/${playersB[1]}`;
+                    if (!playerDataMap.has(key)) {
+                        const rating1 = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
+                        const rating2 = getPlayerRatingBeforeMatch(playersB[1], match.round, match.season);
+                        const avgRating = (rating1 + rating2) / 2;
+                        const matches1 = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
+                        const matches2 = getPlayerMatchesBeforeMatch(playersB[1], match.round, match.season);
+                        const totalMatches = matches1 + matches2;
+                        if (totalMatches > 0) {
+                            playerDataMap.set(key, { rating: avgRating, matches: totalMatches });
+                        }
+                    }
+                } else if (playersB.length === 1) {
+                    const key = playersB[0];
+                    if (!playerDataMap.has(key)) {
+                        const rating = getPlayerRatingBeforeMatch(playersB[0], match.round, match.season);
+                        const matches = getPlayerMatchesBeforeMatch(playersB[0], match.round, match.season);
+                        if (matches > 0) {
+                            playerDataMap.set(key, { rating, matches });
+                        }
+                    }
+                }
+            }
+        });
+
+        // Calculate weighted average (actual rating)
+        let actualRating = 0;
+        const playerData = Array.from(playerDataMap.values());
+        if (playerData.length > 0) {
+            let totalWeighted = 0;
+            let totalWeight = 0;
+            for (const data of playerData) {
+                totalWeighted += data.rating * data.matches;
+                totalWeight += data.matches;
+            }
+            actualRating = totalWeight > 0 ? totalWeighted / totalWeight : 0;
+        }
+
+        // Calculate active rating and overall rating at the time of the match
+        const playersAtMatch = teamPlayers.map(p => {
+            const rating = getPlayerRatingBeforeMatch(p.name, match.round, match.season);
+            const matches = getPlayerMatchesBeforeMatch(p.name, match.round, match.season);
+            return { name: p.name, rating, matches };
+        }).filter(p => p.matches > 0);
+
+        // Sort by activity (matches) then by rating
+        const sorted = [...playersAtMatch].sort((a, b) => {
+            if (b.matches !== a.matches) return b.matches - a.matches;
+            if (a.rating !== b.rating) return b.rating - a.rating;
+            return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+        });
+
+        // Active rating (4 most active)
+        const active = sorted.slice(0, 4);
+        const activeRating = active.length > 0 
+            ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
+            : 0;
+
+        // Overall rating (all players)
+        const overallRating = playersAtMatch.length > 0
+            ? playersAtMatch.reduce((sum, p) => sum + p.rating, 0) / playersAtMatch.length
+            : 0;
+
+        return { actualRating, activeRating, overallRating };
+    };
+
     // Render recent matches (expandable like results.html)
     const renderRecentMatches = (teamName) => {
         const container = document.getElementById('myTeamRecentMatches');
@@ -4743,15 +5280,65 @@ function renderMyTeamPage() {
                 updateP(g.player_b, match.teamB, sB > sA);
             });
 
-            const getTeamStatsHtml = (teamName, align) => {
+            // Calculate ratings for both teams
+            const ratingsA = calculateTeamRatingsForMatch(match.teamA, match);
+            const ratingsB = calculateTeamRatingsForMatch(match.teamB, match);
+            
+            // Calculate prediction based on actual ratings
+            const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+            const totalSets = 18; // Total sets in a team match
+            let predScoreA = Math.round(totalSets * winProb(ratingsA.actualRating, ratingsB.actualRating));
+            let predScoreB = Math.max(0, totalSets - predScoreA);
+            
+            // Ensure scores are within valid range
+            predScoreA = Math.min(totalSets, Math.max(0, predScoreA));
+            predScoreB = Math.min(totalSets, Math.max(0, predScoreB));
+            
+            const getTeamStatsHtml = (teamName, align, teamRatings) => {
                 const list = Object.values(stats).filter(p => p.team === teamName).sort((a, b) => {
                     if (b.points !== a.points) return b.points - a.points;
                     return a.possible - b.possible;
                 });
                 if (list.length === 0) return '';
                 const tLogo = getTeamLogoSrc(teamName);
+                
                 let h = `<div class="team-stats ${align}">`;
                 if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${escapeAttr(teamName)} logo" loading="lazy"></div>`;
+                
+                // Add rating information with tooltips
+                h += `<div class="team-rating-info">
+                    <div class="rating-info-item">
+                        <span class="rating-label">
+                            Skutočný rating:
+                            <span class="tooltip-container">
+                                <span class="tooltip-icon">ℹ️</span>
+                                <span class="tooltip-text">Priemerný rating hráčov, ktorí hrali v zápase</span>
+                            </span>
+                        </span>
+                        <span class="rating-value">${teamRatings.actualRating.toFixed(2)}</span>
+                    </div>
+                    <div class="rating-info-item">
+                        <span class="rating-label">
+                            Aktívny rating:
+                            <span class="tooltip-container">
+                                <span class="tooltip-icon">ℹ️</span>
+                                <span class="tooltip-text">Priemerný rating 4 najaktívnejších hráčov v tíme</span>
+                            </span>
+                        </span>
+                        <span class="rating-value">${teamRatings.activeRating.toFixed(2)}</span>
+                    </div>
+                    <div class="rating-info-item">
+                        <span class="rating-label">
+                            Celkový rating:
+                            <span class="tooltip-container">
+                                <span class="tooltip-icon">ℹ️</span>
+                                <span class="tooltip-text">Priemerný rating všetkých hráčov v tíme</span>
+                            </span>
+                        </span>
+                        <span class="rating-value">${teamRatings.overallRating.toFixed(2)}</span>
+                    </div>
+                </div>`;
+                
                 list.forEach((p) => {
                     h += `<div class="player-stat-row">
                         <div class="player-stat-name">${escapeHtml(p.name)}</div>
@@ -4762,7 +5349,13 @@ function renderMyTeamPage() {
                 return h;
             };
 
-            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left')}${getTeamStatsHtml(match.teamB, 'right')}</div>`;
+            // Add single prediction section above team details
+            const predictionHtml = `<div class="match-prediction-section">
+                <div class="prediction-label">Systémová predikcia pred zápasom:</div>
+                <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
+            </div>`;
+
+            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
 
             let gamesHtml = '';
             match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
@@ -4771,7 +5364,7 @@ function renderMyTeamPage() {
                 gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
                     <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
             });
-            details.innerHTML = statsHtml + gamesHtml;
+            details.innerHTML = predictionHtml + statsHtml + gamesHtml;
 
             summary.onclick = () => {
                 const isEx = details.style.display === 'block';
@@ -4865,15 +5458,65 @@ function renderMyTeamPage() {
                             updateP(g.player_b, match.teamB, sB > sA);
                         });
 
-                        const getTeamStatsHtml = (teamName, align) => {
+                        // Calculate ratings for both teams
+                        const ratingsA = calculateTeamRatingsForMatch(match.teamA, match);
+                        const ratingsB = calculateTeamRatingsForMatch(match.teamB, match);
+                        
+                        // Calculate prediction based on actual ratings
+                        const winProb = (rA, rB) => 1 / (1 + Math.pow(10, (rB - rA) / 300));
+                        const totalSets = 18; // Total sets in a team match
+                        let predScoreA = Math.round(totalSets * winProb(ratingsA.actualRating, ratingsB.actualRating));
+                        let predScoreB = Math.max(0, totalSets - predScoreA);
+                        
+                        // Ensure scores are within valid range
+                        predScoreA = Math.min(totalSets, Math.max(0, predScoreA));
+                        predScoreB = Math.min(totalSets, Math.max(0, predScoreB));
+                        
+                        const getTeamStatsHtml = (teamName, align, teamRatings) => {
                             const list = Object.values(stats).filter(p => p.team === teamName).sort((a, b) => {
                                 if (b.points !== a.points) return b.points - a.points;
                                 return a.possible - b.possible;
                             });
                             if (list.length === 0) return '';
                             const tLogo = getTeamLogoSrc(teamName);
+                            
                             let h = `<div class="team-stats ${align}">`;
                             if (tLogo) h += `<div class="team-logo-stats"><img class="team-logo-large" src="${tLogo}" alt="${escapeAttr(teamName)} logo" loading="lazy"></div>`;
+                            
+                            // Add rating information with tooltips
+                            h += `<div class="team-rating-info">
+                                <div class="rating-info-item">
+                                    <span class="rating-label">
+                                        Skutočný rating:
+                                        <span class="tooltip-container">
+                                            <span class="tooltip-icon">ℹ️</span>
+                                            <span class="tooltip-text">Priemerný rating hráčov, ktorí hrali v zápase</span>
+                                        </span>
+                                    </span>
+                                    <span class="rating-value">${teamRatings.actualRating.toFixed(2)}</span>
+                                </div>
+                                <div class="rating-info-item">
+                                    <span class="rating-label">
+                                        Aktívny rating:
+                                        <span class="tooltip-container">
+                                            <span class="tooltip-icon">ℹ️</span>
+                                            <span class="tooltip-text">Priemerný rating 4 najaktívnejších hráčov v tíme</span>
+                                        </span>
+                                    </span>
+                                    <span class="rating-value">${teamRatings.activeRating.toFixed(2)}</span>
+                                </div>
+                                <div class="rating-info-item">
+                                    <span class="rating-label">
+                                        Celkový rating:
+                                        <span class="tooltip-container">
+                                            <span class="tooltip-icon">ℹ️</span>
+                                            <span class="tooltip-text">Priemerný rating všetkých hráčov v tíme</span>
+                                        </span>
+                                    </span>
+                                    <span class="rating-value">${teamRatings.overallRating.toFixed(2)}</span>
+                                </div>
+                            </div>`;
+                            
                             list.forEach((p) => {
                                 h += `<div class="player-stat-row">
                                     <div class="player-stat-name">${escapeHtml(p.name)}</div>
@@ -4884,7 +5527,13 @@ function renderMyTeamPage() {
                             return h;
                         };
 
-                        const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left')}${getTeamStatsHtml(match.teamB, 'right')}</div>`;
+                        // Add single prediction section above team details
+                        const predictionHtml = `<div class="match-prediction-section">
+                            <div class="prediction-label">Systémová predikcia pred zápasom:</div>
+                            <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
+                        </div>`;
+
+                        const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
 
                         let gamesHtml = '';
                         match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
@@ -4893,7 +5542,7 @@ function renderMyTeamPage() {
                             gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
                                 <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
                         });
-                        details.innerHTML = statsHtml + gamesHtml;
+                        details.innerHTML = predictionHtml + statsHtml + gamesHtml;
 
                         summary.onclick = () => {
                             const isEx = details.style.display === 'block';

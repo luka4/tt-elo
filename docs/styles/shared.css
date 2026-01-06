@@ -662,4 +662,166 @@ a {
   }
 }
 
+/* ============================================================
+   Team Rating Info and Prediction (shared across pages)
+   ============================================================ */
+.team-rating-info {
+  width: 100%;
+  padding: 10px 8px;
+  margin: 8px 0;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rating-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85em;
+  padding: 4px 0;
+}
+
+.rating-label {
+  color: var(--color-text-subtle);
+  font-weight: 500;
+  text-align: left;
+}
+
+.rating-value {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-align: right;
+  font-size: 1em;
+}
+
+/* Tooltip styles for rating labels */
+.team-rating-info .tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.team-rating-info .tooltip-icon {
+  cursor: help;
+  font-size: 0.75em;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.team-rating-info .tooltip-container:hover .tooltip-icon {
+  opacity: 1;
+}
+
+.team-rating-info .tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: var(--color-ink, #333);
+  color: var(--color-text-inverse, #fff);
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 10px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-weight: normal;
+  font-size: 0.85em;
+  line-height: 1.4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  text-transform: none;
+}
+
+.team-rating-info .tooltip-container:hover .tooltip-text,
+.team-rating-info .tooltip-container:active .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.team-rating-info .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--color-ink, #333) transparent transparent transparent;
+}
+
+/* Match Prediction Section */
+.match-prediction-section {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 0;
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  align-items: center;
+}
+
+.prediction-label {
+  color: var(--color-text-subtle);
+  font-weight: 500;
+  font-size: 0.85em;
+}
+
+.prediction-score {
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.4em;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .team-rating-info {
+    padding: 8px 6px;
+    margin: 6px 0;
+    gap: 5px;
+  }
+
+  .rating-info-item {
+    font-size: 0.8em;
+    padding: 3px 0;
+  }
+
+  .rating-value {
+    font-size: 0.95em;
+  }
+
+  .team-rating-info .tooltip-text {
+    width: 160px;
+    font-size: 0.75em;
+  }
+
+  .match-prediction-section {
+    padding: 10px 8px;
+    gap: 6px;
+  }
+
+  .prediction-label {
+    font-size: 0.75em;
+  }
+
+  .prediction-score {
+    font-size: 1.1em;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
 
