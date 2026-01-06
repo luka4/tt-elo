@@ -1390,6 +1390,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
         }
 
         const playerDataMap = new Map();
+        const uniquePlayersSet = new Set(); // Track unique individual players
         
         match.games.forEach(g => {
             const isDoubles = g.doubles === true || g.doubles === "true";
@@ -1397,6 +1398,9 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
             const playersB = g.player_b ? g.player_b.split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n)) : [];
             
             if (g.player_a_team === teamName) {
+                // Track unique players
+                playersA.forEach(p => uniquePlayersSet.add(p));
+                
                 if (isDoubles && playersA.length === 2) {
                     const key = `${playersA[0]}/${playersA[1]}`;
                     if (!playerDataMap.has(key)) {
@@ -1423,6 +1427,9 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
             }
             
             if (g.player_b_team === teamName) {
+                // Track unique players
+                playersB.forEach(p => uniquePlayersSet.add(p));
+                
                 if (isDoubles && playersB.length === 2) {
                     const key = `${playersB[0]}/${playersB[1]}`;
                     if (!playerDataMap.has(key)) {
@@ -1450,15 +1457,47 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
         });
 
         let actualRating = 0;
-        const playerData = Array.from(playerDataMap.values());
-        if (playerData.length > 0) {
-            let totalWeighted = 0;
-            let totalWeight = 0;
-            for (const data of playerData) {
-                totalWeighted += data.rating * data.matches;
-                totalWeight += data.matches;
+        // Count unique individual players who actually played (not game entries)
+        const uniquePlayersCount = uniquePlayersSet.size;
+        const expectedPlayersCount = 4; // Standard team match has 4 players
+        
+        if (uniquePlayersCount > 0) {
+            // Collect individual player ratings with their match counts
+            const individualPlayerRatings = [];
+            const playerMatchCounts = [];
+            
+            // Get ratings for each unique player
+            uniquePlayersSet.forEach(playerName => {
+                const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season);
+                const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season);
+                if (matches > 0) {
+                    individualPlayerRatings.push(rating);
+                    playerMatchCounts.push(matches);
+                }
+            });
+            
+            if (individualPlayerRatings.length > 0) {
+                // Calculate weighted average based on match counts
+                let totalWeighted = 0;
+                let totalWeight = 0;
+                for (let i = 0; i < individualPlayerRatings.length; i++) {
+                    totalWeighted += individualPlayerRatings[i] * playerMatchCounts[i];
+                    totalWeight += playerMatchCounts[i];
+                }
+                
+                const weightedAvg = totalWeight > 0 ? totalWeighted / totalWeight : 0;
+                
+                // If fewer than 4 players played (some got WO), normalize to 4
+                // The issue: when only 3 players play, the average is divided by 3, making it higher
+                // Solution: multiply by (uniquePlayersCount / 4) to effectively divide by 4 instead
+                // Example: if 3 players with weighted avg 150, then 150 * (3/4) = 112.5
+                if (uniquePlayersCount < expectedPlayersCount) {
+                    // Normalize: multiply by ratio to account for missing player slots
+                    actualRating = weightedAvg * (uniquePlayersCount / expectedPlayersCount);
+                } else {
+                    actualRating = weightedAvg;
+                }
             }
-            actualRating = totalWeight > 0 ? totalWeighted / totalWeight : 0;
         }
 
         const playersAtMatch = teamPlayers.map(p => {
@@ -5054,6 +5093,7 @@ function renderMyTeamPage() {
         // Calculate actual rating based on players in the match
         // Use a Set to track unique players (for singles) and unique pairs (for doubles)
         const playerDataMap = new Map(); // key: player name or "player1/player2" for doubles, value: {rating, matches}
+        const uniquePlayersSet = new Set(); // Track unique individual players
         
         match.games.forEach(g => {
             const isDoubles = g.doubles === true || g.doubles === "true";
@@ -5062,6 +5102,9 @@ function renderMyTeamPage() {
             
             // Process team A players
             if (g.player_a_team === teamName) {
+                // Track unique players
+                playersA.forEach(p => uniquePlayersSet.add(p));
+                
                 if (isDoubles && playersA.length === 2) {
                     const key = `${playersA[0]}/${playersA[1]}`;
                     if (!playerDataMap.has(key)) {
@@ -5089,6 +5132,9 @@ function renderMyTeamPage() {
             
             // Process team B players
             if (g.player_b_team === teamName) {
+                // Track unique players
+                playersB.forEach(p => uniquePlayersSet.add(p));
+                
                 if (isDoubles && playersB.length === 2) {
                     const key = `${playersB[0]}/${playersB[1]}`;
                     if (!playerDataMap.has(key)) {
@@ -5117,15 +5163,47 @@ function renderMyTeamPage() {
 
         // Calculate weighted average (actual rating)
         let actualRating = 0;
-        const playerData = Array.from(playerDataMap.values());
-        if (playerData.length > 0) {
-            let totalWeighted = 0;
-            let totalWeight = 0;
-            for (const data of playerData) {
-                totalWeighted += data.rating * data.matches;
-                totalWeight += data.matches;
+        // Count unique individual players who actually played (not game entries)
+        const uniquePlayersCount = uniquePlayersSet.size;
+        const expectedPlayersCount = 4; // Standard team match has 4 players
+        
+        if (uniquePlayersCount > 0) {
+            // Collect individual player ratings with their match counts
+            const individualPlayerRatings = [];
+            const playerMatchCounts = [];
+            
+            // Get ratings for each unique player
+            uniquePlayersSet.forEach(playerName => {
+                const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season);
+                const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season);
+                if (matches > 0) {
+                    individualPlayerRatings.push(rating);
+                    playerMatchCounts.push(matches);
+                }
+            });
+            
+            if (individualPlayerRatings.length > 0) {
+                // Calculate weighted average based on match counts
+                let totalWeighted = 0;
+                let totalWeight = 0;
+                for (let i = 0; i < individualPlayerRatings.length; i++) {
+                    totalWeighted += individualPlayerRatings[i] * playerMatchCounts[i];
+                    totalWeight += playerMatchCounts[i];
+                }
+                
+                const weightedAvg = totalWeight > 0 ? totalWeighted / totalWeight : 0;
+                
+                // If fewer than 4 players played (some got WO), normalize to 4
+                // The issue: when only 3 players play, the average is divided by 3, making it higher
+                // Solution: multiply by (uniquePlayersCount / 4) to effectively divide by 4 instead
+                // Example: if 3 players with weighted avg 150, then 150 * (3/4) = 112.5
+                if (uniquePlayersCount < expectedPlayersCount) {
+                    // Normalize: multiply by ratio to account for missing player slots
+                    actualRating = weightedAvg * (uniquePlayersCount / expectedPlayersCount);
+                } else {
+                    actualRating = weightedAvg;
+                }
             }
-            actualRating = totalWeight > 0 ? totalWeighted / totalWeight : 0;
         }
 
         // Calculate active rating and overall rating at the time of the match
