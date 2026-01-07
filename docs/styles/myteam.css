@@ -364,6 +364,74 @@
   font-weight: 700;
 }
 
+/* Compare section */
+#page-myteam .compare-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#page-myteam .compare-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#page-myteam #myTeamCompareInput {
+  min-width: 240px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.95em;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#page-myteam #myTeamCompareInput:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+#page-myteam .compare-status {
+  margin-top: 12px;
+  font-size: 0.9em;
+  color: var(--color-danger);
+  text-align: center;
+  min-height: 20px;
+}
+
+#page-myteam .compare-status.ok {
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+#page-myteam #myTeamClearCompareBtn {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+#page-myteam #myTeamClearCompareBtn:hover {
+  background: var(--color-border);
+}
+
+@media screen and (max-width: 640px) {
+  #page-myteam .compare-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #page-myteam #myTeamCompareInput {
+    width: 100%;
+  }
+}
+
 /* Hide team logos in match rows on mobile */
 @media screen and (max-width: 768px) {
   #myTeamRecentMatches .team-logo-slot {

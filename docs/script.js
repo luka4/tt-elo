@@ -4544,9 +4544,7 @@ function renderMyTeamPage() {
 
     populateTeamsList(teamsList);
 
-    // Populate comparison datalist
-    const compareList = document.getElementById('myTeamCompareList');
-    populateTeamsList(compareList);
+    // Compare select will be populated when a team is selected (in renderTeamStats)
 
     // Current selected team
     let currentTeam = null;
@@ -5852,6 +5850,9 @@ function renderMyTeamPage() {
             formContainer.innerHTML = '<span style="color: var(--color-muted);">Žiadne zápasy</span>';
         }
 
+        // Populate compare select (exclude current team)
+        populateCompareSelect(teamName);
+
         // Render sections
         renderPlayersList(teamPlayers);
         // Defer chart render slightly to allow layout to settle (fixes zero-size canvas on reload with ?team=)
@@ -5892,35 +5893,42 @@ function renderMyTeamPage() {
 
     // Compare functionality
     const compareForm = document.getElementById('myTeamCompareForm');
-    const compareInput = document.getElementById('myTeamCompareInput');
+    const compareSelect = document.getElementById('myTeamCompareInput');
     const clearCompareBtn = document.getElementById('myTeamClearCompareBtn');
     const compareStatus = document.getElementById('myTeamCompareStatus');
+
+    // Function to populate compare select (excludes current team)
+    const populateCompareSelect = (currentTeamName) => {
+        if (!compareSelect) return;
+        compareSelect.innerHTML = '<option value="">Vyberte tím na porovnanie</option>';
+        teamNames.forEach(t => {
+            if (t === currentTeamName) return; // Don't include current team
+            const opt = document.createElement('option');
+            opt.value = t;
+            opt.textContent = t;
+            compareSelect.appendChild(opt);
+        });
+    };
 
     if (compareForm) {
         compareForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            if (!currentTeam || !compareInput) return;
+            if (!currentTeam || !compareSelect) return;
 
-            const teamName = compareInput.value.trim();
+            const teamName = compareSelect.value;
             if (!teamName) {
-                if (compareStatus) compareStatus.textContent = 'Zadajte názov tímu.';
+                if (compareStatus) compareStatus.textContent = 'Vyberte tím na porovnanie.';
                 return;
             }
 
-            const target = teamNames.find(t => t.toLowerCase() === teamName.toLowerCase());
-            if (!target) {
-                if (compareStatus) compareStatus.textContent = 'Tím nebol nájdený.';
-                return;
-            }
-
-            if (target === currentTeam) {
+            if (teamName === currentTeam) {
                 if (compareStatus) compareStatus.textContent = 'Nemôžete porovnať tím so sebou samým.';
                 return;
             }
 
-            currentCompareTeam = target;
+            currentCompareTeam = teamName;
             if (compareStatus) {
-                compareStatus.textContent = `Porovnávanie s ${target}`;
+                compareStatus.textContent = `Porovnávanie s ${teamName}`;
                 compareStatus.classList.add('ok');
             }
 
@@ -5936,7 +5944,7 @@ function renderMyTeamPage() {
     if (clearCompareBtn) {
         clearCompareBtn.addEventListener('click', () => {
             currentCompareTeam = null;
-            if (compareInput) compareInput.value = '';
+            if (compareSelect) compareSelect.value = '';
             if (compareStatus) {
                 compareStatus.textContent = '';
                 compareStatus.classList.remove('ok');

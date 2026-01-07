@@ -115,8 +115,9 @@
                 <h3 class="mystats-section-title">⚔️ Porovnanie</h3>
                 <div class="compare-section">
                     <form id="myTeamCompareForm" class="compare-form">
-                        <input type="text" id="myTeamCompareInput" list="myTeamCompareList" placeholder="Porovnať s tímom..." autocomplete="off">
-                        <datalist id="myTeamCompareList"></datalist>
+                        <select id="myTeamCompareInput">
+                            <option value="">Vyberte tím na porovnanie</option>
+                        </select>
                         <button type="submit" class="mystats-btn">Porovnať</button>
                         <button type="button" id="myTeamClearCompareBtn" class="mystats-btn mystats-btn--secondary">Vymazať</button>
                     </form>
