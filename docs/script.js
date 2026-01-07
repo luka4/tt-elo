@@ -2403,6 +2403,13 @@ function renderRatingPage() {
     const openPlayerModal = (p, opts = {}) => {
         const {skipUrlUpdate = false} = opts;
         if (!skipUrlUpdate) updatePlayerInUrl(p.name);
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'click_player', { 
+                player: p.name
+            });
+        }
+
         activePlayer = p;
         activeDerived = computeDerivedStats(p);
         if (activeDerived) activeDerived.label = p.name;
@@ -2817,6 +2824,16 @@ function renderRatingPage() {
         compareDerived = computeDerivedStats(target);
         if (compareDerived) compareDerived.label = target.name;
         setCompareStatus(`Porovnávanie s ${target.name}`, true);
+        
+        // Send GA4 event for player comparison
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'compare_players', {
+                playerA: activePlayer.name,
+                playerB: target.name,
+                source: 'ratingModal'
+            });
+        }
+        
         renderDerivedStats(activeDerived, compareDerived);
         renderLineChart(activePlayer, comparePlayer);
         renderHeadToHead(activePlayer, comparePlayer);
@@ -3229,6 +3246,15 @@ function renderPredictionPage() {
         }
         setTeamStatus('');
 
+        // Send GA4 event for team prediction
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'prediction_team', {
+                teamA: tA,
+                teamB: tB,
+                source: 'prediction'
+            });
+        }
+
         const lineupSelA = collectLineup(tA, lineupA);
         const lineupSelB = collectLineup(tB, lineupB);
         const rosterA = lineupSelA.players;
@@ -3359,6 +3385,15 @@ function renderPredictionPage() {
             return;
         }
         setSimStatus('');
+
+        // Send GA4 event for player prediction
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'prediction_player', {
+                playerA: pA.name,
+                playerB: pB.name,
+                source: 'prediction'
+            });
+        }
 
         // Get K-factors based on next match (current matches + 1)
         const kFactorA = getKFactor(pA.matches + 1);
@@ -4117,6 +4152,15 @@ function renderMyStatsPage() {
             return;
         }
 
+        // Send GA4 event for player prediction
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'prediction_player', {
+                playerA: currentPlayer.name,
+                playerB: opponent.name,
+                source: 'myStats'
+            });
+        }
+
         // Get K factors
         const getKFactor = (p) => {
             const totalMatches = p.matches + p.dMatches;
@@ -4404,6 +4448,15 @@ function renderMyStatsPage() {
             if (normalizePlayerKey(target.name) === normalizePlayerKey(currentPlayer.name)) {
                 compareStatus.textContent = 'Nemôžete porovnať sami so sebou.';
                 return;
+            }
+
+            // Send GA4 event for player comparison
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'compare_players', {
+                    playerA: currentPlayer.name,
+                    playerB: target.name,
+                    source: 'myStats'
+                });
             }
 
             compareStatus.textContent = `Porovnávanie s ${target.name}`;
@@ -5703,6 +5756,15 @@ function renderMyTeamPage() {
             }
             setTeamStatus('');
 
+            // Send GA4 event for team prediction
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'prediction_team', {
+                    teamA: tA,
+                    teamB: tB,
+                    source: 'myTeam'
+                });
+            }
+
             const lineupSelA = collectLineup(tA, lineupA);
             const lineupSelB = collectLineup(tB, lineupB);
             const rosterA = lineupSelA.players;
@@ -5924,6 +5986,14 @@ function renderMyTeamPage() {
             if (teamName === currentTeam) {
                 if (compareStatus) compareStatus.textContent = 'Nemôžete porovnať tím so sebou samým.';
                 return;
+            }
+
+            // Send GA4 event for team comparison
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'compare_teams', {
+                    teamA: currentTeam,
+                    teamB: teamName
+                });
             }
 
             currentCompareTeam = teamName;
