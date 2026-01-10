@@ -519,7 +519,7 @@ function processData(currentRoundIdOverride = null) {
         const oppRatingBeforeB = isDoubles ? 0 : (pNamesA.length > 0 ? players[pNamesA[0]].rating : 0);
 
         // Updated updateSide to accept raw DIFF and displayDelta for opponent
-        const updateSide = (pNames, scoreOwn, scoreOpp, diffOwn, diffOpp, displayDeltaOpp, oppNames, oppTeam, oppRatingBeforeMatch) => {
+        const updateSide = (pNames, scoreOwn, scoreOpp, diffOwn, diffOpp, displayDeltaOpp, oppNames, oppTeam, ownTeam, oppRatingBeforeMatch) => {
             pNames.forEach(name => {
                 const p = players[name];
 
@@ -582,6 +582,7 @@ function processData(currentRoundIdOverride = null) {
                     season: match.season || null,
                     opponent: opponentName,
                     opponent_team: oppTeam,
+                    own_team: ownTeam,
                     score_own: scoreOwn,
                     score_opp: scoreOpp,
                     rating_after: p.rating,
@@ -596,8 +597,8 @@ function processData(currentRoundIdOverride = null) {
 
         // Pass diffA/B for calculation, and displayDeltaB/A for opponent history logs
         // Also pass diffOpp and oppRatingBeforeMatch so we can calculate opponent's rating after correctly
-        updateSide(pNamesA, scoreA, scoreB, diffA, diffB, displayDeltaB, pNamesB, match.player_b_team, oppRatingBeforeA);
-        updateSide(pNamesB, scoreB, scoreA, diffB, diffA, displayDeltaA, pNamesA, match.player_a_team, oppRatingBeforeB);
+        updateSide(pNamesA, scoreA, scoreB, diffA, diffB, displayDeltaB, pNamesB, match.player_b_team, match.player_a_team, oppRatingBeforeA);
+        updateSide(pNamesB, scoreB, scoreA, diffB, diffA, displayDeltaA, pNamesA, match.player_a_team, match.player_b_team, oppRatingBeforeB);
     });
 
     return {players, roundsSet, totalSets, latestRoundName, latestRoundId, upsetsList};
@@ -2659,21 +2660,23 @@ function renderRatingPage() {
                 const playerNames = m.own_name_display.split(' / ').map(n => n.trim());
                 const partnerMatch = findPartnerMatch(m, p.name);
                 
-                // Current player's info
-                const player1Row = renderDoublesPlayerRow(p.name, p.team, m.rating_after, m.delta_own);
+                // Current player's info - use team from match
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                const player1Row = renderDoublesPlayerRow(p.name, ownTeam, m.rating_after, m.delta_own);
                 
-                // Partner's info
+                // Partner's info - use team from partner's match
                 let player2Row = '';
                 if (partnerMatch) {
                     const partnerName = playerNames.find(n => n !== p.name);
                     const partner = players[partnerName];
                     if (partner) {
-                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partner.team, partnerMatch.rating_after, partnerMatch.delta_own);
+                        const partnerTeam = partnerMatch.own_team || partner.team; // Fallback to current team if not stored
+                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partnerTeam, partnerMatch.rating_after, partnerMatch.delta_own);
                     }
                 }
                 ownPlayerRow = player1Row + player2Row;
 
-                // Opponent players
+                // Opponent players - use team from opponent's match
                 const oppNames = m.opponent.split(' / ').map(n => n.trim());
                 let oppRows = [];
                 oppNames.forEach(oppName => {
@@ -2688,7 +2691,8 @@ function renderRatingPage() {
                             om.isDoubles === true
                         );
                         if (oppMatch) {
-                            oppRows.push(renderDoublesPlayerRow(oppName, oppPlayer.team, oppMatch.rating_after, oppMatch.delta_own));
+                            const oppTeam = oppMatch.own_team || oppPlayer.team; // Fallback to current team if not stored
+                            oppRows.push(renderDoublesPlayerRow(oppName, oppTeam, oppMatch.rating_after, oppMatch.delta_own));
                         } else {
                             // Fallback if partner match not found
                             oppRows.push(`<span class="player-name-span">${oppName}</span><span>(${oppPlayer.team})</span>`);
@@ -2697,9 +2701,10 @@ function renderRatingPage() {
                 });
                 oppPlayerRow = oppRows.join(' / ');
             } else {
-                // For singles: original format
+                // For singles: original format - use team from match
                 const oppRatingHtml = `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
-                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${ownTeam}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
                 oppPlayerRow = `<span class="player-name-span">${m.opponent}</span><span>(${m.opponent_team}${oppRatingHtml})</span>${getDiffHtml(m.delta_opp)}`;
             }
 
@@ -2727,21 +2732,23 @@ function renderRatingPage() {
                 const playerNames = m.own_name_display.split(' / ').map(n => n.trim());
                 const partnerMatch = findPartnerMatch(m, p.name);
                 
-                // Current player's info
-                const player1Row = renderDoublesPlayerRow(p.name, p.team, m.rating_after, m.delta_own);
+                // Current player's info - use team from match
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                const player1Row = renderDoublesPlayerRow(p.name, ownTeam, m.rating_after, m.delta_own);
                 
-                // Partner's info
+                // Partner's info - use team from partner's match
                 let player2Row = '';
                 if (partnerMatch) {
                     const partnerName = playerNames.find(n => n !== p.name);
                     const partner = players[partnerName];
                     if (partner) {
-                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partner.team, partnerMatch.rating_after, partnerMatch.delta_own);
+                        const partnerTeam = partnerMatch.own_team || partner.team; // Fallback to current team if not stored
+                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partnerTeam, partnerMatch.rating_after, partnerMatch.delta_own);
                     }
                 }
                 ownPlayerRow = player1Row + player2Row;
 
-                // Opponent players
+                // Opponent players - use team from opponent's match
                 const oppNames = m.opponent.split(' / ').map(n => n.trim());
                 let oppRows = [];
                 oppNames.forEach(oppName => {
@@ -2756,7 +2763,8 @@ function renderRatingPage() {
                             om.isDoubles === true
                         );
                         if (oppMatch) {
-                            oppRows.push(renderDoublesPlayerRow(oppName, oppPlayer.team, oppMatch.rating_after, oppMatch.delta_own));
+                            const oppTeam = oppMatch.own_team || oppPlayer.team; // Fallback to current team if not stored
+                            oppRows.push(renderDoublesPlayerRow(oppName, oppTeam, oppMatch.rating_after, oppMatch.delta_own));
                         } else {
                             // Fallback if partner match not found
                             oppRows.push(`<span class="player-name-span">${oppName}</span><span>(${oppPlayer.team})</span>`);
@@ -2765,9 +2773,10 @@ function renderRatingPage() {
                 });
                 oppPlayerRow = oppRows.join(' / ');
             } else {
-                // For singles: original format
+                // For singles: original format - use team from match
                 const oppRatingHtml = `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
-                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${ownTeam}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
                 oppPlayerRow = `<span class="player-name-span">${m.opponent}</span><span>(${m.opponent_team}${oppRatingHtml})</span>${getDiffHtml(m.delta_opp)}`;
             }
 
@@ -3889,21 +3898,23 @@ function renderMyStatsPage() {
                 const playerNames = m.own_name_display.split(' / ').map(n => n.trim());
                 const partnerMatch = findPartnerMatch(m, p.name);
                 
-                // Current player's info
-                const player1Row = renderDoublesPlayerRow(p.name, p.team, m.rating_after, m.delta_own);
+                // Current player's info - use team from match
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                const player1Row = renderDoublesPlayerRow(p.name, ownTeam, m.rating_after, m.delta_own);
                 
-                // Partner's info
+                // Partner's info - use team from partner's match
                 let player2Row = '';
                 if (partnerMatch) {
                     const partnerName = playerNames.find(n => n !== p.name);
                     const partner = players[partnerName];
                     if (partner) {
-                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partner.team, partnerMatch.rating_after, partnerMatch.delta_own);
+                        const partnerTeam = partnerMatch.own_team || partner.team; // Fallback to current team if not stored
+                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partnerTeam, partnerMatch.rating_after, partnerMatch.delta_own);
                     }
                 }
                 ownPlayerRow = player1Row + player2Row;
 
-                // Opponent players
+                // Opponent players - use team from opponent's match
                 const oppNames = m.opponent.split(' / ').map(n => n.trim());
                 let oppRows = [];
                 oppNames.forEach(oppName => {
@@ -3918,7 +3929,8 @@ function renderMyStatsPage() {
                             om.isDoubles === true
                         );
                         if (oppMatch) {
-                            oppRows.push(renderDoublesPlayerRow(oppName, oppPlayer.team, oppMatch.rating_after, oppMatch.delta_own));
+                            const oppTeam = oppMatch.own_team || oppPlayer.team; // Fallback to current team if not stored
+                            oppRows.push(renderDoublesPlayerRow(oppName, oppTeam, oppMatch.rating_after, oppMatch.delta_own));
                         } else {
                             // Fallback if partner match not found
                             oppRows.push(`<span class="player-name-span">${oppName}</span><span>(${oppPlayer.team})</span>`);
@@ -3927,9 +3939,10 @@ function renderMyStatsPage() {
                 });
                 oppPlayerRow = oppRows.join(' / ');
             } else {
-                // For singles: original format
+                // For singles: original format - use team from match
                 const oppRatingHtml = `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
-                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${ownTeam}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
                 oppPlayerRow = `<span class="player-name-span">${m.opponent}</span><span>(${m.opponent_team}${oppRatingHtml})</span>${getDiffHtml(m.delta_opp)}`;
             }
 
@@ -3957,21 +3970,23 @@ function renderMyStatsPage() {
                 const playerNames = m.own_name_display.split(' / ').map(n => n.trim());
                 const partnerMatch = findPartnerMatch(m, p.name);
                 
-                // Current player's info
-                const player1Row = renderDoublesPlayerRow(p.name, p.team, m.rating_after, m.delta_own);
+                // Current player's info - use team from match
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                const player1Row = renderDoublesPlayerRow(p.name, ownTeam, m.rating_after, m.delta_own);
                 
-                // Partner's info
+                // Partner's info - use team from partner's match
                 let player2Row = '';
                 if (partnerMatch) {
                     const partnerName = playerNames.find(n => n !== p.name);
                     const partner = players[partnerName];
                     if (partner) {
-                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partner.team, partnerMatch.rating_after, partnerMatch.delta_own);
+                        const partnerTeam = partnerMatch.own_team || partner.team; // Fallback to current team if not stored
+                        player2Row = ' / ' + renderDoublesPlayerRow(partnerName, partnerTeam, partnerMatch.rating_after, partnerMatch.delta_own);
                     }
                 }
                 ownPlayerRow = player1Row + player2Row;
 
-                // Opponent players
+                // Opponent players - use team from opponent's match
                 const oppNames = m.opponent.split(' / ').map(n => n.trim());
                 let oppRows = [];
                 oppNames.forEach(oppName => {
@@ -3986,7 +4001,8 @@ function renderMyStatsPage() {
                             om.isDoubles === true
                         );
                         if (oppMatch) {
-                            oppRows.push(renderDoublesPlayerRow(oppName, oppPlayer.team, oppMatch.rating_after, oppMatch.delta_own));
+                            const oppTeam = oppMatch.own_team || oppPlayer.team; // Fallback to current team if not stored
+                            oppRows.push(renderDoublesPlayerRow(oppName, oppTeam, oppMatch.rating_after, oppMatch.delta_own));
                         } else {
                             // Fallback if partner match not found
                             oppRows.push(`<span class="player-name-span">${oppName}</span><span>(${oppPlayer.team})</span>`);
@@ -3995,9 +4011,10 @@ function renderMyStatsPage() {
                 });
                 oppPlayerRow = oppRows.join(' / ');
             } else {
-                // For singles: original format
+                // For singles: original format - use team from match
                 const oppRatingHtml = `, <span class="rating-current">${m.opp_rating_after.toFixed(2)}</span>`;
-                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${p.team}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
+                const ownTeam = m.own_team || p.team; // Fallback to current team if not stored
+                ownPlayerRow = `<span class="player-name-span">${m.own_name_display}</span><span>(${ownTeam}, <span class="rating-current">${m.rating_after.toFixed(2)}</span>)</span>${getDiffHtml(m.delta_own)}`;
                 oppPlayerRow = `<span class="player-name-span">${m.opponent}</span><span>(${m.opponent_team}${oppRatingHtml})</span>${getDiffHtml(m.delta_opp)}`;
             }
 
