@@ -1429,6 +1429,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
 
         const playerDataMap = new Map();
         const uniquePlayersSet = new Set(); // Track unique individual players
+        const playerMatchesInTeamMatch = new Map(); // Track how many matches each player played in THIS team match
         
         match.games.forEach(g => {
             const isDoubles = g.doubles === true || g.doubles === "true";
@@ -1438,6 +1439,17 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
             if (g.player_a_team === teamName) {
                 // Track unique players
                 playersA.forEach(p => uniquePlayersSet.add(p));
+                
+                // Track matches played in this team match
+                if (isDoubles && playersA.length === 2) {
+                    // Doubles: each player gets 0.5 matches
+                    playersA.forEach(p => {
+                        playerMatchesInTeamMatch.set(p, (playerMatchesInTeamMatch.get(p) || 0) + 0.5);
+                    });
+                } else if (playersA.length === 1) {
+                    // Singles: player gets 1 match
+                    playerMatchesInTeamMatch.set(playersA[0], (playerMatchesInTeamMatch.get(playersA[0]) || 0) + 1);
+                }
                 
                 if (isDoubles && playersA.length === 2) {
                     const key = `${playersA[0]}/${playersA[1]}`;
@@ -1468,6 +1480,17 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 // Track unique players
                 playersB.forEach(p => uniquePlayersSet.add(p));
                 
+                // Track matches played in this team match
+                if (isDoubles && playersB.length === 2) {
+                    // Doubles: each player gets 0.5 matches
+                    playersB.forEach(p => {
+                        playerMatchesInTeamMatch.set(p, (playerMatchesInTeamMatch.get(p) || 0) + 0.5);
+                    });
+                } else if (playersB.length === 1) {
+                    // Singles: player gets 1 match
+                    playerMatchesInTeamMatch.set(playersB[0], (playerMatchesInTeamMatch.get(playersB[0]) || 0) + 1);
+                }
+                
                 if (isDoubles && playersB.length === 2) {
                     const key = `${playersB[0]}/${playersB[1]}`;
                     if (!playerDataMap.has(key)) {
@@ -1497,44 +1520,38 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
         let actualRating = 0;
         // Count unique individual players who actually played (not game entries)
         const uniquePlayersCount = uniquePlayersSet.size;
-        const expectedPlayersCount = 4; // Standard team match has 4 players
         
         if (uniquePlayersCount > 0) {
-            // Collect individual player ratings with their match counts
-            const individualPlayerRatings = [];
-            const playerMatchCounts = [];
+            // Collect individual player ratings and their match counts in this team match
+            const playerRatings = [];
+            const matchWeights = [];
             
             // Get ratings for each unique player
             uniquePlayersSet.forEach(playerName => {
                 const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season, playersData);
                 const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season, playersData);
-                if (matches > 0) {
-                    individualPlayerRatings.push(rating);
-                    playerMatchCounts.push(matches);
+                const matchesInTeamMatch = playerMatchesInTeamMatch.get(playerName) || 0;
+                
+                if (matches > 0 && matchesInTeamMatch > 0) {
+                    playerRatings.push(rating);
+                    matchWeights.push(matchesInTeamMatch);
                 }
             });
             
-            if (individualPlayerRatings.length > 0) {
-                // Calculate weighted average based on match counts
+            if (playerRatings.length > 0) {
+                // Calculate weighted average: sum(rating × matches_in_team_match) / sum(matches_in_team_match)
                 let totalWeighted = 0;
                 let totalWeight = 0;
-                for (let i = 0; i < individualPlayerRatings.length; i++) {
-                    totalWeighted += individualPlayerRatings[i] * playerMatchCounts[i];
-                    totalWeight += playerMatchCounts[i];
+                for (let i = 0; i < playerRatings.length; i++) {
+                    totalWeighted += playerRatings[i] * matchWeights[i];
+                    totalWeight += matchWeights[i];
                 }
-                
-                const weightedAvg = totalWeight > 0 ? totalWeighted / totalWeight : 0;
-                
-                // If fewer than 4 players played (some got WO), normalize to 4
-                // The issue: when only 3 players play, the average is divided by 3, making it higher
-                // Solution: multiply by (uniquePlayersCount / 4) to effectively divide by 4 instead
-                // Example: if 3 players with weighted avg 150, then 150 * (3/4) = 112.5
-                if (uniquePlayersCount < expectedPlayersCount) {
-                    // Normalize: multiply by ratio to account for missing player slots
-                    actualRating = weightedAvg * (uniquePlayersCount / expectedPlayersCount);
-                } else {
-                    actualRating = weightedAvg;
+                // Normalize to 18 (standard team match total) if less, to account for walkover losses
+                const expectedTotalMatches = 18;
+                if (totalWeight < expectedTotalMatches) {
+                    totalWeight = expectedTotalMatches;
                 }
+                actualRating = totalWeight > 0 ? totalWeighted / totalWeight : 0;
             }
         }
 
@@ -5098,6 +5115,7 @@ function renderMyTeamPage() {
         // Use a Set to track unique players (for singles) and unique pairs (for doubles)
         const playerDataMap = new Map(); // key: player name or "player1/player2" for doubles, value: {rating, matches}
         const uniquePlayersSet = new Set(); // Track unique individual players
+        const playerMatchesInTeamMatch = new Map(); // Track how many matches each player played in THIS team match
         
         match.games.forEach(g => {
             const isDoubles = g.doubles === true || g.doubles === "true";
@@ -5108,6 +5126,17 @@ function renderMyTeamPage() {
             if (g.player_a_team === teamName) {
                 // Track unique players
                 playersA.forEach(p => uniquePlayersSet.add(p));
+                
+                // Track matches played in this team match
+                if (isDoubles && playersA.length === 2) {
+                    // Doubles: each player gets 0.5 matches
+                    playersA.forEach(p => {
+                        playerMatchesInTeamMatch.set(p, (playerMatchesInTeamMatch.get(p) || 0) + 0.5);
+                    });
+                } else if (playersA.length === 1) {
+                    // Singles: player gets 1 match
+                    playerMatchesInTeamMatch.set(playersA[0], (playerMatchesInTeamMatch.get(playersA[0]) || 0) + 1);
+                }
                 
                 if (isDoubles && playersA.length === 2) {
                     const key = `${playersA[0]}/${playersA[1]}`;
@@ -5139,6 +5168,17 @@ function renderMyTeamPage() {
                 // Track unique players
                 playersB.forEach(p => uniquePlayersSet.add(p));
                 
+                // Track matches played in this team match
+                if (isDoubles && playersB.length === 2) {
+                    // Doubles: each player gets 0.5 matches
+                    playersB.forEach(p => {
+                        playerMatchesInTeamMatch.set(p, (playerMatchesInTeamMatch.get(p) || 0) + 0.5);
+                    });
+                } else if (playersB.length === 1) {
+                    // Singles: player gets 1 match
+                    playerMatchesInTeamMatch.set(playersB[0], (playerMatchesInTeamMatch.get(playersB[0]) || 0) + 1);
+                }
+                
                 if (isDoubles && playersB.length === 2) {
                     const key = `${playersB[0]}/${playersB[1]}`;
                     if (!playerDataMap.has(key)) {
@@ -5169,44 +5209,38 @@ function renderMyTeamPage() {
         let actualRating = 0;
         // Count unique individual players who actually played (not game entries)
         const uniquePlayersCount = uniquePlayersSet.size;
-        const expectedPlayersCount = 4; // Standard team match has 4 players
         
         if (uniquePlayersCount > 0) {
-            // Collect individual player ratings with their match counts
-            const individualPlayerRatings = [];
-            const playerMatchCounts = [];
+            // Collect individual player ratings and their match counts in this team match
+            const playerRatings = [];
+            const matchWeights = [];
             
             // Get ratings for each unique player
             uniquePlayersSet.forEach(playerName => {
                 const rating = getPlayerRatingBeforeMatch(playerName, match.round, match.season, players);
                 const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season, players);
-                if (matches > 0) {
-                    individualPlayerRatings.push(rating);
-                    playerMatchCounts.push(matches);
+                const matchesInTeamMatch = playerMatchesInTeamMatch.get(playerName) || 0;
+                
+                if (matches > 0 && matchesInTeamMatch > 0) {
+                    playerRatings.push(rating);
+                    matchWeights.push(matchesInTeamMatch);
                 }
             });
             
-            if (individualPlayerRatings.length > 0) {
-                // Calculate weighted average based on match counts
+            if (playerRatings.length > 0) {
+                // Calculate weighted average: sum(rating × matches_in_team_match) / sum(matches_in_team_match)
                 let totalWeighted = 0;
                 let totalWeight = 0;
-                for (let i = 0; i < individualPlayerRatings.length; i++) {
-                    totalWeighted += individualPlayerRatings[i] * playerMatchCounts[i];
-                    totalWeight += playerMatchCounts[i];
+                for (let i = 0; i < playerRatings.length; i++) {
+                    totalWeighted += playerRatings[i] * matchWeights[i];
+                    totalWeight += matchWeights[i];
                 }
-                
-                const weightedAvg = totalWeight > 0 ? totalWeighted / totalWeight : 0;
-                
-                // If fewer than 4 players played (some got WO), normalize to 4
-                // The issue: when only 3 players play, the average is divided by 3, making it higher
-                // Solution: multiply by (uniquePlayersCount / 4) to effectively divide by 4 instead
-                // Example: if 3 players with weighted avg 150, then 150 * (3/4) = 112.5
-                if (uniquePlayersCount < expectedPlayersCount) {
-                    // Normalize: multiply by ratio to account for missing player slots
-                    actualRating = weightedAvg * (uniquePlayersCount / expectedPlayersCount);
-                } else {
-                    actualRating = weightedAvg;
+                // Normalize to 18 (standard team match total) if less, to account for walkover losses
+                const expectedTotalMatches = 18;
+                if (totalWeight < expectedTotalMatches) {
+                    totalWeight = expectedTotalMatches;
                 }
+                actualRating = totalWeight > 0 ? totalWeighted / totalWeight : 0;
             }
         }
 
