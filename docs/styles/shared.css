@@ -429,13 +429,6 @@ a {
   padding-left: 15px;
 }
 
-.team-logo-small {
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
 .team-logo-slot {
   width: 58px;
   height: 58px;
@@ -443,19 +436,36 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
 }
 
-.team-logo-large {
-  max-width: 140px;
+.team-logo-small {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 .team-logo-stats {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 8px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.team-logo-large {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .score-badge {
@@ -479,7 +489,7 @@ a {
 
 .match-details {
   display: none;
-  background-color: var(--color-surface-2);
+  background-color: #dbeafe;
   border-top: 1px solid var(--color-border);
   padding: 10px 0;
   box-shadow: var(--shadow-inset);
@@ -563,7 +573,7 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 10px 15px;
-  background-color: var(--color-surface-2);
+  background-color: #dbeafe;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -644,18 +654,15 @@ a {
     min-width: 54px;
     flex-shrink: 0;
   }
-  .team-logo-small {
+  .team-logo-slot {
     width: 38px;
     height: 38px;
-    flex-shrink: 0;
-  }
-  .team-logo-large {
-    max-width: 110px;
-    max-width: 40vw;
   }
   .team-logo-stats {
+    width: 100px;
+    height: 100px;
     margin-bottom: 6px;
-    padding: 0 4px;
+    padding: 0;
   }
   .match-row {
     overflow-x: hidden;
@@ -669,9 +676,10 @@ a {
   width: 100%;
   padding: 10px 8px;
   margin: 8px 0;
-  background: var(--color-surface);
+  background: #f0f7ff;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -762,7 +770,7 @@ a {
   width: 100%;
   padding: 12px 15px;
   margin: 0;
-  background: var(--color-surface-2);
+  background: #dbeafe;
   border-bottom: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
@@ -780,7 +788,7 @@ a {
 .prediction-score {
   color: var(--color-primary);
   font-weight: 800;
-  font-size: 1.4em;
+  font-size: 0.85em;
   letter-spacing: 1px;
   display: flex;
   align-items: center;
@@ -818,7 +826,7 @@ a {
   }
 
   .prediction-score {
-    font-size: 1.1em;
+    font-size: 0.75em;
     flex-direction: column;
     gap: 4px;
   }

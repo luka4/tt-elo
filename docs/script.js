@@ -1679,7 +1679,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 predScoreB = Math.min(totalSets, Math.max(0, predScoreB));
                 
                 predictionHtml = `<div class="match-prediction-section">
-                    <div class="prediction-label">Systémová predikcia pred zápasom:</div>
+                    <div class="prediction-label">Predikcia pred zápasom (použitý skutočný rating - priemerný rating hráčov, ktorí hrali v zápase):</div>
                     <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
                 </div>`;
             }
@@ -1789,7 +1789,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 predScoreB = Math.min(totalSets, Math.max(0, predScoreB));
                 
                 predictionHtml = `<div class="match-prediction-section">
-                    <div class="prediction-label">Systémová predikcia pred zápasom:</div>
+                    <div class="prediction-label">Predikcia pred zápasom (použitý aktívny rating - priemerný rating 4 najaktívnejších hráčov):</div>
                     <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
                 </div>`;
 
@@ -3046,7 +3046,7 @@ function renderTablePage() {
         const getHist = (tn) => {
             const mm = teamMatchesArray.filter(m => m.teamA === tn || m.teamB === tn);
             const logoSrc = getTeamLogoSrc(tn);
-            const logoBlock = logoSrc ? `<div class="team-logo-banner"><img src="${logoSrc}" alt="${escapeAttr(tn)} logo" class="team-logo-large" loading="lazy"></div>` : '';
+            const logoBlock = logoSrc ? `<div class="team-logo-banner"><div class="team-logo-banner-wrapper"><img src="${logoSrc}" alt="${escapeAttr(tn)} logo" class="team-logo-large" loading="lazy"></div></div>` : '';
             if (mm.length === 0) return `${logoBlock}<div style="padding:15px; text-align:center; color:var(--color-muted-2);">Žiadne zápasy</div>`;
             let h = `${logoBlock}<div class="history-list">`;
             mm.forEach(m => {
@@ -5467,7 +5467,7 @@ function renderMyTeamPage() {
 
             // Add single prediction section above team details
             const predictionHtml = `<div class="match-prediction-section">
-                <div class="prediction-label">Systémová predikcia pred zápasom:</div>
+                <div class="prediction-label">Predikcia pred zápasom (použitý skutočný rating - priemerný rating hráčov, ktorí hrali v zápase):</div>
                 <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
             </div>`;
 

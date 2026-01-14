@@ -444,9 +444,10 @@
   width: 100%;
   padding: 10px 8px;
   margin: 8px 0;
-  background: var(--color-surface);
+  background: #f0f7ff;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -559,7 +560,7 @@
   width: 100%;
   padding: 12px 15px;
   margin: 0;
-  background: var(--color-surface-2);
+  background: #dbeafe;
   border-bottom: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
@@ -577,7 +578,7 @@
 .prediction-score {
   color: var(--color-primary);
   font-weight: 800;
-  font-size: 1.4em;
+  font-size: 0.85em;
   letter-spacing: 1px;
   display: flex;
   align-items: center;
@@ -595,7 +596,7 @@
   }
 
   .prediction-score {
-    font-size: 1.1em;
+    font-size: 0.75em;
     flex-direction: column;
     gap: 4px;
   }
