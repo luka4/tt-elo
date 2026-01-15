@@ -1342,52 +1342,139 @@ function renderResultsPage() {
     });
     teamMap.forEach((list, key) => teamMap.set(key, sortRoster(list)));
 
-    const rounds = {};
-    // Group by ROUND ID (Season + Round), only PLAYED matches
-    matchResults.filter(isPlayedMatch).forEach(m => {
-        const id = getMatchRoundId(m);
-        if (!rounds[id]) {
-            const rNum = parseInt((m.round.match(/\d+/) || [0])[0]);
-            rounds[id] = {
-                id: id,
-                name: m.round,
-                season: m.season,
-                matches: [],
-                seasonOrder: getSeasonOrder(m.season),
-                roundNum: rNum
-            };
+    // Get team names for filter
+    const teamNames = Array.from(teamMap.keys()).sort((a, b) => a.localeCompare(b, 'sk', {sensitivity: 'base'}));
+    
+    // Populate team filter datalist
+    const teamsList = document.getElementById('resultsTeamsList');
+    if (teamsList) {
+        teamsList.innerHTML = '';
+        teamNames.forEach(team => {
+            const opt = document.createElement('option');
+            opt.value = team;
+            teamsList.appendChild(opt);
+        });
+    }
+
+    // DOM elements for filter
+    const teamFilterInput = document.getElementById('resultsTeamFilter');
+    const applyFilterBtn = document.getElementById('applyTeamFilterBtn');
+    const clearFilterBtn = document.getElementById('clearTeamFilterBtn');
+    
+    let selectedTeam = null;
+
+    // Filter matches by team
+    const filterMatchesByTeam = (teamName) => {
+        if (!teamName) return null;
+        return (m) => {
+            return m.player_a_team === teamName || m.player_b_team === teamName;
+        };
+    };
+
+    // Render matches with optional team filter
+    const renderMatches = (teamFilter = null) => {
+        const container = document.getElementById('resultsContainer');
+        container.innerHTML = '';
+
+        const rounds = {};
+        // Group by ROUND ID (Season + Round), only PLAYED matches
+        let matchesToProcess = matchResults.filter(isPlayedMatch);
+        
+        // Apply team filter if provided
+        if (teamFilter) {
+            const filterFunc = filterMatchesByTeam(teamFilter);
+            matchesToProcess = matchesToProcess.filter(filterFunc);
         }
-        rounds[id].matches.push(m);
-    });
 
-    const container = document.getElementById('resultsContainer');
+        matchesToProcess.forEach(m => {
+            const id = getMatchRoundId(m);
+            if (!rounds[id]) {
+                const rNum = parseInt((m.round.match(/\d+/) || [0])[0]);
+                rounds[id] = {
+                    id: id,
+                    name: m.round,
+                    season: m.season,
+                    matches: [],
+                    seasonOrder: getSeasonOrder(m.season),
+                    roundNum: rNum
+                };
+            }
+            rounds[id].matches.push(m);
+        });
 
-    // Sort Rounds: Latest Season first, then Latest Round first
-    const sortedRoundIds = Object.keys(rounds).sort((a, b) => {
-        const rA = rounds[a];
-        const rB = rounds[b];
+        // Sort Rounds: Latest Season first, then Latest Round first
+        const sortedRoundIds = Object.keys(rounds).sort((a, b) => {
+            const rA = rounds[a];
+            const rB = rounds[b];
 
-        if (rA.seasonOrder !== rB.seasonOrder) {
-            return rB.seasonOrder - rA.seasonOrder;
-        }
-        return rB.roundNum - rA.roundNum;
-    });
+            if (rA.seasonOrder !== rB.seasonOrder) {
+                return rB.seasonOrder - rA.seasonOrder;
+            }
+            return rB.roundNum - rA.roundNum;
+        });
 
-    sortedRoundIds.forEach(id => {
-        const r = rounds[id];
-        const roundWrapper = document.createElement('div');
-        roundWrapper.className = 'round-group';
-        const header = document.createElement('div');
-        header.className = 'round-header';
+        sortedRoundIds.forEach(id => {
+            const r = rounds[id];
+            const roundWrapper = document.createElement('div');
+            roundWrapper.className = 'round-group';
+            const header = document.createElement('div');
+            header.className = 'round-header';
 
-        // Header format: "13. kolo. JESEŇ 2025"
-        const seasonPart = r.season ? `. ${r.season}` : '';
-        header.innerText = `${r.name}${seasonPart}`;
+            // Header format: "13. kolo. JESEŇ 2025"
+            const seasonPart = r.season ? `. ${r.season}` : '';
+            header.innerText = `${r.name}${seasonPart}`;
 
-        roundWrapper.appendChild(header);
-        renderMatchList(r.matches, roundWrapper, true, players, teamMap);
-        container.appendChild(roundWrapper);
-    });
+            roundWrapper.appendChild(header);
+            renderMatchList(r.matches, roundWrapper, true, players, teamMap);
+            container.appendChild(roundWrapper);
+        });
+    };
+
+    // Apply filter button handler
+    if (applyFilterBtn) {
+        applyFilterBtn.onclick = () => {
+            const inputValue = teamFilterInput ? teamFilterInput.value.trim() : '';
+            if (!inputValue) {
+                alert('Prosím, vyberte tím');
+                return;
+            }
+            
+            // Find matching team (case-insensitive)
+            const matchedTeam = teamNames.find(t => t.toLowerCase() === inputValue.toLowerCase());
+            if (!matchedTeam) {
+                alert('Tím nebol nájdený. Prosím, vyberte tím zo zoznamu.');
+                return;
+            }
+
+            selectedTeam = matchedTeam;
+            if (teamFilterInput) teamFilterInput.value = matchedTeam;
+            if (clearFilterBtn) clearFilterBtn.style.display = 'inline-block';
+            renderMatches(selectedTeam);
+        };
+    }
+
+    // Clear filter button handler
+    if (clearFilterBtn) {
+        clearFilterBtn.onclick = () => {
+            selectedTeam = null;
+            if (teamFilterInput) teamFilterInput.value = '';
+            clearFilterBtn.style.display = 'none';
+            renderMatches(null);
+        };
+    }
+
+    // Allow Enter key to submit filter
+    if (teamFilterInput) {
+        teamFilterInput.onkeypress = (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (applyFilterBtn) applyFilterBtn.click();
+            }
+        };
+    }
+
+    // Initial render (no filter)
+    renderMatches(null);
 }
 
 // Shared Helper for List

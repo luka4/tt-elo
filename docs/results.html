@@ -36,6 +36,13 @@
 
     <div class="container" id="mainContainer">
         <h2>Výsledky Tímových Zápasov</h2>
+        <div class="results-filter-section">
+            <label for="resultsTeamFilter">Filtrovať podľa tímu:</label>
+            <input type="text" id="resultsTeamFilter" list="resultsTeamsList" placeholder="Začnite písať názov tímu..." autocomplete="off">
+            <datalist id="resultsTeamsList"></datalist>
+            <button id="applyTeamFilterBtn" class="results-filter-btn">Filtrovať</button>
+            <button id="clearTeamFilterBtn" class="results-filter-btn results-filter-btn--clear" style="display: none;">Zrušiť filter</button>
+        </div>
         <div id="resultsContainer"></div>
     </div>
 </div>
