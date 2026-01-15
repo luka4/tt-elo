@@ -293,19 +293,17 @@ tbody td:nth-child(2) {
   background-color: var(--color-row-hover);
 }
 
-td:nth-child(5) {
-  font-weight: bold;
-  background-color: var(--color-surface);
-}
-
 .rating-low {
   color: var(--color-danger) !important;
+  font-weight: bold;
 }
 .rating-med {
   color: var(--color-warning) !important;
+  font-weight: bold;
 }
 .rating-high {
   color: var(--color-success) !important;
+  font-weight: bold;
 }
 
 .team-filter-wrapper {

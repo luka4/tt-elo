@@ -2131,8 +2131,8 @@ function renderRatingPage() {
             })();
             tr.innerHTML = `
                 <td>${ratingRank}</td><td>${p.name}</td><td>${p.team}</td>
-                <td class="form-cell">${formHtml}</td>
                 <td class="${ratingClass}">${p.rating.toFixed(2)}</td>
+                <td class="form-cell">${formHtml}</td>
 <!--                TODO temporary remove rebricek-->
 <!--                <td>${rebricekVal}</td>-->
                 <td class="border-left-thick">${p.matches}</td><td>${p.wins}</td><td>${p.losses}</td>
@@ -2175,8 +2175,8 @@ function renderRatingPage() {
             'pos',           // #
             'name',          // Hráč
             null,            // Tím (excluded)
-            'form',          // Forma
             'rating',        // Rating
+            'form',          // Forma
             // TODO temporary remove rebricek
             // 'rebricek',
             's_matches',     // Singles: Zápasy
