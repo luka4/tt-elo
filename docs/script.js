@@ -6169,7 +6169,7 @@ function renderMyTeamPage() {
         });
     }
 
-    // Initialize: Check URL param first, then localStorage (player's team), then localStorage (team)
+    // Initialize: Check URL param first, then localStorage (team), then localStorage (player's team)
     const urlTeamName = getTeamFromURL();
     const savedTeamName = localStorage.getItem(MYTEAM_STORAGE_KEY);
     const savedPlayerName = localStorage.getItem(MYSTATS_STORAGE_KEY);
@@ -6189,20 +6189,20 @@ function renderMyTeamPage() {
             // URL has invalid team name, clear it
             updateURLWithTeam(null);
         }
+    } else if (savedTeamName) {
+        // No URL param but localStorage has a team, use it and update URL
+        const team = teamNames.find(t => t.toLowerCase() === savedTeamName.toLowerCase());
+        if (team) {
+            teamNameToLoad = team;
+            updateURLWithTeam(team);
+        }
     } else if (savedPlayerName) {
-        // No URL param but localStorage has a player, use that player's team
+        // No URL param and no saved team, but localStorage has a player, use that player's team
         const player = playerArr.find(p => normalizePlayerKey(p.name) === normalizePlayerKey(savedPlayerName));
         if (player && player.team && player.team !== 'N/A' && teamMap.has(player.team)) {
             teamNameToLoad = player.team;
             localStorage.setItem(MYTEAM_STORAGE_KEY, player.team);
             updateURLWithTeam(player.team);
-        }
-    } else if (savedTeamName) {
-        // No URL param and no player, but localStorage has a team, update URL
-        const team = teamNames.find(t => t.toLowerCase() === savedTeamName.toLowerCase());
-        if (team) {
-            teamNameToLoad = team;
-            updateURLWithTeam(team);
         }
     }
 
