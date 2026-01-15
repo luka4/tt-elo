@@ -62,11 +62,13 @@
 }
 
 .results-filter-btn--clear {
-  background: var(--color-muted-2);
+  background: var(--color-danger);
+  color: var(--color-text-inverse);
 }
 
 .results-filter-btn--clear:hover {
-  background: var(--color-muted);
+  background: var(--color-danger);
+  opacity: 0.9;
 }
 
 @media screen and (max-width: 600px) {

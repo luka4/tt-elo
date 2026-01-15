@@ -1425,7 +1425,7 @@ function renderResultsPage() {
             header.innerText = `${r.name}${seasonPart}`;
 
             roundWrapper.appendChild(header);
-            renderMatchList(r.matches, roundWrapper, true, players, teamMap);
+            renderMatchList(r.matches, roundWrapper, true, players, teamMap, selectedTeam);
             container.appendChild(roundWrapper);
         });
     };
@@ -1478,7 +1478,7 @@ function renderResultsPage() {
 }
 
 // Shared Helper for List
-function renderMatchList(matches, container, appendToProvided, playersData = null, teamMapData = null) {
+function renderMatchList(matches, container, appendToProvided, playersData = null, teamMapData = null, selectedTeamForFilter = null) {
     const teamMatches = {};
     matches.forEach(m => {
         const key = `${m.player_a_team}::${m.player_b_team}`;
@@ -1720,9 +1720,24 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
         const logoBHtml = logoSlotHtml(logoB, match.teamB);
 
         if (isPlayed) {
+            // Calculate score badge class if team filter is applied
+            let scoreBadgeClass = '';
+            if (selectedTeamForFilter) {
+                const isHome = match.teamA === selectedTeamForFilter;
+                const ourScore = isHome ? match.scoreA : match.scoreB;
+                const theirScore = isHome ? match.scoreB : match.scoreA;
+                if (ourScore > theirScore) {
+                    scoreBadgeClass = 'score-badge--win';
+                } else if (ourScore < theirScore) {
+                    scoreBadgeClass = 'score-badge--loss';
+                } else {
+                    scoreBadgeClass = 'score-badge--draw';
+                }
+            }
+
             const summary = document.createElement('div');
             summary.className = 'match-summary';
-            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge">${match.scoreA}-${match.scoreB}</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
+            summary.innerHTML = `<div class="team-name team-left">${escapeHtml(match.teamA)}</div>${logoAHtml}<div class="score-badge ${scoreBadgeClass}">${match.scoreA}-${match.scoreB}</div>${logoBHtml}<div class="team-name team-right">${escapeHtml(match.teamB)}</div><div class="expand-icon">▼</div>`;
             const details = document.createElement('div');
             details.className = 'match-details';
 
@@ -1829,7 +1844,7 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 return h;
             };
 
-            const scoreBadgeHtml = `<div class="score-badge score-badge--overlay">${match.scoreA}-${match.scoreB}</div>`;
+            const scoreBadgeHtml = `<div class="score-badge score-badge--overlay ${scoreBadgeClass}">${match.scoreA}-${match.scoreB}</div>`;
             const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${scoreBadgeHtml}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
             // --- STATS GENERATION END ---
 
