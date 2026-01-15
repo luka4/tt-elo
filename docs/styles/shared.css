@@ -410,6 +410,7 @@ a {
   justify-content: space-between;
   gap: 10px;
   flex-wrap: nowrap;
+  position: relative;
 }
 
 .team-name {
@@ -495,6 +496,26 @@ a {
   box-shadow: var(--shadow-inset);
 }
 
+.match-prediction-stats-group {
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  margin-bottom: 5px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.game-group {
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  margin-bottom: 5px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.game-group:last-child {
+  margin-bottom: 0;
+}
+
 .game-row {
   display: flex;
   flex-direction: column;
@@ -505,6 +526,10 @@ a {
 }
 
 .game-row:last-child {
+  border-bottom: none;
+}
+
+.game-group .game-row:last-child {
   border-bottom: none;
 }
 
@@ -559,12 +584,16 @@ a {
 .expand-icon {
   color: var(--color-muted-2);
   font-size: 0.8em;
-  margin-left: 10px;
   transition: transform 0.3s;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .match-row.active .expand-icon {
-  transform: rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
 }
 
 /* Stats block (previously injected via JS) */
@@ -575,6 +604,27 @@ a {
   padding: 10px 15px;
   background-color: #dbeafe;
   border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.score-badge--overlay {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 800;
+  font-size: 1.2em;
+  padding: 5px 12px;
+  border-radius: 6px;
+  min-width: 60px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 .team-stats {
@@ -643,6 +693,9 @@ a {
   .match-summary {
     padding: 12px 8px;
     gap: 4px;
+  }
+  .expand-icon {
+    right: 8px;
   }
   .team-name {
     font-size: 0.95em;
@@ -829,6 +882,12 @@ a {
     font-size: 0.75em;
     flex-direction: column;
     gap: 4px;
+  }
+
+  .score-badge--overlay {
+    top: 60px;
+    font-size: 1em;
+    padding: 4px 8px;
   }
 }
 

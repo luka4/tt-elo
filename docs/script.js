@@ -1742,17 +1742,46 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 return h;
             };
 
-            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
+            const scoreBadgeHtml = `<div class="score-badge score-badge--overlay">${match.scoreA}-${match.scoreB}</div>`;
+            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${scoreBadgeHtml}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
             // --- STATS GENERATION END ---
 
+            // Group games: doubles first, then singles
+            const playedGames = match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0));
+            const doublesGames = playedGames.filter(g => g.doubles === true || g.doubles === "true");
+            const singlesGames = playedGames.filter(g => !(g.doubles === true || g.doubles === "true"));
+            
             let gamesHtml = '';
-            match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
-                const sA = parseInt(g.score_a);
-                const sB = parseInt(g.score_b);
-                gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                    <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
-            });
-            details.innerHTML = predictionHtml + statsHtml + gamesHtml;
+            
+            // First 2 doubles matches
+            if (doublesGames.length > 0) {
+                gamesHtml += '<div class="game-group">';
+                doublesGames.slice(0, 2).forEach(g => {
+                    const sA = parseInt(g.score_a);
+                    const sB = parseInt(g.score_b);
+                    gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                        <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                });
+                gamesHtml += '</div>';
+            }
+            
+            // Singles matches in groups of 4
+            for (let i = 0; i < singlesGames.length; i += 4) {
+                const batch = singlesGames.slice(i, i + 4);
+                if (batch.length > 0) {
+                    gamesHtml += '<div class="game-group">';
+                    batch.forEach(g => {
+                        const sA = parseInt(g.score_a);
+                        const sB = parseInt(g.score_b);
+                        gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                            <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                    });
+                    gamesHtml += '</div>';
+                }
+            }
+            
+            const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
+            details.innerHTML = predictionStatsGroup + gamesHtml;
 
             summary.onclick = () => {
                 const isEx = details.style.display === 'block';
@@ -1825,7 +1854,8 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                     return h;
                 };
 
-                const ratingsHtml = `<div class="match-stats-container">${getTeamRatingsHtml(match.teamA, 'left', ratingsA)}${getTeamRatingsHtml(match.teamB, 'right', ratingsB)}</div>`;
+                const scoreBadgeHtml = `<div class="score-badge score-badge--overlay score-badge--vs">VS</div>`;
+                const ratingsHtml = `<div class="match-stats-container">${getTeamRatingsHtml(match.teamA, 'left', ratingsA)}${scoreBadgeHtml}${getTeamRatingsHtml(match.teamB, 'right', ratingsB)}</div>`;
                 details.innerHTML = predictionHtml + ratingsHtml;
             } else {
                 details.innerHTML = '';
@@ -5471,16 +5501,45 @@ function renderMyTeamPage() {
                 <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
             </div>`;
 
-            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
+            const scoreBadgeHtml = `<div class="score-badge score-badge--overlay ${scoreBadgeClass}">${scoreA}-${scoreB}</div>`;
+            const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${scoreBadgeHtml}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
 
+            // Group games: doubles first, then singles
+            const playedGames = match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0));
+            const doublesGames = playedGames.filter(g => g.doubles === true || g.doubles === "true");
+            const singlesGames = playedGames.filter(g => !(g.doubles === true || g.doubles === "true"));
+            
             let gamesHtml = '';
-            match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
-                const sA = parseInt(g.score_a);
-                const sB = parseInt(g.score_b);
-                gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                    <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
-            });
-            details.innerHTML = predictionHtml + statsHtml + gamesHtml;
+            
+            // First 2 doubles matches
+            if (doublesGames.length > 0) {
+                gamesHtml += '<div class="game-group">';
+                doublesGames.slice(0, 2).forEach(g => {
+                    const sA = parseInt(g.score_a);
+                    const sB = parseInt(g.score_b);
+                    gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                        <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                });
+                gamesHtml += '</div>';
+            }
+            
+            // Singles matches in groups of 4
+            for (let i = 0; i < singlesGames.length; i += 4) {
+                const batch = singlesGames.slice(i, i + 4);
+                if (batch.length > 0) {
+                    gamesHtml += '<div class="game-group">';
+                    batch.forEach(g => {
+                        const sA = parseInt(g.score_a);
+                        const sB = parseInt(g.score_b);
+                        gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                            <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                    });
+                    gamesHtml += '</div>';
+                }
+            }
+            
+            const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
+            details.innerHTML = predictionStatsGroup + gamesHtml;
 
             summary.onclick = () => {
                 const isEx = details.style.display === 'block';
@@ -5649,16 +5708,45 @@ function renderMyTeamPage() {
                             <div class="prediction-score">${escapeHtml(match.teamA)} ${predScoreA} : ${predScoreB} ${escapeHtml(match.teamB)}</div>
                         </div>`;
 
-                        const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
+                        const scoreBadgeHtml = `<div class="score-badge score-badge--overlay ${scoreBadgeClass}">${scoreA}-${scoreB}</div>`;
+                        const statsHtml = `<div class="match-stats-container">${getTeamStatsHtml(match.teamA, 'left', ratingsA)}${scoreBadgeHtml}${getTeamStatsHtml(match.teamB, 'right', ratingsB)}</div>`;
 
+                        // Group games: doubles first, then singles
+                        const playedGames = match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0));
+                        const doublesGames = playedGames.filter(g => g.doubles === true || g.doubles === "true");
+                        const singlesGames = playedGames.filter(g => !(g.doubles === true || g.doubles === "true"));
+                        
                         let gamesHtml = '';
-                        match.games.filter(isPlayedMatch).sort((a, b) => (b.doubles ? 1 : 0) - (a.doubles ? 1 : 0)).forEach(g => {
-                            const sA = parseInt(g.score_a);
-                            const sB = parseInt(g.score_b);
-                            gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                                <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
-                        });
-                        details.innerHTML = predictionHtml + statsHtml + gamesHtml;
+                        
+                        // First 2 doubles matches
+                        if (doublesGames.length > 0) {
+                            gamesHtml += '<div class="game-group">';
+                            doublesGames.slice(0, 2).forEach(g => {
+                                const sA = parseInt(g.score_a);
+                                const sB = parseInt(g.score_b);
+                                gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                                    <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                            });
+                            gamesHtml += '</div>';
+                        }
+                        
+                        // Singles matches in groups of 4
+                        for (let i = 0; i < singlesGames.length; i += 4) {
+                            const batch = singlesGames.slice(i, i + 4);
+                            if (batch.length > 0) {
+                                gamesHtml += '<div class="game-group">';
+                                batch.forEach(g => {
+                                    const sA = parseInt(g.score_a);
+                                    const sB = parseInt(g.score_b);
+                                    gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                                        <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                                });
+                                gamesHtml += '</div>';
+                            }
+                        }
+                        
+                        const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
+                        details.innerHTML = predictionStatsGroup + gamesHtml;
 
                         summary.onclick = () => {
                             const isEx = details.style.display === 'block';
