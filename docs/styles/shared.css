@@ -76,9 +76,17 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+}
+
+#pageContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -930,6 +938,116 @@ a {
     top: 60px;
     font-size: 1em;
     padding: 4px 8px;
+  }
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  margin-top: 60px;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: 40px 0 20px;
+  border-top: 3px solid var(--color-accent);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-title {
+  font-size: 1.5em;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-text-inverse);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-description {
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.footer-heading {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text-inverse);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--color-text-inverse);
+  transform: translateX(5px);
+}
+
+.footer-text {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 4%;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-nav {
+    align-items: center;
+  }
+
+  .footer-link:hover {
+    transform: none;
   }
 }
 

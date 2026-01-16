@@ -6535,6 +6535,14 @@ function initMobileNav() {
 // Add this to your existing window load event
 window.addEventListener('load', renderNavigation);
 
+// Set current year in footer
+document.addEventListener('DOMContentLoaded', () => {
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+});
+
 document.addEventListener('DOMContentLoaded', async () => {
     const id = document.body.id;
 
