@@ -1854,15 +1854,27 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
             const singlesGames = playedGames.filter(g => !(g.doubles === true || g.doubles === "true"));
             
             let gamesHtml = '';
+            let teamScoreA = 0;
+            let teamScoreB = 0;
+            let gameNumber = 0;
             
             // First 2 doubles matches
             if (doublesGames.length > 0) {
                 gamesHtml += '<div class="game-group">';
                 doublesGames.slice(0, 2).forEach(g => {
+                    gameNumber++;
                     const sA = parseInt(g.score_a);
                     const sB = parseInt(g.score_b);
-                    gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                        <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                    if (sA > sB) teamScoreA++;
+                    else if (sB > sA) teamScoreB++;
+                    gamesHtml += `<div class="game-row">
+                        <span class="team-score team-score-left">${teamScoreA}</span>
+                        <div class="game-row-content">
+                            ${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                            <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div>
+                        </div>
+                        <span class="team-score team-score-right">${teamScoreB}</span>
+                    </div>`;
                 });
                 gamesHtml += '</div>';
             }
@@ -1873,10 +1885,19 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 if (batch.length > 0) {
                     gamesHtml += '<div class="game-group">';
                     batch.forEach(g => {
+                        gameNumber++;
                         const sA = parseInt(g.score_a);
                         const sB = parseInt(g.score_b);
-                        gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                            <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                        if (sA > sB) teamScoreA++;
+                        else if (sB > sA) teamScoreB++;
+                        gamesHtml += `<div class="game-row">
+                            <span class="team-score team-score-left">${teamScoreA}</span>
+                            <div class="game-row-content">
+                                ${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                                <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div>
+                            </div>
+                            <span class="team-score team-score-right">${teamScoreB}</span>
+                        </div>`;
                     });
                     gamesHtml += '</div>';
                 }
@@ -5612,15 +5633,27 @@ function renderMyTeamPage() {
             const singlesGames = playedGames.filter(g => !(g.doubles === true || g.doubles === "true"));
             
             let gamesHtml = '';
+            let teamScoreA = 0;
+            let teamScoreB = 0;
+            let gameNumber = 0;
             
             // First 2 doubles matches
             if (doublesGames.length > 0) {
                 gamesHtml += '<div class="game-group">';
                 doublesGames.slice(0, 2).forEach(g => {
+                    gameNumber++;
                     const sA = parseInt(g.score_a);
                     const sB = parseInt(g.score_b);
-                    gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                        <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                    if (sA > sB) teamScoreA++;
+                    else if (sB > sA) teamScoreB++;
+                    gamesHtml += `<div class="game-row">
+                        <span class="team-score team-score-left">${teamScoreA}</span>
+                        <div class="game-row-content">
+                            ${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                            <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div>
+                        </div>
+                        <span class="team-score team-score-right">${teamScoreB}</span>
+                    </div>`;
                 });
                 gamesHtml += '</div>';
             }
@@ -5631,10 +5664,19 @@ function renderMyTeamPage() {
                 if (batch.length > 0) {
                     gamesHtml += '<div class="game-group">';
                     batch.forEach(g => {
+                        gameNumber++;
                         const sA = parseInt(g.score_a);
                         const sB = parseInt(g.score_b);
-                        gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                            <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                        if (sA > sB) teamScoreA++;
+                        else if (sB > sA) teamScoreB++;
+                        gamesHtml += `<div class="game-row">
+                            <span class="team-score team-score-left">${teamScoreA}</span>
+                            <div class="game-row-content">
+                                ${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                                <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div>
+                            </div>
+                            <span class="team-score team-score-right">${teamScoreB}</span>
+                        </div>`;
                     });
                     gamesHtml += '</div>';
                 }
@@ -5819,15 +5861,27 @@ function renderMyTeamPage() {
                         const singlesGames = playedGames.filter(g => !(g.doubles === true || g.doubles === "true"));
                         
                         let gamesHtml = '';
+                        let teamScoreA = 0;
+                        let teamScoreB = 0;
+                        let gameNumber = 0;
                         
                         // First 2 doubles matches
                         if (doublesGames.length > 0) {
                             gamesHtml += '<div class="game-group">';
                             doublesGames.slice(0, 2).forEach(g => {
+                                gameNumber++;
                                 const sA = parseInt(g.score_a);
                                 const sB = parseInt(g.score_b);
-                                gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                                    <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                                if (sA > sB) teamScoreA++;
+                                else if (sB > sA) teamScoreB++;
+                                gamesHtml += `<div class="game-row">
+                                    <span class="team-score team-score-left">${teamScoreA}</span>
+                                    <div class="game-row-content">
+                                        ${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                                        <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div>
+                                    </div>
+                                    <span class="team-score team-score-right">${teamScoreB}</span>
+                                </div>`;
                             });
                             gamesHtml += '</div>';
                         }
@@ -5838,10 +5892,20 @@ function renderMyTeamPage() {
                             if (batch.length > 0) {
                                 gamesHtml += '<div class="game-group">';
                                 batch.forEach(g => {
+                                    gameNumber++;
                                     const sA = parseInt(g.score_a);
                                     const sB = parseInt(g.score_b);
-                                    gamesHtml += `<div class="game-row">${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
-                                        <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div></div>`;
+                                    if (sA > sB) teamScoreA++;
+                                    else if (sB > sA) teamScoreB++;
+                                    gamesHtml += `<div class="game-row">
+                                        <span class="team-score team-score-left">${teamScoreA}</span>
+                                        <div class="game-row-content">
+                                            <span class="game-number">${gameNumber}</span>
+                                            ${(g.doubles === true || g.doubles === "true") ? '<div class="doubles-badge">ŠTVORHRA</div>' : ''}
+                                            <div class="game-names"><div class="player-left">${escapeHtml(g.player_a)}</div><div class="game-score ${sA > sB ? 'win-left' : (sB > sA ? 'win-right' : '')}">${sA}:${sB}</div><div class="player-right">${escapeHtml(g.player_b)}</div></div>
+                                        </div>
+                                        <span class="team-score team-score-right">${teamScoreB}</span>
+                                    </div>`;
                                 });
                                 gamesHtml += '</div>';
                             }

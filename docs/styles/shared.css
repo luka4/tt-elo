@@ -533,11 +533,38 @@ a {
 
 .game-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding: 12px 15px;
   border-bottom: 1px solid var(--color-border);
   position: relative;
+  gap: 10px;
+}
+
+.game-row-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  order: 2;
+}
+
+.team-score {
+  color: var(--color-muted);
+  font-size: 0.9em;
+  font-weight: 600;
+  min-width: 24px;
+}
+
+.team-score-left {
+  text-align: left;
+  order: 1;
+}
+
+.team-score-right {
+  text-align: right;
+  order: 3;
 }
 
 .game-row:last-child {
