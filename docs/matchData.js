@@ -45,7 +45,6 @@ var matchResults = window.matchResults = [];
           try {
             return JSON.parse(cellText);
           } catch {
-            console.warn('Skipping invalid JSON in sheet:', cellText);
             return null;
           }
         })
@@ -65,10 +64,6 @@ var matchResults = window.matchResults = [];
     matchResults = [...staticMatches, ...dynamicMatches];
     window.matchResults = matchResults;
 
-    console.log('DYNAMIC Matches START');
-    console.log(dynamicMatches);
-    console.log('DYNAMIC Matches END');
-    console.log('Total Matches Loaded:', matchResults.length);
     return matchResults;
   }
 
