@@ -101,6 +101,126 @@ function escapeAttr(str) {
     return escapeHtml(str);
 }
 
+function formatPlayerName(name) {
+    if (!name) return '';
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 0) return name;
+    if (parts.length === 1) return parts[0];
+    // First part is first name, rest is last name
+    const firstName = parts[0];
+    const lastName = parts.slice(1).join(' ');
+    return `${firstName.charAt(0).toUpperCase()}. ${lastName}`;
+}
+
+// Build compact table view for match details
+function buildCompactMatchTable(match) {
+    const playedGames = match.games.filter(isPlayedMatch);
+    if (playedGames.length === 0) return '';
+
+    // Separate doubles and singles games
+    const doublesGames = playedGames.filter(g => {
+        const isDoubles = g.doubles === true || g.doubles === "true";
+        return isDoubles;
+    });
+    const singlesGames = playedGames.filter(g => {
+        const isDoubles = g.doubles === true || g.doubles === "true";
+        return !isDoubles;
+    });
+    
+    // Extract players who played singles games only
+    const teamAPlayers = new Set();
+    const teamBPlayers = new Set();
+    const gameMap = new Map(); // Map to store game data: key = "playerA::playerB", value = {scoreA, scoreB}
+    const playerWinsA = new Map(); // Map to store win counts for Team A players
+    const playerWinsB = new Map(); // Map to store win counts for Team B players
+    
+    // Process only singles games to collect players and results
+    singlesGames.forEach(g => {
+        const playersA = (g.player_a || '').split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n));
+        const playersB = (g.player_b || '').split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n));
+        const scoreA = parseInt(g.score_a) || 0;
+        const scoreB = parseInt(g.score_b) || 0;
+        
+        // Only process single player games
+        if (playersA.length === 1 && playersB.length === 1) {
+            const playerA = playersA[0];
+            const playerB = playersB[0];
+            
+            // Add players to sets (only those who played singles)
+            teamAPlayers.add(playerA);
+            teamBPlayers.add(playerB);
+            
+            // Store game result
+            const key = `${playerA}::${playerB}`;
+            gameMap.set(key, { scoreA, scoreB });
+            
+            // Count wins
+            if (scoreA > scoreB) {
+                playerWinsA.set(playerA, (playerWinsA.get(playerA) || 0) + 1);
+            } else if (scoreB > scoreA) {
+                playerWinsB.set(playerB, (playerWinsB.get(playerB) || 0) + 1);
+            }
+        }
+    });
+    
+    // Build ordered lists sorted by win count (descending)
+    const orderedPlayersA = Array.from(teamAPlayers).sort((a, b) => {
+        const winsA = playerWinsA.get(a) || 0;
+        const winsB = playerWinsA.get(b) || 0;
+        return winsB - winsA; // Descending order
+    });
+    
+    const orderedPlayersB = Array.from(teamBPlayers).sort((a, b) => {
+        const winsA = playerWinsB.get(a) || 0;
+        const winsB = playerWinsB.get(b) || 0;
+        return winsB - winsA; // Descending order
+    });
+    
+    if (orderedPlayersA.length === 0 || orderedPlayersB.length === 0) return '';
+    
+    // Build table HTML
+    let html = '<div class="compact-match-table-container"><table class="compact-match-table">';
+    
+    // Header row with team B players
+    html += '<thead><tr><th></th>'; // Empty corner cell
+    orderedPlayersB.forEach((p, colIdx) => {
+        const formattedName = formatPlayerName(p);
+        html += `<th class="col-header" data-player="${escapeAttr(p)}" data-col-index="${colIdx}">${escapeHtml(formattedName)}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+    
+    // Data rows
+    orderedPlayersA.forEach((playerA, rowIdx) => {
+        html += `<tr data-row-index="${rowIdx}">`;
+        const formattedNameA = formatPlayerName(playerA);
+        html += `<th class="row-header" data-player="${escapeAttr(playerA)}" data-row-index="${rowIdx}">${escapeHtml(formattedNameA)}</th>`;
+        
+        orderedPlayersB.forEach((playerB, colIdx) => {
+            const key = `${playerA}::${playerB}`;
+            const game = gameMap.get(key);
+            
+            let cellClass = 'compact-cell';
+            let cellContent = '–';
+            
+            if (game) {
+                const scoreA = game.scoreA;
+                const scoreB = game.scoreB;
+                const isWin = scoreA > scoreB;
+                
+                cellClass += isWin ? ' compact-cell--win' : ' compact-cell--loss';
+                cellContent = `${scoreA}:${scoreB}`;
+            }
+            
+            html += `<td class="${cellClass}" data-row-index="${rowIdx}" data-col-index="${colIdx}" data-player-a="${escapeAttr(playerA)}" data-player-b="${escapeAttr(playerB)}">${escapeHtml(cellContent)}</td>`;
+        });
+        
+        html += '</tr>';
+    });
+    
+    html += '</tbody></table></div>';
+    return html;
+}
+
 // ============================================================
 // 2.1. GLOBAL UTILITY FUNCTIONS (Refactored from duplicates)
 // ============================================================
@@ -1903,8 +2023,186 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 }
             }
             
-            const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
-            details.innerHTML = predictionStatsGroup + gamesHtml;
+            // Default mode is compact
+            let currentViewMode = 'compact';
+            
+            // Create view toggle switch (on/off)
+            const toggleLabel = document.createElement('label');
+            toggleLabel.className = 'match-details-toggle';
+            toggleLabel.title = 'Prepnúť zobrazenie';
+
+            const toggleInput = document.createElement('input');
+            toggleInput.type = 'checkbox';
+            toggleInput.checked = true; // Default to compact (enabled)
+            toggleInput.setAttribute('aria-label', 'Prepínač zobrazenia: kompaktný režim');
+
+            const toggleSlider = document.createElement('span');
+            toggleSlider.className = 'match-details-toggle__slider';
+
+            const toggleText = document.createElement('span');
+            toggleText.className = 'match-details-toggle__text';
+            toggleText.textContent = 'Kompakt';
+
+            toggleLabel.appendChild(toggleInput);
+            toggleLabel.appendChild(toggleSlider);
+            toggleLabel.appendChild(toggleText);
+            
+            const setupTableHighlighting = (container) => {
+                if (!container) return;
+                
+                const table = container.querySelector('.compact-match-table');
+                if (!table) return;
+                
+                // Remove all highlights
+                const removeHighlights = () => {
+                    table.querySelectorAll('.compact-cell--highlighted, .row-header--highlighted, .col-header--highlighted').forEach(el => {
+                        el.classList.remove('compact-cell--highlighted', 'row-header--highlighted', 'col-header--highlighted');
+                    });
+                };
+                
+                // Highlight cells for a specific player (row or column)
+                const highlightPlayer = (playerName, isRow) => {
+                    removeHighlights();
+                    if (isRow) {
+                        // Find row header by comparing data attribute values
+                        const rowHeaders = table.querySelectorAll('.row-header');
+                        const rowHeader = Array.from(rowHeaders).find(h => h.getAttribute('data-player') === playerName);
+                        if (rowHeader) {
+                            rowHeader.classList.add('row-header--highlighted');
+                            const rowIndex = rowHeader.getAttribute('data-row-index');
+                            table.querySelectorAll(`td[data-row-index="${rowIndex}"]`).forEach(cell => {
+                                cell.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                    } else {
+                        // Find column header by comparing data attribute values
+                        const colHeaders = table.querySelectorAll('.col-header');
+                        const colHeader = Array.from(colHeaders).find(h => h.getAttribute('data-player') === playerName);
+                        if (colHeader) {
+                            colHeader.classList.add('col-header--highlighted');
+                            const colIndex = colHeader.getAttribute('data-col-index');
+                            table.querySelectorAll(`td[data-col-index="${colIndex}"]`).forEach(cell => {
+                                cell.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                    }
+                };
+                
+                // Highlight row and column for a specific match
+                const highlightMatch = (rowIndex, colIndex) => {
+                    removeHighlights();
+                    const cell = table.querySelector(`td[data-row-index="${rowIndex}"][data-col-index="${colIndex}"]`);
+                    if (cell) {
+                        const playerA = cell.getAttribute('data-player-a');
+                        const playerB = cell.getAttribute('data-player-b');
+                        
+                        // Highlight row
+                        const rowHeaders = table.querySelectorAll('.row-header');
+                        const rowHeader = Array.from(rowHeaders).find(h => h.getAttribute('data-player') === playerA);
+                        if (rowHeader) {
+                            rowHeader.classList.add('row-header--highlighted');
+                            table.querySelectorAll(`td[data-row-index="${rowIndex}"]`).forEach(c => {
+                                c.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                        
+                        // Highlight column
+                        const colHeaders = table.querySelectorAll('.col-header');
+                        const colHeader = Array.from(colHeaders).find(h => h.getAttribute('data-player') === playerB);
+                        if (colHeader) {
+                            colHeader.classList.add('col-header--highlighted');
+                            table.querySelectorAll(`td[data-col-index="${colIndex}"]`).forEach(c => {
+                                c.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                    }
+                };
+                
+                // Add click handlers to row headers
+                table.querySelectorAll('.row-header').forEach(header => {
+                    header.style.cursor = 'pointer';
+                    header.onclick = (e) => {
+                        e.stopPropagation();
+                        const playerName = header.getAttribute('data-player');
+                        highlightPlayer(playerName, true);
+                    };
+                });
+                
+                // Add click handlers to column headers
+                table.querySelectorAll('.col-header').forEach(header => {
+                    header.style.cursor = 'pointer';
+                    header.onclick = (e) => {
+                        e.stopPropagation();
+                        const playerName = header.getAttribute('data-player');
+                        highlightPlayer(playerName, false);
+                    };
+                });
+                
+                // Add click handlers to cells
+                table.querySelectorAll('td.compact-cell').forEach(cell => {
+                    cell.style.cursor = 'pointer';
+                    cell.onclick = (e) => {
+                        e.stopPropagation();
+                        const rowIndex = cell.getAttribute('data-row-index');
+                        const colIndex = cell.getAttribute('data-col-index');
+                        highlightMatch(rowIndex, colIndex);
+                    };
+                });
+                
+                // Remove highlights when clicking elsewhere
+                document.addEventListener('click', (e) => {
+                    if (!table.contains(e.target)) {
+                        removeHighlights();
+                    }
+                }, true);
+            };
+            
+            const renderMatchDetails = () => {
+                const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
+                
+                if (currentViewMode === 'compact') {
+                    const compactTable = buildCompactMatchTable(match);
+                    details.innerHTML = predictionStatsGroup + compactTable;
+                    details.classList.add('match-details--compact');
+                    details.classList.remove('match-details--detailed');
+                    
+                    // Setup highlighting after table is rendered
+                    const container = details.querySelector('.compact-match-table-container');
+                    setupTableHighlighting(container);
+                } else {
+                    details.innerHTML = predictionStatsGroup + gamesHtml;
+                    details.classList.add('match-details--detailed');
+                    details.classList.remove('match-details--compact');
+                }
+                
+                // Re-insert the header after the match-prediction-stats-group
+                const statsGroup = details.querySelector('.match-prediction-stats-group');
+                if (statsGroup) {
+                    const detailsHeader = document.createElement('div');
+                    detailsHeader.className = 'match-details-header';
+                    detailsHeader.appendChild(toggleLabel);
+                    statsGroup.insertAdjacentElement('afterend', detailsHeader);
+                }
+            };
+            
+            // Add toggle switch to details header (will be positioned after stats group)
+            const detailsHeader = document.createElement('div');
+            detailsHeader.className = 'match-details-header';
+            detailsHeader.appendChild(toggleLabel);
+            
+            toggleLabel.onclick = (e) => {
+                e.stopPropagation();
+            };
+
+            toggleInput.onchange = (e) => {
+                e.stopPropagation();
+                currentViewMode = toggleInput.checked ? 'compact' : 'detailed';
+                toggleText.textContent = currentViewMode === 'detailed' ? 'Detail' : 'Kompakt';
+                renderMatchDetails();
+            };
+            
+            // Initial render
+            renderMatchDetails();
 
             summary.onclick = () => {
                 const isEx = details.style.display === 'block';
@@ -5682,8 +5980,186 @@ function renderMyTeamPage() {
                 }
             }
             
-            const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
-            details.innerHTML = predictionStatsGroup + gamesHtml;
+            // Default mode is compact
+            let currentViewMode = 'compact';
+            
+            // Create view toggle switch (on/off)
+            const toggleLabel = document.createElement('label');
+            toggleLabel.className = 'match-details-toggle';
+            toggleLabel.title = 'Prepnúť zobrazenie';
+
+            const toggleInput = document.createElement('input');
+            toggleInput.type = 'checkbox';
+            toggleInput.checked = true; // Default to compact (enabled)
+            toggleInput.setAttribute('aria-label', 'Prepínač zobrazenia: kompaktný režim');
+
+            const toggleSlider = document.createElement('span');
+            toggleSlider.className = 'match-details-toggle__slider';
+
+            const toggleText = document.createElement('span');
+            toggleText.className = 'match-details-toggle__text';
+            toggleText.textContent = 'Kompakt';
+
+            toggleLabel.appendChild(toggleInput);
+            toggleLabel.appendChild(toggleSlider);
+            toggleLabel.appendChild(toggleText);
+            
+            const setupTableHighlighting = (container) => {
+                if (!container) return;
+                
+                const table = container.querySelector('.compact-match-table');
+                if (!table) return;
+                
+                // Remove all highlights
+                const removeHighlights = () => {
+                    table.querySelectorAll('.compact-cell--highlighted, .row-header--highlighted, .col-header--highlighted').forEach(el => {
+                        el.classList.remove('compact-cell--highlighted', 'row-header--highlighted', 'col-header--highlighted');
+                    });
+                };
+                
+                // Highlight cells for a specific player (row or column)
+                const highlightPlayer = (playerName, isRow) => {
+                    removeHighlights();
+                    if (isRow) {
+                        // Find row header by comparing data attribute values
+                        const rowHeaders = table.querySelectorAll('.row-header');
+                        const rowHeader = Array.from(rowHeaders).find(h => h.getAttribute('data-player') === playerName);
+                        if (rowHeader) {
+                            rowHeader.classList.add('row-header--highlighted');
+                            const rowIndex = rowHeader.getAttribute('data-row-index');
+                            table.querySelectorAll(`td[data-row-index="${rowIndex}"]`).forEach(cell => {
+                                cell.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                    } else {
+                        // Find column header by comparing data attribute values
+                        const colHeaders = table.querySelectorAll('.col-header');
+                        const colHeader = Array.from(colHeaders).find(h => h.getAttribute('data-player') === playerName);
+                        if (colHeader) {
+                            colHeader.classList.add('col-header--highlighted');
+                            const colIndex = colHeader.getAttribute('data-col-index');
+                            table.querySelectorAll(`td[data-col-index="${colIndex}"]`).forEach(cell => {
+                                cell.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                    }
+                };
+                
+                // Highlight row and column for a specific match
+                const highlightMatch = (rowIndex, colIndex) => {
+                    removeHighlights();
+                    const cell = table.querySelector(`td[data-row-index="${rowIndex}"][data-col-index="${colIndex}"]`);
+                    if (cell) {
+                        const playerA = cell.getAttribute('data-player-a');
+                        const playerB = cell.getAttribute('data-player-b');
+                        
+                        // Highlight row
+                        const rowHeaders = table.querySelectorAll('.row-header');
+                        const rowHeader = Array.from(rowHeaders).find(h => h.getAttribute('data-player') === playerA);
+                        if (rowHeader) {
+                            rowHeader.classList.add('row-header--highlighted');
+                            table.querySelectorAll(`td[data-row-index="${rowIndex}"]`).forEach(c => {
+                                c.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                        
+                        // Highlight column
+                        const colHeaders = table.querySelectorAll('.col-header');
+                        const colHeader = Array.from(colHeaders).find(h => h.getAttribute('data-player') === playerB);
+                        if (colHeader) {
+                            colHeader.classList.add('col-header--highlighted');
+                            table.querySelectorAll(`td[data-col-index="${colIndex}"]`).forEach(c => {
+                                c.classList.add('compact-cell--highlighted');
+                            });
+                        }
+                    }
+                };
+                
+                // Add click handlers to row headers
+                table.querySelectorAll('.row-header').forEach(header => {
+                    header.style.cursor = 'pointer';
+                    header.onclick = (e) => {
+                        e.stopPropagation();
+                        const playerName = header.getAttribute('data-player');
+                        highlightPlayer(playerName, true);
+                    };
+                });
+                
+                // Add click handlers to column headers
+                table.querySelectorAll('.col-header').forEach(header => {
+                    header.style.cursor = 'pointer';
+                    header.onclick = (e) => {
+                        e.stopPropagation();
+                        const playerName = header.getAttribute('data-player');
+                        highlightPlayer(playerName, false);
+                    };
+                });
+                
+                // Add click handlers to cells
+                table.querySelectorAll('td.compact-cell').forEach(cell => {
+                    cell.style.cursor = 'pointer';
+                    cell.onclick = (e) => {
+                        e.stopPropagation();
+                        const rowIndex = cell.getAttribute('data-row-index');
+                        const colIndex = cell.getAttribute('data-col-index');
+                        highlightMatch(rowIndex, colIndex);
+                    };
+                });
+                
+                // Remove highlights when clicking elsewhere
+                document.addEventListener('click', (e) => {
+                    if (!table.contains(e.target)) {
+                        removeHighlights();
+                    }
+                }, true);
+            };
+            
+            const renderMatchDetails = () => {
+                const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
+                
+                if (currentViewMode === 'compact') {
+                    const compactTable = buildCompactMatchTable(match);
+                    details.innerHTML = predictionStatsGroup + compactTable;
+                    details.classList.add('match-details--compact');
+                    details.classList.remove('match-details--detailed');
+                    
+                    // Setup highlighting after table is rendered
+                    const container = details.querySelector('.compact-match-table-container');
+                    setupTableHighlighting(container);
+                } else {
+                    details.innerHTML = predictionStatsGroup + gamesHtml;
+                    details.classList.add('match-details--detailed');
+                    details.classList.remove('match-details--compact');
+                }
+                
+                // Re-insert the header after the match-prediction-stats-group
+                const statsGroup = details.querySelector('.match-prediction-stats-group');
+                if (statsGroup) {
+                    const detailsHeader = document.createElement('div');
+                    detailsHeader.className = 'match-details-header';
+                    detailsHeader.appendChild(toggleLabel);
+                    statsGroup.insertAdjacentElement('afterend', detailsHeader);
+                }
+            };
+            
+            // Add toggle switch to details header (will be positioned after stats group)
+            const detailsHeader = document.createElement('div');
+            detailsHeader.className = 'match-details-header';
+            detailsHeader.appendChild(toggleLabel);
+            
+            toggleLabel.onclick = (e) => {
+                e.stopPropagation();
+            };
+
+            toggleInput.onchange = (e) => {
+                e.stopPropagation();
+                currentViewMode = toggleInput.checked ? 'compact' : 'detailed';
+                toggleText.textContent = currentViewMode === 'detailed' ? 'Detail' : 'Kompakt';
+                renderMatchDetails();
+            };
+            
+            // Initial render
+            renderMatchDetails();
 
             summary.onclick = () => {
                 const isEx = details.style.display === 'block';
@@ -5911,8 +6387,72 @@ function renderMyTeamPage() {
                             }
                         }
                         
-                        const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
-                        details.innerHTML = predictionStatsGroup + gamesHtml;
+                        // Default mode is compact
+                        let currentViewMode = 'compact';
+                        
+                        // Create view toggle switch (on/off)
+                        const toggleLabel = document.createElement('label');
+                        toggleLabel.className = 'match-details-toggle';
+                        toggleLabel.title = 'Prepnúť zobrazenie';
+
+                        const toggleInput = document.createElement('input');
+                        toggleInput.type = 'checkbox';
+                        toggleInput.checked = true; // Default to compact (enabled)
+                        toggleInput.setAttribute('aria-label', 'Prepínač zobrazenia: kompaktný režim');
+
+                        const toggleSlider = document.createElement('span');
+                        toggleSlider.className = 'match-details-toggle__slider';
+
+                        const toggleText = document.createElement('span');
+                        toggleText.className = 'match-details-toggle__text';
+                        toggleText.textContent = 'Kompakt';
+
+                        toggleLabel.appendChild(toggleInput);
+                        toggleLabel.appendChild(toggleSlider);
+                        toggleLabel.appendChild(toggleText);
+                        
+                        const renderMatchDetails = () => {
+                            const predictionStatsGroup = `<div class="match-prediction-stats-group">${predictionHtml}${statsHtml}</div>`;
+                            
+                            if (currentViewMode === 'compact') {
+                                const compactTable = buildCompactMatchTable(match);
+                                details.innerHTML = predictionStatsGroup + compactTable;
+                                details.classList.add('match-details--compact');
+                                details.classList.remove('match-details--detailed');
+                            } else {
+                                details.innerHTML = predictionStatsGroup + gamesHtml;
+                                details.classList.add('match-details--detailed');
+                                details.classList.remove('match-details--compact');
+                            }
+                            
+                            // Re-insert the header after the match-prediction-stats-group
+                            const statsGroup = details.querySelector('.match-prediction-stats-group');
+                            if (statsGroup) {
+                                const detailsHeader = document.createElement('div');
+                                detailsHeader.className = 'match-details-header';
+                                detailsHeader.appendChild(toggleLabel);
+                                statsGroup.insertAdjacentElement('afterend', detailsHeader);
+                            }
+                        };
+                        
+                        // Add toggle switch to details header
+                        const detailsHeader = document.createElement('div');
+                        detailsHeader.className = 'match-details-header';
+                        detailsHeader.appendChild(toggleLabel);
+                        
+                        toggleLabel.onclick = (e) => {
+                            e.stopPropagation();
+                        };
+
+                        toggleInput.onchange = (e) => {
+                            e.stopPropagation();
+                            currentViewMode = toggleInput.checked ? 'compact' : 'detailed';
+                            toggleText.textContent = currentViewMode === 'detailed' ? 'Detail' : 'Kompakt';
+                            renderMatchDetails();
+                        };
+                        
+                        // Initial render
+                        renderMatchDetails();
 
                         summary.onclick = () => {
                             const isEx = details.style.display === 'block';

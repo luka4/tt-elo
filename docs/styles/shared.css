@@ -517,6 +517,210 @@ a {
   border-top: 1px solid var(--color-border);
   padding: 10px 0;
   box-shadow: var(--shadow-inset);
+  position: relative;
+}
+
+.match-details-header {
+  display: flex;
+  justify-content: center;
+  padding: 8px 15px;
+  margin-bottom: 10px;
+}
+
+.match-details-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.match-details-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.match-details-toggle__slider {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex: 0 0 auto;
+}
+
+.match-details-toggle__slider::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+
+.match-details-toggle input:checked + .match-details-toggle__slider {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.match-details-toggle input:checked + .match-details-toggle__slider::after {
+  transform: translateX(20px);
+}
+
+.match-details-toggle__text {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Compact table styles */
+.compact-match-table-container {
+  margin: 10px 15px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  -webkit-overflow-scrolling: touch;
+}
+
+.compact-match-table {
+  width: auto;
+  border-collapse: separate;
+  border-spacing: 5px;
+  background: transparent;
+  table-layout: fixed;
+}
+
+.compact-match-table th {
+  background: var(--color-surface);
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9em;
+  border: none;
+  color: var(--color-text);
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compact-match-table thead th {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  background: transparent;
+  height: auto;
+  padding: 10px 5px;
+  text-align: left;
+}
+
+.compact-match-table th.row-header {
+  text-align: right;
+  padding-right: 15px;
+  background: transparent;
+  font-weight: 500;
+  width: auto;
+  min-width: auto;
+  max-width: 200px;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compact-match-table td {
+  padding: 5px 12px;
+  text-align: center;
+  border: none;
+  font-weight: 800;
+  font-size: 1.2em;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  background-color: var(--color-surface-2);
+  color: var(--color-text-subtle);
+  border-radius: 6px;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+}
+
+.compact-match-table td.compact-cell--win {
+  background: var(--color-success) !important;
+  color: var(--color-text-inverse) !important;
+}
+
+.compact-match-table td.compact-cell--loss {
+  background: var(--color-danger) !important;
+  color: var(--color-text-inverse) !important;
+}
+
+.compact-match-table td.compact-cell--highlighted,
+.compact-match-table th.row-header--highlighted,
+.compact-match-table th.col-header--highlighted {
+  border: 2px solid #000 !important;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.compact-match-table th.row-header,
+.compact-match-table th.col-header {
+  transition: border 0.2s ease;
+}
+
+/* Mobile styles for compact table */
+@media screen and (max-width: 600px) {
+  .compact-match-table-container {
+    margin: 10px 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+  }
+
+  .compact-match-table {
+    font-size: 0.85em;
+  }
+
+  .compact-match-table th {
+    padding: 8px 8px;
+    font-size: 0.8em;
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+  }
+
+  .compact-match-table th.row-header {
+    padding-right: 10px;
+    font-size: 0.8em;
+    max-width: 150px;
+  }
+
+  .compact-match-table td {
+    padding: 4px 8px;
+    font-size: 1em;
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+  }
+
+  .compact-match-table thead th {
+    padding: 8px 4px;
+  }
+}
+
+.compact-match-table td.compact-cell--doubles {
+  font-weight: 700;
 }
 
 .match-prediction-stats-group {
