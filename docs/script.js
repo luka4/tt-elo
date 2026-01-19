@@ -112,21 +112,6 @@ function formatPlayerName(name) {
     return `${firstName.charAt(0).toUpperCase()}. ${lastName}`;
 }
 
-function formatPlayerNameForColHeader(name) {
-    if (!name) return '';
-    const parts = name.trim().split(/\s+/);
-    if (parts.length === 0) return name;
-    if (parts.length === 1) {
-        // If only one part, return first 4 letters + ".."
-        return parts[0].length > 5 ? parts[0].substring(0, 5).toUpperCase() + '..' : parts[0].toUpperCase();
-    }
-    // First part is first name, rest is last name
-    const firstName = parts[0];
-    const lastName = parts.slice(1).join(' ');
-    const lastNameShort = lastName.length > 5 ? lastName.substring(0, 5).toUpperCase() + '..' : lastName.toUpperCase();
-    return `${firstName.charAt(0).toUpperCase()}. ${lastNameShort}`;
-}
-
 // Build compact table view for match details
 function buildCompactMatchTable(match) {
     const playedGames = match.games.filter(isPlayedMatch);
@@ -199,7 +184,7 @@ function buildCompactMatchTable(match) {
     // Header row with team B players
     html += '<thead><tr><th></th>'; // Empty corner cell
     orderedPlayersB.forEach((p, colIdx) => {
-        const formattedName = formatPlayerNameForColHeader(p);
+        const formattedName = formatPlayerName(p);
         html += `<th class="col-header" data-player="${escapeAttr(p)}" data-col-index="${colIdx}">${escapeHtml(formattedName)}</th>`;
     });
     html += '</tr></thead><tbody>';
