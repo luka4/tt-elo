@@ -16,13 +16,35 @@ var matchResults = window.matchResults = [];
 
   async function loadStaticMatches() {
     try {
+      const showOldSeasons = localStorage.getItem('show_old_seasons') === 'true';
+      let allMatches = [];
+      
+      // If show_old_seasons is enabled, load the old season file first
+      if (showOldSeasons) {
+        try {
+          const oldSeasonRes = await fetch('data/jar2024_5kolo+.json', { cache: 'force-cache' });
+          if (oldSeasonRes.ok) {
+            const oldSeasonData = await oldSeasonRes.json();
+            if (Array.isArray(oldSeasonData)) {
+              allMatches = [...oldSeasonData];
+            }
+          }
+        } catch (e) {
+          console.error('Error loading old season matches:', e);
+        }
+      }
+      
+      // Then load the current matches.json
       const res = await fetch(STATIC_MATCHES_URL, { cache: 'force-cache' });
       if (!res.ok) {
         console.error('Failed to load static matches:', res.status, res.statusText);
-        return [];
+        return allMatches;
       }
       const data = await res.json();
-      return Array.isArray(data) ? data : [];
+      const currentMatches = Array.isArray(data) ? data : [];
+      
+      // Merge: old season matches first, then current matches
+      return [...allMatches, ...currentMatches];
     } catch (e) {
       console.error('Error loading static matches:', e);
       return [];

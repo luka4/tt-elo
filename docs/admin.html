@@ -157,6 +157,17 @@
                     <div id="scheduleContainer" class="schedule-container" style="display: none;"></div>
                 </div>
             </div>
+            <div class="admin-card" style="margin-top: 1.5rem;">
+                <h2 class="admin-title">⚙️ Nastavenia</h2>
+                <form id="settingsForm">
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="showOldSeasons" name="showOldSeasons">
+                        <label for="showOldSeasons" class="form-label">Zobraziť staré sezóny (jar2024_5kolo+)</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Uložiť nastavenia</button>
+                    <div id="settingsStatus" class="status-text"></div>
+                </form>
+            </div>
             <button id="logoutBtn" class="btn btn-secondary" style="margin-top: 1rem;">Odhlásiť sa</button>
         </div>
     </div>
@@ -187,7 +198,10 @@
             seedForm: document.getElementById('seedForm'),
             round2IsKO: document.getElementById('round2IsKO'),
             round2MinPlayersGroup: document.getElementById('round2MinPlayersGroup'),
-            scheduleContainer: document.getElementById('scheduleContainer')
+            scheduleContainer: document.getElementById('scheduleContainer'),
+            settingsForm: document.getElementById('settingsForm'),
+            showOldSeasons: document.getElementById('showOldSeasons'),
+            settingsStatus: document.getElementById('settingsStatus')
         };
 
         let allPlayers = [];
@@ -569,12 +583,30 @@
             renderSchedule(schedule);
         };
 
+        // --- SETTINGS ---
+        const SHOW_OLD_SEASONS_KEY = 'show_old_seasons';
+        
+        function loadSettings() {
+            const showOldSeasons = localStorage.getItem(SHOW_OLD_SEASONS_KEY) === 'true';
+            if (DOM.showOldSeasons) {
+                DOM.showOldSeasons.checked = showOldSeasons;
+            }
+        }
+        
+        DOM.settingsForm.onsubmit = (e) => {
+            e.preventDefault();
+            const showOldSeasons = DOM.showOldSeasons.checked;
+            localStorage.setItem(SHOW_OLD_SEASONS_KEY, showOldSeasons.toString());
+            showStatus(DOM.settingsStatus, 'Nastavenia uložené', 'success');
+        };
+
         // --- INIT ---
         document.getElementById('addPlayerBtn').onclick = () => addPlayerRow();
         document.getElementById('addNewPlayerBtn').onclick = () => addPlayerRow();
 
         document.addEventListener('DOMContentLoaded', async () => {
             checkAuth();
+            loadSettings();
             try {
                 await window.matchResultsPromise;
                 if (typeof processData === 'function') {
