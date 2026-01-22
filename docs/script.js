@@ -2541,6 +2541,28 @@ function renderRatingPage() {
         p.formScore = f.score;
         p.formWins = f.wins;
     });
+
+    // Find the latest round from all matches
+    const playedMatches = (matchResults || []).filter(isPlayedMatch);
+    let latestRoundId = null;
+    if (playedMatches.length > 0) {
+        const lastMatch = playedMatches[playedMatches.length - 1];
+        latestRoundId = getMatchRoundId(lastMatch);
+    }
+
+    // Calculate points gained/lost in latest round for each player
+    sortedPlayers.forEach(p => {
+        p.latestRoundPoints = null; // null means didn't play in latest round
+        if (latestRoundId && Array.isArray(p.matchDetails)) {
+            const matchesInLatestRound = p.matchDetails.filter(m => getMatchRoundId(m) === latestRoundId);
+            if (matchesInLatestRound.length > 0) {
+                // Sum up all delta_own for matches in this round
+                const totalDelta = matchesInLatestRound.reduce((sum, m) => sum + (m.delta_own || 0), 0);
+                p.latestRoundPoints = totalDelta;
+            }
+        }
+    });
+
     let selectedTeams = [];
     let activePlayer = null;
     let activeDerived = null;
@@ -2588,6 +2610,8 @@ function renderRatingPage() {
                     return p.formScore || 0;
                 case 'rating':
                     return p.rating || 0;
+                case 'latest_round_points':
+                    return p.latestRoundPoints !== null && p.latestRoundPoints !== undefined ? p.latestRoundPoints : -Infinity;
                 case 'rebricek':
                     return p.rebricek || 0;
                 case 's_matches':
@@ -2753,9 +2777,24 @@ function renderRatingPage() {
                 }
                 return `<div class="form-dots" aria-label="Forma (posledných 5 zápasov)">${dots.join('')}</div>`;
             })();
+            // Format latest round points
+            const latestRoundPointsHtml = (() => {
+                if (p.latestRoundPoints === null || p.latestRoundPoints === undefined) {
+                    return '';
+                }
+                const delta = p.latestRoundPoints;
+                if (Math.abs(delta) < 0.01) {
+                    return `<span class="diff-val diff-neu">-</span>`;
+                }
+                const className = delta > 0 ? 'diff-up' : 'diff-down';
+                const symbol = delta > 0 ? '▲' : '▼';
+                return `<span class="diff-val ${className}">${symbol}${Math.abs(delta).toFixed(2)}</span>`;
+            })();
+
             tr.innerHTML = `
                 <td>${ratingRank}</td><td>${p.name}</td><td>${p.team}</td>
                 <td class="${ratingClass}">${p.rating.toFixed(2)}</td>
+                <td>${latestRoundPointsHtml}</td>
                 <td class="form-cell">${formHtml}</td>
 <!--                TODO temporary remove rebricek-->
 <!--                <td>${rebricekVal}</td>-->
@@ -2800,6 +2839,7 @@ function renderRatingPage() {
             'name',          // Hráč
             null,            // Tím (excluded)
             'rating',        // Rating
+            'latest_round_points', // Posledné Kolo
             'form',          // Forma
             // TODO temporary remove rebricek
             // 'rebricek',
