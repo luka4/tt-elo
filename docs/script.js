@@ -2305,6 +2305,209 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
     if (!appendToProvided) container.appendChild(wrapper);
 }
 
+// Unified function to render rating line chart (shared by rating.html and mystats.html)
+function renderRatingLineChart(p, compareP, canvasId, chartRefSetter, attempt = 0) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || typeof Chart === 'undefined') {
+        if (attempt < 8) setTimeout(() => renderRatingLineChart(p, compareP, canvasId, chartRefSetter, attempt + 1), 120);
+        return;
+    }
+    const rect = canvas.getBoundingClientRect();
+    if ((rect.width < 2 || rect.height < 2) && attempt < 8) {
+        setTimeout(() => renderRatingLineChart(p, compareP, canvasId, chartRefSetter, attempt + 1), 120);
+        return;
+    }
+    const ctx = canvas.getContext('2d');
+    
+    // Get all history keys from all matches (not just player's matches)
+    const allRounds = buildRoundsIndex(matchResults || []);
+    const historyKeysSet = new Set();
+    
+    // Add keys from all rounds
+    Object.values(allRounds).forEach(round => {
+        const rNum = round.roundNum;
+        const sOrder = round.seasonOrder;
+        const sDisp = round.season ? ` (${round.season})` : '';
+        const historyKey = `${sOrder}-${String(rNum).padStart(2, '0')}|${round.name}${sDisp}`;
+        historyKeysSet.add(historyKey);
+    });
+    
+    // Also include any keys from player histories (in case there are rounds not in matchResults)
+    Object.keys(p.history || {}).forEach(k => historyKeysSet.add(k));
+    if (compareP) {
+        Object.keys(compareP.history || {}).forEach(k => historyKeysSet.add(k));
+    }
+    
+    const allKeysUnsorted = Array.from(historyKeysSet);
+    
+    // Helper function to forward-fill between first and last existing points
+    const buildFilledSeries = (history, keys) => {
+        const raw = keys.map(k => (Object.prototype.hasOwnProperty.call(history, k) ? history[k] : null));
+        const firstIdx = raw.findIndex(v => v !== null && v !== undefined);
+        if (firstIdx === -1) return raw.map(() => null);
+        let lastIdx = -1;
+        for (let i = raw.length - 1; i >= 0; i--) {
+            if (raw[i] !== null && raw[i] !== undefined) { lastIdx = i; break; }
+        }
+        let lastVal = raw[firstIdx];
+        for (let i = firstIdx; i <= lastIdx; i++) {
+            if (raw[i] === null || raw[i] === undefined) raw[i] = lastVal;
+            else lastVal = raw[i];
+        }
+        return raw;
+    };
+    
+    // Find the first and last round where the player(s) actually played
+    const playerHistoryKeys = Object.keys(p.history || {}).sort();
+    const compareHistoryKeys = compareP ? Object.keys(compareP.history || {}).sort() : [];
+    let allKeys, labels, dataPoints;
+    
+    if (playerHistoryKeys.length === 0 && compareHistoryKeys.length === 0) {
+        // No history for either player, show nothing
+        allKeys = [];
+        labels = [];
+        dataPoints = [];
+    } else {
+        // Parse the keys to compare season and round numbers
+        const parseKey = (key) => {
+            const parts = key.split('|');
+            if (parts.length < 1) return { seasonOrder: 0, roundNum: 0 };
+            const prefix = parts[0];
+            const prefixParts = prefix.split('-');
+            return {
+                seasonOrder: parseInt(prefixParts[0] || '0', 10),
+                roundNum: parseInt(prefixParts[1] || '0', 10)
+            };
+        };
+        
+        // Find the earliest first round and latest last round across both players
+        let firstRound = null;
+        let lastRound = null;
+        
+        if (playerHistoryKeys.length > 0) {
+            const firstPlayerKey = playerHistoryKeys[0];
+            const lastPlayerKey = playerHistoryKeys[playerHistoryKeys.length - 1];
+            firstRound = parseKey(firstPlayerKey);
+            lastRound = parseKey(lastPlayerKey);
+        }
+        
+        if (compareHistoryKeys.length > 0) {
+            const firstCompareKey = compareHistoryKeys[0];
+            const lastCompareKey = compareHistoryKeys[compareHistoryKeys.length - 1];
+            const firstCompare = parseKey(firstCompareKey);
+            const lastCompare = parseKey(lastCompareKey);
+            
+            if (firstRound === null) {
+                firstRound = firstCompare;
+                lastRound = lastCompare;
+            } else {
+                // Use the earlier first round and later last round
+                if (firstCompare.seasonOrder < firstRound.seasonOrder || 
+                    (firstCompare.seasonOrder === firstRound.seasonOrder && firstCompare.roundNum < firstRound.roundNum)) {
+                    firstRound = firstCompare;
+                }
+                if (lastCompare.seasonOrder > lastRound.seasonOrder ||
+                    (lastCompare.seasonOrder === lastRound.seasonOrder && lastCompare.roundNum > lastRound.roundNum)) {
+                    lastRound = lastCompare;
+                }
+            }
+        }
+        
+        if (firstRound === null || lastRound === null) {
+            allKeys = [];
+            labels = [];
+            dataPoints = [];
+        } else {
+            // Filter allKeys to only include rounds between (and including) first and last rounds
+            allKeys = allKeysUnsorted.filter(key => {
+                const keyInfo = parseKey(key);
+                // Include if: same season and round >= first, or season > first season
+                // AND: same season and round <= last, or season < last season
+                const afterFirst = keyInfo.seasonOrder > firstRound.seasonOrder || 
+                    (keyInfo.seasonOrder === firstRound.seasonOrder && keyInfo.roundNum >= firstRound.roundNum);
+                const beforeLast = keyInfo.seasonOrder < lastRound.seasonOrder ||
+                    (keyInfo.seasonOrder === lastRound.seasonOrder && keyInfo.roundNum <= lastRound.roundNum);
+                return afterFirst && beforeLast;
+            }).sort();
+            
+            labels = allKeys.map(k => k.split('|')[1] || k);
+            dataPoints = buildFilledSeries(p.history, allKeys);
+        }
+    }
+    
+    // Use consistent theme color retrieval
+    const themePrimary = getThemeVar('--color-primary', '#7c3aed');
+    const themeDanger = getThemeVar('--color-danger', '#dc2626');
+    
+    const datasets = [{
+        label: p.name,
+        data: dataPoints,
+        borderColor: themePrimary,
+        backgroundColor: toRgba(themePrimary, 0.1),
+        borderWidth: 2,
+        pointRadius: 1,
+        pointBackgroundColor: themePrimary,
+        tension: 0.3,
+        fill: true
+    }];
+
+    if (compareP) {
+        const compareData = buildFilledSeries(compareP.history, allKeys);
+        datasets.push({
+            label: compareP.name,
+            data: compareData,
+            borderColor: themeDanger,
+            backgroundColor: toRgba(themeDanger, 0.1),
+            borderWidth: 2,
+            pointRadius: 1,
+            pointBackgroundColor: themeDanger,
+            tension: 0.3,
+            fill: true
+        });
+    }
+
+    // Destroy existing chart if it exists
+    if (chartRefSetter && typeof chartRefSetter.get === 'function') {
+        const existingChart = chartRefSetter.get();
+        if (existingChart && existingChart.destroy) {
+            existingChart.destroy();
+        }
+    }
+    
+    // Create new chart with improved options
+    const newChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: compareP !== null || datasets.length > 1 }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid: { color: 'rgba(128,128,128,0.15)' }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { autoSkip: true, maxTicksLimit: 10 }
+                }
+            }
+        }
+    });
+    
+    // Update the chart reference using the setter
+    if (chartRefSetter && typeof chartRefSetter.set === 'function') {
+        chartRefSetter.set(newChart);
+    }
+    
+    return newChart;
+}
+
 // --- RATING PAGE ---
 function renderRatingPage() {
     const {players} = processData();
@@ -2943,82 +3146,10 @@ function renderRatingPage() {
     };
 
     const renderLineChart = (p, compareP = null, attempt = 0) => {
-        const canvas = document.getElementById('ratingChart');
-        if (!canvas || typeof Chart === 'undefined') {
-            if (attempt < 8) setTimeout(() => renderLineChart(p, compareP, attempt + 1), 120);
-            return;
-        }
-        const rect = canvas.getBoundingClientRect();
-        if ((rect.width < 2 || rect.height < 2) && attempt < 8) {
-            setTimeout(() => renderLineChart(p, compareP, attempt + 1), 120);
-            return;
-        }
-        const ctx = canvas.getContext('2d');
-        const keysA = Object.keys(p.history).sort();
-        const keysB = compareP ? Object.keys(compareP.history).sort() : [];
-        const allKeys = [...new Set([...keysA, ...keysB])].sort();
-        const labels = allKeys.map(k => k.split('|')[1]);
-        const buildFilledSeries = (history, keys) => {
-            // We want to show "missing rounds" only after the player started playing.
-            // So we forward-fill between the first and last existing points, but keep
-            // null before the first match and after the last match (so the line doesn't extend).
-            const raw = keys.map(k => (Object.prototype.hasOwnProperty.call(history, k) ? history[k] : null));
-            const firstIdx = raw.findIndex(v => v !== null && v !== undefined);
-            if (firstIdx === -1) return raw.map(() => null);
-            let lastIdx = -1;
-            for (let i = raw.length - 1; i >= 0; i--) {
-                if (raw[i] !== null && raw[i] !== undefined) { lastIdx = i; break; }
-            }
-            let lastVal = null;
-            return raw.map((v, i) => {
-                if (i < firstIdx || i > lastIdx) return null;
-                if (v !== null && v !== undefined) { lastVal = v; return v; }
-                return lastVal;
-            });
-        };
-
-        const dataPoints = compareP ? buildFilledSeries(p.history, allKeys) : allKeys.map(k => p.history[k] ?? null);
-        const themePrimary = getThemeVar('--color-primary', '#7c3aed');
-        const themeDanger = getThemeVar('--color-danger', '#dc2626');
-        const datasets = [{
-            label: p.name,
-            data: dataPoints,
-            borderColor: themePrimary,
-            backgroundColor: toRgba(themePrimary, 0.1),
-            borderWidth: 2,
-            pointRadius: 1,
-            tension: 0.1,
-            fill: true
-        }];
-
-        if (compareP) {
-            const compareData = buildFilledSeries(compareP.history, allKeys);
-            datasets.push({
-                label: compareP.name,
-                data: compareData,
-                borderColor: themeDanger,
-                backgroundColor: toRgba(themeDanger, 0.1),
-                borderWidth: 2,
-                pointRadius: 1,
-                tension: 0.1,
-                fill: true
-            });
-        }
-
-        if (chartRefs['line']) chartRefs['line'].destroy();
-        chartRefs['line'] = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: datasets
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: datasets.length > 1 } },
-                scales: {x: {ticks: {autoSkip: true, maxTicksLimit: 10}}}
-            }
-        });
+        const chart = renderRatingLineChart(p, compareP, 'ratingChart', {
+            get: () => chartRefs['line'],
+            set: (chart) => { chartRefs['line'] = chart; }
+        }, attempt);
     };
 
     const renderFormHistory = (p) => {
@@ -4122,88 +4253,11 @@ function renderMyStatsPage() {
         return { rating: peakRating, when: peakWhen };
     };
 
-    // Render rating line chart
     const renderMyLineChart = (p, compareP = null, attempt = 0) => {
-        const canvas = document.getElementById('myRatingChart');
-        if (!canvas || typeof Chart === 'undefined') {
-            if (attempt < 8) setTimeout(() => renderMyLineChart(p, compareP, attempt + 1), 120);
-            return;
-        }
-
-        const ctx = canvas.getContext('2d');
-        const keysA = Object.keys(p.history).sort();
-        const keysB = compareP ? Object.keys(compareP.history).sort() : [];
-        const allKeys = [...new Set([...keysA, ...keysB])].sort();
-        const labels = allKeys.map(k => k.split('|')[1] || k);
-
-        const buildFilledSeries = (history, keys) => {
-            const raw = keys.map(k => (Object.prototype.hasOwnProperty.call(history, k) ? history[k] : null));
-            const firstIdx = raw.findIndex(v => v !== null && v !== undefined);
-            if (firstIdx === -1) return raw.map(() => null);
-            let lastIdx = -1;
-            for (let i = raw.length - 1; i >= 0; i--) {
-                if (raw[i] !== null && raw[i] !== undefined) { lastIdx = i; break; }
-            }
-            let lastVal = raw[firstIdx];
-            for (let i = firstIdx; i <= lastIdx; i++) {
-                if (raw[i] === null || raw[i] === undefined) raw[i] = lastVal;
-                else lastVal = raw[i];
-            }
-            return raw;
-        };
-
-        const dataPoints = compareP ? buildFilledSeries(p.history, allKeys) : allKeys.map(k => p.history[k] ?? null);
-        const themePrimary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#7c3aed';
-        const themeDanger = getComputedStyle(document.documentElement).getPropertyValue('--color-danger').trim() || '#dc2626';
-
-        const datasets = [{
-            label: p.name,
-            data: dataPoints,
-            borderColor: themePrimary,
-            backgroundColor: themePrimary + '20',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.3,
-            pointRadius: 1,
-            pointBackgroundColor: themePrimary
-        }];
-
-        if (compareP) {
-            datasets.push({
-                label: compareP.name,
-                data: buildFilledSeries(compareP.history, allKeys),
-                borderColor: themeDanger,
-                backgroundColor: themeDanger + 20,
-                borderWidth: 2,
-                fill: true,
-                tension: 0.3,
-                pointRadius: 1,
-                pointBackgroundColor: themeDanger
-            });
-        }
-
-        if (myRatingChart) myRatingChart.destroy();
-        myRatingChart = new Chart(ctx, {
-            type: 'line',
-            data: { labels, datasets },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: compareP !== null }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        grid: { color: 'rgba(128,128,128,0.15)' }
-                    },
-                    x: {
-                        grid: { display: false },
-                        ticks: { maxTicksLimit: 10 }
-                    }
-                }
-            }
-        });
+        const chart = renderRatingLineChart(p, compareP, 'myRatingChart', {
+            get: () => myRatingChart,
+            set: (chart) => { myRatingChart = chart; }
+        }, attempt);
     };
 
     // Track current derived stats for comparison
