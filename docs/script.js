@@ -1353,7 +1353,7 @@ function renderHomePage() {
     }
 
     // Top Gainers
-    const top5 = Object.values(players).sort((a, b) => b.roundGain - a.roundGain).slice(0, 5);
+    const top5 = Object.values(players).sort((a, b) => b.roundGain - a.roundGain).slice(0, 10);
     const gainList = document.getElementById('topGainersList');
     gainList.innerHTML = '';
     top5.forEach((p, index) => {
