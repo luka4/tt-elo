@@ -432,6 +432,35 @@ function isSameIsoWeek(a, b) {
     return startOfIsoWeek(a).getTime() === startOfIsoWeek(b).getTime();
 }
 
+// Format date string with Slovak day abbreviation: "2026-01-28 17:00" -> "2026-01-28, Str 17:00"
+function formatDateWithSlovakDay(dateStr) {
+    if (!dateStr) return '';
+    
+    // Match format: "YYYY-MM-DD HH:mm" or "YYYY-MM-DD"
+    const match = dateStr.match(/^(\d{4}-\d{2}-\d{2})(?:\s+(\d{2}:\d{2}))?/);
+    if (!match) return dateStr; // Return original if format doesn't match
+    
+    const datePart = match[1];
+    const timePart = match[2] || '';
+    
+    // Parse the date
+    const [year, month, day] = datePart.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
+    
+    // Check if date is valid
+    if (isNaN(date.getTime())) return dateStr;
+    
+    // Get day of week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+    const dayOfWeek = date.getDay();
+    
+    // Slovak day abbreviations
+    const slovakDays = ['Ne', 'Po', 'Ut', 'Str', 'Št', 'Pi', 'So'];
+    const dayAbbr = slovakDays[dayOfWeek];
+    
+    // Format: "YYYY-MM-DD, [DayAbbr] HH:mm" or "YYYY-MM-DD, [DayAbbr]" if no time
+    return timePart ? `${datePart}, ${dayAbbr} ${timePart}` : `${datePart}, ${dayAbbr}`;
+}
+
 function getRoundNumFromStr(roundStr) {
     const s = String(roundStr || '');
     const m = s.match(/\d+/);
@@ -2294,11 +2323,11 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
             matchRow.appendChild(summary);
             matchRow.appendChild(details);
 
-            const dateStr = match.date ? match.date : '';
+            const dateStr = match.date ? formatDateWithSlovakDay(match.date) : '';
             const locStr = match.location ? match.location : '';
             if (dateStr || locStr) {
                 const metaDiv = document.createElement('div');
-                metaDiv.style.cssText = "text-align:center; font-size:0.75em; color:var(--color-muted); padding-bottom:8px; margin-top:-8px;";
+                metaDiv.style.cssText = "text-align:center; font-size:0.75em; color:black; padding-bottom:8px; margin-top:-8px;";
                 metaDiv.innerHTML = `${dateStr}${dateStr && locStr ? ' | ' : ''}${locStr}`;
                 matchRow.appendChild(metaDiv);
             }
@@ -4654,7 +4683,7 @@ function renderMyStatsPage() {
         let html = '';
         
         // Show first match (always visible)
-        const dateStr = visibleMatch.date || '';
+        const dateStr = visibleMatch.date ? formatDateWithSlovakDay(visibleMatch.date) : '';
         const location = visibleMatch.location || '';
         html += `
             <div class="next-match-item">
@@ -4669,7 +4698,7 @@ function renderMyStatsPage() {
 
         // Show hidden matches (initially hidden)
         hiddenMatches.forEach((match, index) => {
-            const matchDateStr = match.date || '';
+            const matchDateStr = match.date ? formatDateWithSlovakDay(match.date) : '';
             const matchLocation = match.location || '';
             const isLast = index === hiddenMatches.length - 1;
 
@@ -5601,7 +5630,7 @@ function renderMyTeamPage() {
         const hasMoreMatches = hiddenMatches.length > 0;
 
         let html = '';
-        const dateStr = visibleMatch.date || '';
+        const dateStr = visibleMatch.date ? formatDateWithSlovakDay(visibleMatch.date) : '';
         const location = visibleMatch.location || '';
         html += `
             <div class="next-match-item">
@@ -5615,7 +5644,7 @@ function renderMyTeamPage() {
         `;
 
         hiddenMatches.forEach((match, index) => {
-            const matchDateStr = match.date || '';
+            const matchDateStr = match.date ? formatDateWithSlovakDay(match.date) : '';
             const matchLocation = match.location || '';
             const isLast = index === hiddenMatches.length - 1;
             html += `
