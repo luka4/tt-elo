@@ -5329,6 +5329,137 @@ function renderMyTeamPage() {
     };
 
     // Render rating chart (active vs overall)
+    // Helper function to calculate actual rating for a round (average of actual ratings from matches in that round)
+    const calculateActualRatingForRound = (teamName, round) => {
+        // Find all matches the team played in this round
+        // Use the same round ID format as getMatchRoundId: `${season}__${round}`
+        const targetRoundId = `${round.season || 'N/A'}__${round.name}`;
+        
+        const teamMatchesInRound = matchResults.filter(m => {
+            if (!isPlayedMatch(m)) return false;
+            const matchRoundId = getMatchRoundId(m);
+            return matchRoundId === targetRoundId && (m.player_a_team === teamName || m.player_b_team === teamName);
+        });
+
+        if (teamMatchesInRound.length === 0) {
+            return null;
+        }
+
+        // Group matches by team match (same opponent, same round)
+        const teamMatchesMap = new Map();
+        teamMatchesInRound.forEach(m => {
+            const key = `${m.player_a_team}::${m.player_b_team}`;
+            if (!teamMatchesMap.has(key)) {
+                teamMatchesMap.set(key, {
+                    teamA: m.player_a_team,
+                    teamB: m.player_b_team,
+                    games: [],
+                    round: m.round,
+                    season: m.season
+                });
+            }
+            teamMatchesMap.get(key).games.push(m);
+        });
+
+        // Local helper to calculate actualRating for a team match
+        const calculateActualRatingForTeamMatch = (teamName, teamMatch) => {
+            const teamPlayers = teamMap.get(teamName) || [];
+            if (teamPlayers.length === 0) {
+                return 0;
+            }
+
+            const playerDataMap = new Map();
+            const uniquePlayersSet = new Set();
+            const playerMatchesInTeamMatch = new Map();
+            
+            teamMatch.games.forEach(g => {
+                const isDoubles = g.doubles === true || g.doubles === "true";
+                const playersA = g.player_a ? g.player_a.split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n)) : [];
+                const playersB = g.player_b ? g.player_b.split('/').map(n => n.trim()).filter(n => n && !isWalkoverToken(n)) : [];
+                
+                if (g.player_a_team === teamName) {
+                    playersA.forEach(p => uniquePlayersSet.add(p));
+                    
+                    if (isDoubles && playersA.length === 2) {
+                        playersA.forEach(p => {
+                            playerMatchesInTeamMatch.set(p, (playerMatchesInTeamMatch.get(p) || 0) + 0.5);
+                        });
+                    } else if (playersA.length === 1) {
+                        playerMatchesInTeamMatch.set(playersA[0], (playerMatchesInTeamMatch.get(playersA[0]) || 0) + 1);
+                    }
+                }
+                
+                if (g.player_b_team === teamName) {
+                    playersB.forEach(p => uniquePlayersSet.add(p));
+                    
+                    if (isDoubles && playersB.length === 2) {
+                        playersB.forEach(p => {
+                            playerMatchesInTeamMatch.set(p, (playerMatchesInTeamMatch.get(p) || 0) + 0.5);
+                        });
+                    } else if (playersB.length === 1) {
+                        playerMatchesInTeamMatch.set(playersB[0], (playerMatchesInTeamMatch.get(playersB[0]) || 0) + 1);
+                    }
+                }
+            });
+
+            let actualRating = 0;
+            const uniquePlayersCount = uniquePlayersSet.size;
+            
+            if (uniquePlayersCount > 0) {
+                const playerRatings = [];
+                const matchWeights = [];
+                
+                uniquePlayersSet.forEach(playerName => {
+                    const rating = getPlayerRatingBeforeMatch(playerName, teamMatch.round, teamMatch.season, players);
+                    const matches = getPlayerMatchesBeforeMatch(playerName, teamMatch.round, teamMatch.season, players);
+                    const matchesInTeamMatch = playerMatchesInTeamMatch.get(playerName) || 0;
+                    
+                    // Include players who actually played in this team match
+                    // Even if they haven't played before (matches === 0), they should be included
+                    if (matchesInTeamMatch > 0) {
+                        playerRatings.push(rating);
+                        matchWeights.push(matchesInTeamMatch);
+                    }
+                });
+                
+                if (playerRatings.length > 0) {
+                    let totalWeighted = 0;
+                    let totalWeight = 0;
+                    for (let i = 0; i < playerRatings.length; i++) {
+                        totalWeighted += playerRatings[i] * matchWeights[i];
+                        totalWeight += matchWeights[i];
+                    }
+                    const expectedTotalMatches = 18;
+                    if (totalWeight < expectedTotalMatches) {
+                        totalWeight = expectedTotalMatches;
+                    }
+                    actualRating = totalWeight > 0 ? totalWeighted / totalWeight : 0;
+                }
+            }
+
+            return actualRating;
+        };
+
+        // Calculate actualRating for each team match and average them
+        const actualRatings = [];
+        teamMatchesMap.forEach(teamMatch => {
+            const rating = calculateActualRatingForTeamMatch(teamName, teamMatch);
+            // Include any valid rating (not null, not 0 where 0 means no data)
+            // Note: 0 means calculation failed or no players, so we exclude it
+            // But we allow negative values if calculated (though they shouldn't normally occur)
+            if (rating !== null && rating !== 0) {
+                actualRatings.push(rating);
+            }
+        });
+
+        if (actualRatings.length === 0) {
+            return null;
+        }
+
+        // Return average of actual ratings from all team matches in this round
+        return actualRatings.reduce((sum, r) => sum + r, 0) / actualRatings.length;
+    };
+
     // Helper function to calculate team ratings for a given round
     const calculateTeamRatingsForRound = (teamPlayers, round) => {
         const playersAtRound = teamPlayers.map(p => {
@@ -5448,27 +5579,34 @@ function renderMyTeamPage() {
         // Calculate ratings per round using actual player history
         const activeRatings = [];
         const overallRatings = [];
+        const actualRatings = [];
         const compareActiveRatings = [];
         const compareOverallRatings = [];
+        const compareActualRatings = [];
         const labels = [];
 
         sortedRounds.forEach(round => {
             // Calculate ratings for current team
             const { activeRating, overallRating } = calculateTeamRatingsForRound(teamPlayers, round);
+            const actualRating = calculateActualRatingForRound(teamName, round);
             
             if (activeRating !== null && overallRating !== null) {
                 activeRatings.push(activeRating);
                 overallRatings.push(overallRating);
+                actualRatings.push(actualRating);
                 labels.push(round.name + (round.season ? ` (${round.season})` : ''));
 
                 // Calculate ratings for comparison team if provided
-                if (compareTeamPlayers) {
+                if (compareTeamPlayers && compareTeamName) {
                     const compareRatings = calculateTeamRatingsForRound(compareTeamPlayers, round);
+                    const compareActualRating = calculateActualRatingForRound(compareTeamName, round);
                     compareActiveRatings.push(compareRatings.activeRating);
                     compareOverallRatings.push(compareRatings.overallRating);
+                    compareActualRatings.push(compareActualRating);
                 } else {
                     compareActiveRatings.push(null);
                     compareOverallRatings.push(null);
+                    compareActualRatings.push(null);
                 }
             }
         });
@@ -5502,6 +5640,16 @@ function renderMyTeamPage() {
             borderDash: [5, 5],
             tension: 0.3,
             pointRadius: 1
+        }, {
+            label: 'Skutočný Rating',
+            data: actualRatings,
+            borderColor: '#666666',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            borderDash: [2, 2],
+            tension: 0.3,
+            pointRadius: 1,
+            hidden: true
         }];
 
         // Add comparison team datasets if provided
@@ -5525,6 +5673,17 @@ function renderMyTeamPage() {
                 borderDash: [5, 5],
                 tension: 0.3,
                 pointRadius: 1
+            });
+            datasets.push({
+                label: `${compareTeamName} - Skutočný Rating`,
+                data: compareActualRatings,
+                borderColor: themeDanger,
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [2, 2],
+                tension: 0.3,
+                pointRadius: 1,
+                hidden: true
             });
         }
 
