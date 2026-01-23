@@ -403,6 +403,14 @@ a {
   transition: background-color 0.2s;
 }
 
+.match-row--group-b {
+  background-color: #f0f4ff;
+}
+
+.match-row--group-b:hover {
+  background-color: #e0e7ff;
+}
+
 .match-row:last-child {
   border-bottom: none;
 }

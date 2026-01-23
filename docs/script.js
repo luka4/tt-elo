@@ -1611,7 +1611,8 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
             date: m.date,
             location: m.location,
             round: m.round,
-            season: m.season
+            season: m.season,
+            group: m.group || ""
         };
 
         if (isPlayedMatch(m)) {
@@ -1824,7 +1825,9 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
 
     Object.values(teamMatches).forEach(match => {
         const matchRow = document.createElement('div');
-        matchRow.className = 'match-row';
+        // Add group-B class if group is B (for index.html and results.html)
+        const isGroupB = match.group && match.group.trim().toUpperCase() === 'B';
+        matchRow.className = 'match-row' + (isGroupB ? ' match-row--group-b' : '');
 
         // Check if played (at least one game is played)
         const isPlayed = match.games.some(isPlayedMatch);
@@ -5842,7 +5845,8 @@ function renderMyTeamPage() {
                     date: m.date,
                     location: m.location,
                     seasonOrder: getSeasonOrder(m.season),
-                    roundNum: getRoundNumFromStr(m.round)
+                    roundNum: getRoundNumFromStr(m.round),
+                    group: m.group || ""
                 };
             }
             grouped[key].games.push(m);
@@ -5892,7 +5896,9 @@ function renderMyTeamPage() {
             const seasonRoundText = `${match.round || ''}${match.season ? ` • ${match.season}` : ''}`;
 
             const matchRow = document.createElement('div');
-            matchRow.className = 'match-row';
+            // Add group-B class if group is B (for myteam.html)
+            const isGroupB = match.group && match.group.trim().toUpperCase() === 'B';
+            matchRow.className = 'match-row' + (isGroupB ? ' match-row--group-b' : '');
 
             const logoA = getTeamLogoSrc(match.teamA);
             const logoB = getTeamLogoSrc(match.teamB);
@@ -6299,7 +6305,9 @@ function renderMyTeamPage() {
                         const seasonRoundText = `${match.round || ''}${match.season ? ` • ${match.season}` : ''}`;
 
                         const matchRow = document.createElement('div');
-                        matchRow.className = 'match-row';
+                        // Add group-B class if group is B (for myteam.html - show all matches)
+                        const isGroupB = match.group && match.group.trim().toUpperCase() === 'B';
+                        matchRow.className = 'match-row' + (isGroupB ? ' match-row--group-b' : '');
 
                         const logoA = getTeamLogoSrc(match.teamA);
                         const logoB = getTeamLogoSrc(match.teamB);
