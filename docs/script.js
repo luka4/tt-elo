@@ -112,6 +112,12 @@ function formatPlayerName(name) {
     return `${firstName.charAt(0).toUpperCase()}. ${lastName}`;
 }
 
+function isMobileViewport() {
+    return typeof window !== 'undefined'
+        && typeof window.matchMedia === 'function'
+        && window.matchMedia('(max-width: 768px)').matches;
+}
+
 // Build compact table view for match details
 function buildCompactMatchTable(match) {
     const playedGames = match.games.filter(isPlayedMatch);
@@ -1988,9 +1994,10 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                     </div>`;
                 }
                 
+                const isMobile = isMobileViewport();
                 list.forEach((p, index) => {
                     h += `<div class="player-stat-row">
-                        <div class="player-stat-name">${escapeHtml(p.name)}</div>
+                        <div class="player-stat-name">${escapeHtml(isMobile ? formatPlayerName(p.name) : p.name)}</div>
                         <span class="player-stat-score">${p.points}/${p.possible}</span>
                     </div>`;
                 });
@@ -6198,9 +6205,10 @@ function renderMyTeamPage() {
                     </div>
                 </div>`;
                 
+                const isMobile = isMobileViewport();
                 list.forEach((p) => {
                     h += `<div class="player-stat-row">
-                        <div class="player-stat-name">${escapeHtml(p.name)}</div>
+                        <div class="player-stat-name">${escapeHtml(isMobile ? formatPlayerName(p.name) : p.name)}</div>
                         <span class="player-stat-score">${p.points}/${p.possible}</span>
                     </div>`;
                 });
@@ -6606,9 +6614,10 @@ function renderMyTeamPage() {
                                 </div>
                             </div>`;
                             
+                            const isMobile = isMobileViewport();
                             list.forEach((p) => {
                                 h += `<div class="player-stat-row">
-                                    <div class="player-stat-name">${escapeHtml(p.name)}</div>
+                                    <div class="player-stat-name">${escapeHtml(isMobile ? formatPlayerName(p.name) : p.name)}</div>
                                     <span class="player-stat-score">${p.points}/${p.possible}</span>
                                 </div>`;
                             });
