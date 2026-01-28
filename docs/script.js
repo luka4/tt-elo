@@ -1769,7 +1769,9 @@ function renderMatchList(matches, container, appendToProvided, playersData = nul
                 const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season, playersData);
                 const matchesInTeamMatch = playerMatchesInTeamMatch.get(playerName) || 0;
                 
-                if (matches > 0 && matchesInTeamMatch > 0) {
+                // Include all players who actually played in this team match,
+                // even if this was their first match in the league (matches may be 0)
+                if (matchesInTeamMatch > 0) {
                     playerRatings.push(rating);
                     matchWeights.push(matchesInTeamMatch);
                 }
@@ -5957,7 +5959,9 @@ function renderMyTeamPage() {
                 const matches = getPlayerMatchesBeforeMatch(playerName, match.round, match.season, players);
                 const matchesInTeamMatch = playerMatchesInTeamMatch.get(playerName) || 0;
                 
-                if (matches > 0 && matchesInTeamMatch > 0) {
+                // Include all players who actually played in this team match,
+                // even if this was their first match in the league (matches may be 0)
+                if (matchesInTeamMatch > 0) {
                     playerRatings.push(rating);
                     matchWeights.push(matchesInTeamMatch);
                 }
