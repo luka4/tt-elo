@@ -473,6 +473,93 @@ function getRoundNumFromStr(roundStr) {
     return m ? parseInt(m[0], 10) : 0;
 }
 
+// Calculate team ratings for a given round (using player history)
+function calculateTeamRatingsForRound(teamPlayers, round) {
+    const playersAtRound = teamPlayers.map(p => {
+        // Find the last history entry that matches this round
+        // History keys format: "20251-01|1. kolo (JAR 2025)"
+        const targetPrefix = `${round.seasonOrder}-${String(round.roundNum).padStart(2, '0')}`;
+        let ratingAtRound = null;
+
+        // Get all history keys for this player
+        const historyKeys = Object.keys(p.history || {});
+        
+        // Find all history entries that match this round
+        const matchingKeys = historyKeys.filter(key => {
+            const keyParts = key.split('|');
+            if (keyParts.length < 1) return false;
+            return keyParts[0] === targetPrefix;
+        });
+
+        if (matchingKeys.length > 0) {
+            // Get the last one (after all matches in this round)
+            matchingKeys.sort();
+            const lastMatchingKey = matchingKeys[matchingKeys.length - 1];
+            ratingAtRound = p.history[lastMatchingKey];
+        } else {
+            // No history for this round, try to find the most recent before this round
+            for (let i = historyKeys.length - 1; i >= 0; i--) {
+                const key = historyKeys[i];
+                const keyParts = key.split('|');
+                if (keyParts.length < 1) continue;
+                const keyPrefix = keyParts[0];
+                const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
+                const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
+                
+                if (keySeasonOrder < round.seasonOrder || 
+                    (keySeasonOrder === round.seasonOrder && keyRoundNum < round.roundNum)) {
+                    ratingAtRound = p.history[key];
+                    break;
+                }
+            }
+        }
+
+        // If no history found, player hasn't played yet - exclude from calculation
+        if (ratingAtRound === null) {
+            return null;
+        }
+
+        // Count activity (matches played) up to and including this round
+        const matchesUpToRound = p.matchDetails.filter(md => {
+            const mdSeasonOrder = getSeasonOrder(md.season);
+            const mdRoundNum = getRoundNumFromStr(md.round);
+            return mdSeasonOrder < round.seasonOrder || 
+                   (mdSeasonOrder === round.seasonOrder && mdRoundNum <= round.roundNum);
+        });
+        const activityAtRound = matchesUpToRound.length;
+
+        return {
+            name: p.name,
+            rating: ratingAtRound,
+            activity: activityAtRound
+        };
+    }).filter(p => p !== null); // Only include players who have played
+
+    if (playersAtRound.length === 0) {
+        return { activeRating: null, overallRating: null };
+    }
+
+    // Sort by activity then by rating (same as sortRoster logic)
+    const sorted = [...playersAtRound].sort((a, b) => {
+        if (a.activity !== b.activity) return b.activity - a.activity;
+        if (a.rating !== b.rating) return b.rating - a.rating;
+        return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
+    });
+
+    // Calculate active rating (4 most active)
+    const active = sorted.slice(0, 4);
+    const activeRating = active.length > 0 
+        ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
+        : null;
+
+    // Calculate overall rating (all players who have played)
+    const overallRating = playersAtRound.length > 0
+        ? playersAtRound.reduce((sum, p) => sum + p.rating, 0) / playersAtRound.length
+        : null;
+
+    return { activeRating, overallRating };
+}
+
 function buildRoundsIndex(matches) {
     const rounds = {};
     (matches || []).forEach(m => {
@@ -3676,10 +3763,43 @@ function renderTablePage() {
             }
         });
 
-        // Calc Avg Rating (using global players data)
+        // Find latest played round in this season
+        const playedMatches = matches.filter(isPlayedMatch);
+        let latestRound = null;
+        if (playedMatches.length > 0) {
+            const roundsMap = new Map();
+            playedMatches.forEach(m => {
+                const roundId = getMatchRoundId(m);
+                if (!roundsMap.has(roundId)) {
+                    const rNum = parseInt((m.round.match(/\d+/) || [0])[0]);
+                    const sOrder = getSeasonOrder(m.season);
+                    roundsMap.set(roundId, {
+                        id: roundId,
+                        name: m.round,
+                        season: m.season,
+                        seasonOrder: sOrder,
+                        roundNum: rNum
+                    });
+                }
+            });
+            const sortedRounds = Array.from(roundsMap.values()).sort((a, b) => {
+                if (a.seasonOrder !== b.seasonOrder) return b.seasonOrder - a.seasonOrder;
+                return b.roundNum - a.roundNum;
+            });
+            latestRound = sortedRounds.length > 0 ? sortedRounds[0] : null;
+        }
+
+        // Calc Avg Rating (using ratings after latest round played in this season)
         Object.values(teams).forEach(t => {
-            const tp = Object.values(players).filter(p => p.team === t.name).sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
-            if (tp.length > 0) t.avgRating = tp.reduce((acc, p) => acc + p.rating, 0) / tp.length;
+            const teamPlayers = Object.values(players).filter(p => p.team === t.name);
+            if (latestRound && teamPlayers.length > 0) {
+                const { activeRating } = calculateTeamRatingsForRound(teamPlayers, latestRound);
+                t.avgRating = activeRating !== null ? activeRating : 0;
+            } else {
+                // Fallback to current rating if no rounds played yet
+                const tp = teamPlayers.sort((a, b) => (b.matches + b.dMatches) - (a.matches + a.dMatches)).slice(0, 4);
+                t.avgRating = tp.length > 0 ? tp.reduce((acc, p) => acc + p.rating, 0) / tp.length : 0;
+            }
         });
 
         // Build HTML
@@ -5467,93 +5587,6 @@ function renderMyTeamPage() {
 
         // Return average of actual ratings from all team matches in this round
         return actualRatings.reduce((sum, r) => sum + r, 0) / actualRatings.length;
-    };
-
-    // Helper function to calculate team ratings for a given round
-    const calculateTeamRatingsForRound = (teamPlayers, round) => {
-        const playersAtRound = teamPlayers.map(p => {
-            // Find the last history entry that matches this round
-            // History keys format: "20251-01|1. kolo (JAR 2025)"
-            const targetPrefix = `${round.seasonOrder}-${String(round.roundNum).padStart(2, '0')}`;
-            let ratingAtRound = null;
-
-            // Get all history keys for this player
-            const historyKeys = Object.keys(p.history || {});
-            
-            // Find all history entries that match this round
-            const matchingKeys = historyKeys.filter(key => {
-                const keyParts = key.split('|');
-                if (keyParts.length < 1) return false;
-                return keyParts[0] === targetPrefix;
-            });
-
-            if (matchingKeys.length > 0) {
-                // Get the last one (after all matches in this round)
-                matchingKeys.sort();
-                const lastMatchingKey = matchingKeys[matchingKeys.length - 1];
-                ratingAtRound = p.history[lastMatchingKey];
-            } else {
-                // No history for this round, try to find the most recent before this round
-                for (let i = historyKeys.length - 1; i >= 0; i--) {
-                    const key = historyKeys[i];
-                    const keyParts = key.split('|');
-                    if (keyParts.length < 1) continue;
-                    const keyPrefix = keyParts[0];
-                    const keySeasonOrder = parseInt(keyPrefix.split('-')[0]) || 0;
-                    const keyRoundNum = parseInt(keyPrefix.split('-')[1]) || 0;
-                    
-                    if (keySeasonOrder < round.seasonOrder || 
-                        (keySeasonOrder === round.seasonOrder && keyRoundNum < round.roundNum)) {
-                        ratingAtRound = p.history[key];
-                        break;
-                    }
-                }
-            }
-
-            // If no history found, player hasn't played yet - exclude from calculation
-            if (ratingAtRound === null) {
-                return null;
-            }
-
-            // Count activity (matches played) up to and including this round
-            const matchesUpToRound = p.matchDetails.filter(md => {
-                const mdSeasonOrder = getSeasonOrder(md.season);
-                const mdRoundNum = getRoundNumFromStr(md.round);
-                return mdSeasonOrder < round.seasonOrder || 
-                       (mdSeasonOrder === round.seasonOrder && mdRoundNum <= round.roundNum);
-            });
-            const activityAtRound = matchesUpToRound.length;
-
-            return {
-                name: p.name,
-                rating: ratingAtRound,
-                activity: activityAtRound
-            };
-        }).filter(p => p !== null); // Only include players who have played
-
-        if (playersAtRound.length === 0) {
-            return { activeRating: null, overallRating: null };
-        }
-
-        // Sort by activity then by rating (same as sortRoster logic)
-        const sorted = [...playersAtRound].sort((a, b) => {
-            if (a.activity !== b.activity) return b.activity - a.activity;
-            if (a.rating !== b.rating) return b.rating - a.rating;
-            return a.name.localeCompare(b.name, 'sk', {sensitivity: 'base'});
-        });
-
-        // Calculate active rating (4 most active)
-        const active = sorted.slice(0, 4);
-        const activeRating = active.length > 0 
-            ? active.reduce((sum, p) => sum + p.rating, 0) / active.length 
-            : null;
-
-        // Calculate overall rating (all players who have played)
-        const overallRating = playersAtRound.length > 0
-            ? playersAtRound.reduce((sum, p) => sum + p.rating, 0) / playersAtRound.length
-            : null;
-
-        return { activeRating, overallRating };
     };
 
     const renderTeamRatingChart = (teamName, teamPlayers, compareTeamName = null, compareTeamPlayers = null, attempt = 0) => {
